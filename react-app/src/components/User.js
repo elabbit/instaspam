@@ -22,8 +22,14 @@ function User() {
 
   return (
     <ul>
+        <li>
+        <img src={user.profileImage} style={{height:'50px', width:'50px', borderRadius:'50px'}}/>
+      </li>
       <li>
         <strong>User Id</strong> {userId}
+      </li>
+      <li>
+        <strong>Bio</strong> {user.bio}
       </li>
       <li>
         <strong>Username</strong> {user.username}

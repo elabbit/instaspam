@@ -25,15 +25,30 @@ def username_format(form, field):
     spaceIndex = username.find(' ')
     username_lower = username.lower()
 
-    if (spaceIndex != -1 or username == username_lower):
+
+    if (spaceIndex != -1 or username != username_lower):
         raise ValidationError('Username neeeds to be lowercase and have no spaces.')
 
 
+def password_checker(form, field):
+    password = form.data['password']
+    repeatPassword = form.data['repeatPassword']
+    if (password != repeatPassword):
+        raise ValidationError('Passwords need to match.')
+
+
+def email_checker(form, field):
+    email = field.data
+    atIndex = email.find('@')
+    dotIndex = email.find('.', atIndex)
+    if (atIndex < 0 or dotIndex < 0):
+        raise ValidationError('Please enter a valid email address.')
 
 
 class SignUpForm(FlaskForm):
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists, email_checker])
     name = StringField('name', validators=[DataRequired()])
     username = StringField(
         'username', validators=[DataRequired(), username_exists, username_format])
     password = StringField('password', validators=[DataRequired()])
+    repeatPassword = StringField('confirm password', validators=[DataRequired(), password_checker])
