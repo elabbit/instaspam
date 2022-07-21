@@ -6,6 +6,7 @@ import { signUp } from '../../store/session';
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -15,7 +16,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(email, name, username, password));
       if (data) {
         setErrors(data)
       }
@@ -28,6 +29,10 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateName = (e) => {
+    setName(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -50,40 +55,49 @@ const SignUpForm = () => {
         ))}
       </div>
       <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
         <input
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
+          placeholder='Email'
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <input
+          type='text'
+          name='name'
+          onChange={updateName}
+          value={name}
+          placeholder='Full Name'
+        ></input>
+      </div>
+      <div>
+        <input
+          type='text'
+          name='username'
+          onChange={updateUsername}
+          value={username}
+          placeholder='Username'
+        ></input>
+      </div>
+      <div>
         <input
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
+          placeholder='Password'
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+          placeholder='Repeat Password'
         ></input>
       </div>
       <button type='submit'>Sign Up</button>

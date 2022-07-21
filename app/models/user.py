@@ -8,7 +8,10 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
+    name = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    profileImage = db.Column(db.String(500), nullable=True, default="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-1200x1199.png")
+    bio = db.Column(db.String(1000), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     @property
@@ -26,5 +29,8 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'name': self.name,
+            'email': self.email,
+            'profileImage': self.profileImage,
+            'bio': self.bio
         }

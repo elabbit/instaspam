@@ -19,9 +19,21 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+def username_format(form, field):
+    # Checking if username is already in use
+    username = field.data
+    spaceIndex = username.find(' ')
+    username_lower = username.lower()
+
+    if (spaceIndex != -1 or username == username_lower):
+        raise ValidationError('Username neeeds to be lowercase and have no spaces.')
+
+
+
 
 class SignUpForm(FlaskForm):
-    username = StringField(
-        'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
+    name = StringField('name', validators=[DataRequired()])
+    username = StringField(
+        'username', validators=[DataRequired(), username_exists, username_format])
     password = StringField('password', validators=[DataRequired()])
