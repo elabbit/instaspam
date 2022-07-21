@@ -1,6 +1,8 @@
+from codecs import backslashreplace_errors
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .like import likes
 
 
 class User(db.Model, UserMixin):
@@ -13,6 +15,16 @@ class User(db.Model, UserMixin):
     profileImage = db.Column(db.String(500), nullable=True, default="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-1200x1199.png")
     bio = db.Column(db.String(1000), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    owner_posts = db.relationship("Post", back_populates="owner")
+    user_comments = db.relationship("Comment", back_populates="user_id")
+    user_likes = db.relationship("Post",
+        secondary=likes,
+        back_populates="post_likes",
+        cascade="all, delete"
+    )
+
+
 
     @property
     def password(self):
