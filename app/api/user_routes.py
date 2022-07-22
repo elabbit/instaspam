@@ -16,6 +16,4 @@ def users():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first()
-
-    print('THE GOOD STUFFFFF', user.to_dict())
-    return user.to_dict()
+    return user.to_dict_user_page()

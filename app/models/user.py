@@ -49,5 +49,24 @@ class User(db.Model, UserMixin):
             'name': self.name,
             'email': self.email,
             'profileImage': self.profileImage,
-            'bio': self.bio
+            'bio': self.bio,
+        }
+
+    def to_dict_user_page(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'name': self.name,
+            'email': self.email,
+            'profileImage': self.profileImage,
+            'bio': self.bio,
+            'following': [x.to_dict_follows() for x in self.followed],
+            'followers': [x.to_dict_follows() for x in self.follows],
+        }
+
+    def to_dict_follows(self):
+        return {
+            'name': self.name,
+            'username': self.username,
+            'profileImage': self.profileImage
         }
