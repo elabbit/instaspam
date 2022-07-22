@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {useDispatch} from 'react-redux'
+import { getUser } from '../store/user';
 
 function User() {
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { username }  = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-    })();
-  }, [userId]);
+    dispatch(getUser(username))
 
-  if (!user) {
-    return null;
-  }
+  },[dispatch])
 
   return (
     <ul>
