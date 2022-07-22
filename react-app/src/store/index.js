@@ -7,11 +7,8 @@ import user from './user'
 
 const rootReducer = combineReducers({
   session,
-<<<<<<< HEAD
-  user
-=======
+  user,
   posts: postsReducer
->>>>>>> 507ad133d8844fa4c8ccdfe69443731a656e6a1e
 });
 
 

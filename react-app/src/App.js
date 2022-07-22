@@ -6,11 +6,8 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
-<<<<<<< HEAD
 import UserPage from './components/UserPage';
-=======
 import UserFeed from './components/UserFeed';
->>>>>>> 507ad133d8844fa4c8ccdfe69443731a656e6a1e
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,16 +34,14 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-<<<<<<< HEAD
         <ProtectedRoute path='/:username' exact={true} >
           <UserPage/>
-=======
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
->>>>>>> 507ad133d8844fa4c8ccdfe69443731a656e6a1e
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <UserFeed />
