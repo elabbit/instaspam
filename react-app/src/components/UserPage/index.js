@@ -9,7 +9,7 @@ const UserPage = () => {
 
     const { username }  = useParams();
     const dispatch = useDispatch();
-    // user = useSelector(state.)
+    const user = useSelector(state => state.user[username])
 
     useEffect(() => {
         dispatch(getUser(username))
@@ -17,7 +17,16 @@ const UserPage = () => {
 
 
       return(
-        <h1>{username}</h1>
+        user ?
+        <div>
+          <img src={user.profileImage} alt=''/>
+          <h1>{user.username}</h1>
+          <p>{user.bio}</p>
+          <p>Followers: {(user.followers).length}</p>
+          <p>Following: {(user.following).length}</p>
+
+        </div>
+        : <h3>Loading....</h3>
       )
 }
 
