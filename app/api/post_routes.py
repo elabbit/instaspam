@@ -33,7 +33,7 @@ def get_explore_posts(userId):
     # print(id)
     # print(userId)
     # user_posts = Post.query.filter(Post.ownerId).all()
-    user_posts = Post.query.filter(Post.ownerId!=userId).order_by(func.random()).all()
+    user_posts = Post.query.filter(Post.ownerId!=userId).order_by(func.random()).limit(15)
     posts = [ post.to_dict() for post in user_posts ]
     print("USER POSTS-----------------" , posts)
     return {'user_posts': posts}
