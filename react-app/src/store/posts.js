@@ -52,3 +52,21 @@ export const getUserFeedPosts = (payload) => async (dispatch) => {
     return posts;
   }
 }
+
+
+const postsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case LOAD_POSTS:
+      //const newState1 = { ...state };
+      const newState1 = {};
+      action.posts.forEach(post => {
+        newState1[post.id] = post;
+      });
+      return newState1;
+    default:
+      return state;
+  }
+
+}
+
+export default postsReducer;
