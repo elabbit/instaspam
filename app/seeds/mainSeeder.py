@@ -37,76 +37,91 @@ def seed_all():
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-classic-12oz-420x420.png',
         caption='The original. The timeless. The spiced hammiest of all SPAM® varieties. This is the taste that started it all back in 1937.',
+        post_likes=[]
     )
     post2 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-with-real-hormel-bacon-12oz-420x420.png',
         caption="We know you're always in the mood for delicious SPAM® products, but what happens when you're also craving bacon? Fear not meat eater, for we have taken the best of both meats and canned it for your consumption!",
+        post_likes=[]
     )
     post3 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-oven-roasted-turkey-12oz-420x420.png',
         caption="This SPAM® variety is made from 100% white, lean turkey. Some folks wonder why we didn't call it SPURKEY.",
+        post_likes=[]
     )
     post4 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-hickory-smoke-12oz-420x420.png',
         caption='If the best thing to come from burning sticks is the bonfire, this is a close second.',
+        post_likes=[]
     )
     post5 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-hot-and-spicy-12oz-420x420.png',
         caption='Ever wonder what pork would taste like if pigs subsisted on hot peppers?',
+        post_likes=[]
     )
     post6 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-jalapeno-12oz-420x420.png',
         caption='Treat your taste buds to a fiesta of flavor with lively SPAM® Jalapeño.',
+        post_likes=[]
     )
     post7 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-teriyaki-12oz-420x420.png',
         caption='To Musubi, or not to musubi, that should not be a question.',
+        post_likes=[]
     )
     post8 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-portuguese-sausage-12oz-420x420.png',
         caption='"P.S." Have you ever wondered what that stands for at the end of a letter?',
+        post_likes=[]
     )
     post9 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-tocino-12oz-420x420.png',
         caption='As a token of our love for this country, we have created a Filipino Flavor — SPAM® Tocino! It has just the right mixture of sweet and meaty to satisfy your craving for Filipino cuisine.',
+        post_likes=[]
     )
     post10 = Post(
         ownerId=3,
         image='https://www.worldatlas.com/r/w1200/upload/11/6f/5b/shutterstock-245388445-3-min.jpg',
-        caption='Mother Nature at its finest'
+        caption='Mother Nature at its finest',
+        post_likes=[demo, user3, user4, user5, user6]
     )
     post11 = Post(
         ownerId=3,
         image='https://www.theoakleafnews.com/wp-content/uploads/2016/04/tumblr_nim7bbpzye1qm88jwo1_1280.jpg',
-        caption='To the man who inspired millions, your impact on the game will never be forgotten. RIP Mamba.'
+        caption='To the man who inspired millions, your impact on the game will never be forgotten. RIP Mamba.',
+        post_likes=[demo, user3, user4, user5]
     )
     post12 = Post(
         ownerId=3,
         image='https://shibatalk.com/wp-content/uploads/2021/04/is-it-safe-for-shiba-inus-to-live-in-hot-weather-2-1024x576.jpg',
-        caption="Man's best friend"
+        caption="Man's best friend",
+        post_likes=[demo, user4, user6]
     )
     post13 = Post(
         ownerId=3,
         image='https://www.afarmgirlsdabbles.com/wp-content/uploads/2020/03/easy-hawaiian-poke-bowl_AFarmgirlsDabbles_AFD-7-sq-735x735.jpg',
-        caption='Always in the mood for poki'
+        caption='Always in the mood for poki',
+        post_likes=[]
     )
     post14 = Post(
         ownerId=3,
         image='https://img.freepik.com/premium-photo/elderly-sporty-man-running-green-forest-during-morning-workout-copy-space-healthy-active-lifestyle-any-age-concept_116547-13923.jpg',
-        caption='Morning runs are ELITE'
+        caption='Morning runs are ELITE',
+        post_likes=[demo, user3, user5, user6]
     )
     post15 = Post(
         ownerId=3,
         image='https://www.planetware.com/wpimages/2019/11/austria-top-ski-resorts-2020-snowboarder.jpg',
-        caption="Shreddin' some ice"
+        caption="Shreddin' some ice",
+        post_likes=[user4, user5]
     )
     post16 = Post(
         ownerId=3,
