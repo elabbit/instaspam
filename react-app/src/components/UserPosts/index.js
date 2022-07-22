@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { getUserPosts } from "../store/posts";
+import { getUserPosts } from "../../store/posts";
 
 
 
-const UserFeed = () => {
+const UserPosts = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const posts = useSelector(state => state.posts);
-  console.log(sessionUser)
-  console.log(posts)
+  // console.log(sessionUser)
+  // console.log(posts)
 
   useEffect(() => {
     dispatch(getUserPosts(sessionUser))
@@ -23,4 +23,4 @@ const UserFeed = () => {
   )
 }
 
-export default UserFeed;
+export default UserPosts;

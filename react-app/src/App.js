@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
-import UserFeed from './components/UserFeed';
+import UserPosts from './components/UserPosts';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,7 +38,7 @@ function App() {
           <UserPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <UserFeed />
+          <UserPosts />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
