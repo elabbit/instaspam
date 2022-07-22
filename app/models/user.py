@@ -3,6 +3,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .like import likes
+from .follow import follows
 
 
 class User(db.Model, UserMixin):
@@ -23,7 +24,11 @@ class User(db.Model, UserMixin):
         back_populates="post_likes",
         cascade="all, delete"
     )
-
+    followed = db.relationship(
+        'User', secondary=follows,
+        primaryjoin=(follows.c.userId == id),
+        secondaryjoin=(follows.c.followingId == id),
+        backref=db.backref('follows', lazy='dynamic'), lazy='dynamic')
 
 
     @property

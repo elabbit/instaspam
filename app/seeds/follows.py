@@ -1,78 +1,84 @@
-from app.models import db, Follow
+from app.models import db, follow
 
 def seed_follows():
-    follow1 = Follow(
+    follow1 = follow.insert().values(
         userId=1, followingId=3
     )
-    follow2 = Follow(
+    follow2 = follow.insert().values(
         userId=1, followingId=4
     )
-    follow3 = Follow(
+    follow3 = follow.insert().values(
         userId=1, followingId=5
     )
-    follow4 = Follow(
+    follow4 = follow.insert().values(
         userId=1, followingId=6
     )
-    follow5 = Follow(
+    follow5 = follow.insert().values(
         userId=3, followingId=1
     )
-    follow6 = Follow(
+    follow6 = follow.insert().values(
         userId=3, followingId=4
     )
-    follow7 = Follow(
+    follow7 = follow.insert().values(
         userId=3, followingId=5
     )
-    follow8 = Follow(
+    follow8 = follow.insert().values(
         userId=3, followingId=6
     )
-    follow9 = Follow(
+    follow9 = follow.insert().values(
         userId=4, followingId=1
     )
-    follow10 = Follow(
+    follow10 = follow.insert().values(
         userId=4, followingId=3
     )
-    follow11 = Follow(
+    follow11 = follow.insert().values(
         userId=4, followingId=5
     )
-    follow12= Follow(
+    follow12= follow.insert().values(
         userId=4, followingId=6
     )
-    follow13 = Follow(
+    follow13 = follow.insert().values(
         userId=6, followingId=1
     )
-    follow14 = Follow(
+    follow14 = follow.insert().values(
         userId=6, followingId=3
     )
-    follow15 = Follow(
+    follow15 = follow.insert().values(
         userId=6, followingId=4
     )
-    follow16= Follow(
+    follow16 = follow.insert().values(
         userId=6, followingId=5
     )
 
-    db.session.add(follow1)
-    db.session.add(follow2)
-    db.session.add(follow3)
-    db.session.add(follow4)
-    db.session.add(follow5)
-    db.session.add(follow6)
-    db.session.add(follow7)
-    db.session.add(follow8)
-    db.session.add(follow9)
-    db.session.add(follow10)
-    db.session.add(follow11)
-    db.session.add(follow12)
-    db.session.add(follow13)
-    db.session.add(follow14)
-    db.session.add(follow15)
-    db.session.add(follow16)
-
-
-
-
-
-
-
-def undo_follows():
-    db.session.execute('TRUNCATE follows RESTART IDENTITY CASCADE;')
+    db.session.execute(follow1)
+    db.session.commit()
+    db.session.execute(follow2)
+    db.session.commit()
+    db.session.execute(follow3)
+    db.session.commit()
+    db.session.execute(follow4)
+    db.session.commit()
+    db.session.execute(follow5)
+    db.session.commit()
+    db.session.execute(follow6)
+    db.session.commit()
+    db.session.execute(follow7)
+    db.session.commit()
+    db.session.execute(follow8)
+    db.session.commit()
+    db.session.execute(follow9)
+    db.session.commit()
+    db.session.execute(follow10)
+    db.session.commit()
+    db.session.execute(follow11)
+    db.session.commit()
+    db.session.execute(follow12)
+    db.session.commit()
+    db.session.execute(follow13)
+    db.session.commit()
+    db.session.execute(follow14)
+    db.session.commit()
+    db.session.execute(follow15)
+    db.session.commit()
+    db.session.execute(follow16)
     db.session.commit()
