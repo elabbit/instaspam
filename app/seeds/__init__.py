@@ -1,8 +1,7 @@
 from flask.cli import AppGroup
 from .mainSeeder import seed_all, undo_all
 from .comments import seed_comments, undo_comments
-from .likes import seed_likes
-from .follows import seed_follows
+
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -14,8 +13,6 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_all()
     seed_comments()
-
-
 
 
 # Creates the `flask seed undo` command
