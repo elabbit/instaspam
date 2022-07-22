@@ -37,7 +37,6 @@ def seed_all():
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-classic-12oz-420x420.png',
         caption='The original. The timeless. The spiced hammiest of all SPAM® varieties. This is the taste that started it all back in 1937.',
-        post_likes=
     )
     post2 = Post(
         ownerId=2,
@@ -112,47 +111,56 @@ def seed_all():
     post16 = Post(
         ownerId=3,
         image='https://wallpaperaccess.com/full/1137389.jpg',
-        caption='This view never gets old'
+        caption='This view never gets old',
+        post_likes=[user3, user6, demo]
     )
     post17 = Post(
         ownerId=3,
         image='https://onestopracing.com/wp-content/uploads/2021/12/Best-F1-Quotes-01.jpg',
-        caption="If you ain't first, you're last."
+        caption="If you ain't first, you're last.",
+        post_likes=[user3, user4, user5]
     )
     post18 = Post(
         ownerId=3,
         image='https://www.telegraph.co.uk/multimedia/archive/02220/green-mountains_2220833k.jpg',
-        caption='An unforgettable trip for sure'
+        caption='An unforgettable trip for sure',
+        post_likes=[demo, user3, user4, user5, user6]
     )
     post19 = Post(
         ownerId=4,
         image='https://i.pinimg.com/originals/79/08/3d/79083d9cce838a042d8eaf80ca7ec126.jpg',
-        caption='Beautiful and best city in NC #CharlotteSkyline'
+        caption='Beautiful and best city in NC #CharlotteSkyline',
+        post_likes=[demo, user3, user4, user5, user6]
     )
     post20 = Post(
         ownerId=4,
         image='https://cdn.smokymountains.com/pois/images/Craggy-Pinnacle-Hike-5a566eaed6ed4.jpg',
-        caption='Blue Ridge Mountains in NC'
+        caption='Blue Ridge Mountains in NC',
+        post_likes=[demo]
     )
     post21 = Post(
         ownerId=4,
         image='https://i.pinimg.com/originals/af/52/9c/af529ced9139f1db526cd0014d7a15c0.jpg',
-        caption='Outer Banks beach at sunrise'
+        caption='Outer Banks beach at sunrise',
+        post_likes=[demo, user3]
     )
     post22 = Post(
         ownerId=4,
         image='https://pbs.twimg.com/media/FFi8azSVgAAXGgf.jpg',
-        caption='Best university UNC-Chapel Hill- National Champs!'
+        caption='Best university UNC-Chapel Hill- National Champs!',
+        post_likes=[demo, user3, user5, user6]
     )
     post23 = Post(
         ownerId=4,
         image='https://www.farmvillelibrary.org/uploads/1/2/4/1/124119479/untitled-design-10_orig.png',
-        caption='NCs bird the Red Cardinal'
+        caption='NCs bird the Red Cardinal',
+        post_likes=[user4, user5, user6]
     )
     post24 = Post(
         ownerId=4,
         image='https://boomtown-production-consumer-backup.s3.amazonaws.com/3850/files/2021/01/WalletHub_012521.png',
-        caption='Capital of NC - Raleigh, NC'
+        caption='Capital of NC - Raleigh, NC',
+        post_likes=[demo, user3, user4, user5, user6]
     )
     post25 = Post(
         ownerId=4,
@@ -162,27 +170,32 @@ def seed_all():
     post26 = Post(
         ownerId=4,
         image='https://pbs.twimg.com/media/DhhkVljU0AA4V4i.jpg',
-        caption='Biltmore Estate near Asheville, NC'
+        caption='Biltmore Estate near Asheville, NC',
+        post_likes=[user6]
     )
     post27 = Post(
         ownerId=4,
         image='https://www.ncarboretum.org/wp-content/uploads/2018/12/LocalLights.jpg',
-        caption='Winter in Asheville, NC'
+        caption='Winter in Asheville, NC',
+        post_likes=[user3, user5]
     )
     post28 = Post(
         ownerId=5,
         image='https://vetstreet.brightspotcdn.com/dims4/default/bcde26b/2147483647/crop/0x0%2B0%2B0/resize/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fd9%2F5b08a09ea111e0a2380050568d634f%2Ffile%2FAmerican-Cocker-2-645mk062111.jpg',
-        caption='Groomed and Fluffy'
+        caption='Groomed and Fluffy',
+        post_likes=[demo, user3, user4, user5, user6]
     )
     post29 = Post(
         ownerId=5,
         image='https://www.k9rl.com/wp-content/uploads/2020/04/American-Cocker-Spaniel-Photo.jpg',
-        caption="Straight hair don't care"
+        caption="Straight hair don't care",
+        post_likes=[user5]
     )
     post30 = Post(
         ownerId=5,
         image='https://fidoseofreality.com/wp-content/uploads/2022/03/feature-photo-min.jpg',
-        caption='Mini cocker spaniels'
+        caption='Mini cocker spaniels',
+        post_likes=[user4, user5]
     )
     post31 = Post(
         ownerId=5,
