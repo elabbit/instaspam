@@ -18,7 +18,11 @@ const UserPosts = () => {
   return (
     <div>
       <h1>user feed!!!!!</h1>
-      {/* {posts.map()} */}
+      {Object.values(posts).map((post)=> {
+        return (
+          <img src={post?.image}/>
+        )
+      })}
     </div>
   )
 }

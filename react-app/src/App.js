@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
 import UserPosts from './components/UserPosts';
+import ExplorePage from './components/ExplorePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +35,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path='/explore' exact={true}>
+          <ExplorePage/>
+        </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
           <UserPage/>
         </ProtectedRoute>

@@ -30,8 +30,8 @@ export const getUserPosts = (payload) => async (dispatch) => {
   }
 }
 
-export const getExplorePosts = () => async (dispatch) => {
-  const response = await fetch(`/api/posts/explore`)
+export const getExplorePosts = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/posts/explore/${payload.id}`)
 
   if (response.ok) {
     const posts = await response.json();
