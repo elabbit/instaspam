@@ -27,6 +27,6 @@ class Post(db.Model):
             'image': self.image,
             'caption': self.caption,
             'createdAt': self.createdAt,
-            'comments': self.post_comments.to_dict(),
+            'comments': [ comment.to_dict() for comment in self.post_comments ],
             'likes': len(self.post_likes)
         }

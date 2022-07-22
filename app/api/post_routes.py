@@ -10,7 +10,8 @@ post_routes = Blueprint('posts', __name__)
 def get_posts_by_userId(userId):
     # print(id)
     print(userId)
-    user_posts = Post.query.get(userId).all()
-    # print(one_joke.to_dict())
-    print("USER POSTS-----------------" , user_posts)
-    return user_posts
+    # user_posts = Post.query.filter(Post.ownerId).all()
+    user_posts = Post.query.filter(Post.ownerId==userId).all()
+    posts = [ post.to_dict() for post in user_posts ]
+    print("USER POSTS-----------------" , posts)
+    return {'posts': posts}
