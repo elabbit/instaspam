@@ -19,3 +19,14 @@ class Post(db.Model):
         back_populates="user_likes",
         cascade='all, delete'
     )
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'ownerId': self.ownerId,
+            'image': self.image,
+            'caption': self.caption,
+            'createdAt': self.createdAt,
+            'comments': self.post_comments.to_dict(),
+            'likes': len(self.post_likes)
+        }
