@@ -26,11 +26,22 @@ def seed_all():
     db.session.commit()
 
 
-
+    demo.followed.append(user3)
+    demo.followed.append(user4)
+    demo.followed.append(user5)
+    demo.followed.append(user6)
+    user3.followed.append(demo)
     user3.followed.append(user4)
-    db.session.add(user3)
-    db.session.commit()
-
+    user3.followed.append(user5)
+    user3.followed.append(user6)
+    user4.followed.append(demo)
+    user4.followed.append(user3)
+    user4.followed.append(user5)
+    user4.followed.append(user6)
+    user6.followed.append(demo)
+    user6.followed.append(user3)
+    user6.followed.append(user4)
+    user6.followed.append(user5)
 
 
     post1 = Post(
