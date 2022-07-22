@@ -20,7 +20,7 @@ export const getUser = (username) => async (dispatch) => {
   export default function reducer(state = {}, action) {
     switch (action.type) {
       case GET_USER:
-        return { user: action.payload }
+        return { [action.payload.username]: action.payload }
       default:
         return state;
     }
