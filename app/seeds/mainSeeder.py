@@ -1,10 +1,43 @@
-from app.models import db, Post
+from app.models import db, Post, User
 
-def seed_posts():
+
+def seed_all():
+
+    demo = User(
+        username='demo', name='Demo User', email='demo@email.com', bio="I'm a demo user.", password='password')
+    spam = User(
+        username='spam', name='SPAM brand', email='spam@email.com', profileImage='https://cdn.shopify.com/s/files/1/0670/6431/products/37891FLAT_1200x1200.jpg?v=1579623155', bio="Sizzle Pork And Mmm. Don't knock it 'til you've fried it.", password='password')
+    user3 = User(
+        username='hoopa24', name='David Chung', email='davidc@email.com', profileImage='https://www.si.com/.image/t_share/MTcwMDIzMjI4NTk1NTEyOTA1/001064236final.jpg', bio="Grind don't stop.", password='password')
+    user4 = User(
+        username="nc_beststate", name="Abel", email="abel@nc.com", profileImage="https://edtrust.org/wp-content/uploads/2014/09/nc.png", bio="The best views from the best state", password="password")
+    user5 = User(
+        username="lucky_doge", name="Lucky", email="Luckry@gmail.com", profileImage="https://images7.alphacoders.com/423/thumb-1920-423557.jpg", bio="I am Lucky the doggo", password="password")
+    user6 = User(
+        username='labbit', name='Eddie Lau', email='labbit@email.com', profileImage='https://cdn.shopify.com/s/files/1/0584/3841/products/fiberglass-stache-labbit-stool-5_608x608.jpg?v=1594543878', bio="Live. Lau. Love.", password='password')
+
+
+    db.session.add(demo)
+    db.session.add(spam)
+    db.session.add(user3)
+    db.session.add(user4)
+    db.session.add(user5)
+    db.session.add(user6)
+    db.session.commit()
+
+
+
+    user3.followed.append(user4)
+    db.session.add(user3)
+    db.session.commit()
+
+
+
     post1 = Post(
         ownerId=2,
         image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-classic-12oz-420x420.png',
         caption='The original. The timeless. The spiced hammiest of all SPAM® varieties. This is the taste that started it all back in 1937.',
+        post_likes=
     )
     post2 = Post(
         ownerId=2,
@@ -227,6 +260,7 @@ def seed_posts():
         caption='The best climber in the world is the one having the most fun!'
     )
 
+
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
@@ -277,6 +311,8 @@ def seed_posts():
 
 
 
-def undo_posts():
+def undo_all():
+    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.commit()
     db.session.execute('TRUNCATE posts RESTART IDENTITY CASCADE;')
     db.session.commit()
