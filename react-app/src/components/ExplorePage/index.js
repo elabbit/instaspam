@@ -20,13 +20,13 @@ const ExplorePage = () => {
       {Object.values(posts).map((post, index) => {
         if (index % 3 == 0) {
           return (
-            <div>
+            <div key={post.id}>
               <img src={post?.image} />
             </div>
           )
         } else {
           return (
-            <div>
+            <div key={post.id}>
               <img src={post?.image} />
             </div>
           )

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { getUserPosts } from "../../store/posts";
+import CreateComment from "../CreateComment";
 
 
 
@@ -20,7 +21,12 @@ const UserPosts = () => {
       <h1>user feed!!!!!</h1>
       {Object.values(posts).map((post)=> {
         return (
-          <img src={post?.image}/>
+          <div key={post.id}>
+            <img src={post?.image}/>
+            <div>
+              <CreateComment postId={post.id}/>
+            </div>
+          </div>
         )
       })}
     </div>
