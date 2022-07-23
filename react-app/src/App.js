@@ -41,12 +41,13 @@ function App() {
           <CreatePost />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
-          <ExplorePage/>
+          <ExplorePage />
+        </ProtectedRoute>
         <ProtectedRoute path='/accounts/edit'>
-          <UserEditForm/>
+          <UserEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
-          <UserPage/>
+          <UserPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <UserPosts />
