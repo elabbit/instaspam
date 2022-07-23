@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
+import UserEditForm from './components/UserEditForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +34,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path='/accounts/edit'>
+          <UserEditForm/>
+        </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
           <UserPage/>
         </ProtectedRoute>

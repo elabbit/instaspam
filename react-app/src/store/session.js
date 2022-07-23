@@ -11,7 +11,36 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
+
 const initialState = { user: null };
+
+export const editUser = (id, username, email, name, bio) => async (dispatch) => {
+  const response = await fetch(`/api/auth/edit/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id, username, email, name, bio
+    })
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data))
+    return 'success';
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
