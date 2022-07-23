@@ -46,47 +46,47 @@ def seed_all():
 
     post1 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-classic-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image1-spam-classic-12oz-420x420.png',
         caption='The original. The timeless. The spiced hammiest of all SPAM® varieties. This is the taste that started it all back in 1937.',
     )
     post2 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-with-real-hormel-bacon-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image2-product_spam-with-real-hormel-bacon-12oz-420x420.png',
         caption="We know you're always in the mood for delicious SPAM® products, but what happens when you're also craving bacon? Fear not meat eater, for we have taken the best of both meats and canned it for your consumption!",
     )
     post3 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-oven-roasted-turkey-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image3-product-spam-oven-roasted-turkey-12oz-420x420.png',
         caption="This SPAM® variety is made from 100% white, lean turkey. Some folks wonder why we didn't call it SPURKEY.",
     )
     post4 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-hickory-smoke-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image4-product-spam-hickory-smoke-12oz-420x420.png',
         caption='If the best thing to come from burning sticks is the bonfire, this is a close second.',
     )
     post5 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/08/image-product_spam-hot-and-spicy-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image5-spam-hot-and-spicy-12oz-420x420.png',
         caption='Ever wonder what pork would taste like if pigs subsisted on hot peppers?',
     )
     post6 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-jalapeno-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image6-spam-jalapeno-12oz-420x420.png',
         caption='Treat your taste buds to a fiesta of flavor with lively SPAM® Jalapeño.',
     )
     post7 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-teriyaki-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image7-spam-teriyaki-12oz-420x420.png',
         caption='To Musubi, or not to musubi, that should not be a question.',
     )
     post8 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-portuguese-sausage-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image8-spam-portuguese-sausage-12oz-420x420.png',
         caption='"P.S." Have you ever wondered what that stands for at the end of a letter?',
     )
     post9 = Post(
         ownerId=2,
-        image='https://www.spam.com/wp-content/uploads/2019/09/image-product_spam-tocino-12oz-420x420.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image9-spam-tocino-12oz-420x420.png',
         caption='As a token of our love for this country, we have created a Filipino Flavor — SPAM® Tocino! It has just the right mixture of sweet and meaty to satisfy your craving for Filipino cuisine.',
     )
 
@@ -105,218 +105,218 @@ def seed_all():
 
     post10 = Post(
         ownerId=3,
-        image='https://www.worldatlas.com/r/w1200/upload/11/6f/5b/shutterstock-245388445-3-min.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image10-krka-national-park.png',
         caption='Mother Nature at its finest',
         post_likes=[demo, user3, user4, user5, user6]
     )
     post11 = Post(
         ownerId=3,
-        image='https://www.theoakleafnews.com/wp-content/uploads/2016/04/tumblr_nim7bbpzye1qm88jwo1_1280.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image11-kobe.png',
         caption='To the man who inspired millions, your impact on the game will never be forgotten. RIP Mamba.',
         post_likes=[demo, user3, user4, user5]
     )
     post12 = Post(
         ownerId=3,
-        image='https://shibatalk.com/wp-content/uploads/2021/04/is-it-safe-for-shiba-inus-to-live-in-hot-weather-2-1024x576.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image12-dogs.png',
         caption="Man's best friend",
         post_likes=[demo, user4, user6]
     )
     post13 = Post(
         ownerId=3,
-        image='https://www.afarmgirlsdabbles.com/wp-content/uploads/2020/03/easy-hawaiian-poke-bowl_AFarmgirlsDabbles_AFD-7-sq-735x735.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image13-hawaiian-poke-bowl_AFarmgirlsDabbles_AFD-7-sq-735x735.png',
         caption='Always in the mood for poki',
         post_likes=[user5]
     )
     post14 = Post(
         ownerId=3,
-        image='https://img.freepik.com/premium-photo/elderly-sporty-man-running-green-forest-during-morning-workout-copy-space-healthy-active-lifestyle-any-age-concept_116547-13923.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image14-elderly-sporty-man-running-green-forest-during-morning-workout.png',
         caption='Morning runs are ELITE',
         post_likes=[demo, user3, user5, user6]
     )
     post15 = Post(
         ownerId=3,
-        image='https://www.planetware.com/wpimages/2019/11/austria-top-ski-resorts-2020-snowboarder.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image15-snowboarder.png',
         caption="Shreddin' some ice",
         post_likes=[user4, user5]
     )
     post16 = Post(
         ownerId=3,
-        image='https://wallpaperaccess.com/full/1137389.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image16-hong-kong.png',
         caption='This view never gets old',
         post_likes=[user3, user6, demo]
     )
     post17 = Post(
         ownerId=3,
-        image='https://onestopracing.com/wp-content/uploads/2021/12/Best-F1-Quotes-01.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image17-f1-racing.png',
         caption="If you ain't first, you're last.",
         post_likes=[user3, user4, user5]
     )
     post18 = Post(
         ownerId=3,
-        image='https://www.telegraph.co.uk/multimedia/archive/02220/green-mountains_2220833k.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image18-aurora-borealis.png',
         caption='An unforgettable trip for sure',
         post_likes=[demo, user3, user4, user5, user6]
     )
     post19 = Post(
         ownerId=4,
-        image='https://i.pinimg.com/originals/79/08/3d/79083d9cce838a042d8eaf80ca7ec126.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image19.png',
         caption='Beautiful and best city in NC #CharlotteSkyline',
         post_likes=[demo, user3, user4, user5, user6]
     )
     post20 = Post(
         ownerId=4,
-        image='https://cdn.smokymountains.com/pois/images/Craggy-Pinnacle-Hike-5a566eaed6ed4.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image20.png',
         caption='Blue Ridge Mountains in NC',
         post_likes=[demo]
     )
     post21 = Post(
         ownerId=4,
-        image='https://i.pinimg.com/originals/af/52/9c/af529ced9139f1db526cd0014d7a15c0.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image21.png',
         caption='Outer Banks beach at sunrise',
         post_likes=[demo, user3]
     )
     post22 = Post(
         ownerId=4,
-        image='https://pbs.twimg.com/media/FFi8azSVgAAXGgf.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image22.png',
         caption='Best university UNC-Chapel Hill- National Champs!',
         post_likes=[demo, user3, user5, user6]
     )
     post23 = Post(
         ownerId=4,
-        image='https://www.farmvillelibrary.org/uploads/1/2/4/1/124119479/untitled-design-10_orig.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image23.png',
         caption='NCs bird the Red Cardinal',
         post_likes=[user4, user5, user6]
     )
     post24 = Post(
         ownerId=4,
-        image='https://boomtown-production-consumer-backup.s3.amazonaws.com/3850/files/2021/01/WalletHub_012521.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image24.png',
         caption='Capital of NC - Raleigh, NC',
         post_likes=[demo, user3, user4, user5, user6]
     )
     post25 = Post(
         ownerId=4,
-        image='https://pbs.twimg.com/media/FXF2bWsX0AADQd8.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image25.png',
         caption='Lakes at the Great Smoky Mountains',
         post_likes=[user3]
     )
     post26 = Post(
         ownerId=4,
-        image='https://pbs.twimg.com/media/DhhkVljU0AA4V4i.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image26.png',
         caption='Biltmore Estate near Asheville, NC',
         post_likes=[user6]
     )
     post27 = Post(
         ownerId=4,
-        image='https://www.ncarboretum.org/wp-content/uploads/2018/12/LocalLights.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image27.png',
         caption='Winter in Asheville, NC',
         post_likes=[user3, user5]
     )
     post28 = Post(
         ownerId=5,
-        image='https://vetstreet.brightspotcdn.com/dims4/default/bcde26b/2147483647/crop/0x0%2B0%2B0/resize/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fd9%2F5b08a09ea111e0a2380050568d634f%2Ffile%2FAmerican-Cocker-2-645mk062111.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image28-Lucky.png',
         caption='Groomed and Fluffy',
         post_likes=[demo, user3, user4, user6]
     )
     post29 = Post(
         ownerId=5,
-        image='https://www.k9rl.com/wp-content/uploads/2020/04/American-Cocker-Spaniel-Photo.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image29-Lucky.png',
         caption="Straight hair don't care",
         post_likes=[user3]
     )
     post30 = Post(
         ownerId=5,
-        image='https://fidoseofreality.com/wp-content/uploads/2022/03/feature-photo-min.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image30-Lucky.png',
         caption='Mini cocker spaniels',
         post_likes=[user4, user6]
     )
     post31 = Post(
         ownerId=5,
-        image='https://www.espree.com/sites/default/files/2019-10/CockerSpaniel%28American%29.png',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image31-Lucky.png',
         caption='Pose.',
         post_likes=[user3, user4, user6]
     )
     post32 = Post(
         ownerId=5,
-        image='https://www.vetdermclinic.com/wp-content/uploads/2019/05/VetDERM-Cocker-Spaniel-Care-Tips-Part-2-Breed-Specific-Dog-Skin-Problems.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image32-Lucky.png',
         caption='Been playing too much, need to rest',
         post_likes=[demo, user3, user4, user6]
     )
     post33 = Post(
         ownerId=5,
-        image='https://st.depositphotos.com/1806346/2417/i/950/depositphotos_24173463-stock-photo-american-cocker-spaniel-puppy-with.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image33-Lucky.png',
         caption='Me as a baby',
         post_likes=[user4]
     )
     post34 = Post(
         ownerId=5,
-        image='https://www.dogbreedslist.info/uploads/dog-pictures/cocker-spaniel-2.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image34-Lucky.png',
         caption="It only looks like I'm sad, im actually pretty happy",
         post_likes=[user3]
     )
     post35 = Post(
         ownerId=5,
-        image='https://dogfoodsmart.com/wp-content/uploads/2021/04/American_Cocker_Spaniel_Growth_Chart.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image35-Lucky.png',
         caption='Striking another pose, I should compete.',
         post_likes=[demo, user6]
     )
     post36 = Post(
         ownerId=5,
-        image='https://www.nbcsports.com/sites/nbcsports.com/files/2019/11/25/nbc_dogshow_sporting_cockerspanielparticolor_191123.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image36-Lucky.png',
         caption='On my way to win this thing.',
         post_likes=[user3, user4]
     )
     post37 = Post(
         ownerId=6,
-        image='https://wallpaperaccess.com/full/5044017.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image37-climb.png',
         caption='I live my life a quarter mile at a time.',
         post_likes=[user3, user4, user5]
     )
     post38 = Post(
         ownerId=6,
-        image='https://wallpapercave.com/wp/wp3788220.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image38-climb.png',
         caption='The mountains are calling and I must go'
         ,
         post_likes=[demo, user3, user4, user5]
     )
     post39 = Post(
         ownerId=6,
-        image='https://wallpaperaccess.com/full/327437.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image39-climb.png',
         caption='A cloudy day is no match for a sunny disposition.',
         post_likes=[user3, user4]
     )
     post40 = Post(
         ownerId=6,
-        image='https://wallpapercave.com/wp/wp3788129.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image40-climb.png',
         caption='Going to the mountains is like going home.',
         post_likes=[demo, user3, user4, user5]
     )
     post41 = Post(
         ownerId=6,
-        image='https://wallpapercave.com/w/wp3788128',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image41-climb.png',
         caption='New York is a sucked orange.',
         post_likes=[user4]
     )
     post42 = Post(
         ownerId=6,
-        image='https://www.lifewire.com/thmb/xlnqVmg658v1eQUqy1gbh3i5oNU=/1080x1080/smart/filters:no_upscale()/tropical-beach-wallpaper-beach-backgrounds-587fbb765f9b584db3241860.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image42-climb.png',
         caption="Life is a beach, I'm just playing in the sand.",
         post_likes=[user3, user4, user5]
     )
     post43 = Post(
         ownerId=6,
-        image='https://i2.wp.com/gramotoring.com/wp-content/uploads/2020/07/gramotoring-1595395337268.jpg?fit=1080%2C1080&ssl=1',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image43-climb.png',
         caption='Too soon junior.',
         post_likes=[demo, user5]
     )
     post44 = Post(
         ownerId=6,
-        image='https://cdn.shopify.com/s/files/1/2059/8303/files/Vendredi_13_octobre_-_Capita_Phil_Jacques.JPG?v=1583958107',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image44-climb.png',
         caption="You can't buy happiness, but you can buy a lift pass.",
         post_likes=[user3]
     )
     post45 = Post(
         ownerId=6,
-        image='https://i.pinimg.com/originals/42/3e/78/423e78b888c60c45869c106208c5aebf.jpg',
+        image='https://instaspambucket.s3.us-west-1.amazonaws.com/image45-climb.png',
         caption='The best climber in the world is the one having the most fun!',
         post_likes=[demo, user4, user5]
     )
