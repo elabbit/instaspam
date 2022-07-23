@@ -10,6 +10,7 @@ import UserPage from './components/UserPage';
 import UserPosts from './components/UserPosts';
 import ExplorePage from './components/ExplorePage';
 import CreatePost from './components/CreatePost';
+import UserEditForm from './components/UserEditForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,8 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
           <ExplorePage/>
+        <ProtectedRoute path='/accounts/edit'>
+          <UserEditForm/>
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
           <UserPage/>
