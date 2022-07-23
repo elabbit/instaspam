@@ -13,7 +13,7 @@ const UserPosts = () => {
 
   useEffect(() => {
     dispatch(getUserPosts(sessionUser))
-  }, [dispatch])
+  }, [dispatch, sessionUser])
 
   return (
     <div>

@@ -9,6 +9,7 @@ import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
 import UserPosts from './components/UserPosts';
 import ExplorePage from './components/ExplorePage';
+import CreatePost from './components/CreatePost';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +36,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path='/posts/new' exact={true}>
+          <CreatePost />
+        </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
           <ExplorePage/>
         </ProtectedRoute>

@@ -24,7 +24,6 @@ export const getUserPosts = (payload) => async (dispatch) => {
 
   if (response.ok) {
     const posts = await response.json();
-    // console.log(posts);
     dispatch(actionLoadPosts(posts));
     return posts;
   }
@@ -35,7 +34,6 @@ export const getExplorePosts = (payload) => async (dispatch) => {
 
   if (response.ok) {
     const posts = await response.json();
-    // console.log(posts);
     dispatch(actionLoadPosts(posts));
     return posts;
   }
@@ -47,24 +45,21 @@ export const getUserFeedPosts = (payload) => async (dispatch) => {
 
   if (response.ok) {
     const posts = await response.json();
-    // console.log(posts);
     dispatch(actionLoadPosts(posts));
     return posts;
   }
 }
 
-export const addPost = (ownerId, image, caption) => async (dispatch) => {
+export const addPost = (formData) => async (dispatch) => {
   const response = await fetch('/api/posts/new', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/JSON'
-    },
-    body: JSON.stringify(ownerId, image, caption)
+    body: formData
   })
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(actionAddPost(data.post))
+    const post = await response.json();
+    dispatch(actionAddPost(post))
+    return post
   }
 
 }
@@ -81,7 +76,8 @@ const postsReducer = (state = {}, action) => {
       return newState1;
     case ADD_POST:
       const newState2 = { ...state }
-      // newState2[action.posts.]
+      newState2[action.post.id] = action.post
+      return newState2
     default:
       return state;
   }

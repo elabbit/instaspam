@@ -12,13 +12,15 @@ const CreatePost = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('image', image)
+        formData.append('caption', caption)
 
         setImageLoading(true);
 
-        ownerId = sessionUser.id
-        const res = await dispatch(addPost(ownerId, image, caption))
+        const createdPost = await dispatch(addPost(formData))
 
-        if (res.ok) {
+        if (createdPost) {
             setImageLoading(false)
         } else {
             setImageLoading(false)
@@ -32,10 +34,8 @@ const CreatePost = () => {
         setImage(file);
     }
 
-
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
             <input
                 type="file"
                 accept="image/*"
