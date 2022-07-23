@@ -53,6 +53,21 @@ export const getUserFeedPosts = (payload) => async (dispatch) => {
   }
 }
 
+export const addPost = (ownerId, image, caption) => async (dispatch) => {
+  const response = await fetch('/api/posts/new', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/JSON'
+    },
+    body: JSON.stringify(ownerId, image, caption)
+  })
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(actionAddPost(data.post))
+  }
+
+}
 
 const postsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -64,6 +79,9 @@ const postsReducer = (state = {}, action) => {
         newState1[post.id] = post;
       });
       return newState1;
+    case ADD_POST:
+      const newState2 = { ...state }
+      // newState2[action.posts.]
     default:
       return state;
   }
