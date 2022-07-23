@@ -21,12 +21,12 @@ const UserPosts = () => {
       <h1>user feed!!!!!</h1>
       {Object.values(posts).map((post)=> {
         return (
-          <>
+          <div key={post.id}>
             <img src={post?.image}/>
             <div>
               <CreateComment postId={post.id}/>
             </div>
-          </>
+          </div>
         )
       })}
     </div>
