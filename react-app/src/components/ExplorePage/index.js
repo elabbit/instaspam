@@ -16,6 +16,8 @@ const ExplorePage = () => {
   }, [dispatch])
 
   return (
+
+    posts ?
     <div>
       {Object.values(posts).map((post, index) => {
         if (index % 3 == 0) {
@@ -33,6 +35,8 @@ const ExplorePage = () => {
         }
       })}
     </div>
+    :
+    <h3>Loading ...</h3>>
   );
 
 }
