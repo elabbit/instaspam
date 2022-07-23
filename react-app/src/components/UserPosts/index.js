@@ -24,7 +24,7 @@ const UserPosts = () => {
           <>
             <img src={post?.image}/>
             <div>
-              <CreateComment />
+              <CreateComment postId={post.id}/>
             </div>
           </>
         )
