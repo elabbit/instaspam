@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     name = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    profileImage = db.Column(db.String(500), nullable=True, default="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-png-full-colour-glyph-1200x1199.png")
+    profileImage = db.Column(db.String(500), nullable=True, default="https://instaspambucket.s3.us-west-1.amazonaws.com/user-instaspam-default-profile-pic.png")
     bio = db.Column(db.String(1000), nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
