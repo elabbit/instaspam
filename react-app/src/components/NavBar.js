@@ -13,6 +13,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/posts/new' exact={true} activeClassName='active'>
+            Create a Post
+          </NavLink>
+        </li>
+        <li>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
@@ -20,6 +25,11 @@ const NavBar = () => {
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/explore' exact={true} activeClassName='active'>
+            Explore
           </NavLink>
         </li>
         <li>

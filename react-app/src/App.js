@@ -7,6 +7,9 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
+import UserPosts from './components/UserPosts';
+import ExplorePage from './components/ExplorePage';
+import CreatePost from './components/CreatePost';
 import UserEditForm from './components/UserEditForm';
 
 function App() {
@@ -14,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -34,6 +37,11 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        <ProtectedRoute path='/posts/new' exact={true}>
+          <CreatePost />
+        </ProtectedRoute>
+        <ProtectedRoute path='/explore' exact={true}>
+          <ExplorePage/>
         <ProtectedRoute path='/accounts/edit'>
           <UserEditForm/>
         </ProtectedRoute>
@@ -41,7 +49,7 @@ function App() {
           <UserPage/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <UserPosts />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
