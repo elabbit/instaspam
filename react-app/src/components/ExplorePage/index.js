@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExplorePosts } from "../../store/posts";
+import PostModal from "../PostModal";
+import "./ExplorePage.css"
 
 
 const ExplorePage = () => {
@@ -16,25 +18,17 @@ const ExplorePage = () => {
   }, [dispatch])
 
   return (
-    <div>
-      {Object.values(posts).map((post, index) => {
-        if (index % 3 == 0) {
-          return (
-            <div key={post.id}>
-              <img src={post?.image} />
-            </div>
-          )
-        } else {
-          return (
-            <div key={post.id}>
-              <img src={post?.image} />
-            </div>
-          )
-        }
-      })}
-    </div>
-  );
-
+    posts ?
+      <div className="posts-explore-container">
+        {Object.values(posts).map((post)=> (
+          <div key={post.id}>
+            <PostModal post={post} />
+          </div>
+        ))}
+      </div>
+      :
+      <h3>Loading...</h3>
+  )
 }
 
 export default ExplorePage;
