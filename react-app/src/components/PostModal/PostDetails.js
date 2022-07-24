@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deletePost } from "../../store/posts";
 import CreateComment from "../CreateComment";
 import EditPost from "../EditPost";
 
 
 function PostDetails({ post }) {
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user)
+
+  const onDelete = async () => {
+    const deletedPost = await dispatch(deletePost(post.id))
+
+  }
+
   return (
     <div className="post-mod-container">
       <div className="post-mod-left">
@@ -27,7 +35,12 @@ function PostDetails({ post }) {
         </div>
         {post.ownerId === sessionUser.id &&
           <div>
-            <EditPost post={post} />
+            <div>
+              <EditPost post={post} />
+            </div>
+            <div>
+              <button onClick={onDelete}>Delete</button>
+            </div>
           </div>
         }
       </div>

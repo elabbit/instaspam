@@ -91,6 +91,18 @@ export const editPost = (postData) => async (dispatch) => {
   }
 }
 
+export const deletePost = (postId) => async (dispatch) => {
+  console.log("-----------------------reached the thunk--------------------")
+  const response = await fetch(`api/posts/${postId}/delete`, {
+    method: 'DELETE'
+  })
+
+  console.log("-----------------------response is going past thunk--------------------")
+  if (response.ok) {
+    dispatch(actionDeletePost(postId))
+  }
+}
+
 export const createComments = (commentData) => async (dispatch) => {
   const response = await fetch('/api/comments/new', {
     method: 'POST',
@@ -131,10 +143,15 @@ const postsReducer = (state = {}, action) => {
       newState3[action.editedPost.id].caption = action.editedPost.caption
       return newState3;
 
-    case ADD_COMMENT:
+    case DELETE_POST:
       const newState4 = { ...state }
-      newState4[action.comment.postId].comments[action.comment.id] = action.comment
+      delete newState4[action.postId]
       return newState4
+
+    case ADD_COMMENT:
+      const newState5 = { ...state }
+      newState5[action.comment.postId].comments[action.comment.id] = action.comment
+      return newState5
 
 
     default:

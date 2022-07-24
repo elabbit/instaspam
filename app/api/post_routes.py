@@ -70,3 +70,11 @@ def edit_post():
     db.session.commit()
 
     return edited_post.to_dict()
+
+@post_routes.route('/<int:postId>/delete', methods=['DELETE'])
+@login_required
+def delete_post(postId):
+    deleted_post = Post.query.get(postId)
+    db.session.delete(deleted_post)
+    db.session.commit()
+    return f'{postId}'
