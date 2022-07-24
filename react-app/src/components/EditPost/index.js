@@ -1,23 +1,28 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from '../../store/posts'
+import { editPost } from '../../store/posts'
 
-const EditPost = () => {
+const EditPost = ({ post }) => {
     const dispatch = useDispatch();
     const [caption, setCaption] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const editPost = await dispatch(addPost(caption))
+        const postData = new FormData();
+        postData.append('postId', post.id)
+        postData.append('caption', caption)
 
-        if (editPost) {
+        const editedPost = await dispatch(editPost(postData))
+
+        if (editedPost) {
             // Implement Modal hideform() when submit and uploaded.
         }
     }
 
     return (
         <form onSubmit={handleSubmit} >
+            {/* <img src={post.image}/> */}
             <textarea
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}

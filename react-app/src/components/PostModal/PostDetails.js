@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import CreateComment from "../CreateComment";
+import EditPost from "../EditPost";
 
 
 function PostDetails({ post }) {
+  const sessionUser = useSelector(state => state.session.user)
   return (
     <div className="post-mod-container">
       <div className="post-mod-left">
@@ -9,8 +12,8 @@ function PostDetails({ post }) {
       </div>
       <div className="post-mod-right">
         <div>
-        {/* <div>{post.username}</div> */}
-        <div>{post.caption}</div>
+          {/* <div>{post.username}</div> */}
+          <div>{post.caption}</div>
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
@@ -22,8 +25,13 @@ function PostDetails({ post }) {
           <div>{post.likes} likes</div>
           <CreateComment />
         </div>
+        {post.ownerId === sessionUser.id &&
+          <div>
+            <EditPost post={post} />
+          </div>
+        }
       </div>
-    </div>
+    </div >
   )
 }
 export default PostDetails;

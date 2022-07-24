@@ -60,3 +60,13 @@ def add_new_post():
     db.session.commit()
 
     return new_post.to_dict()
+
+
+@post_routes.route('/edit', methods=['PUT'])
+@login_required
+def edit_post():
+    edited_post = Post.query.get(request.form.get('postId'))
+    edited_post.caption = request.form.get('caption')
+    db.session.commit()
+
+    return edited_post.to_dict()
