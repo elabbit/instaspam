@@ -2,6 +2,7 @@ from .db import db
 from .like import likes
 from sqlalchemy.sql import func
 from sqlalchemy import DateTime
+from .user import User
 
 class Post(db.Model):
     __tablename__ = 'posts'
@@ -28,5 +29,6 @@ class Post(db.Model):
             'caption': self.caption,
             'createdAt': self.createdAt,
             'comments': [ comment.to_dict() for comment in self.post_comments ],
-            'likes': len(self.post_likes)
+            'likes': len(self.post_likes),
+            'ownerUsername': User.query.get(self.ownerId).username
         }

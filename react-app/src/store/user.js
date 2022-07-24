@@ -8,7 +8,6 @@ const getUserAction = (user) => ({
 export const getUser = (username) => async (dispatch) => {
     const response = await fetch(`/api/users/${username}`);
 
-
     if(response.ok) {
         const user = await response.json();
         dispatch(getUserAction(user))

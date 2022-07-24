@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from '../../store/posts'
 
-const CreatePost = () => {
+const CreatePost = ({hideModal}) => {
     const dispatch = useDispatch();
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
@@ -22,6 +22,7 @@ const CreatePost = () => {
 
         if (createdPost) {
             setImageLoading(false)
+            hideModal()
         } else {
             setImageLoading(false)
             console.log("error")

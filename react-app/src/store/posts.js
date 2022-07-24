@@ -3,7 +3,8 @@ const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
 const EDIT_POST = 'posts/EDIT_POST'
 const DELETE_POST = 'posts/DELETE_POST';
-const ADD_COMMENT = 'posts/ADD_COMMENT'
+const ADD_COMMENT = 'posts/ADD_COMMENT';
+const CLEAR_POSTS = 'posts/CLEAR_POSTS';
 const DELETE_COMMENT = 'posts/DELETE_COMMENT'
 
 
@@ -33,6 +34,11 @@ const addComment = (comment) => ({
   comment
 })
 
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
+})
+
 const deleteComment = (commentId, postId) => {
   return {
       type: DELETE_COMMENT,
@@ -40,6 +46,7 @@ const deleteComment = (commentId, postId) => {
       postId
   }
 }
+
 
 export const getUserPosts = (username) => async (dispatch) => {
   const response = await fetch(`/api/posts/${username}`)
@@ -158,6 +165,9 @@ const postsReducer = (state = {}, action) => {
       newState2[action.post.id] = action.post
       newState2[action.post.id].comments = {}
       return newState2
+
+    case CLEAR_POSTS:
+      return {};
 
     case EDIT_POST:
       const newState3 = { ...state }

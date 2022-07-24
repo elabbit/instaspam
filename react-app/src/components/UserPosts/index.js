@@ -7,6 +7,7 @@ import PostModal from "../PostModal";
 
 const UserPosts = ({posts}) => {
   const dispatch = useDispatch();
+
   // const sessionUser = useSelector(state => state.session.user);
 
   // useEffect(() => {
