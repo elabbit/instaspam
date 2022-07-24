@@ -8,7 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
 import ExplorePage from './components/ExplorePage';
-import CreatePost from './components/CreatePost';
+import CreatePostModal from './components/CreatePostModal';
 import UserEditForm from './components/UserEditForm';
 import UserFeed from './components/UserFeed'
 import Splash from './components/Splash.js';
@@ -42,7 +42,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/posts/new' exact={true}>
-          <CreatePost />
+          <CreatePostModal />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
           <ExplorePage />
