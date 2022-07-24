@@ -10,6 +10,7 @@ import CommentDetails from "../CommentDetails";
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
     const deletedPost = await dispatch(deletePost(post.id))
@@ -21,10 +22,25 @@ function PostDetails({ post }) {
         <img className="post-mod-image" src={post.image} />
       </div>
       <div className="post-mod-right">
-        <div>
-          <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-          <span>{post.caption}</span>
-        </div>
+        {!showEditPost ?
+          <div>
+            <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+            <span>{post.caption}</span>
+            {post.ownerId === sessionUser.id ?
+              <div>
+                <button onClick={() => setShowEditPost(true)}>Edit</button>
+                <button onClick={onDelete}>Delete</button>
+              </div>
+              :
+              null
+            }
+          </div>
+          :
+          <div>
+            <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+            <EditPost post={post} setShowEditPost={setShowEditPost} />
+          </div>
+        }
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
             <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id}/>
@@ -34,16 +50,6 @@ function PostDetails({ post }) {
           <div>{post.likes} likes</div>
           <CreateComment postId={post.id} />
         </div>
-        {post.ownerId === sessionUser.id &&
-          <div>
-            <div>
-              <EditPost post={post} />
-            </div>
-            <div>
-              <button onClick={onDelete}>Delete</button>
-            </div>
-          </div>
-        }
       </div>
     </div >
   )
