@@ -15,7 +15,6 @@ const UserPage = () => {
   const numberPosts = Object.keys(posts).length
 
 
-
   useEffect(() => {
     dispatch(getUser(username))
     dispatch(getUserPosts(username))
