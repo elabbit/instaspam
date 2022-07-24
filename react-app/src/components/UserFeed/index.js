@@ -22,7 +22,7 @@ const UserFeed = ({sessionUser}) => {
       <div>
         {Object.values(posts).map((post)=> (
           <div key={post.id}>
-            <PostContainer post={post} sessionUser={sessionUser}/>
+            {/* <PostContainer post={post} sessionUser={sessionUser}/> */}
           </div>
         ))}
 

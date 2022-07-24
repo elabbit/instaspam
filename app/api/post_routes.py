@@ -5,6 +5,7 @@ from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
+
 post_routes = Blueprint('posts', __name__)
 
 
@@ -82,3 +83,22 @@ def delete_post(postId):
     db.session.delete(deleted_post)
     db.session.commit()
     return f'{postId}'
+
+
+
+@post_routes.route('/like/<int:postId>', methods=['PUT'])
+@login_required
+def like(postId):
+    post = Post.query.get(postId)
+    post.like(current_user)
+    db.session.commit()
+    return post.to_dict()
+
+
+@post_routes.route('/unlike/<int:postId>', methods=['PUT'])
+@login_required
+def unlike(postId):
+    post = Post.query.get(postId)
+    post.unlike(current_user)
+    db.session.commit()
+    return post.to_dict()

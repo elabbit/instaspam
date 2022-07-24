@@ -94,7 +94,7 @@ export const addPost = (formData) => async (dispatch) => {
 }
 
 export const editPost = (postData) => async (dispatch) => {
-  const response = await fetch('api/posts/edit', {
+  const response = await fetch('/api/posts/edit', {
     method: 'PUT',
     body: postData
   })
@@ -107,12 +107,9 @@ export const editPost = (postData) => async (dispatch) => {
 }
 
 export const deletePost = (postId) => async (dispatch) => {
-  console.log("-----------------------reached the thunk--------------------")
-  const response = await fetch(`api/posts/${postId}/delete`, {
+  const response = await fetch(`/api/posts/${postId}/delete`, {
     method: 'DELETE'
   })
-
-  console.log("-----------------------response is going past thunk--------------------")
   if (response.ok) {
     dispatch(actionDeletePost(postId))
   }
@@ -157,6 +154,34 @@ export const updateComment = (commentData, commentId) => async dispatch => {
 
 }
 
+export const createLike = (postId) => async dispatch => {
+  const response = await fetch(`/api/posts/like/${postId}`, {
+  method:'PUT',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+if (response.ok) {
+  const post = await response.json();
+  dispatch(actionEditPost(post))
+  return 'success';
+}
+}
+
+export const createUnlike = (postId, submit) => async dispatch => {
+  const response = await fetch(`/api/posts/unlike/${postId}`, {
+    method:'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+})
+if (response.ok) {
+  const post = await response.json();
+  dispatch(actionEditPost(post))
+  return 'success';
+}
+}
+
 
 const postsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -182,12 +207,12 @@ const postsReducer = (state = {}, action) => {
       return {};
 
     case EDIT_POST:
-      const newState3 = { ...state }
-      newState3[action.editedPost.id].caption = action.editedPost.caption
+      const newState3 = {...state }
+      newState3[action.editedPost.id] = action.editedPost
       return newState3;
 
     case DELETE_POST:
-      const newState4 = { ...state }
+      const newState4 = {...state }
       delete newState4[action.postId]
       return newState4
 
@@ -197,7 +222,7 @@ const postsReducer = (state = {}, action) => {
       return newState5
 
     case DELETE_COMMENT:
-      const newState6 = {... state}
+      const newState6 = {...state}
       delete newState6[action.postId].comments[action.commentId]
       return newState6
 

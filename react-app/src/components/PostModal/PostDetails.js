@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../../store/posts";
 import CreateComment from "../CreateComment";
-
 import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
+import LikeToggle from "../LikeToggle";
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
@@ -47,7 +47,10 @@ function PostDetails({ post }) {
           </div>
         ))}
         <div>
-          <div>{post.likes} likes</div>
+          <div>
+          <LikeToggle post={post} sessionUsername={sessionUser.username}/>
+          </div>
+          <div>{post.likes.length} likes</div>
           <CreateComment postId={post.id} />
         </div>
       </div>
