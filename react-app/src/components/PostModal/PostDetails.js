@@ -1,17 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
+
+import { deletePost } from "../../store/posts";
+
 import { removeComment } from "../../store/posts";
+
 import CreateComment from "../CreateComment";
+import EditPost from "../EditPost";
 
 
 function PostDetails({ post }) {
-  const dispatch = useDispatch()
-  const sessionUser = useSelector(state => state.session.user);
+
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
+
+  const onDelete = async () => {
+    const deletedPost = await dispatch(deletePost(post.id))
+
+  }
 
   const deleteSpecificComment = async(commentId) => {
     const postId = post.id
     await dispatch(removeComment(commentId, postId))
   }
-
 
   return (
     <div className="post-mod-container">
@@ -20,8 +30,8 @@ function PostDetails({ post }) {
       </div>
       <div className="post-mod-right">
         <div>
-        {/* <div>{post.username}</div> */}
-        <div>{post.caption}</div>
+          {/* <div>{post.username}</div> */}
+          <div>{post.caption}</div>
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
@@ -37,8 +47,18 @@ function PostDetails({ post }) {
           <div>{post.likes} likes</div>
           <CreateComment postId={post.id}/>
         </div>
+        {post.ownerId === sessionUser.id &&
+          <div>
+            <div>
+              <EditPost post={post} />
+            </div>
+            <div>
+              <button onClick={onDelete}>Delete</button>
+            </div>
+          </div>
+        }
       </div>
-    </div>
+    </div >
   )
 }
 export default PostDetails;

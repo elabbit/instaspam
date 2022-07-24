@@ -1,9 +1,11 @@
 
 const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
+const EDIT_POST = 'posts/EDIT_POST'
 const DELETE_POST = 'posts/DELETE_POST';
 const ADD_COMMENT = 'posts/ADD_COMMENT'
 const DELETE_COMMENT = 'posts/DELETE_COMMENT'
+
 
 const actionLoadPosts = (posts) => ({
   type: LOAD_POSTS,
@@ -15,6 +17,11 @@ const actionAddPost = (post) => ({
   type: ADD_POST,
   post
 });
+
+const actionEditPost = (editedPost) => ({
+  type: EDIT_POST,
+  editedPost
+})
 
 const actionDeletePost = (postId) => ({
   type: DELETE_POST,
@@ -79,6 +86,31 @@ export const addPost = (formData) => async (dispatch) => {
 
 }
 
+export const editPost = (postData) => async (dispatch) => {
+  const response = await fetch('api/posts/edit', {
+    method: 'PUT',
+    body: postData
+  })
+
+  if (response.ok) {
+    const editedPost = await response.json();
+    dispatch(actionEditPost(editedPost));
+    return editedPost;
+  }
+}
+
+export const deletePost = (postId) => async (dispatch) => {
+  console.log("-----------------------reached the thunk--------------------")
+  const response = await fetch(`api/posts/${postId}/delete`, {
+    method: 'DELETE'
+  })
+
+  console.log("-----------------------response is going past thunk--------------------")
+  if (response.ok) {
+    dispatch(actionDeletePost(postId))
+  }
+}
+
 export const createComments = (commentData) => async (dispatch) => {
   const response = await fetch('/api/comments/new', {
     method: 'POST',
@@ -127,10 +159,20 @@ const postsReducer = (state = {}, action) => {
       newState2[action.post.id].comments = {}
       return newState2
 
-    case ADD_COMMENT:
+    case EDIT_POST:
       const newState3 = { ...state }
-      newState3[action.comment.postId].comments[action.comment.id] = action.comment
-      return newState3
+      newState3[action.editedPost.id].caption = action.editedPost.caption
+      return newState3;
+
+    case DELETE_POST:
+      const newState4 = { ...state }
+      delete newState4[action.postId]
+      return newState4
+
+    case ADD_COMMENT:
+      const newState5 = { ...state }
+      newState5[action.comment.postId].comments[action.comment.id] = action.comment
+      return newState5
 
     case DELETE_COMMENT:
       const newState4 = {... state}
