@@ -1,20 +1,19 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../../store/posts";
 import { removeComment } from "../../store/posts";
 import CreateComment from "../CreateComment";
+import EditComment from "../EditComment";
 import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 
-
-
 function PostDetails({ post }) {
-
-  const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user)
+  const [showEditComment, setShowEditComment] = useState(false);
+  const dispatch = useDispatch()
+  const sessionUser = useSelector(state => state.session.user);
 
   const onDelete = async () => {
     const deletedPost = await dispatch(deletePost(post.id))
-
   }
 
   const deleteSpecificComment = async(commentId) => {
@@ -34,11 +33,28 @@ function PostDetails({ post }) {
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
+
+            {!showEditComment && (
              <Link to={`${comment.username}`}>{comment.username}</Link>
             <span>{comment.comment}</span>
+
             {(comment.userId === sessionUser?.id) && (
+              <>
             <button onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
+            <button onClick={() => setShowEditComment(true)}>Edit</button>
+              </>
             )}
+
+            )}
+            <>
+            {showEditComment && (
+              <EditComment
+              post={post}
+              currentComment={comment}
+              hideForm={() => setShowEditComment(false)}/>
+            )}
+            </>
+
           </div>
         ))}
         <div>

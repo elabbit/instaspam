@@ -23,3 +23,11 @@ def delete_comments(commentId):
     db.session.commit()
 
     return f'{commentId}'
+
+@comment_routes.route('/<int:commentId>', methods=['PUT'])
+def edit_comments(commentId):
+    comment =Comment.query.get(commentId)
+    comment.comment = request.form.get('commentBody')
+    db.session.commit()
+
+    return comment.to_dict()

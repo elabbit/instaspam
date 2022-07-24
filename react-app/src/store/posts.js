@@ -134,8 +134,7 @@ export const createComments = (commentData) => async (dispatch) => {
 export const removeComment = (commentId, postId) => async dispatch => {
   const response = await fetch(`/api/comments/${commentId}`, {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(commentId)
+      headers: { 'Content-Type': 'application/json' }
   });
 
   if (response.ok) {
@@ -144,6 +143,19 @@ export const removeComment = (commentId, postId) => async dispatch => {
   }
 }
 
+export const updateComment = (commentData, commentId) => async dispatch => {
+  const response = await fetch(`/api/comments/${commentId}`, {
+      method: 'PUT',
+      body: commentData
+  });
+
+  if (response.ok) {
+      const comment = await response.json();
+      dispatch(addComment(comment));
+      return comment
+  }
+
+}
 
 
 const postsReducer = (state = {}, action) => {
