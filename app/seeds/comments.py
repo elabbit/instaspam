@@ -154,77 +154,77 @@ def seed_comments():
     comment31 = Comment(
         userId=3,
         postId=28,
-        comment='Lorem ipsum dolor sit amet'
+        comment='YOUR DOG IS ADORABLE!!!LOVE IT!!!'
     )
     comment32 = Comment(
         userId=4,
         postId=28,
-        comment='consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        comment='I WANNA PET IT SO BAD!!!'
     )
     comment33 = Comment(
         userId=1,
         postId=28,
-        comment='Ut enim ad minim veniam, quis nostrud exercitation'
+        comment='SOO FLUFFYYYYYY!!!!!'
     )
     comment34 = Comment(
         userId=1,
         postId=28,
-        comment='ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        comment='THAT DOG IS SO CUTE!!!'
     )
     comment35 = Comment(
         userId=6,
         postId=30,
-        comment='Duis aute irure dolor in reprehenderit in voluptate'
+        comment='SOOOOO CUTE!!!!!'
     )
     comment36 = Comment(
         userId=4,
         postId=30,
-        comment='Excepteur sint occaecat cupidatat non proident'
+        comment='I LOVE YOUR DOGS!!!!'
     )
     comment37 = Comment(
         userId=2,
         postId=31,
-        comment='sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        comment='Wowwww what a pose!!!'
     )
     comment38 = Comment(
         userId=2,
         postId=32,
-        comment='Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.'
+        comment='Tired doggo needs nap time!!!'
     )
     comment39 = Comment(
         userId=3,
         postId=33,
-        comment='Dolor magna eget est lorem ipsum dolor. Volutpat est velit egestas dui id ornare arcu.'
+        comment='AWWWWW!!!! TOO CUTE!!!!'
     )
     comment40 = Comment(
         userId=2,
         postId=33,
-        comment='Viverra nam libero justo laoreet sit amet cursus.'
+        comment='I WANT TO PET!!!!!!'
     )
     comment41 = Comment(
         userId=1,
         postId=34,
-        comment='Erat nam at lectus urna duis. Non odio euismod lacinia at quis risus.'
+        comment='DO NOT BE SAD LITTLE DOGGY!'
     )
     comment42 = Comment(
         userId=4,
         postId=34,
-        comment='Tincidunt lobortis feugiat vivamus at augue eget arcu.'
+        comment='AWWW I LITERALLY CANNOT RN.'
     )
     comment43 = Comment(
         userId=4,
         postId=35,
-        comment='Consectetur adipiscing elit ut aliquam.'
+        comment='Wow is that a model???'
     )
     comment44 = Comment(
         userId=2,
         postId=35,
-        comment='Lacinia quis vel eros donec. Id faucibus nisl tincidunt eget nullam non nisi est sit.'
+        comment='So majestic!!!'
     )
     comment45 = Comment(
         userId=6,
         postId=35,
-        comment='Tortor id aliquet lectus proin nibh nisl condimentum. Quis risus sed vulputate odio ut enim blandit volutpat.'
+        comment='THE NEXT BIG THING IS HERE!!!!!'
     )
 
     comment46 = Comment(
