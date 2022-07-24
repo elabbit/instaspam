@@ -6,12 +6,11 @@ import UserPosts from '../UserPosts';
 import { getUserPosts, clearPosts } from "../../store/posts";
 import "./UserPage.css"
 
-const UserPage = () => {
+const UserPage = ({sessionUser}) => {
   const { username } = useParams();
   const dispatch = useDispatch();
   const user = useSelector(state => state.user[username])
   const posts = useSelector(state => state.posts)
-  const currentUser = useSelector(state => state.session.user)
   const numberPosts = Object.keys(posts).length
 
 
@@ -22,7 +21,7 @@ const UserPage = () => {
   }, [dispatch, username])
 
   return (
-      (user && posts && numberPosts && currentUser) ?
+      (user && posts && numberPosts && sessionUser) ?
         <div>
           <div className="profile-info-container">
             <div>
@@ -31,7 +30,7 @@ const UserPage = () => {
             <div>
               <div>
                 <h2>{user.username}</h2>
-                {(currentUser.id == user.id) &&
+                {(sessionUser.id == user.id) &&
                   (<Link to="/accounts/edit">Edit Profile</Link>)}
               </div>
               <div>
