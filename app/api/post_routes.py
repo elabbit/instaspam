@@ -16,11 +16,15 @@ def get_posts_by_userId(username):
     posts = [ post.to_dict() for post in user_posts ]
     return {'user_posts': posts}
 
-# Need to wait for Eddie and Abel to_dict for users in order to get followers.
+
 @post_routes.route('/feed/<int:userId>')
 @login_required
 def get_following_posts(userId):
     user_posts = Post.query.filter(Post.ownerId==userId).all()
+
+
+
+
     posts = [ post.to_dict() for post in user_posts ]
     return {'user_posts': posts}
 

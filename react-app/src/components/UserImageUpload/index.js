@@ -46,8 +46,8 @@ const UserImageUpload = ({id}) => {
               accept="image/*"
               onChange={updateImage}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading)&& <p>Loading...</p>}
+            <button type="submit">Upload</button>
+            {(imageLoading)&& <p>Uploading...</p>}
         </form>
     )
 }

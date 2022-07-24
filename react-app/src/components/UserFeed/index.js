@@ -6,12 +6,12 @@ import PostContainer from "../PostContainer";
 
 
 
-const UserFeed = () => {
+const UserFeed = ({sessionUser}) => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
   const posts = useSelector(state => state.posts);
-  // console.log(sessionUser)
-  console.log(posts)
+
+
+
 
   useEffect(() => {
     dispatch(getUserFeedPosts(sessionUser))
@@ -22,7 +22,7 @@ const UserFeed = () => {
       <div>
         {Object.values(posts).map((post)=> (
           <div key={post.id}>
-            <PostContainer post={post} />
+            <PostContainer post={post} sessionUser={sessionUser}/>
           </div>
         ))}
 

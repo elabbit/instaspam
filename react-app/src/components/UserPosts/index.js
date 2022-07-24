@@ -1,12 +1,8 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
+
 
 import PostModal from "../PostModal";
 
-
-
 const UserPosts = ({posts}) => {
-  const dispatch = useDispatch();
   const postList = Object.values(posts);
   postList.sort((a,b)=>b.id-a.id)
 

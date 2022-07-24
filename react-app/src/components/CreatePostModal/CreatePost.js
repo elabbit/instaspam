@@ -47,8 +47,8 @@ const CreatePost = ({hideModal}) => {
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
             />
-            <button type="submit">Submit</button>
-            {(imageLoading) && <p>Loading...</p>}
+            <button type="submit">Upload</button>
+            {(imageLoading) && <p>Uploading...</p>}
         </form>
     )
 };

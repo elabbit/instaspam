@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -16,6 +16,7 @@ import Splash from './components/Splash.js';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     (async () => {
@@ -45,16 +46,16 @@ function App() {
           <CreatePostModal />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
-          <ExplorePage />
+          <ExplorePage sessionUser={sessionUser} />
         </ProtectedRoute>
         <ProtectedRoute path='/accounts/edit'>
           <UserEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
-          <UserPage />
+          <UserPage sessionUser={sessionUser}/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <UserFeed />
+          <UserFeed sessionUser={sessionUser} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
