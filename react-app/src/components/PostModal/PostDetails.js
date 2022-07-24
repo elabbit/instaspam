@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeComment } from "../../store/posts";
 import CreateComment from "../CreateComment";
+import EditComment from "../EditComment";
 
 
 function PostDetails({ post }) {
+  const [showEditComment, setShowEditComment] = useState(false);
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
 
@@ -26,11 +29,25 @@ function PostDetails({ post }) {
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
             {/* <div>{comment.username}</div> */}
+            {!showEditComment && (
             <div>{comment.comment}
             {(comment.userId === sessionUser?.id) && (
+              <>
             <button onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
+            <button onClick={() => setShowEditComment(true)}>Edit</button>
+              </>
             )}
             </div>
+            )}
+            <>
+            {showEditComment && (
+              <EditComment
+              post={post}
+              currentComment={comment}
+              hideForm={() => setShowEditComment(false)}
+          />
+            )}
+            </>
           </div>
         ))}
         <div>

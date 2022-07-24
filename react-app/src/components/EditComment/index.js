@@ -1,24 +1,26 @@
 import { useState} from 'react';
 import { useDispatch } from 'react-redux';
-import { createComments } from '../../store/posts';
+import { updateComment } from '../../store/posts';
 
-const CreateComment = ({postId}) => {
-    const [comment, setComment] = useState('');
+const EditComment = ({post, currentComment, hideForm}) => {
+    const [comment, setComment] = useState(currentComment.comment);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    const commentId = currentComment.id
 
     const onSubmit = async(e) => {
         e.preventDefault();
 
         const commentData = new FormData()
-        commentData.append('postId', postId)
+        commentData.append('postId', post.id)
         commentData.append('commentBody', comment)
+        console.log("COMMENT!!!!!!!", comment)
 
-        const createdComment = await dispatch(createComments(commentData))
-        if(createdComment){
-        setComment('');
+        const updatedComment = await dispatch(updateComment(commentData, commentId))
+
+        if(updatedComment) {
+            hideForm()
         }
-
     }
 
 
@@ -34,11 +36,10 @@ const CreateComment = ({postId}) => {
               required
               maxLength="1000"
             ></textarea>
-            <button type='submit'>Post</button>
+            <button type='submit'>Edit</button>
           </form>
         </div>
     )
-
 }
 
-export default CreateComment;
+export default EditComment;
