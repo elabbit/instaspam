@@ -6,10 +6,14 @@ import CreateComment from "../CreateComment";
 import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
+import FollowButton from "../FollowButton";
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const postUserData = useSelector(state=> state.user[post.ownerUsername])
+  console.log(post)
+
 
   const onDelete = async () => {
     const deletedPost = await dispatch(deletePost(post.id))
@@ -24,6 +28,9 @@ function PostDetails({ post }) {
         <div>
           <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
           <span>{post.caption}</span>
+        </div>
+        <div>
+          <FollowButton sessionUser={sessionUser} postUserData={postUserData}/>
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
