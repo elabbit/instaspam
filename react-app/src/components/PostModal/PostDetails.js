@@ -1,4 +1,5 @@
 import CreateComment from "../CreateComment";
+import { Link } from 'react-router-dom';
 
 
 function PostDetails({ post }) {
@@ -9,13 +10,13 @@ function PostDetails({ post }) {
       </div>
       <div className="post-mod-right">
         <div>
-        {/* <div>{post.username}</div> */}
-        <div>{post.caption}</div>
+          <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+          <span>{post.caption}</span>
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
-            {/* <div>{comment.username}</div> */}
-            <div>{comment.comment}</div>
+             <Link to={`${comment.username}`}>{comment.username}</Link>
+            <span>{comment.comment}</span>
           </div>
         ))}
         <div>

@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getExplorePosts } from "../../store/posts";
+import { getExplorePosts, clearPosts } from "../../store/posts";
 import PostModal from "../PostModal";
 import "./ExplorePage.css"
+
 
 
 const ExplorePage = () => {
@@ -10,17 +11,19 @@ const ExplorePage = () => {
   // Will replace this useSelector for session user with props in App component
   const sessionUser = useSelector(state => state.session.user);
   const posts = useSelector(state => state.posts);
-  // console.log(sessionUser)
-  console.log(posts)
+
+  const postList = Object.values(posts);
+  postList.sort(() => Math.random() - 0.5)
 
   useEffect(() => {
     dispatch(getExplorePosts(sessionUser))
+    return dispatch(clearPosts())
   }, [dispatch])
 
   return (
     posts ?
       <div className="posts-explore-container">
-        {Object.values(posts).map((post)=> (
+        {postList.map((post) => (
           <div key={post.id}>
             <PostModal post={post} />
           </div>

@@ -2,7 +2,8 @@
 const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
 const DELETE_POST = 'posts/DELETE_POST';
-const ADD_COMMENT = 'posts/ADD_COMMENT'
+const ADD_COMMENT = 'posts/ADD_COMMENT';
+const CLEAR_POSTS = 'posts/CLEAR_POSTS';
 
 const actionLoadPosts = (posts) => ({
   type: LOAD_POSTS,
@@ -23,6 +24,10 @@ const actionDeletePost = (postId) => ({
 const addComment = (comment) => ({
   type: ADD_COMMENT,
   comment
+})
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
 })
 
 export const getUserPosts = (username) => async (dispatch) => {
@@ -104,6 +109,9 @@ const postsReducer = (state = {}, action) => {
       newState2[action.post.id] = action.post
       newState2[action.post.id].comments = {}
       return newState2
+
+    case CLEAR_POSTS:
+      return {};
 
     case ADD_COMMENT:
       const newState3 = { ...state }
