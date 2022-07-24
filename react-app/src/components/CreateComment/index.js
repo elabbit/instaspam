@@ -41,7 +41,7 @@ const CreateComment = ({postId}) => {
               required
               maxLength="1000"
             ></textarea>
-            <button type='submit'>Submit</button>
+            <button type='submit'>Post</button>
           </form>
         </div>
     )

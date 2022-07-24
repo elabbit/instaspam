@@ -3,8 +3,8 @@ const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
 const EDIT_POST = 'posts/EDIT_POST'
 const DELETE_POST = 'posts/DELETE_POST';
-const ADD_COMMENT = 'posts/ADD_COMMENT';
-
+const ADD_COMMENT = 'posts/ADD_COMMENT'
+const DELETE_COMMENT = 'posts/DELETE_COMMENT'
 
 
 const actionLoadPosts = (posts) => ({
@@ -32,6 +32,14 @@ const addComment = (comment) => ({
   type: ADD_COMMENT,
   comment
 })
+
+const deleteComment = (commentId, postId) => {
+  return {
+      type: DELETE_COMMENT,
+      commentId,
+      postId
+  }
+}
 
 export const getUserPosts = (username) => async (dispatch) => {
   const response = await fetch(`/api/posts/${username}`)
@@ -116,6 +124,19 @@ export const createComments = (commentData) => async (dispatch) => {
   }
 }
 
+export const removeComment = (commentId, postId) => async dispatch => {
+  const response = await fetch(`/api/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(commentId)
+  });
+
+  if (response.ok) {
+      dispatch(deleteComment(commentId, postId));
+      return commentId;
+  }
+}
+
 
 
 const postsReducer = (state = {}, action) => {
@@ -153,6 +174,12 @@ const postsReducer = (state = {}, action) => {
       newState5[action.comment.postId].comments[action.comment.id] = action.comment
       return newState5
 
+    case DELETE_COMMENT:
+      const newState4 = {... state}
+      console.log('NEWSTATE!!!!!!!!!!!!!!!!!!!',newState4)
+      console.log('ACTION!!!!!!!!!!', newState4[action.postId].comments[action.commentId])
+      delete newState4[action.postId].comments[action.commentId]
+      return newState4
 
     default:
       return state;

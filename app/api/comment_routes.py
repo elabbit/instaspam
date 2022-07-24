@@ -15,3 +15,11 @@ def add_comments():
     db.session.commit()
 
     return comment.to_dict()
+
+@comment_routes.route('/<int:commentId>', methods=['DELETE'])
+def delete_comments(commentId):
+    comment =Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+
+    return f'{commentId}'
