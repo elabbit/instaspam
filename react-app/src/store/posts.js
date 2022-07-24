@@ -25,8 +25,8 @@ const addComment = (comment) => ({
   comment
 })
 
-export const getUserPosts = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/posts/${payload.id}`)
+export const getUserPosts = (username) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${username}`)
 
   if (response.ok) {
     const posts = await response.json();
@@ -35,8 +35,8 @@ export const getUserPosts = (payload) => async (dispatch) => {
   }
 }
 
-export const getExplorePosts = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/posts/explore/${payload.id}`)
+export const getExplorePosts = (user) => async (dispatch) => {
+  const response = await fetch(`/api/posts/explore/${user.id}`)
 
   if (response.ok) {
     const posts = await response.json();
@@ -46,8 +46,8 @@ export const getExplorePosts = (payload) => async (dispatch) => {
 
 }
 
-export const getUserFeedPosts = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/posts/feed/${payload.id}`)
+export const getUserFeedPosts = (user) => async (dispatch) => {
+  const response = await fetch(`/api/posts/feed/${user.id}`)
 
   if (response.ok) {
     const posts = await response.json();
