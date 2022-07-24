@@ -1,0 +1,6 @@
+.posts-explore-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 950px;
+}

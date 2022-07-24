@@ -25,8 +25,8 @@ const addComment = (comment) => ({
   comment
 })
 
-export const getUserPosts = (user) => async (dispatch) => {
-  const response = await fetch(`/api/posts/${user.id}`)
+export const getUserPosts = (username) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${username}`)
 
   if (response.ok) {
     const posts = await response.json();

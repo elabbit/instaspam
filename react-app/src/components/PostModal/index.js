@@ -2,19 +2,22 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import PostDetails from './PostDetails';
+import './PostModal.css'
 
-function PostModal() {
+function PostModal({post}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+    <div>
+      <button className="post-modal-bttn" onClick={() => setShowModal(true)}>
+        <img className="post-modal-bttn-img"src={post.image}/>
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <PostDetails />
+          <PostDetails post={post} />
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 

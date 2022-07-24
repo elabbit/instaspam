@@ -7,11 +7,11 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
-import UserPosts from './components/UserPosts';
 import ExplorePage from './components/ExplorePage';
 import CreatePost from './components/CreatePost';
 import UserEditForm from './components/UserEditForm';
-
+import UserFeed from './components/UserFeed'
+import Splash from './components/Splash.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,6 +32,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/splash' exact={true}>
+          <Splash />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -51,7 +54,7 @@ function App() {
           <UserPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <UserPosts />
+          <UserFeed />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
