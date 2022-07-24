@@ -12,7 +12,7 @@ def seed_all():
     user4 = User(
         username="nc_beststate", name="Abel", email="abel@nc.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user4-abel-nc-profile-pic.png", bio="The best views from the best state", password="password")
     user5 = User(
-        username="lucky_doge", name="Lucky", email="Luckry@gmail.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png", bio="I am Lucky the doggo", password="password")
+        username="lucky_doge", name="Lucky", email="luckry@gmail.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png", bio="I am Lucky the doggo", password="password")
     user6 = User(
         username='labbit', name='Eddie Lau', email='labbit@email.com', profileImage='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png', bio="Live. Lau. Love.", password='password')
 
