@@ -1,7 +1,7 @@
 from .db import db
 from sqlalchemy.sql import func
 from sqlalchemy import DateTime
-
+from .user import User
 
 class Comment(db.Model):
     __tablename__ = 'comments'
@@ -22,5 +22,6 @@ class Comment(db.Model):
             'userId': self.userId,
             'postId': self.postId,
             'comment': self.comment,
-            'createdAt': self.createdAt
+            'createdAt': self.createdAt,
+            'username': User.query.get(self.userId).username
         }
