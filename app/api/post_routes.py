@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from ..models import db, Post, User
+from ..models import db, Post, User, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -20,12 +20,20 @@ def get_posts_by_userId(username):
 @post_routes.route('/feed/<int:userId>')
 @login_required
 def get_following_posts(userId):
-    user_posts = Post.query.filter(Post.ownerId==userId).all()
+    # user_posts = Post.query.filter(Post.ownerId==userId).all()
+
+    followers_posts = Post.query.join(
+        follows, (follows.c.followingId == Post.ownerId)).all()
+        # .filter(
+        #     follows.c.userId == userId).order_by(
+        #         Post.createdAt
+        #     ).all()
 
 
+    print('------------------------------------------',followers_posts, "----------------------------------------------")
 
 
-    posts = [ post.to_dict() for post in user_posts ]
+    posts = [ post.to_dict() for post in followers_posts ]
     return {'user_posts': posts}
 
 @post_routes.route('/explore/<int:userId>')

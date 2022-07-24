@@ -365,7 +365,7 @@ def seed_all():
     )
     post53=Post(
             ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image53-snowboard.png',
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image53-snowboarding.png',
             caption="You can't buy happiness, but you can buy a lift pass.",
             post_likes=[user3, user5]
     )
