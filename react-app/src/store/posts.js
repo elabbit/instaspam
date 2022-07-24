@@ -185,11 +185,9 @@ const postsReducer = (state = {}, action) => {
       return newState5
 
     case DELETE_COMMENT:
-      const newState4 = {... state}
-      console.log('NEWSTATE!!!!!!!!!!!!!!!!!!!',newState4)
-      console.log('ACTION!!!!!!!!!!', newState4[action.postId].comments[action.commentId])
-      delete newState4[action.postId].comments[action.commentId]
-      return newState4
+      const newState6 = {... state}
+      delete newState6[action.postId].comments[action.commentId]
+      return newState6
 
     default:
       return state;
