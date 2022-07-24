@@ -269,59 +269,58 @@ def seed_all():
     post37 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image37-climb.png',
-        caption='I live my life a quarter mile at a time.',
+        caption='Mega classic. This climb is actually quite challenging if you suffer from reach deficiency.',
         post_likes=[user3, user4, user5]
     )
     post38 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image38-climb.png',
-        caption='The mountains are calling and I must go'
+        caption='Desert sunsets and dope rocks'
         ,
         post_likes=[demo, user3, user4, user5]
     )
     post39 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image39-climb.png',
-        caption='A cloudy day is no match for a sunny disposition.',
+        caption='Chill vibes all weekend kickin it at Tuolumne',
         post_likes=[user3, user4]
     )
     post40 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image40-climb.png',
-        caption='Going to the mountains is like going home.',
+        caption='The mountains are calling and I mustache to go',
         post_likes=[demo, user3, user4, user5]
     )
     post41 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image41-climb.png',
-        caption='New York is a sucked orange.',
+        caption='One day I will send',
         post_likes=[user4]
     )
     post42 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image42-climb.png',
-        caption="Life is a beach, I'm just playing in the sand.",
+        caption="Keep expanding the mind",
         post_likes=[user3, user4, user5]
     )
     post43 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image43-climb.png',
-        caption='Too soon junior.',
+        caption='I am groot',
         post_likes=[demo, user5]
     )
     post44 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image44-climb.png',
-        caption="You can't buy happiness, but you can buy a lift pass.",
+        caption="Life in the magical forest of Squamish",
         post_likes=[user3]
     )
     post45 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image45-climb.png',
-        caption='The best climber in the world is the one having the most fun!',
+        caption='Growing out the beard for no shave November',
         post_likes=[demo, user4, user5]
     )
-
     post46=Post(
             ownerId=1,
             image='https://instaspambucket.s3.us-west-1.amazonaws.com/image46-car.png',

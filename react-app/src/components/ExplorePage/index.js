@@ -6,10 +6,8 @@ import "./ExplorePage.css"
 
 
 
-const ExplorePage = () => {
+const ExplorePage = ({sessionUser}) => {
   const dispatch = useDispatch();
-  // Will replace this useSelector for session user with props in App component
-  const sessionUser = useSelector(state => state.session.user);
   const posts = useSelector(state => state.posts);
 
   const postList = Object.values(posts);
