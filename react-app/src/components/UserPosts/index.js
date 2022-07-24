@@ -7,17 +7,13 @@ import PostModal from "../PostModal";
 
 const UserPosts = ({posts}) => {
   const dispatch = useDispatch();
-
-  // const sessionUser = useSelector(state => state.session.user);
-
-  // useEffect(() => {
-  //   dispatch(getUserPosts(sessionUser))
-  // }, [dispatch, sessionUser])
+  const postList = Object.values(posts);
+  postList.sort((a,b)=>b.id-a.id)
 
   return (
     posts ?
       <div className="posts-user-container">
-        {Object.values(posts).map((post)=> (
+        {postList.map((post)=> (
           <div key={post.id}>
             <PostModal post={post} />
           </div>

@@ -16,7 +16,7 @@ function PostDetails({ post }) {
     const deletedPost = await dispatch(deletePost(post.id))
   }
 
-  const deleteSpecificComment = async(commentId) => {
+  const deleteSpecificComment = async (commentId) => {
     const postId = post.id
     await dispatch(removeComment(commentId, postId))
   }
@@ -33,33 +33,33 @@ function PostDetails({ post }) {
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
-
             {!showEditComment && (
-             <Link to={`${comment.username}`}>{comment.username}</Link>
-            <span>{comment.comment}</span>
-
-            {(comment.userId === sessionUser?.id) && (
               <>
-            <button onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
-            <button onClick={() => setShowEditComment(true)}>Edit</button>
+                <Link to={`${comment.username}`}>{comment.username}</Link>
+                <span>{comment.comment}</span>
+
+                {(comment.userId === sessionUser?.id) && (
+                  <>
+                    <button onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
+                    <button onClick={() => setShowEditComment(true)}>Edit</button>
+                  </>
+                )}
               </>
             )}
-
-            )}
             <>
-            {showEditComment && (
-              <EditComment
-              post={post}
-              currentComment={comment}
-              hideForm={() => setShowEditComment(false)}/>
-            )}
+              {showEditComment && (
+                <EditComment
+                  post={post}
+                  currentComment={comment}
+                  hideForm={() => setShowEditComment(false)} />
+              )}
             </>
 
           </div>
         ))}
         <div>
           <div>{post.likes} likes</div>
-          <CreateComment postId={post.id}/>
+          <CreateComment postId={post.id} />
         </div>
         {post.ownerId === sessionUser.id &&
           <div>
