@@ -80,5 +80,6 @@ class User(db.Model, UserMixin):
         return {
             'name': self.name,
             'username': self.username,
-            'profileImage': self.profileImage
+            'profileImage': self.profileImage,
+            'id': self.id
         }

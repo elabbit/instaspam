@@ -2,27 +2,20 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { follow, unfollow } from "../../store/user";
 
-const FollowButton = ({ sessionUser, postUserData }) => {
+const FollowButton = ({ sessionFollowing, matchUsername, matchId }) => {
     const dispatch = useDispatch();
-    const [isFollowing, setIsFollowing] = useState(false);
-    console.log(postUserData.followers.map(user => console.log(user)))
-    console.log(postUserData)
-    console.log(sessionUser)
-
-
+    const [isFollowing, setIsFollowing] = useState();
 
     useEffect(() => {
-        if (postUserData.followers.find(user => user.username[sessionUser.username] === sessionUser.username)) {
+        if (sessionFollowing.find(user => user.username === matchUsername)){
             setIsFollowing(true)
         }
-    }, [])
-
-
+    }, [sessionFollowing])
 
     const onFollow = async (e) => {
         e.preventDefault();
 
-        const following = await dispatch(follow(postUserData.id))
+        const following = await dispatch(follow(matchId))
 
         if (following) {
             setIsFollowing(true)
@@ -33,7 +26,7 @@ const FollowButton = ({ sessionUser, postUserData }) => {
     const onunFollow = async (e) => {
         e.preventDefault();
 
-        const unfollowing = await dispatch(unfollow(postUserData.id))
+        const unfollowing = await dispatch(unfollow(matchId))
 
         if (unfollowing) {
             setIsFollowing(false)

@@ -11,7 +11,9 @@ import FollowButton from "../FollowButton";
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
-  const postUserData = useSelector(state=> state.user[post.ownerUsername])
+  const sessionFollowing = sessionUser.following
+  console.log(post)
+
 
 
   const onDelete = async () => {
@@ -29,7 +31,7 @@ function PostDetails({ post }) {
           <span>{post.caption}</span>
         </div>
         <div>
-          <FollowButton sessionUser={sessionUser} postUserData={postUserData}/>
+          <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId}/>
         </div>
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>

@@ -10,7 +10,7 @@ follow_routes = Blueprint('follows', __name__)
 def follow_user(userId):
     user = User.query.get(userId)
     current_user.follow(user)
-    db.session.commit
+    db.session.commit()
     return user.to_dict_user_page()
 
 
@@ -19,5 +19,6 @@ def follow_user(userId):
 def unfollow_user(userId):
     user= User.query.get(userId)
     current_user.unfollow(user)
-    db.session.commit
+    print('USER!!!!!!!!!!!!!',user)
+    db.session.commit()
     return user.to_dict_user_page()
