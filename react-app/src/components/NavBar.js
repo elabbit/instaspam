@@ -13,6 +13,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/about' exact={true} activeClassName='active'>
+            About
+          </NavLink>
+        </li>
+        <li>
           <NavLink to='/posts/new' exact={true} activeClassName='active'>
             Create a Post
           </NavLink>
