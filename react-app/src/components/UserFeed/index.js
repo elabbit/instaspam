@@ -40,7 +40,7 @@ const UserFeed = ({ sessionUser }) => {
         {posts ?
           <div>
             {completeSortedPosts.map((post) => (
-              <div key={post.id}>
+              <div key={post?.id}>
                 <PostContainer post={post} sessionUser={sessionUser} />
               </div>
             ))}
