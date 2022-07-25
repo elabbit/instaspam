@@ -20,7 +20,7 @@ const UserFeed = ({ sessionUser }) => {
       <div className="page-container">
         {posts ?
           <div>
-            {Object.values(posts).map((post) => (
+            {Object.values(posts).reverse().map((post) => (
               <div key={post.id}>
                 <PostContainer post={post} sessionUser={sessionUser} />
               </div>
