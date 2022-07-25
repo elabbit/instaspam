@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 
 
@@ -11,14 +11,14 @@ function Splash({ sessionUser }) {
   const password = 'password';
 
   const demoLogin = async (e) => {
-    const loggedIn = await dispatch(login(email, password))
+    await dispatch(login(email, password))
   }
 
   useEffect(() => {
     if (sessionUser) {
       history.push('/')
     }
-  }, [sessionUser])
+  }, [sessionUser, history])
 
 
   return (

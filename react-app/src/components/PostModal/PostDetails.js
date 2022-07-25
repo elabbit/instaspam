@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
 import LikeToggle from "../LikeToggle";
+import LikesModal from "../LikesModal";
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
@@ -13,13 +14,13 @@ function PostDetails({ post }) {
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
-    const deletedPost = await dispatch(deletePost(post.id))
+    await dispatch(deletePost(post.id))
   }
 
   return (
     <div className="post-mod-container">
       <div className="post-mod-left">
-        <img className="post-mod-image" src={post.image} />
+        <img className="post-mod-image" src={post.image} alt="" />
       </div>
       <div className="post-mod-right">
         {!showEditPost ?
@@ -43,14 +44,14 @@ function PostDetails({ post }) {
         }
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
-            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id}/>
+            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
           </div>
         ))}
         <div>
           <div>
-          <LikeToggle post={post} sessionUsername={sessionUser.username}/>
+            <LikeToggle post={post} sessionUsername={sessionUser.username} />
           </div>
-          <div>{post.likes.length} likes</div>
+          <LikesModal likes={post.likes} />
           <CreateComment postId={post.id} />
         </div>
       </div>

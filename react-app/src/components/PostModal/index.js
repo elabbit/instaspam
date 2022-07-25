@@ -10,7 +10,7 @@ function PostModal({post}) {
   return (
     <div>
       <button className="post-modal-bttn" onClick={() => setShowModal(true)}>
-        <img className="post-modal-bttn-img"src={post.image}/>
+        <img className="post-modal-bttn-img"src={post.image} alt=""/>
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

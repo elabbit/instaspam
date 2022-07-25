@@ -10,19 +10,16 @@ const UserFeed = ({sessionUser}) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
 
-
-
-
   useEffect(() => {
     dispatch(getUserFeedPosts(sessionUser))
-  }, [dispatch])
+  }, [dispatch, sessionUser])
 
   return (
     posts?
       <div>
         {Object.values(posts).map((post)=> (
           <div key={post.id}>
-            {/* <PostContainer post={post} sessionUser={sessionUser}/> */}
+            <PostContainer post={post} sessionUser={sessionUser}/>
           </div>
         ))}
 
