@@ -30,7 +30,7 @@ const UserPage = ({sessionUser}) => {
             <div>
               <div>
                 <h2>{user.username}</h2>
-                {(sessionUser.id == user.id) &&
+                {(sessionUser.id === user.id) &&
                   (<Link to="/accounts/edit">Edit Profile</Link>)}
               </div>
               <div>

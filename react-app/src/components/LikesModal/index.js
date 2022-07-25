@@ -7,7 +7,7 @@ import "./LikesModal.css"
 
 function LikesModal({ likes }) {
     const [showModal, setShowModal] = useState(false);
-console.log(likes)
+
     return (
         <div>
             <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
@@ -17,8 +17,8 @@ console.log(likes)
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="likes-modal-container">
                         {likes.map((like) => (
-                            <div className="likes-user-container">
-                                <img className="likes-profile-image" src={like.profileImage}></img>
+                            <div className="likes-user-container" key={like.username}>
+                                <img className="likes-profile-image" src={like.profileImage} alt=""></img>
                                 <div>
                                     <Link to={`${like.username}`}>{like.username}</Link>
                                     <div>{like.name}</div>

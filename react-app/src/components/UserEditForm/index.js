@@ -8,7 +8,6 @@ import UserImageUpload from "../UserImageUpload";
 const UserEditForm = () => {
     const user = useSelector(state => state.session.user);
     const [errors, setErrors] = useState([]);
-    const [profileImage, setProfileImage] = useState('')
     const [username, setUsername] = useState(user.username);
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);

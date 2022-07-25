@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addPost } from '../../store/posts'
 
 const CreatePost = ({hideModal}) => {
@@ -7,8 +7,6 @@ const CreatePost = ({hideModal}) => {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [caption, setCaption] = useState('');
-
-    const sessionUser = useSelector(state => state.session.user);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

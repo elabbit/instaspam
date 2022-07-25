@@ -14,13 +14,13 @@ function PostDetails({ post }) {
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
-    const deletedPost = await dispatch(deletePost(post.id))
+    await dispatch(deletePost(post.id))
   }
 
   return (
     <div className="post-mod-container">
       <div className="post-mod-left">
-        <img className="post-mod-image" src={post.image} />
+        <img className="post-mod-image" src={post.image} alt="" />
       </div>
       <div className="post-mod-right">
         {!showEditPost ?
@@ -44,12 +44,12 @@ function PostDetails({ post }) {
         }
         {Object.values(post.comments).map((comment) => (
           <div key={comment.id}>
-            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id}/>
+            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
           </div>
         ))}
         <div>
           <div>
-          <LikeToggle post={post} sessionUsername={sessionUser.username}/>
+            <LikeToggle post={post} sessionUsername={sessionUser.username} />
           </div>
           <LikesModal likes={post.likes} />
           <CreateComment postId={post.id} />

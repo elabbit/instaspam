@@ -10,18 +10,18 @@ const LikeToggle = ({post, sessionUsername}) => {
     useEffect(()=>{
         if(post.likes.find((user)=> user.username === sessionUsername))
             setLike(true)
-    }, [])
+    }, [post.likes, sessionUsername])
 
 const onLike = async (e) => {
     e.preventDefault();
     setLike((true))
-    const data = await dispatch(createLike(post.id))
+    await dispatch(createLike(post.id))
 }
 
 const onUnlike = async (e) => {
     e.preventDefault();
     setLike(false)
-    const data = await dispatch(createUnlike(post.id))
+    await dispatch(createUnlike(post.id))
 }
 
     return(
