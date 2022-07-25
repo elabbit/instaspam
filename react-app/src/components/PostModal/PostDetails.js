@@ -13,10 +13,6 @@ function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
   const sessionFollowing = sessionUser.following
-
-
-
-=======
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
