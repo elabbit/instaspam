@@ -24,14 +24,18 @@ def get_following_posts(userId):
     # user_posts = Post.query.filter(Post.ownerId==userId).all()
 
     followers_posts = Post.query.join(
-        follows, (follows.c.followingId == Post.ownerId)).all()
+        follows, (follows.c.followingId == Post.ownerId)).filter(
+            follows.c.userId == userId
+        ).order_by(
+            Post.createdAt.asc()).all()
         # .filter(
         #     follows.c.userId == userId).order_by(
         #         Post.createdAt
         #     ).all()
 
+    spam_posts = Post.query.filter_by(ownerId==2).all()
 
-    print('------------------------------------------',followers_posts, "----------------------------------------------")
+    print('------------------------------------------',spam_posts, "----------------------------------------------")
 
 
     posts = [ post.to_dict() for post in followers_posts ]
