@@ -15,6 +15,36 @@ export const getUser = (username) => async (dispatch) => {
 
   }
 
+export const follow = (userId) => async(dispatch) => {
+  const response = await fetch(`/api/follows/${userId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+    if(response.ok) {
+      const user = await response.json();
+      dispatch(getUserAction(user))
+      return user
+    }
+}
+
+export const unfollow = (userId) => async(dispatch) => {
+  const response = await fetch(`/api/follows/unfollow/${userId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+    if(response.ok) {
+      const user = await response.json();
+      dispatch(getUserAction(user))
+      return user
+    }
+}
+
 
   export default function reducer(state = {}, action) {
     switch (action.type) {

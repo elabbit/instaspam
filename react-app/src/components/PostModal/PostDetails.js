@@ -12,7 +12,6 @@ function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
   const postUserData = useSelector(state=> state.user[post.ownerUsername])
-  console.log(post)
 
 
   const onDelete = async () => {

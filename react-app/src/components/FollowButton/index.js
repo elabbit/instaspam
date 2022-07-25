@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { follow, unfollow } from "../../store/user";
 
 const FollowButton = ({ sessionUser, postUserData }) => {
     const dispatch = useDispatch();
@@ -10,32 +11,44 @@ const FollowButton = ({ sessionUser, postUserData }) => {
 
 
 
-    useEffect(()=>{
-        if(postUserData.followers.find(user => user.username[sessionUser.username] === sessionUser.username)){
+    useEffect(() => {
+        if (postUserData.followers.find(user => user.username[sessionUser.username] === sessionUser.username)) {
             setIsFollowing(true)
-        } else {setIsFollowing(false)}
-    },[])
+        }
+    }, [])
 
 
 
-    const onSubmit = async (e) => {
+    const onFollow = async (e) => {
         e.preventDefault();
 
-        // const commentData = new FormData()
-        // commentData.append('postId', postId)
-        // commentData.append('commentBody', comment)
+        const following = await dispatch(follow(postUserData.id))
 
-        // await dispatch(updateComment(commentData, commentId))
+        if (following) {
+            setIsFollowing(true)
+        }
+    }
 
+
+    const onunFollow = async (e) => {
+        e.preventDefault();
+
+        const unfollowing = await dispatch(unfollow(postUserData.id))
+
+        if (unfollowing) {
+            setIsFollowing(false)
+        }
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            {!isFollowing ?
-            <button type="submit" onClick={()=> setIsFollowing(true)}>Follow</button>
-                : <button type="submit" onClick={()=> setIsFollowing(false)}>unFollow</button> }
-
-        </form>
+        !isFollowing ?
+            <form onSubmit={onFollow}>
+                <button>Follow</button>
+            </form>
+            :
+            <form onSubmit={onunFollow}>
+                <button>Unfollow</button>
+            </form>
     )
 }
 
