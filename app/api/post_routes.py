@@ -28,16 +28,7 @@ def get_following_posts(userId):
             Post.id.desc()).all()
 
     spam_posts = Post.query.filter_by(ownerId=2).order_by(Post.id.desc()).all()
-
-    combined_posts_length = followers_posts + spam_posts
-    combined_posts = []
-    for index in range(combined_posts_length):
-        if (index % 3 == 0):
-            combined_posts.append(followers_posts[index])
-        else:
-            combined_posts.append(spam_posts[index])
-    # print('------------------------------------------',followers_posts, "----------------------------------------------")
-
+    combined_posts= followers_posts + spam_posts
 
     posts = [ post.to_dict() for post in combined_posts ]
     return {'user_posts': posts}
