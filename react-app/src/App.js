@@ -11,6 +11,7 @@ import UserPosts from './components/UserPosts';
 import ExplorePage from './components/ExplorePage';
 import CreatePost from './components/CreatePost';
 import UserEditForm from './components/UserEditForm';
+import About from './components/About'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
