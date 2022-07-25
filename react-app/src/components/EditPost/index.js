@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editPost } from '../../store/posts'
 
-const EditPost = ({ post }) => {
+const EditPost = ({ post, setShowEditPost }) => {
     const dispatch = useDispatch();
-    const [caption, setCaption] = useState('');
+    const [caption, setCaption] = useState(post.caption);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +17,7 @@ const EditPost = ({ post }) => {
 
         if (editedPost) {
             // Implement Modal hideform() when submit and uploaded.
+            setShowEditPost(false)
         }
     }
 
@@ -27,7 +28,8 @@ const EditPost = ({ post }) => {
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Done</button>
+            <button onClick={() => setShowEditPost(false)}>Cancel</button>
         </form>
     )
 };

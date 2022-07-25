@@ -34,7 +34,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/splash' exact={true}>
-          <Splash />
+          <Splash sessionUser={sessionUser} />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -52,7 +52,7 @@ function App() {
           <UserEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
-          <UserPage sessionUser={sessionUser}/>
+          <UserPage sessionUser={sessionUser} />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <UserFeed sessionUser={sessionUser} />

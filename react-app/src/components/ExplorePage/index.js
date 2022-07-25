@@ -1,22 +1,21 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExplorePosts, clearPosts } from "../../store/posts";
 import PostModal from "../PostModal";
 import "./ExplorePage.css"
 
-
-
-const ExplorePage = ({sessionUser}) => {
+const ExplorePage = ({ sessionUser }) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
-
   const postList = Object.values(posts);
-  postList.sort(() => Math.random() - 0.5)
+
+  //shuffles when adding or removing comments/likes, need to use CSS to shuffle
+  // postList.sort(() => Math.random() - 0.5)
 
   useEffect(() => {
     dispatch(getExplorePosts(sessionUser))
     return dispatch(clearPosts())
-  }, [dispatch])
+  }, [dispatch, sessionUser])
 
   return (
     posts ?
