@@ -19,6 +19,5 @@ def follow_user(userId):
 def unfollow_user(userId):
     user= User.query.get(userId)
     current_user.unfollow(user)
-    print('USER!!!!!!!!!!!!!',user)
     db.session.commit()
     return user.to_dict_user_page()
