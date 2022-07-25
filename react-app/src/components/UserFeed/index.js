@@ -6,7 +6,7 @@ import PostContainer from "../PostContainer";
 
 
 
-const UserFeed = ({sessionUser}) => {
+const UserFeed = ({ sessionUser }) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
 
@@ -15,11 +15,11 @@ const UserFeed = ({sessionUser}) => {
   }, [dispatch, sessionUser])
 
   return (
-    posts?
+    posts ?
       <div>
-        {Object.values(posts).map((post)=> (
+        {Object.values(posts).reverse().map((post) => (
           <div key={post.id}>
-            <PostContainer post={post} sessionUser={sessionUser}/>
+            <PostContainer post={post} sessionUser={sessionUser} />
           </div>
         ))}
 

@@ -29,10 +29,12 @@ def get_following_posts(userId):
 
     spam_posts = Post.query.filter_by(ownerId=2).order_by(Post.id.desc()).all()
 
+    combined_posts = followers_posts + spam_posts
+
     print('------------------------------------------',followers_posts, "----------------------------------------------")
 
 
-    posts = [ post.to_dict() for post in spam_posts ]
+    posts = [ post.to_dict() for post in combined_posts ]
     return {'user_posts': posts}
 
 @post_routes.route('/explore/<int:userId>')
