@@ -1,0 +1,13 @@
+.likes-profile-image{
+height:44px;
+width:44px;
+border-radius: 50%;
+}
+
+.likes-user-container{
+    display: flex;;
+}
+
+.likes-modal-container *{
+    padding:5px;
+}

@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import UserPage from './components/UserPage';
-import UserPosts from './components/UserPosts';
 import ExplorePage from './components/ExplorePage';
-import CreatePost from './components/CreatePost';
+import CreatePostModal from './components/CreatePostModal';
 import UserEditForm from './components/UserEditForm';
 import About from './components/About'
+import UserFeed from './components/UserFeed'
+import Splash from './components/Splash.js';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     (async () => {
@@ -32,6 +34,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/splash' exact={true}>
+          <Splash sessionUser={sessionUser} />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -42,19 +47,19 @@ function App() {
           <About />
         </Route>
         <ProtectedRoute path='/posts/new' exact={true}>
-          <CreatePost />
+          <CreatePostModal />
         </ProtectedRoute>
         <ProtectedRoute path='/explore' exact={true}>
-          <ExplorePage />
+          <ExplorePage sessionUser={sessionUser} />
         </ProtectedRoute>
         <ProtectedRoute path='/accounts/edit'>
           <UserEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
-          <UserPage />
+          <UserPage sessionUser={sessionUser} />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <UserPosts />
+          <UserFeed sessionUser={sessionUser} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

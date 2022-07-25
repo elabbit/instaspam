@@ -1,40 +1,34 @@
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getExplorePosts } from "../../store/posts";
+import { getExplorePosts, clearPosts } from "../../store/posts";
+import PostModal from "../PostModal";
+import "./ExplorePage.css"
 
-
-const ExplorePage = () => {
+const ExplorePage = ({ sessionUser }) => {
   const dispatch = useDispatch();
-  // Will replace this useSelector for session user with props in App component
-  const sessionUser = useSelector(state => state.session.user);
   const posts = useSelector(state => state.posts);
-  // console.log(sessionUser)
-  console.log(posts)
+  const postList = Object.values(posts);
+
+  //shuffles when adding or removing comments/likes, need to use CSS to shuffle
+  // postList.sort(() => Math.random() - 0.5)
 
   useEffect(() => {
     dispatch(getExplorePosts(sessionUser))
-  }, [dispatch])
+    return dispatch(clearPosts())
+  }, [dispatch, sessionUser])
 
   return (
-    <div>
-      {Object.values(posts).map((post, index) => {
-        if (index % 3 == 0) {
-          return (
-            <div>
-              <img src={post?.image} />
-            </div>
-          )
-        } else {
-          return (
-            <div>
-              <img src={post?.image} />
-            </div>
-          )
-        }
-      })}
-    </div>
-  );
-
+    posts ?
+      <div className="posts-explore-container">
+        {postList.map((post) => (
+          <div key={post.id}>
+            <PostModal post={post} />
+          </div>
+        ))}
+      </div>
+      :
+      <h3>Loading...</h3>
+  )
 }
 
 export default ExplorePage;

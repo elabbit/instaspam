@@ -12,7 +12,7 @@ def seed_all():
     user4 = User(
         username="nc_beststate", name="Abel", email="abel@nc.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user4-abel-nc-profile-pic.png", bio="The best views from the best state", password="password")
     user5 = User(
-        username="lucky_doge", name="Lucky", email="Luckry@gmail.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png", bio="I am Lucky the doggo", password="password")
+        username="lucky_doge", name="Lucky", email="luckry@gmail.com", profileImage="https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png", bio="I am Lucky the doggo", password="password")
     user6 = User(
         username='labbit', name='Eddie Lau', email='labbit@email.com', profileImage='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png', bio="Live. Lau. Love.", password='password')
 
@@ -269,57 +269,111 @@ def seed_all():
     post37 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image37-climb.png',
-        caption='I live my life a quarter mile at a time.',
+        caption='Mega classic. This climb is actually quite challenging if you suffer from reach deficiency.',
         post_likes=[user3, user4, user5]
     )
     post38 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image38-climb.png',
-        caption='The mountains are calling and I must go'
+        caption='Desert sunsets and dope rocks'
         ,
         post_likes=[demo, user3, user4, user5]
     )
     post39 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image39-climb.png',
-        caption='A cloudy day is no match for a sunny disposition.',
+        caption='Chill vibes all weekend kickin it at Tuolumne',
         post_likes=[user3, user4]
     )
     post40 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image40-climb.png',
-        caption='Going to the mountains is like going home.',
+        caption='The mountains are calling and I mustache to go',
         post_likes=[demo, user3, user4, user5]
     )
     post41 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image41-climb.png',
-        caption='New York is a sucked orange.',
+        caption='One day I will send',
         post_likes=[user4]
     )
     post42 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image42-climb.png',
-        caption="Life is a beach, I'm just playing in the sand.",
+        caption="Keep expanding the mind",
         post_likes=[user3, user4, user5]
     )
     post43 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image43-climb.png',
-        caption='Too soon junior.',
+        caption='I am groot',
         post_likes=[demo, user5]
     )
     post44 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image44-climb.png',
-        caption="You can't buy happiness, but you can buy a lift pass.",
+        caption="Life in the magical forest of Squamish",
         post_likes=[user3]
     )
     post45 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image45-climb.png',
-        caption='The best climber in the world is the one having the most fun!',
+        caption='Growing out the beard for no shave November',
         post_likes=[demo, user4, user5]
+    )
+    post46=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image46-car.png',
+            caption='I live my life a quarter mile at a time.',
+            post_likes=[user3, user4, user5, user6]
+    )
+    post47=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image47-forest.png',
+            caption='The mountains are calling and I must go',
+            post_likes=[demo, user3, user4]
+    )
+    post48=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image48-city.png',
+            caption='A cloudy day is no match for a sunny disposition.',
+            post_likes=[demo, user5, user6]
+    )
+    post49=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image49-mountains.png',
+            caption='Going to the mountains is like going home.',
+            post_likes=[demo, user3, user4, user5, user6]
+    )
+    post50=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image50-new-york-sunset.png',
+            caption='New York is a sucked orange.',
+            post_likes=[user3, user4, user5, user6]
+    )
+    post51=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image51-tropical-beach.png',
+            caption="Life is a beach, I'm just playing in the sand.",
+            post_likes=[demo, user4, user5, user6]
+    )
+    post52=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image52-cool-car.png',
+            caption='Too soon junior.',
+            post_likes=[user3, user4, user5, user6]
+    )
+    post53=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image53-snowboarding.png',
+            caption="You can't buy happiness, but you can buy a lift pass.",
+            post_likes=[user3, user5]
+    )
+    post54=Post(
+            ownerId=1,
+            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image54-climbing-cliff.png',
+            caption='The best climber in the world is the one having the most fun!',
+            post_likes=[user4, user5, user6]
     )
 
     post46=Post(

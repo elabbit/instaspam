@@ -69,7 +69,7 @@ def seed_comments():
     comment14 = Comment(
         userId=5,
         postId=17,
-        comment='F1 racing is so underrated in the states.',
+        comment='DRIVE TO SURVIVE!!!',
     )
     comment15 = Comment(
         userId=6,
@@ -154,77 +154,77 @@ def seed_comments():
     comment31 = Comment(
         userId=3,
         postId=28,
-        comment='Lorem ipsum dolor sit amet'
+        comment='YOUR DOG IS ADORABLE!!!LOVE IT!!!'
     )
     comment32 = Comment(
         userId=4,
         postId=28,
-        comment='consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        comment='I WANNA PET IT SO BAD!!!'
     )
     comment33 = Comment(
         userId=1,
         postId=28,
-        comment='Ut enim ad minim veniam, quis nostrud exercitation'
+        comment='SOO FLUFFYYYYYY!!!!!'
     )
     comment34 = Comment(
         userId=1,
         postId=28,
-        comment='ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        comment='THAT DOG IS SO CUTE!!!'
     )
     comment35 = Comment(
         userId=6,
         postId=30,
-        comment='Duis aute irure dolor in reprehenderit in voluptate'
+        comment='SOOOOO CUTE!!!!!'
     )
     comment36 = Comment(
         userId=4,
         postId=30,
-        comment='Excepteur sint occaecat cupidatat non proident'
+        comment='I LOVE YOUR DOGS!!!!'
     )
     comment37 = Comment(
         userId=2,
         postId=31,
-        comment='sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        comment='Wowwww what a pose!!!'
     )
     comment38 = Comment(
         userId=2,
         postId=32,
-        comment='Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.'
+        comment='Tired doggo needs nap time!!!'
     )
     comment39 = Comment(
         userId=3,
         postId=33,
-        comment='Dolor magna eget est lorem ipsum dolor. Volutpat est velit egestas dui id ornare arcu.'
+        comment='AWWWWW!!!! TOO CUTE!!!!'
     )
     comment40 = Comment(
         userId=2,
         postId=33,
-        comment='Viverra nam libero justo laoreet sit amet cursus.'
+        comment='I WANT TO PET!!!!!!'
     )
     comment41 = Comment(
         userId=1,
         postId=34,
-        comment='Erat nam at lectus urna duis. Non odio euismod lacinia at quis risus.'
+        comment='DO NOT BE SAD LITTLE DOGGY!'
     )
     comment42 = Comment(
         userId=4,
         postId=34,
-        comment='Tincidunt lobortis feugiat vivamus at augue eget arcu.'
+        comment='AWWW I LITERALLY CANNOT RN.'
     )
     comment43 = Comment(
         userId=4,
         postId=35,
-        comment='Consectetur adipiscing elit ut aliquam.'
+        comment='Wow is that a model???'
     )
     comment44 = Comment(
         userId=2,
         postId=35,
-        comment='Lacinia quis vel eros donec. Id faucibus nisl tincidunt eget nullam non nisi est sit.'
+        comment='So majestic!!!'
     )
     comment45 = Comment(
         userId=6,
         postId=35,
-        comment='Tortor id aliquet lectus proin nibh nisl condimentum. Quis risus sed vulputate odio ut enim blandit volutpat.'
+        comment='THE NEXT BIG THING IS HERE!!!!!'
     )
 
     comment46 = Comment(
@@ -258,50 +258,126 @@ def seed_comments():
         comment="I think I'm crying. It's that excellent.",
     )
     comment52 = Comment(
-            userId=5,
-            postId=40,
-            comment='Looks simple and radiant, friend.',
+        userId=5,
+        postId=40,
+        comment='Looks simple and radiant, friend.',
     )
     comment53 = Comment(
-            userId=4,
-            postId=41,
-            comment='Highly classic shot =D',
+        userId=4,
+        postId=41,
+        comment='Highly classic shot =D',
     )
     comment54 = Comment(
-            userId=5,
-            postId=42,
-            comment='YEW!',
+        userId=5,
+        postId=42,
+        comment='YEW!',
     )
     comment55 = Comment(
-            userId=3,
-            postId=42,
-            comment='Amazing shot mate',
+        userId=3,
+        postId=42,
+        comment='Amazing shot mate',
     )
     comment56 = Comment(
-            userId=4,
-            postId=43,
-            comment='Looks excellent and alluring :-D',
+        userId=4,
+        postId=43,
+        comment='Looks excellent and alluring :-D',
     )
     comment57 = Comment(
-            userId=5,
-            postId=43,
-            comment='Amazing. So splendid.',
+        userId=5,
+        postId=43,
+        comment='Amazing. So splendid.',
     )
     comment58 = Comment(
-            userId=5,
-            postId=44,
-            comment="Mission accomplished. It's excellent m8",
+        userId=5,
+        postId=44,
+        comment="Mission accomplished. It's excellent m8",
     )
     comment59 = Comment(
-            userId=4,
-            postId=45,
-            comment='Congrats on the new adventure!!',
+        userId=4,
+        postId=45,
+        comment='Congrats on the new adventure!!',
     )
     comment60 = Comment(
-            userId=3,
-            postId=45,
-            comment='Such strong.',
+        userId=3,
+        postId=45,
+        comment='Such strong.',
     )
+
+    comment61 = Comment(
+        userId=3,
+        postId=46,
+        comment='Sick car bro',
+    )
+    comment62 = Comment(
+        userId=3,
+        postId=46,
+        comment='Bro where can I get one??',
+        )
+    comment63 = Comment(
+        userId=5,
+        postId=47,
+        comment="Can't beat Mother Nature bro",
+        )
+    comment64 = Comment(
+        userId=3,
+        postId=48,
+        comment='Where is that at???',
+        )
+    comment65 = Comment(
+        userId=4,
+        postId=49,
+        comment="Where's my invite???",
+        )
+    comment66 = Comment(
+        userId=3,
+        postId=50,
+        comment="This shot blew my mind.",
+        )
+    comment67 = Comment(
+        userId=5,
+        postId=50,
+        comment='NYC is the best for sure!',
+        )
+    comment68 = Comment(
+        userId=5,
+        postId=51,
+        comment='Missing those beaches right now...',
+        )
+    comment69 = Comment(
+        userId=3,
+        postId=51,
+        comment='Summer days are the best',
+        )
+    comment70 = Comment(
+        userId=3,
+        postId=52,
+        comment='Drive to survive',
+        )
+    comment71 = Comment(
+        userId=2,
+        postId=52,
+        comment='Awesome car man!',
+        )
+    comment72 = Comment(
+        userId=4,
+        postId=53,
+        comment="Shred some ice bro!!!",
+        )
+    comment73 = Comment(
+        userId=3,
+        postId=53,
+        comment="That snow must be feeling NICEEE!!!!",
+        )
+    comment74 = Comment(
+        userId=2,
+        postId=54,
+        comment="That's bold and sick!!",
+        )
+    comment75 = Comment(
+        userId=4,
+        postId=54,
+        comment="Wow that takes some real courage, insane shot bro.",
+        )
 
     db.session.add(comment1)
     db.session.add(comment2)
@@ -363,6 +439,21 @@ def seed_comments():
     db.session.add(comment58)
     db.session.add(comment59)
     db.session.add(comment60)
+    db.session.add(comment61)
+    db.session.add(comment62)
+    db.session.add(comment63)
+    db.session.add(comment64)
+    db.session.add(comment65)
+    db.session.add(comment66)
+    db.session.add(comment67)
+    db.session.add(comment68)
+    db.session.add(comment69)
+    db.session.add(comment70)
+    db.session.add(comment71)
+    db.session.add(comment72)
+    db.session.add(comment73)
+    db.session.add(comment74)
+    db.session.add(comment75)
 
     db.session.commit()
 

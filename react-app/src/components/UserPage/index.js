@@ -1,33 +1,54 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux'
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from '../../store/user';
+import UserPosts from '../UserPosts';
+import { getUserPosts, clearPosts } from "../../store/posts";
+import "./UserPage.css"
+
+const UserPage = ({sessionUser}) => {
+  const { username } = useParams();
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user[username])
+  const posts = useSelector(state => state.posts)
+  const numberPosts = Object.keys(posts).length
 
 
+  useEffect(() => {
+    dispatch(getUser(username))
+    dispatch(getUserPosts(username))
+    return dispatch(clearPosts())
+  }, [dispatch, username])
 
-const UserPage = () => {
-
-    const { username }  = useParams();
-    const dispatch = useDispatch();
-    const user = useSelector(state => state.user[username])
-
-    useEffect(() => {
-        dispatch(getUser(username))
-      },[dispatch])
-
-
-      return(
-        user ?
+  return (
+      (user && sessionUser) ?
         <div>
-          <img src={user.profileImage} alt=''/>
-          <h1>{user.username}</h1>
-          <p>{user.bio}</p>
-          <p>Followers: {(user.followers).length}</p>
-          <p>Following: {(user.following).length}</p>
-
+          <div className="profile-info-container">
+            <div>
+              <img className="profile-image" src={user.profileImage} alt='' />
+            </div>
+            <div>
+              <div>
+                <h2>{user.username}</h2>
+                {(sessionUser.id === user.id) &&
+                  (<Link to="/accounts/edit">Edit Profile</Link>)}
+              </div>
+              <div>
+                <div>Posts: {numberPosts}</div>
+                <div>Followers: {(user.followers).length}</div>
+                <div>Following: {(user.following).length}</div>
+              </div>
+              <div>
+                <div>{user.name}</div>
+                <div>{user.bio}</div>
+              </div>
+            </div>
+          </div>
+          <UserPosts posts={posts} />
         </div>
-        : <h3>Loading....</h3>
-      )
+        : <h3>Loading...</h3>
+
+  )
 }
 
 export default UserPage;
