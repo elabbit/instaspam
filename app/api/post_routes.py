@@ -21,20 +21,16 @@ def get_posts_by_userId(username):
 @post_routes.route('/feed/<int:userId>')
 @login_required
 def get_following_posts(userId):
-    # user_posts = Post.query.filter(Post.ownerId==userId).all()
-
     followers_posts = Post.query.join(
-        follows, (follows.c.followingId == Post.ownerId)).all()
-        # .filter(
-        #     follows.c.userId == userId).order_by(
-        #         Post.createdAt
-        #     ).all()
+        follows, (follows.c.followingId == Post.ownerId)).filter(
+            follows.c.userId == userId
+        ).order_by(
+            Post.id.desc()).all()
 
+    spam_posts = Post.query.filter_by(ownerId=2).order_by(Post.id.desc()).all()
+    combined_posts= followers_posts + spam_posts
 
-    print('------------------------------------------',followers_posts, "----------------------------------------------")
-
-
-    posts = [ post.to_dict() for post in followers_posts ]
+    posts = [ post.to_dict() for post in combined_posts ]
     return {'user_posts': posts}
 
 @post_routes.route('/explore/<int:userId>')
