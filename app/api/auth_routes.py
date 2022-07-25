@@ -28,7 +28,7 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        return current_user.to_dict_user_page()
     return {'errors': ['Unauthorized']}
 
 
@@ -45,7 +45,7 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        return user.to_dict()
+        return user.to_dict_user_page()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -76,7 +76,7 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return user.to_dict()
+        return user.to_dict_user_page()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -107,7 +107,7 @@ def edit_user(id):
         editedUser.bio=form.data['bio']
         db.session.commit()
 
-        return editedUser.to_dict()
+        return editedUser.to_dict_user_page()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @auth_routes.route('/profileimage/<int:id>', methods=['POST'])

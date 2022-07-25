@@ -5,12 +5,14 @@ import CreateComment from "../CreateComment";
 import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
+import FollowButton from "../FollowButton";
 import LikeToggle from "../LikeToggle";
 import LikesModal from "../LikesModal";
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
+  const sessionFollowing = sessionUser.following
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
@@ -26,6 +28,9 @@ function PostDetails({ post }) {
         {!showEditPost ?
           <div>
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+            <div>
+              <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId}/>
+            </div>
             <span>{post.caption}</span>
             {post.ownerId === sessionUser.id ?
               <div>
