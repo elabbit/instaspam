@@ -37,7 +37,7 @@ const UserFeed = ({ sessionUser }) => {
     <div className="page-outer">
       <div className="page-spacer"></div>
       <div className="page-container">
-        {posts ?
+        {completeSortedPosts ?
           <div>
             {completeSortedPosts.map((post) => (
               <div key={post.id}>
