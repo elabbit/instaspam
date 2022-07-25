@@ -1,10 +1,18 @@
+.about-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .jade {
     display: flex;
     flex-direction: column;
-    height: 800px;
-    width: 472px;
+    height: 600px;
+    width: 372px;
     border: 1px solid rgb(219, 219, 219);
     border-radius: 8px;
+    margin: 25px;
 }
 
 .about-user {
@@ -39,7 +47,7 @@
 }
 
 .about-image-container {
-    width: 472px;
+    width: 372px;
 }
 
 .about-image {

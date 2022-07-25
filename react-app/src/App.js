@@ -12,7 +12,11 @@ import CreatePostModal from './components/CreatePostModal';
 import UserEditForm from './components/UserEditForm';
 import About from './components/About'
 import UserFeed from './components/UserFeed'
-import Splash from './components/Splash.js';
+import Splash from './components/Splash.js'
+
+
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);

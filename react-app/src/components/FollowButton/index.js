@@ -10,27 +10,22 @@ const FollowButton = ({ sessionFollowing, matchUsername, matchId }) => {
         if (sessionFollowing.find(user => user.username === matchUsername)){
             setIsFollowing(true)
         }
-    }, [sessionFollowing])
+
+        console.log('CHECK!!!!!!!!!')
+        console.log('FIND!!!!!!!!!!!!', sessionFollowing.find(user => user.username === matchUsername))
+    }, [sessionFollowing, matchUsername])
 
     const onFollow = async (e) => {
         e.preventDefault();
-
-        const following = await dispatch(follow(matchId))
-
-        if (following) {
-            setIsFollowing(true)
-        }
+        setIsFollowing(true)
+        await dispatch(follow(matchId))
     }
 
 
     const onunFollow = async (e) => {
         e.preventDefault();
-
-        const unfollowing = await dispatch(unfollow(matchId))
-
-        if (unfollowing) {
-            setIsFollowing(false)
-        }
+        setIsFollowing(false)
+        await dispatch(unfollow(matchId))
     }
 
     return (
