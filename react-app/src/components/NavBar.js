@@ -10,37 +10,39 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     sessionUser ?
-    <div className="navbar-outer">
-
-
-      <nav className="navbar-container">
-        <div>
-          <div className="nav-left">
-            <NavLink to='/' exact={true} activeClassName='active'>
-              Home
-            </NavLink>
-          </div>
-        </div>
-        <div className="nav-right">
-
+      <div className="navbar-outer">
+        <nav className="navbar-container">
           <div>
-            <CreatePostModal />
+            <div className="nav-left">
+              <NavLink to='/' exact={true} activeClassName='active'>
+                Home
+              </NavLink>
+            </div>
           </div>
-          <div>
-            <NavLink to='/explore' exact={true} activeClassName='active'>
-              Explore
-            </NavLink>
+          <div className="nav-right">
+            <div>
+              <NavLink to='/about' exact={true} activeClassName='active'>
+                About
+              </NavLink>
+            </div>
+            <div>
+              <CreatePostModal />
+            </div>
+            <div>
+              <NavLink to='/explore' exact={true} activeClassName='active'>
+                Explore
+              </NavLink>
+            </div>
+            <div>
+              <NavLink to={`${sessionUser.username}`} exact={true} activeClassName='active'>
+                Profile
+              </NavLink>
+            </div>
+            <div>
+              <LogoutButton />
+            </div>
           </div>
-          <div>
-            <NavLink to={`${sessionUser.username}`} exact={true} activeClassName='active'>
-              Profile
-            </NavLink>
-          </div>
-          <div>
-            <LogoutButton />
-          </div>
-        </div>
-      </nav>
+        </nav>
       </div>
       :
       null

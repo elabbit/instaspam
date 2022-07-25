@@ -10,6 +10,7 @@ import UserPage from './components/UserPage';
 import ExplorePage from './components/ExplorePage';
 import CreatePostModal from './components/CreatePostModal';
 import UserEditForm from './components/UserEditForm';
+import About from './components/About'
 import UserFeed from './components/UserFeed'
 import Splash from './components/Splash.js'
 
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/about' exact={true}>
+          <About />
         </Route>
         <ProtectedRoute path='/posts/new' exact={true}>
           <CreatePostModal />
