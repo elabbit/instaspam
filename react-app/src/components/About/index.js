@@ -30,7 +30,7 @@ const About = () => {
                         <div className='about-user'>
                             <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png' className='about-profile-image' />
                             <div className='about-header'>
-                                <div className='about-name'>jonathankim</div>
+                                <div className='about-name'>abeltesfa</div>
                                 <div className='about-subtext'>Kim.Jonathan426@gmail.com</div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ const About = () => {
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
-                                <span className='about-name'>jonathankim&nbsp;</span>
+                                <span className='about-name'>davidchung&nbsp;</span>
                                 <span className='about-subtext'>Insert description and links here in this "caption"</span>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const About = () => {
                         <div className='about-user'>
                             <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png' className='about-profile-image' />
                             <div className='about-header'>
-                                <div className='about-name'>jonathankim</div>
+                                <div className='about-name'>eddielau</div>
                                 <div className='about-subtext'>Kim.Jonathan426@gmail.com</div>
                             </div>
                         </div>
@@ -57,8 +57,14 @@ const About = () => {
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
-                                <span className='about-name'>jonathankim&nbsp;</span>
-                                <span className='about-subtext'>Insert description and links here in this "caption"</span>
+                                <span className='about-name'>
+                                    jonathankim&nbsp;
+                                    <span className='about-subtext'>
+                                        Description of anything you want to write about yourself
+                                        <div>Github: <a href="https://github.com/elabbit"> <i className="fa-brands fa-github"></i></a></div>
+                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/edwin-lau-312a11241/"> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>

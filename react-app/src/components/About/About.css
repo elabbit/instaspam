@@ -46,6 +46,10 @@
     font-weight: 600;
 }
 
+.about-subtext {
+    font-weight: normal;
+}
+
 .about-image-container {
     width: 372px;
 }
