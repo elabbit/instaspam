@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
 import LikeToggle from "../LikeToggle";
+import LikesModal from "../LikesModal";
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
@@ -50,7 +51,7 @@ function PostDetails({ post }) {
           <div>
           <LikeToggle post={post} sessionUsername={sessionUser.username}/>
           </div>
-          <div>{post.likes.length} likes</div>
+          <LikesModal likes={post.likes} />
           <CreateComment postId={post.id} />
         </div>
       </div>
