@@ -6,7 +6,7 @@ import UserPosts from '../UserPosts';
 import { getUserPosts, clearPosts } from "../../store/posts";
 import "./UserPage.css"
 
-const UserPage = ({sessionUser}) => {
+const UserPage = ({ sessionUser }) => {
   const { username } = useParams();
   const dispatch = useDispatch();
   const user = useSelector(state => state.user[username])
@@ -21,8 +21,10 @@ const UserPage = ({sessionUser}) => {
   }, [dispatch, username])
 
   return (
-      (user && sessionUser) ?
-        <div>
+    <div className="page-outer">
+      <div className="page-spacer"></div>
+      <div className="page-container">
+        {(user && sessionUser) ?
           <div className="profile-info-container">
             <div>
               <img className="profile-image" src={user.profileImage} alt='' />
@@ -43,11 +45,11 @@ const UserPage = ({sessionUser}) => {
                 <div>{user.bio}</div>
               </div>
             </div>
+            <UserPosts posts={posts} />
           </div>
-          <UserPosts posts={posts} />
-        </div>
-        : <h3>Loading...</h3>
-
+          : <h3>Loading...</h3>}
+      </div>
+    </div>
   )
 }
 

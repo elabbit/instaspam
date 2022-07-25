@@ -4,36 +4,46 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import CreatePostModal from './CreatePostModal';
+import "./NavBar.css"
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     sessionUser ?
-    <nav>
+    <div className="navbar-outer">
+
+
+      <nav className="navbar-container">
         <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
+          <div className="nav-left">
+            <NavLink to='/' exact={true} activeClassName='active'>
+              Home
+            </NavLink>
+          </div>
         </div>
-        <div>
-          <CreatePostModal />
+        <div className="nav-right">
+
+          <div>
+            <CreatePostModal />
+          </div>
+          <div>
+            <NavLink to='/explore' exact={true} activeClassName='active'>
+              Explore
+            </NavLink>
+          </div>
+          <div>
+            <NavLink to={`${sessionUser.username}`} exact={true} activeClassName='active'>
+              Profile
+            </NavLink>
+          </div>
+          <div>
+            <LogoutButton />
+          </div>
         </div>
-        <div>
-          <NavLink to='/explore' exact={true} activeClassName='active'>
-            Explore
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to={`${sessionUser.username}`} exact={true} activeClassName='active'>
-            Profile
-          </NavLink>
-        </div>
-        <div>
-          <LogoutButton />
-        </div>
-    </nav>
-    :
-    null
+      </nav>
+      </div>
+      :
+      null
   );
 }
 
