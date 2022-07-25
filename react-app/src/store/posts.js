@@ -79,16 +79,20 @@ export const getUserFeedPosts = (user) => async (dispatch) => {
   }
 }
 
-export const addPost = (formData) => async (dispatch) => {
+export const addPost = (image, caption) => async (dispatch) => {
   const response = await fetch('/api/posts/new', {
     method: 'POST',
-    body: formData
+    header: {'Content-Type': 'application/json'},
+    body: image, caption
   })
+
+  console.log('------------addPost thunk action-----------', image, caption)
 
   if (response.ok) {
     const post = await response.json();
+    console.log('---------------post--------------', post)
     dispatch(actionAddPost(post))
-    return post
+    return 'success'
   }
 
 }

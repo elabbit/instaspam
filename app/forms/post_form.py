@@ -7,6 +7,8 @@ def file_checker(form, field):
     image = field.data
     print('---------image---------', image)
 
+
 class PostForm(FlaskForm):
-    image = FileField('Image', validators=[DataRequired(), file_checker])
+    image = FileField('image', validators=[DataRequired(), file_checker])
+    caption = StringField('caption')
     submit = SubmitField('Submit')

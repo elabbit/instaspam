@@ -7,23 +7,21 @@ const CreatePost = ({hideModal}) => {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [caption, setCaption] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('image', image)
-        formData.append('caption', caption)
 
         setImageLoading(true);
 
-        const createdPost = await dispatch(addPost(formData))
+        const data = await dispatch(addPost(image, caption));
 
-        if (createdPost) {
-            setImageLoading(false)
-            hideModal()
+        if (data === 'success') {
+            setImageLoading(false);
+            hideModal();
         } else {
-            setImageLoading(false)
-            console.log("error")
+            setImageLoading(false);
+            setErrors(data);
         }
 
     }
