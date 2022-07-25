@@ -5,7 +5,7 @@ from ..models import db, Post, User, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
-from app.forms.postedit_form import PostEditForm
+from app.forms.editpost_form import EditPostForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -78,7 +78,7 @@ def edit_post(postId):
     # edited_post = Post.query.get(request.form.get('postId'))
     # edited_post.caption = request.form.get('caption')
 
-    form = PostEditForm()
+    form = EditPostForm()
     edited_post = Post.query.get(postId)
 
     form['csrf_token'].data = request.cookies['csrf_token']

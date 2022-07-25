@@ -120,10 +120,16 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 }
 
-export const createComments = (commentData) => async (dispatch) => {
+export const createComments = (postId, commentBody) => async (dispatch) => {
   const response = await fetch('/api/comments/new', {
     method: 'POST',
-    body: commentData
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      postId,
+      commentBody
+    })
   })
 
   if (response.ok) {
@@ -145,10 +151,16 @@ export const removeComment = (commentId, postId) => async dispatch => {
   }
 }
 
-export const updateComment = (commentData, commentId) => async dispatch => {
+export const updateComment = (postId, commentId, commentBody) => async dispatch => {
   const response = await fetch(`/api/comments/${commentId}`, {
     method: 'PUT',
-    body: commentData
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      postId,
+      commentBody
+    })
   });
 
   if (response.ok) {
