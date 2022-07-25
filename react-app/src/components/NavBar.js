@@ -15,11 +15,11 @@ const NavBar = () => {
             Home
           </NavLink>
         </div>
-        <li>
+        <div>
           <NavLink to='/about' exact={true} activeClassName='active'>
             About
           </NavLink>
-        </li>
+        </div>
         <div>
           <CreatePostModal />
         </div>
