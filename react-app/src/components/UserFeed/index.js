@@ -15,17 +15,22 @@ const UserFeed = ({ sessionUser }) => {
   }, [dispatch, sessionUser])
 
   return (
-    posts ?
-      <div>
-        {Object.values(posts).reverse().map((post) => (
-          <div key={post.id}>
-            <PostContainer post={post} sessionUser={sessionUser} />
-          </div>
-        ))}
+    <div className="page-outer">
+      <div className="page-spacer"></div>
+      <div className="page-container">
+        {posts ?
+          <div>
+            {Object.values(posts).map((post) => (
+              <div key={post.id}>
+                <PostContainer post={post} sessionUser={sessionUser} />
+              </div>
+            ))}
 
+          </div>
+          :
+          <h3>Loading...</h3>}
       </div>
-      :
-      <h3>Loading...</h3>
+    </div>
   )
 }
 

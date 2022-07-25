@@ -1,6 +1,8 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const ADD_FOLLOW = 'session/ADD_FOLLOW'
+const REMOVE_FOLLOW = 'session/REMOVE_FOLLOW'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -9,6 +11,16 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+})
+
+export const addFollow = (user) => ({
+  type: ADD_FOLLOW,
+  user
+})
+
+export const removeFollow = (user) => ({
+  type: REMOVE_FOLLOW,
+  user
 })
 
 
@@ -134,6 +146,15 @@ export default function reducer(state = initialState, action) {
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case ADD_FOLLOW:
+      const newState1 = {...state}
+      newState1.user.following.push(action.user)
+      return newState1
+    case REMOVE_FOLLOW:
+      const newState = {...state}
+      const userIndex= newState.user.following.findIndex(user => user.id === action.user.id)
+      newState.user.following.splice(userIndex, 1)
+      return newState
     default:
       return state;
   }
