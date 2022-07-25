@@ -21,7 +21,7 @@ const UserPage = ({sessionUser}) => {
   }, [dispatch, username])
 
   return (
-      (user && posts && numberPosts && sessionUser) ?
+      (user && sessionUser) ?
         <div>
           <div className="profile-info-container">
             <div>
