@@ -86,9 +86,14 @@ export const addPost = (formData) => async (dispatch) => {
   })
 
   if (response.ok) {
+    console.log('------- I did get an ok, response-------', response)
     const post = await response.json();
     dispatch(actionAddPost(post))
     return post
+  }
+  else {
+    const error = await response.json();
+    return error
   }
 
 }

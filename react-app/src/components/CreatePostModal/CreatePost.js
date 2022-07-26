@@ -7,6 +7,7 @@ const CreatePost = ({hideModal}) => {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [caption, setCaption] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,12 +19,19 @@ const CreatePost = ({hideModal}) => {
 
         const createdPost = await dispatch(addPost(formData))
 
-        if (createdPost) {
+        console.log('createdPost-------', createdPost)
+
+        if (createdPost && createdPost.errors === undefined) {
             setImageLoading(false)
             hideModal()
-        } else {
+        }
+        else if (createdPost.errors) {
+            setErrors(createdPost.errors)
             setImageLoading(false)
-            console.log("error")
+        }
+        else {
+            setImageLoading(false)
+            setErrors("Unknown error, please refresh and try again")
         }
 
     }
@@ -35,6 +43,9 @@ const CreatePost = ({hideModal}) => {
 
     return (
         <form onSubmit={handleSubmit} >
+            {errors.length > 0 && (
+                <div>{errors}</div>
+                )}
             <input
                 type="file"
                 accept="image/*"
