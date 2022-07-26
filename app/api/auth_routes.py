@@ -118,12 +118,12 @@ def upload_image(id):
         validate_csrf(request.cookies['csrf_token'])
 
         if "image" not in request.files:
-            return {"errors": "image required"}, 400
+            return {"errors": "Image Required."}, 400
 
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": "file type not permitted"}, 400
+            return {"errors": "Invalid filetype, jpg, jpeg, gif, png, pdf only."}, 400
 
         image.filename = get_unique_filename(image.filename)
 
@@ -142,6 +142,6 @@ def upload_image(id):
         editedUser.profileImage=url
         db.session.commit()
 
-        return {"url": url}
+        return editedUser.to_dict_user_page()
     except:
         return {'errors': 'Invalid csrf token'}, 400

@@ -28,6 +28,9 @@ const UserEditForm = () => {
 
 
     return (
+        <div className="page-outer">
+        <div className="page-spacer"></div>
+        <div className="page-container">
         <div>
             <UserImageUpload id={id}/>
             <form onSubmit={onSubmit}>
@@ -83,7 +86,8 @@ const UserEditForm = () => {
             </form>
 
         </div>
-
+</div>
+</div>
 
 
 

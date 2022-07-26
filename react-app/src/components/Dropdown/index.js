@@ -13,7 +13,7 @@ const Dropdown = ({ sessionUser }) => {
     return (
         <div className={dropdown ? "nav-list clicked" : "nav-list"} onClick={() => setDropdown(!dropdown)}>
 
-            <Link onClick={() => setDropdown(false)} to={sessionUser.username}>
+            <Link onClick={() => setDropdown(false)} to={`/${sessionUser.username}`}>
                 <div className="nav-list-link">
                     <Profile className="icon"/>
                     <span className="nav-list-text">Profile</span>
