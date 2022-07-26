@@ -10,6 +10,9 @@
                          "big2 big2 reg10"
                          "reg11 reg12 reg13"
                          "reg14 reg15 reg16";
+
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 #index1 {
@@ -74,6 +77,19 @@
 
 #index16 {
     grid-area: reg16;
+}
+
+#index17 > div > button,
+#index18 > div > button {
+    width: 626px;
+    height: 634px;
+}
+
+#index17 > div > button > img,
+#index18 > div > button > img {
+    margin: 10px;
+    width: 609px;
+    height: 611px;
 }
 
 #index17 {

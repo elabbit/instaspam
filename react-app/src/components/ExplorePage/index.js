@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExplorePosts, clearPosts } from "../../store/posts";
 import PostModal from "../PostModal";
@@ -9,7 +9,7 @@ const ExplorePage = ({ sessionUser }) => {
   const posts = useSelector(state => state.posts);
   const postList = Object.values(posts);
 
-  const newPost = postList.findIndex(post => post.ownerId == sessionUser.id)
+  const newPost = postList.findIndex(post => post.ownerId === sessionUser.id)
 
   if (newPost >= 0) {
     postList.splice(newPost, 1)
