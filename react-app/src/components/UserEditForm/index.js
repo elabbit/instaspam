@@ -26,6 +26,12 @@ const UserEditForm = () => {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        history.push(`/${user.username}`)
+
+    }
+
 
     return (
         <div className="page-outer">
@@ -83,6 +89,7 @@ const UserEditForm = () => {
                     ></textarea>
                 </div>
                 <button type='submit'>Edit Profile</button>
+                <button type='button' onClick={handleCancel}>Cancel</button>
             </form>
 
         </div>
