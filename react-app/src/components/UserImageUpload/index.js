@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import './UserImageUpload.css'
 
 
-const UserImageUpload = ({id}) => {
+const UserImageUpload = ({ id }) => {
     const history = useHistory(); // so that we can redirect after the image upload is successful
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [errors, setErrors] = useState([]);
 
 
     const handleSubmit = async (e) => {
@@ -21,16 +23,19 @@ const UserImageUpload = ({id}) => {
             method: "POST",
             body: formData,
         });
-        if (res.ok) {
-            await res.json();
+
+        const imageUpload = await res.json();
+
+        if (imageUpload && imageUpload.errors === undefined) {
             setImageLoading(false);
             history.push("/images");
         }
-        else {
+        else if (imageUpload.errors) {
+            setErrors(imageUpload.errors)
             setImageLoading(false);
-            // a real app would probably use more advanced
-            // error handling
-            console.log("error");
+        }
+        else {
+            setErrors('Unknown error, please refresh and try again.')
         }
     }
 
@@ -40,15 +45,18 @@ const UserImageUpload = ({id}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-            <button type="submit">Upload</button>
-            {(imageLoading)&& <p>Uploading...</p>}
-        </form>
+            <form onSubmit={handleSubmit}>
+                {errors.length > 0 && (
+                    <div>{errors}</div>
+                )}
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                />
+                <button type="submit">Upload</button>
+                {(imageLoading) && <p>Uploading...</p>}
+            </form>
     )
 }
 
