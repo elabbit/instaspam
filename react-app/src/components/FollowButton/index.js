@@ -2,18 +2,16 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { follow, unfollow } from "../../store/user";
 
-const FollowButton = ({ sessionFollowing, matchUsername, matchId }) => {
+const FollowButton = ({ sessionUser, matchUsername, matchId }) => {
     const dispatch = useDispatch();
     const [isFollowing, setIsFollowing] = useState();
 
     useEffect(() => {
-        if (sessionFollowing.find(user => user.username === matchUsername)){
+        if (sessionUser.following.find(user => user.username === matchUsername)){
             setIsFollowing(true)
         }
 
-        console.log('CHECK!!!!!!!!!')
-        console.log('FIND!!!!!!!!!!!!', sessionFollowing.find(user => user.username === matchUsername))
-    }, [sessionFollowing, matchUsername])
+    }, [sessionUser.following, matchUsername])
 
     const onFollow = async (e) => {
         e.preventDefault();

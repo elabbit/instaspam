@@ -2,10 +2,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
+import FollowButton from '../FollowButton';
 import "./LikesModal.css"
 
 
-function LikesModal({ likes }) {
+function LikesModal({ likes, sessionUser}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -15,14 +16,17 @@ function LikesModal({ likes }) {
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <div className="likes-modal-container">
+                    <div className="list-modal-container">
+                        <div className="list-title">Likes</div>
                         {likes.map((like) => (
-                            <div className="likes-user-container" key={like.username}>
-                                <img className="likes-profile-image" src={like.profileImage} alt=""></img>
+                            <div className="list-user-container" key={like.username}>
+                                <img className="list-profile-image" src={like.profileImage} alt=""></img>
                                 <div>
                                     <Link to={`${like.username}`}>{like.username}</Link>
-                                    <div>{like.name}</div>
+                                    <div className="list-fullname">{like.name}</div>
                                 </div>
+                                <FollowButton sessionUser={sessionUser} matchUsername={like.username} matchId={like.id}
+                                />
                             </div>
                         ))}
                     </div>

@@ -1,13 +1,30 @@
-.likes-profile-image{
+.list-title{
+    font-size:16px;
+    font-weight:300;
+
+}
+
+.list-profile-image{
 height:44px;
 width:44px;
 border-radius: 50%;
 }
 
-.likes-user-container{
+.list-user-container{
     display: flex;;
+    max-width:400px;
+    padding:8px;
+    padding-left:16px;
+    padding-right:16px;
 }
 
-.likes-modal-container *{
-    padding:5px;
+
+
+.list-modal-container{
+    background-color:white;
+    border-radius:10px;
+}
+
+.list-fullname{
+    color: #8E8E8E
 }

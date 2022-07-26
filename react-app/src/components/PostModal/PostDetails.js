@@ -12,7 +12,6 @@ import LikesModal from "../LikesModal";
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
-  const sessionFollowing = sessionUser.following
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
@@ -29,7 +28,7 @@ function PostDetails({ post }) {
           <div>
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
             <div>
-              <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId}/>
+              <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId}/>
             </div>
             <span>{post.caption}</span>
             {post.ownerId === sessionUser.id ?
@@ -56,7 +55,7 @@ function PostDetails({ post }) {
           <div>
             <LikeToggle post={post} sessionUsername={sessionUser.username} />
           </div>
-          <LikesModal likes={post.likes} />
+          <LikesModal likes={post.likes} sessionUser={sessionUser}/>
           <CreateComment postId={post.id} />
         </div>
       </div>
