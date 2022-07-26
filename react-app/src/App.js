@@ -15,9 +15,6 @@ import UserFeed from './components/UserFeed'
 import Splash from './components/Splash.js'
 
 
-
-
-
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -47,9 +44,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <Route path='/about' exact={true}>
+        <ProtectedRoute path='/about' exact={true}>
           <About />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/posts/new' exact={true}>
           <CreatePostModal />
         </ProtectedRoute>
