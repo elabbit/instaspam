@@ -1,13 +1,86 @@
-.create-post-bttn{
-    border:transparent;
-    background-color:white;
-    width:24px;
-    height:24px;
-    margin-right:24px;
+.create-post-bttn {
+    border: transparent;
+    background-color: white;
+    width: 24px;
+    height: 24px;
+    margin-right: 24px;
     cursor: pointer;
 
 }
 
-.create-logo{
-    margin-left:-6px;
+.create-logo {
+    margin-left: -6px;
+}
+
+.create-post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.create-post-header-text {
+    font-size: 16px;
+}
+
+.create-post-fields {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.create-post-profile-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.create-post-profile-username {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+
+textarea.create-post-form-caption {
+    border: none;
+    outline: none;
+}
+
+.create-post-image-upload-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.create-post-profile-pic-username {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.create-post-form-container {
+    border-radius: 10px;
+    background-color: white;
+    height: 300px !important;
+    width: 600px !important;
+}
+
+button.create-post-share-button {
+    background: none;
+    border: none;
+    color: #18b1f2;
+    font-weight: 700;
+}
+
+input[type=file]::file-selector-button {
+    color: white;
+    background-color: #18b1f2;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    /* visibility: hidden;
+    display: none; */
 }
