@@ -9,11 +9,12 @@ const EditPost = ({ post, setShowEditPost }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const postData = new FormData();
-        postData.append('postId', post.id)
-        postData.append('caption', caption)
+        // const postData = new FormData();
+        // postData.append('postId', post.id)
+        // postData.append('caption', caption)
 
-        const editedPost = await dispatch(editPost(postData))
+        const postId = post.id
+        const editedPost = await dispatch(editPost(postId, caption))
 
         if (editedPost) {
             // Implement Modal hideform() when submit and uploaded.

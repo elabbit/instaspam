@@ -41,9 +41,9 @@ export const clearPosts = () => ({
 
 const deleteComment = (commentId, postId) => {
   return {
-      type: DELETE_COMMENT,
-      commentId,
-      postId
+    type: DELETE_COMMENT,
+    commentId,
+    postId
   }
 }
 
@@ -93,10 +93,15 @@ export const addPost = (formData) => async (dispatch) => {
 
 }
 
-export const editPost = (postData) => async (dispatch) => {
-  const response = await fetch('/api/posts/edit', {
+export const editPost = (postId, caption) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${postId}/edit`, {
     method: 'PUT',
-    body: postData
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      caption
+    })
   })
 
   if (response.ok) {
@@ -115,10 +120,16 @@ export const deletePost = (postId) => async (dispatch) => {
   }
 }
 
-export const createComments = (commentData) => async (dispatch) => {
+export const createComments = (postId, commentBody) => async (dispatch) => {
   const response = await fetch('/api/comments/new', {
     method: 'POST',
-    body: commentData
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      postId,
+      commentBody
+    })
   })
 
   if (response.ok) {
@@ -130,56 +141,62 @@ export const createComments = (commentData) => async (dispatch) => {
 
 export const removeComment = (commentId, postId) => async dispatch => {
   const response = await fetch(`/api/comments/${commentId}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' }
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
   });
 
   if (response.ok) {
-      dispatch(deleteComment(commentId, postId));
-      return commentId;
+    dispatch(deleteComment(commentId, postId));
+    return commentId;
   }
 }
 
-export const updateComment = (commentData, commentId) => async dispatch => {
+export const updateComment = (postId, commentId, commentBody) => async dispatch => {
   const response = await fetch(`/api/comments/${commentId}`, {
-      method: 'PUT',
-      body: commentData
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      postId,
+      commentBody
+    })
   });
 
   if (response.ok) {
-      const comment = await response.json();
-      dispatch(addComment(comment));
-      return comment
+    const comment = await response.json();
+    dispatch(addComment(comment));
+    return comment
   }
 
 }
 
 export const createLike = (postId) => async dispatch => {
   const response = await fetch(`/api/posts/like/${postId}`, {
-  method:'PUT',
-  headers: {
-    'Content-Type': 'application/json'
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  if (response.ok) {
+    const post = await response.json();
+    dispatch(actionEditPost(post))
+    return 'success';
   }
-})
-if (response.ok) {
-  const post = await response.json();
-  dispatch(actionEditPost(post))
-  return 'success';
-}
 }
 
 export const createUnlike = (postId, submit) => async dispatch => {
   const response = await fetch(`/api/posts/unlike/${postId}`, {
-    method:'PUT',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     }
-})
-if (response.ok) {
-  const post = await response.json();
-  dispatch(actionEditPost(post))
-  return 'success';
-}
+  })
+  if (response.ok) {
+    const post = await response.json();
+    dispatch(actionEditPost(post))
+    return 'success';
+  }
 }
 
 
@@ -207,12 +224,12 @@ const postsReducer = (state = {}, action) => {
       return {};
 
     case EDIT_POST:
-      const newState3 = {...state }
+      const newState3 = { ...state }
       newState3[action.editedPost.id] = action.editedPost
       return newState3;
 
     case DELETE_POST:
-      const newState4 = {...state }
+      const newState4 = { ...state }
       delete newState4[action.postId]
       return newState4
 
@@ -222,7 +239,7 @@ const postsReducer = (state = {}, action) => {
       return newState5
 
     case DELETE_COMMENT:
-      const newState6 = {...state}
+      const newState6 = { ...state }
       delete newState6[action.postId].comments[action.commentId]
       return newState6
 
