@@ -8,7 +8,8 @@ import "./PostContainer.css"
 function PostContainer({ post, sessionUser }) {
 
     return (
-        <div className='post-conatiner'>
+        post ?
+        <div className='post-container'>
             <img className='post-image' src={post.image} alt="" />
             <div>
                 <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
@@ -27,6 +28,8 @@ function PostContainer({ post, sessionUser }) {
                  <CreateComment postId={post.id} />
              </div>
         </div>
+        :
+        null
     )
 }
 

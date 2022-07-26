@@ -43,8 +43,6 @@ def seed_all():
     user6.followed.append(user4)
     user6.followed.append(user5)
 
-
-
     post1 = Post(
         ownerId=2,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image1-spam-classic-12oz-420x420.png',
@@ -101,7 +99,6 @@ def seed_all():
     db.session.add(post8)
     db.session.add(post9)
     db.session.commit()
-
 
 
     post10 = Post(
@@ -376,64 +373,6 @@ def seed_all():
             post_likes=[user4, user5, user6]
     )
 
-    post46=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image46-car.png',
-            caption='I live my life a quarter mile at a time.',
-            post_likes=[user3, user4, user5, user6]
-    )
-    post47=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image47-forest.png',
-            caption='The mountains are calling and I must go',
-            post_likes=[demo, user3, user4]
-    )
-    post48=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image48-city.png',
-            caption='A cloudy day is no match for a sunny disposition.',
-            post_likes=[demo, user5, user6]
-    )
-    post49=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image49-mountains.png',
-            caption='Going to the mountains is like going home.',
-            post_likes=[demo, user3, user4, user5, user6]
-    )
-    post50=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image50-new-york-sunset.png',
-            caption='New York is a sucked orange.',
-            post_likes=[user3, user4, user5, user6]
-    )
-    post51=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image51-tropical-beach.png',
-            caption="Life is a beach, I'm just playing in the sand.",
-            post_likes=[demo, user4, user5, user6]
-    )
-    post52=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image52-cool-car.png',
-            caption='Too soon junior.',
-            post_likes=[user3, user4, user5, user6]
-    )
-    post53=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image53-snowboard.png',
-            caption="You can't buy happiness, but you can buy a lift pass.",
-            post_likes=[user3, user5]
-    )
-    post54=Post(
-            ownerId=1,
-            image='https://instaspambucket.s3.us-west-1.amazonaws.com/image54-climbing-cliff.png',
-            caption='The best climber in the world is the one having the most fun!',
-            post_likes=[user4, user5, user6]
-    )
-
-
-
-
     db.session.add(post10)
     db.session.add(post11)
     db.session.add(post12)
@@ -481,7 +420,6 @@ def seed_all():
     db.session.add(post54)
 
     db.session.commit()
-
 
 
 def undo_all():
