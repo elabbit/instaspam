@@ -57,21 +57,21 @@ const About = () => {
                         </div>
                     </div><div className='jade'>
                         <div className='about-user'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png' className='about-profile-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-profile-image' />
                             <div className='about-header'>
                                 <div className='about-name'>davidchung</div>
                                 <div className='about-subtext'>dvchung00@gmail.com</div>
                             </div>
                         </div>
                         <div className='about-image-container'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user5-LuckyProfile.png' className='about-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-image' />
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
                                 <span className='about-name'>
                                     davidchung&nbsp;
                                     <span className='about-subtext'>
-                                        Description of anything you want to write about yourself
+                                        I love to play basketball
                                         <div>Github: <a href="https://github.com/dchung007" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
                                         <div>LinkedIn: <a href="https://www.linkedin.com/in/david-chung-98a5651aa/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                     </span>

@@ -7,8 +7,8 @@ padding:0px;
 
 
 .post-modal-bttn-img {
-    height: 293px;
-    width: 293px;
+    height: auto;
+    max-width: 293px;
     margin:10px;
 }
 
