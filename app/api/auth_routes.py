@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, session, request
+from flask_wtf.csrf import validate_csrf
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
@@ -113,29 +114,34 @@ def edit_user(id):
 @auth_routes.route('/profileimage/<int:id>', methods=['POST'])
 @login_required
 def upload_image(id):
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
+    try:
+        validate_csrf(request.cookies['csrf_token'])
 
-    image = request.files["image"]
+        if "image" not in request.files:
+            return {"errors": "image required"}, 400
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        image = request.files["image"]
 
-    image.filename = get_unique_filename(image.filename)
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
 
-    upload = upload_file_to_s3(image)
+        image.filename = get_unique_filename(image.filename)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
+        upload = upload_file_to_s3(image)
 
-    url = upload["url"]
-    # flask_login allows us to get the current user from the request
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return upload, 400
 
-    editedUser = User.query.get(id)
-    editedUser.profileImage=url
-    db.session.commit()
+        url = upload["url"]
+        # flask_login allows us to get the current user from the request
 
-    return {"url": url}
+        editedUser = User.query.get(id)
+        editedUser.profileImage=url
+        db.session.commit()
+
+        return {"url": url}
+    except:
+        return {'errors': 'Invalid csrf token'}, 400
