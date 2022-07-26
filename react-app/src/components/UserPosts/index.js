@@ -1,6 +1,5 @@
-
-
 import PostModal from "../PostModal";
+import './UserPosts.css'
 
 const UserPosts = ({posts}) => {
   const postList = Object.values(posts);

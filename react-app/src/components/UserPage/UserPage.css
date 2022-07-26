@@ -1,12 +1,111 @@
-.posts-user-container{
-    display:flex;
+.posts-user-container {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 950px;
 }
 
-.profile-image{
+.profile-image {
     height: 150px;
     width: 150px;
     border-radius: 50%;
+}
+
+.profile-image-container {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    width: 300px;
+    height: 150px;
+}
+
+.profile-details {
+    align-items: stretch;
+    width: 600px;
+}
+
+.profile-info-container {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    position: relative;
+    margin-top: 10px;
+}
+
+.user-posts-follow {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-posts-follow-section {
+    margin: 25px 30px 25px 0px
+}
+
+.profile-username-edit {
+    display: flex;
+    flex-direction: row;
+}
+
+h2.profile-page-username {
+    margin: 0px 20px 0px 0px;
+    font-size: 28px;
+    font-weight: 100;
+}
+
+
+
+.edit-profile-button {
+    margin-top: 5px;
+    border: rgb(199, 197, 197) 1px solid;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+a.edit-profile-link:hover {
+    text-decoration: none;
+}
+
+.page-margins {
+    flex-grow: 1;
+    margin: 0 auto 30px;
+    max-width: 935px;
+}
+
+.user-name-bio {
+    margin-bottom: 5px;
+}
+
+span.profile-post-follow-number {
+    font-weight: bold;
+}
+
+#user-profile-name-bio {
+    font-weight: bold;
+}
+
+.user-page-posts-container {
+    border-top: rgb(199, 197, 197) 1px solid;
+}
+
+.toggle-user-profile-posts {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0px 10px;
+}
+
+
+@media screen and (min-width:736px) {
+    .profile-image-container {
+        flex-basis: 0px;
+        flex-grow: 1;
+        margin-right: 30px;
+    }
+}
+
+@media screen and (min-width:736px) {
+    .profile-info-container {
+        margin-bottom: 45px;
+    }
+
 }

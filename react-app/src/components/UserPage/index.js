@@ -25,28 +25,36 @@ const UserPage = ({ sessionUser }) => {
       <div className="page-spacer"></div>
       <div className="page-container">
         {(user && sessionUser) ?
-          <div className="profile-info-container">
-            <div>
-              <img className="profile-image" src={user.profileImage} alt='' />
+          <div className='page-margins'>
+            <div className="profile-info-container">
+              <div className='profile-image-container'>
+                <img className="profile-image" src={user.profileImage} alt='' />
+              </div>
+              <div className="profile-details">
+                <div className='profile-username-edit'>
+                  <h2 className='profile-page-username'>{user.username}</h2>
+                  {(sessionUser.id === user.id) && (
+                    <div className='edit-profile-button'>
+                      <Link className='edit-profile-link' to="/accounts/edit">Edit Profile</Link>
+                    </div>)}
+                </div>
+                <div className='user-posts-follow'>
+                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{numberPosts}</span> posts</div>
+                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.followers).length} </span>followers</div>
+                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.following).length} </span> following</div>
+                </div>
+                <div>
+                  <div className='user-name-bio' id='user-profile-name-bio'>{user.name}</div>
+                  <div className='user-name-bio'>{user.bio}</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div>
-                <h2>{user.username}</h2>
-                {(sessionUser.id === user.id) &&
-                  (<Link to="/accounts/edit">Edit Profile</Link>)}
-              </div>
-              <div>
-                <div>Posts: {numberPosts}</div>
-                <div>Followers: {(user.followers).length}</div>
-                <div>Following: {(user.following).length}</div>
-              </div>
-              <div>
-                <div>{user.name}</div>
-                <div>{user.bio}</div>
-              </div>
+            <div className='user-page-posts-container'>
+              <div className='toggle-user-profile-posts'>POSTS</div>
+              <UserPosts posts={posts} />
             </div>
-            <UserPosts posts={posts} />
           </div>
+
           : <h3>Loading...</h3>}
       </div>
     </div>
