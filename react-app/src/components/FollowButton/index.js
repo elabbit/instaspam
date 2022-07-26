@@ -7,11 +7,11 @@ const FollowButton = ({ sessionUser, matchUsername, matchId }) => {
     const [isFollowing, setIsFollowing] = useState();
 
     useEffect(() => {
-        if (sessionUser.following.find(user => user.username === matchUsername)){
+        if (sessionUser?.following.find(user => user.username === matchUsername)){
             setIsFollowing(true)
         }
 
-    }, [sessionUser.following, matchUsername])
+    }, [sessionUser?.following, matchUsername])
 
     const onFollow = async (e) => {
         e.preventDefault();

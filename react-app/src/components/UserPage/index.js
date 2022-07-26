@@ -5,6 +5,8 @@ import { getUser } from '../../store/user';
 import UserPosts from '../UserPosts';
 import { getUserPosts, clearPosts } from "../../store/posts";
 import "./UserPage.css"
+import Followers from '../FollowersModal';
+import Following from '../FollowingModal';
 
 const UserPage = ({ sessionUser }) => {
   const { username } = useParams();
@@ -40,8 +42,10 @@ const UserPage = ({ sessionUser }) => {
                 </div>
                 <div className='user-posts-follow'>
                   <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{numberPosts}</span> posts</div>
-                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.followers).length} </span>followers</div>
-                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.following).length} </span> following</div>
+                  <Followers sessionUser={sessionUser} followers={user.followers}/>
+                  {/* <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.followers).length} </span>followers</div> */}
+                  <Following seesionUser={sessionUser} following={user.following}/>
+                  {/* <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.following).length} </span> following</div> */}
                 </div>
                 <div>
                   <div className='user-name-bio' id='user-profile-name-bio'>{user.name}</div>

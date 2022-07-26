@@ -27,7 +27,7 @@ export const follow = (userId) => async(dispatch) => {
 
     if(response.ok) {
       const user = await response.json();
-      // dispatch(getUserAction(user))
+      dispatch(getUserAction(user))
       dispatch(addFollow(user))
       return user
     }
@@ -43,7 +43,7 @@ export const unfollow = (userId) => async(dispatch) => {
 
     if(response.ok) {
       const user = await response.json();
-      // dispatch(getUserAction(user))
+      dispatch(getUserAction(user))
       dispatch(removeFollow(user))
       return user
     }
