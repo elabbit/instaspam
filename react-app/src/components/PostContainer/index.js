@@ -3,6 +3,7 @@ import CommentDetails from "../CommentDetails";
 import CreateComment from "../CreateComment";
 import LikesModal from "../LikesModal";
 import LikeToggle from "../LikeToggle";
+import { ReactComponent as CommentBubble } from '../../images/comment-bubble.svg'
 import "./PostContainer.css"
 
 function PostContainer({ post, sessionUser }) {
@@ -17,22 +18,26 @@ function PostContainer({ post, sessionUser }) {
                 <div className='feed-image-container'>
                     <img className='feed-post-image' src={post.image} alt="" />
                 </div>
-                <div className='feed-post-actions'>
-                    <LikeToggle post={post} sessionUsername={sessionUser.username} />
-                    <span>Insert comment bubble icon</span>
-                </div>
-                <div>
-                    <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                    <span>&nbsp;{post.caption}</span>
-                </div>
-                {Object.values(post.comments).map((comment) => (
-                    <div key={comment.id}>
-                        <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser.id} />
+                <div className='feed-action-container'>
+                    <div className='feed-actions'>
+                        <LikeToggle post={post} sessionUsername={sessionUser.username} />
+                        <span className='feed-comment-bubble'><CommentBubble /></span>
                     </div>
-                ))}
-                <div>
-                    <LikesModal likes={post.likes} />
-                    <CreateComment postId={post.id} />
+                    <div>
+                        <LikesModal likes={post.likes} />
+                    </div>
+                    <div>
+                        <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+                        <span>&nbsp;{post.caption}</span>
+                    </div>
+                    {Object.values(post.comments).map((comment) => (
+                        <div key={comment.id}>
+                            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser.id} />
+                        </div>
+                    ))}
+                    <div>
+                        <CreateComment postId={post.id} />
+                    </div>
                 </div>
             </div>
             :
