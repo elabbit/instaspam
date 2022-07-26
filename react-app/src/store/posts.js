@@ -1,4 +1,3 @@
-
 const LOAD_POSTS = 'posts/LOAD_POSTS';
 const ADD_POST = 'posts/ADD_POST';
 const EDIT_POST = 'posts/EDIT_POST'
@@ -12,7 +11,6 @@ const actionLoadPosts = (posts) => ({
   type: LOAD_POSTS,
   posts
 });
-
 
 const actionAddPost = (post) => ({
   type: ADD_POST,
@@ -33,7 +31,6 @@ const addComment = (comment) => ({
   type: ADD_COMMENT,
   comment
 })
-
 
 export const clearPosts = () => ({
   type: CLEAR_POSTS
@@ -90,7 +87,10 @@ export const addPost = (formData) => async (dispatch) => {
     dispatch(actionAddPost(post))
     return post
   }
-
+  else {
+    const error = await response.json();
+    return error
+  }
 }
 
 export const editPost = (postId, caption) => async (dispatch) => {
@@ -168,7 +168,6 @@ export const updateComment = (postId, commentId, commentBody) => async dispatch 
     dispatch(addComment(comment));
     return comment
   }
-
 }
 
 export const createLike = (postId) => async dispatch => {
@@ -246,7 +245,6 @@ const postsReducer = (state = {}, action) => {
     default:
       return state;
   }
-
 }
 
 export default postsReducer;

@@ -1,6 +1,7 @@
 from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+from flask_wtf.csrf import validate_csrf
 from ..models import db, Post, User, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
@@ -44,32 +45,37 @@ def get_explore_posts(userId):
 @post_routes.route('/new', methods=['POST'])
 @login_required
 def add_new_post():
-    if "image" not in request.files:
-        return {"errors": "image required"}, 400
+    try:
+        validate_csrf(request.cookies['csrf_token'])
 
-    image = request.files["image"]
+        if "image" not in request.files:
+            return {"errors": "image required"}, 400
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+        image = request.files["image"]
 
-    image.filename = get_unique_filename(image.filename)
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
 
-    upload = upload_file_to_s3(image)
+        image.filename = get_unique_filename(image.filename)
 
-    if "url" not in upload:
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
         # so we send back that error message
-        return upload, 400
+            return upload, 400
 
-    url = upload["url"]
+        url = upload["url"]
 
-    new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
+        new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
 
-    db.session.add(new_post)
-    db.session.commit()
+        db.session.add(new_post)
+        db.session.commit()
 
-    return new_post.to_dict()
+        return new_post.to_dict()
+    except:
+        return {'errors': 'Invalid csrf token'}, 400
 
 
 @post_routes.route('/<int:postId>/edit', methods=['PUT'])
