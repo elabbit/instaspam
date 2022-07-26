@@ -32,7 +32,7 @@ const UserPage = ({ sessionUser }) => {
               </div>
               <div className="profile-details">
                 <div className='profile-username-edit'>
-                  <h2 className='profile-page-username'>{user.username}</h2>
+                  <div className='profile-page-username'>{user.username}</div>
                   {(sessionUser.id === user.id) && (
                     <div className='edit-profile-button'>
                       <Link className='edit-profile-link' to="/accounts/edit">Edit Profile</Link>
