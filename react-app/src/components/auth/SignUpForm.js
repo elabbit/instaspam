@@ -59,6 +59,7 @@ const SignUpForm = () => {
           name='email'
           maxLength='255'
           onChange={updateEmail}
+          className='page-splash-content-input'
           value={email}
           placeholder='Email'
         ></input>
@@ -69,6 +70,7 @@ const SignUpForm = () => {
           name='name'
           maxLength='150'
           onChange={updateName}
+          className='page-splash-content-input'
           value={name}
           placeholder='Full Name'
         ></input>
@@ -79,6 +81,7 @@ const SignUpForm = () => {
           name='username'
           maxLength='40'
           onChange={updateUsername}
+          className='page-splash-content-input'
           value={username}
           placeholder='Username'
         ></input>
@@ -89,6 +92,7 @@ const SignUpForm = () => {
           name='password'
           maxLength='255'
           onChange={updatePassword}
+          className='page-splash-content-input'
           value={password}
           placeholder='Password'
         ></input>
@@ -99,12 +103,13 @@ const SignUpForm = () => {
           name='repeat_password'
           maxLength='255'
           onChange={updateRepeatPassword}
+          className='page-splash-content-input'
           value={repeatPassword}
           required={true}
           placeholder='Confirm Password'
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit' className='page-splash-login-btn'>Sign Up</button>
     </form>
   );
 };

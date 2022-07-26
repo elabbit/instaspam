@@ -38,25 +38,27 @@ const LoginForm = () => {
         ))}
       </div>
       <div>
-        <label htmlFor='email'>Email</label>
         <input
           name='email'
           type='text'
           placeholder='Email'
+          className='page-splash-content-input'
           value={email}
           onChange={updateEmail}
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
         <input
           name='password'
           type='password'
           placeholder='Password'
+          className='page-splash-content-input'
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <div>
+          <button className='page-splash-login-btn' type='submit'>Login</button>
+        </div>
       </div>
     </form>
   );
