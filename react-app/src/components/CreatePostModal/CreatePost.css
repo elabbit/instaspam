@@ -1,0 +1,13 @@
+.create-post-bttn{
+    border:transparent;
+    background-color:white;
+    width:24px;
+    height:24px;
+    margin-right:24px;
+    cursor: pointer;
+
+}
+
+.create-logo{
+    margin-left:-6px;
+}
