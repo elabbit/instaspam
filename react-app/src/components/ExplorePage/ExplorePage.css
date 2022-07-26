@@ -16,85 +16,90 @@
 }
 
 #index1 {
-    grid-area: reg1;
-}
-
-#index2 {
-    grid-area: reg2;
-}
-
-#index3 {
-    grid-area: reg3;
-}
-
-#index4 {
-    grid-area: reg4;
-}
-
-#index5 {
-    grid-area: reg5;
-}
-
-#index6 {
-    grid-area: reg6;
-}
-
-#index7 {
-    grid-area: reg7;
-}
-
-#index8 {
     grid-area: reg8;
 }
 
-#index9 {
-    grid-area: reg9;
+#index2 {
+    grid-area: big1;
 }
 
-#index10 {
-    grid-area: reg10;
+#index3 {
+    grid-area: reg1;
 }
 
-#index11 {
-    grid-area: reg11;
-}
-
-#index12 {
-    grid-area: reg12;
-}
-
-#index13 {
-    grid-area: reg13;
-}
-
-#index14 {
-    grid-area: reg14;
-}
-
-#index15 {
+#index4 {
     grid-area: reg15;
 }
 
-#index16 {
+#index5 {
+    grid-area: reg11;
+}
+
+#index6 {
+    grid-area: reg2;
+}
+
+#index7 {
+    grid-area: reg13;
+}
+
+#index8 {
     grid-area: reg16;
 }
 
-#index17 > div > button,
-#index18 > div > button {
-    width: 626px;
-    height: 634px;
+#index9 {
+    grid-area: reg12;
 }
 
-#index17 > div > button > img,
-#index18 > div > button > img {
-    margin: 10px;
+#index10 {
+    grid-area: reg5;
+}
+
+#index11 {
+    grid-area: reg7;
+}
+
+#index12 {
+    grid-area: big2;
+}
+
+#index13 {
+    grid-area: reg14;
+}
+
+#index14 {
+    grid-area: reg4;
+}
+
+#index15 {
+    grid-area: reg10;
+}
+
+#index16 {
+    grid-area: reg3;
+}
+
+#index17 {
+    grid-area: reg9;
+}
+#index18 {
+    grid-area: reg6;
+}
+
+#index2 > div,
+#index12 > div {
     width: 609px;
     height: 611px;
 }
 
-#index17 {
-    grid-area: big1;
+#index2 > div > button,
+#index12 > div > button {
+    width: 100%;
+    height: 100%;
 }
-#index18 {
-    grid-area: big2;
+
+#index2 > div > button > img,
+#index12 > div > button > img {
+    width: 100%;
+    height: 100%;
 }
