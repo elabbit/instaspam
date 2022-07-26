@@ -1,3 +1,4 @@
+from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from flask_wtf.csrf import validate_csrf
@@ -5,7 +6,7 @@ from ..models import db, Post, User, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
-
+from app.forms.editpost_form import EditPostForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -77,14 +78,22 @@ def add_new_post():
         return {'errors': 'Invalid csrf token'}, 400
 
 
-@post_routes.route('/edit', methods=['PUT'])
+@post_routes.route('/<int:postId>/edit', methods=['PUT'])
 @login_required
-def edit_post():
-    edited_post = Post.query.get(request.form.get('postId'))
-    edited_post.caption = request.form.get('caption')
-    db.session.commit()
+def edit_post(postId):
+    # edited_post = Post.query.get(request.form.get('postId'))
+    # edited_post.caption = request.form.get('caption')
 
-    return edited_post.to_dict()
+    form = EditPostForm()
+    edited_post = Post.query.get(postId)
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        edited_post.caption = form.data['caption']
+        db.session.commit()
+        return edited_post.to_dict()
+    return {'errors':validation_errors_to_error_messages(form.errors)}, 401
+
 
 @post_routes.route('/<int:postId>/delete', methods=['DELETE'])
 @login_required

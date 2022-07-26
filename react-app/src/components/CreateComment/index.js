@@ -10,11 +10,11 @@ const CreateComment = ({postId}) => {
     const onSubmit = async(e) => {
         e.preventDefault();
 
-        const commentData = new FormData()
-        commentData.append('postId', postId)
-        commentData.append('commentBody', comment)
-
-        const createdComment = await dispatch(createComments(commentData))
+        // const commentData = new FormData()
+        // commentData.append('postId', postId)
+        // commentData.append('commentBody', comment)
+        const commentBody = comment
+        const createdComment = await dispatch(createComments(postId, commentBody))
         if(createdComment){
         setComment('');
         }
