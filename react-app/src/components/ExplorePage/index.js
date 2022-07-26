@@ -25,7 +25,7 @@ const ExplorePage = ({ sessionUser }) => {
 
           <div className="posts-explore-container">
             {postList.map((post) => (
-              <div key={post.id}>
+              <div key={post.id} id={postList.indexOf(post)} >
                 <PostModal post={post} />
               </div>
             ))}
