@@ -10,9 +10,6 @@ const FollowButton = ({ sessionFollowing, matchUsername, matchId }) => {
         if (sessionFollowing.find(user => user.username === matchUsername)){
             setIsFollowing(true)
         }
-
-        console.log('CHECK!!!!!!!!!')
-        console.log('FIND!!!!!!!!!!!!', sessionFollowing.find(user => user.username === matchUsername))
     }, [sessionFollowing, matchUsername])
 
     const onFollow = async (e) => {

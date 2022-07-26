@@ -38,7 +38,7 @@ def get_following_posts(userId):
 @post_routes.route('/explore/<int:userId>')
 @login_required
 def get_explore_posts(userId):
-    user_posts = Post.query.filter(Post.ownerId!=userId).filter(Post.id>9).order_by(func.random()).limit(15)
+    user_posts = Post.query.filter(Post.ownerId!=userId).filter(Post.id>9).order_by(func.random()).limit(18)
     posts = [ post.to_dict() for post in user_posts ]
     return {'user_posts': posts}
 
@@ -49,12 +49,12 @@ def add_new_post():
         validate_csrf(request.cookies['csrf_token'])
 
         if "image" not in request.files:
-            return {"errors": "image required"}, 400
+            return {"errors": "Image required."}, 400
 
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": "file type not permitted"}, 400
+            return {"errors": "Invalid filetype, jpg, jpeg, gif, png, pdf only."}, 400
 
         image.filename = get_unique_filename(image.filename)
 

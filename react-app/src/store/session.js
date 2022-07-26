@@ -4,7 +4,7 @@ const REMOVE_USER = 'session/REMOVE_USER';
 const ADD_FOLLOW = 'session/ADD_FOLLOW'
 const REMOVE_FOLLOW = 'session/REMOVE_FOLLOW'
 
-const setUser = (user) => ({
+export const setUser = (user) => ({
   type: SET_USER,
   payload: user
 });

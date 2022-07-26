@@ -1,6 +1,105 @@
 .posts-explore-container{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
     width: 950px;
+    height: fit-content;
+    grid-template-areas: "reg1 big1 big1"
+                         "reg2 big1 big1"
+                         "reg3 reg4 reg5"
+                         "reg6 reg7 reg8"
+                         "big2 big2 reg9"
+                         "big2 big2 reg10"
+                         "reg11 reg12 reg13"
+                         "reg14 reg15 reg16";
+
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#index1 {
+    grid-area: reg8;
+}
+
+#index2 {
+    grid-area: big1;
+}
+
+#index3 {
+    grid-area: reg1;
+}
+
+#index4 {
+    grid-area: reg15;
+}
+
+#index5 {
+    grid-area: reg11;
+}
+
+#index6 {
+    grid-area: reg2;
+}
+
+#index7 {
+    grid-area: reg13;
+}
+
+#index8 {
+    grid-area: reg16;
+}
+
+#index9 {
+    grid-area: reg12;
+}
+
+#index10 {
+    grid-area: reg5;
+}
+
+#index11 {
+    grid-area: reg7;
+}
+
+#index12 {
+    grid-area: big2;
+}
+
+#index13 {
+    grid-area: reg14;
+}
+
+#index14 {
+    grid-area: reg4;
+}
+
+#index15 {
+    grid-area: reg10;
+}
+
+#index16 {
+    grid-area: reg3;
+}
+
+#index17 {
+    grid-area: reg9;
+}
+#index18 {
+    grid-area: reg6;
+}
+
+#index2 > div,
+#index12 > div {
+    width: 609px;
+    height: 611px;
+}
+
+#index2 > div > button,
+#index12 > div > button {
+    width: 100%;
+    height: 100%;
+}
+
+#index2 > div > button > img,
+#index12 > div > button > img {
+    width: 100%;
+    height: 100%;
 }

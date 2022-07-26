@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/session";
 import './UserImageUpload.css'
 
 
 const UserImageUpload = ({ id }) => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
+
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
+    const [sucess, setSucess] = useState()
+    const dispatch = useDispatch();
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([])
         const formData = new FormData();
         formData.append("image", image);
 
@@ -24,14 +28,15 @@ const UserImageUpload = ({ id }) => {
             body: formData,
         });
 
-        const imageUpload = await res.json();
+        const imageUploadUser = await res.json();
 
-        if (imageUpload && imageUpload.errors === undefined) {
+        if (imageUploadUser && imageUploadUser.errors === undefined) {
             setImageLoading(false);
-            history.push("/images");
+            setSucess(true)
+            dispatch(setUser(imageUploadUser))
         }
-        else if (imageUpload.errors) {
-            setErrors(imageUpload.errors)
+        else if (imageUploadUser.errors) {
+            setErrors(imageUploadUser.errors)
             setImageLoading(false);
         }
         else {
@@ -45,18 +50,19 @@ const UserImageUpload = ({ id }) => {
     }
 
     return (
-            <form onSubmit={handleSubmit}>
-                {errors.length > 0 && (
-                    <div>{errors}</div>
-                )}
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={updateImage}
-                />
-                <button type="submit">Upload</button>
-                {(imageLoading) && <p>Uploading...</p>}
-            </form>
+                <form onSubmit={handleSubmit}>
+                    {errors.length > 0 && (
+                        <div>{errors}</div>
+                    )}
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                    />
+                    <button type="submit">Upload</button>
+                    {(imageLoading) && <p>Uploading...</p>}
+                    {(sucess) && <p>Image Uploaded!</p>}
+                </form>
     )
 }
 

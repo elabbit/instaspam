@@ -1,35 +1,44 @@
-.post-modal-bttn{
-background-color: transparent;
-border:none;
-cursor: pointer;
-padding:0px;
+.post-modal-bttn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    padding: 0px;
 }
 
 
 .post-modal-bttn-img {
+<<<<<<< HEAD
     height: auto;
     max-width: 293px;
     margin:10px;
+=======
+    height: 293px;
+    width: 293px;
+>>>>>>> main
 }
 
 .post-mod-container {
     display: flex;
 }
 
-.post-mod-image{
-width:100%;
+.post-mod-image {
+    width: 100%;
 }
-.post-mod-left{
-    height:650px;
-    max-width:640px;
-    display:flex;
+
+.post-mod-left {
+    height: 650px;
+    max-width: 640px;
+    display: flex;
     align-items: center;
     background-color: black;
 }
-.post-mod-right{
-    width:400px;
-    padding:20px
+
+.post-mod-right {
+    width: 400px;
+    padding: 20px
 }
+
 .post-mod-right * {
-    padding:5px;
+    padding: 5px;
 }
