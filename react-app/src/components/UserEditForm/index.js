@@ -26,8 +26,17 @@ const UserEditForm = () => {
         }
     }
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        history.push(`/${user.username}`)
+
+    }
+
 
     return (
+        <div className="page-outer">
+        <div className="page-spacer"></div>
+        <div className="page-container">
         <div>
             <UserImageUpload id={id}/>
             <form onSubmit={onSubmit}>
@@ -80,10 +89,12 @@ const UserEditForm = () => {
                     ></textarea>
                 </div>
                 <button type='submit'>Edit Profile</button>
+                <button type='button' onClick={handleCancel}>Cancel</button>
             </form>
 
         </div>
-
+</div>
+</div>
 
 
 

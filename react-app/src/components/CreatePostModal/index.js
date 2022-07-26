@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreatePost from './CreatePost';
-import {ReactComponent as Create} from "../images/create.svg"
+import {ReactComponent as Create} from "../../images/create.svg"
 import './CreatePost.css'
 
 function CreatePostModal() {

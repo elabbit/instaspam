@@ -3,15 +3,14 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import CreatePostModal from './CreatePostModal';
 import "./NavBar.css"
-import { ReactComponent as Home } from "./images/home.svg"
-import { ReactComponent as HomeFill } from "./images/home-fill.svg"
-import { ReactComponent as Explore } from "./images/explore.svg"
-import { ReactComponent as ExploreFill } from "./images/explore-fill.svg"
-import about from "./images/about.png"
-import aboutfill from "./images/about-fill.png"
+import { ReactComponent as Home } from "../images/home.svg"
+import { ReactComponent as HomeFill } from "../images/home-fill.svg"
+import { ReactComponent as Explore } from "../images/explore.svg"
+import { ReactComponent as ExploreFill } from "../images/explore-fill.svg"
+import instaspamLogo from "../images/instaspam-logo.png"
+import about from "../images/about.png"
+import aboutfill from "../images/about-fill.png"
 import Dropdown from './Dropdown';
-
-
 
 
 const NavBar = () => {
@@ -32,7 +31,7 @@ const NavBar = () => {
         <nav className="navbar-container">
           <div className="nav-left">
             <NavLink to='/' exact={true} activeClassName='active'>
-              <img className="navbar-logo" src="instaspam-logo3.png" ></img>
+              <img className="navbar-logo" src={instaspamLogo} alt=""></img>
             </NavLink>
           </div>
           <div className="nav-right">
@@ -89,8 +88,7 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className="profile-icon-div" onClick={handleClick}>
-              <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage}
-             />
+              <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt=""/>
               {dropdown && <Dropdown sessionUser={sessionUser} />}
             </div>
           </div>
