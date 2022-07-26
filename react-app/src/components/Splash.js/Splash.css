@@ -1,0 +1,120 @@
+.page-splash-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #FAFAFA;
+}
+
+.page-splash-content{
+    display: flex;
+    margin: 32px auto 0;
+    width: 75%;
+    height: 756px;
+}
+
+.page-splash-content-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+}
+
+.page-splash-content-right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.page-splash-content-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    border: solid 1px #D8D8D8;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    height: 423px;
+    margin-top: 85px;
+    background: #FFFFFF;
+
+}
+
+.page-splash-content-signup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    border: solid 1px #D8D8D8;
+    padding: 15px;
+    background: #FFFFFF;
+}
+
+.page-splash-login-btn{
+    width:258px;
+    color:white;
+    background-color: #0095f6;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+}
+
+.page-splash-content-input{
+    background: #fafafa;
+    width:258px;
+    height:36px;
+    margin:3px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+    padding: 9px 0 7px 8px;
+}
+
+.page-splash-signup-link{
+    color: #0095f6;
+    padding-left: 3px;
+    border: none;
+    background: none;
+    cursor:pointer;
+}
+
+.page-splash-logo{
+    padding-bottom: 23px;
+}
+
+.page-splash-demo-btn{
+    border: none;
+    background: none;
+    cursor:pointer;
+    color: #385185;
+    font-weight: bolder;
+}
+
+.page-splash-linebreak{
+    display:flex;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.page-splash-linebreak-lines{
+    background-color: #dbdbdb;
+    height: 1px;
+    position: relative;
+    top: 0.45em;
+    width: 111px;
+
+}
+
+.page-splash-linebreak-text{
+    color: #8e8e8e;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
