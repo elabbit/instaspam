@@ -26,8 +26,8 @@ const About = () => {
                                     jonathankim&nbsp;
                                     <span className='about-subtext'>
                                         Description of anything you want to write about yourself
-                                        <div>Github: <a href="https://github.com/KimJonathan426" target='_blank'> <i className="fa-brands fa-github"></i></a></div>
-                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/kimjonathan426" target='_blank'> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                                        <div>Github: <a href="https://github.com/KimJonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
+                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/kimjonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                     </span>
                                 </span>
                             </div>
@@ -49,8 +49,8 @@ const About = () => {
                                     abeltesfa&nbsp;
                                     <span className='about-subtext'>
                                         Description of anything you want to write about yourself
-                                        <div>Github: <a href="https://github.com/abeltesfa" target='_blank'> <i className="fa-brands fa-github"></i></a></div>
-                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/abel-tesfa-93121866/" target='_blank'> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                                        <div>Github: <a href="https://github.com/abeltesfa" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
+                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/abel-tesfa-93121866/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                     </span>
                                 </span>
                             </div>
@@ -72,8 +72,8 @@ const About = () => {
                                     davidchung&nbsp;
                                     <span className='about-subtext'>
                                         Description of anything you want to write about yourself
-                                        <div>Github: <a href="https://github.com/dchung007" target='_blank'> <i className="fa-brands fa-github"></i></a></div>
-                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/david-chung-98a5651aa/" target='_blank'> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                                        <div>Github: <a href="https://github.com/dchung007" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
+                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/david-chung-98a5651aa/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                     </span>
                                 </span>
                             </div>
@@ -95,8 +95,8 @@ const About = () => {
                                     eddielau&nbsp;
                                     <span className='about-subtext'>
                                         Description of anything you want to write about yourself
-                                        <div>Github: <a href="https://github.com/elabbit" target='_blank'> <i className="fa-brands fa-github"></i></a></div>
-                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/edwin-lau-312a11241/" target='_blank'> <i className="fa-brands fa-linkedin-in"></i></a></div>
+                                        <div>Github: <a href="https://github.com/elabbit" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
+                                        <div>LinkedIn: <a href="https://www.linkedin.com/in/edwin-lau-312a11241/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                     </span>
                                 </span>
                             </div>
