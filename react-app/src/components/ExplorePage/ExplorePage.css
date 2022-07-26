@@ -1,6 +1,84 @@
 .posts-explore-container{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
     width: 950px;
+    height: fit-content;
+    grid-template-areas: "reg1 big1 big1"
+                         "reg2 big1 big1"
+                         "reg3 reg4 reg5"
+                         "reg6 reg7 reg8"
+                         "big2 big2 reg9"
+                         "big2 big2 reg10"
+                         "reg11 reg12 reg13"
+                         "reg14 reg15 reg16";
+}
+
+#index1 {
+    grid-area: reg1;
+}
+
+#index2 {
+    grid-area: reg2;
+}
+
+#index3 {
+    grid-area: reg3;
+}
+
+#index4 {
+    grid-area: reg4;
+}
+
+#index5 {
+    grid-area: reg5;
+}
+
+#index6 {
+    grid-area: reg6;
+}
+
+#index7 {
+    grid-area: reg7;
+}
+
+#index8 {
+    grid-area: reg8;
+}
+
+#index9 {
+    grid-area: reg9;
+}
+
+#index10 {
+    grid-area: reg10;
+}
+
+#index11 {
+    grid-area: reg11;
+}
+
+#index12 {
+    grid-area: reg12;
+}
+
+#index13 {
+    grid-area: reg13;
+}
+
+#index14 {
+    grid-area: reg14;
+}
+
+#index15 {
+    grid-area: reg15;
+}
+
+#index16 {
+    grid-area: reg16;
+}
+
+#index17 {
+    grid-area: big1;
+}
+#index18 {
+    grid-area: big2;
 }

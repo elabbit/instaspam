@@ -15,9 +15,6 @@ const ExplorePage = ({ sessionUser }) => {
     postList.splice(newPost, 1)
   }
 
-  //shuffles when adding or removing comments/likes, need to use CSS to shuffle
-  // postList.sort(() => Math.random() - 0.5)
-
   useEffect(() => {
     dispatch(getExplorePosts(sessionUser))
     return dispatch(clearPosts())
@@ -31,7 +28,7 @@ const ExplorePage = ({ sessionUser }) => {
 
           <div className="posts-explore-container">
             {postList.map((post) => (
-              <div key={post.id} id={postList.indexOf(post) + 1}>
+              <div key={post.id} id={'index' + (postList.indexOf(post) + 1)}>
                 <PostModal post={post} />
               </div>
             ))}
