@@ -9,8 +9,11 @@ const ExplorePage = ({ sessionUser }) => {
   const posts = useSelector(state => state.posts);
   const postList = Object.values(posts);
 
-  //shuffles when adding or removing comments/likes, need to use CSS to shuffle
-  // postList.sort(() => Math.random() - 0.5)
+  const newPost = postList.findIndex(post => post.ownerId === sessionUser.id)
+
+  if (newPost >= 0) {
+    postList.splice(newPost, 1)
+  }
 
   useEffect(() => {
     dispatch(getExplorePosts(sessionUser))
@@ -25,7 +28,7 @@ const ExplorePage = ({ sessionUser }) => {
 
           <div className="posts-explore-container">
             {postList.map((post) => (
-              <div key={post.id} id={postList.indexOf(post)} >
+              <div key={post.id} id={'index' + (postList.indexOf(post) + 1)}>
                 <PostModal post={post} />
               </div>
             ))}

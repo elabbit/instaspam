@@ -38,7 +38,7 @@ def get_following_posts(userId):
 @post_routes.route('/explore/<int:userId>')
 @login_required
 def get_explore_posts(userId):
-    user_posts = Post.query.filter(Post.ownerId!=userId).filter(Post.id>9).order_by(func.random()).limit(15)
+    user_posts = Post.query.filter(Post.ownerId!=userId).filter(Post.id>9).order_by(func.random()).limit(18)
     posts = [ post.to_dict() for post in user_posts ]
     return {'user_posts': posts}
 
