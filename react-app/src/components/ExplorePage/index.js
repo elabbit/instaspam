@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getExplorePosts, clearPosts } from "../../store/posts";
 import PostModal from "../PostModal";
@@ -8,6 +8,12 @@ const ExplorePage = ({ sessionUser }) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
   const postList = Object.values(posts);
+
+  const newPost = postList.findIndex(post => post.ownerId == sessionUser.id)
+
+  if (newPost >= 0) {
+    postList.splice(newPost, 1)
+  }
 
   //shuffles when adding or removing comments/likes, need to use CSS to shuffle
   // postList.sort(() => Math.random() - 0.5)
@@ -25,7 +31,7 @@ const ExplorePage = ({ sessionUser }) => {
 
           <div className="posts-explore-container">
             {postList.map((post) => (
-              <div key={post.id}>
+              <div key={post.id} id={postList.indexOf(post) + 1}>
                 <PostModal post={post} />
               </div>
             ))}
