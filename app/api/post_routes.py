@@ -44,11 +44,9 @@ def get_explore_posts(userId):
 @post_routes.route('/new', methods=['POST'])
 @login_required
 def add_new_post():
-    print('I made it here with the request cookie csrf token', request.cookies['csrf_token'])
     try:
         validate_csrf(request.cookies['csrf_token'])
-        print('Yay we validated')
-        print('I made it here inside the csrf validation')
+
         if "image" not in request.files:
             return {"errors": "image required"}, 400
 
@@ -76,7 +74,6 @@ def add_new_post():
 
         return new_post.to_dict()
     except:
-        print('I did not make it all the way through')
         return {'errors': 'Invalid csrf token'}, 400
 
 

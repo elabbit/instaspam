@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPost } from '../../store/posts'
 
-const CreatePost = ({hideModal}) => {
+const CreatePost = ({ hideModal }) => {
     const dispatch = useDispatch();
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
@@ -18,8 +18,6 @@ const CreatePost = ({hideModal}) => {
         setImageLoading(true);
 
         const createdPost = await dispatch(addPost(formData))
-
-        console.log('createdPost-------', createdPost)
 
         if (createdPost && createdPost.errors === undefined) {
             setImageLoading(false)
@@ -45,7 +43,7 @@ const CreatePost = ({hideModal}) => {
         <form onSubmit={handleSubmit} >
             {errors.length > 0 && (
                 <div>{errors}</div>
-                )}
+            )}
             <input
                 type="file"
                 accept="image/*"
