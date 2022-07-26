@@ -11,11 +11,7 @@ comment_routes = Blueprint('comments', __name__)
 
 @comment_routes.route('/new', methods=['POST'])
 def add_comments():
-    # comment = Comment(userId=current_user.id, postId=request.form.get('postId') , comment = request.form.get('commentBody'))
-    # db.session.add(comment)
-    # db.session.commit()
     form = CreateCommentForm()
-    print(form)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment(
@@ -42,8 +38,6 @@ def delete_comments(commentId):
 @comment_routes.route('/<int:commentId>', methods=['PUT'])
 def edit_comments(commentId):
     comment = Comment.query.get(commentId)
-    # comment.comment = request.form.get('commentBody')
-    # db.session.commit()
     form = EditCommentForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']

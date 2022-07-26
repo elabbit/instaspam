@@ -8,11 +8,7 @@ const EditPost = ({ post, setShowEditPost }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // const postData = new FormData();
-        // postData.append('postId', post.id)
-        // postData.append('caption', caption)
-
+        
         const postId = post.id
         const editedPost = await dispatch(editPost(postId, caption))
 

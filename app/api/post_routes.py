@@ -75,9 +75,6 @@ def add_new_post():
 @post_routes.route('/<int:postId>/edit', methods=['PUT'])
 @login_required
 def edit_post(postId):
-    # edited_post = Post.query.get(request.form.get('postId'))
-    # edited_post.caption = request.form.get('caption')
-
     form = EditPostForm()
     edited_post = Post.query.get(postId)
 
