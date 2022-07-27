@@ -17,11 +17,16 @@ class Comment(db.Model):
 
 
     def to_dict(self):
+
+
+
+
         return {
             'id': self.id,
             'userId': self.userId,
             'postId': self.postId,
             'comment': self.comment,
             'createdAt': self.createdAt,
-            'username': User.query.get(self.userId).username
+            'username': User.query.get(self.userId).username,
+            'userProfileImage': User.query.get(self.userId).profileImage
         }
