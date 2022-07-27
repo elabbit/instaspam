@@ -83,6 +83,7 @@ const CreatePost = ({ hideModal }) => {
                             value={caption}
                             onChange={(e) => setCaption(e.target.value)}
                             placeholder='Write a caption...'
+                            maxLength="1000"
                         />
                     </div>
                 </div>
