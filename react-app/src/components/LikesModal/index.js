@@ -61,12 +61,15 @@ function LikesModal({ likes, sessionUser }) {
                 </div>
             )
             break;
-        default:
+        case (followingLike === undefined && likes.length > 0):
             content = (
                 <div className='like-info-container'>
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>{likes.length} likes</button>
                 </div>
             )
+            break;
+        default:
+            content = null
     }
 
     return (
