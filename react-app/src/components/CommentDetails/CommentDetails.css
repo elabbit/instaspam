@@ -7,3 +7,26 @@ button.comment-details-edit-delete-buttons {
   color: #18b1f2;
   background-color: white;
 }
+
+
+.comment-container{
+display: flex;
+flex: row;
+margin-left:-10px;
+width:360px;
+
+}
+
+.actual-comment{
+  width:380px;
+  margin-left:-5px;
+
+}
+
+.actual-comment a{
+margin-left:-5px;
+}
+
+.button-comment{
+  margin-left:-5px;
+}

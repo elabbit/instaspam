@@ -28,9 +28,13 @@ const EditPost = ({ post, setShowEditPost }) => {
             <textarea
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
+                maxLength="1000"
+                className="edit-post-text"
             />
-            <button type="submit">Done</button>
-            <button onClick={() => setShowEditPost(false)}>Cancel</button>
+            <div>
+            <button className="post-modal-edit-delete-buttons" type="submit">Done</button>
+            <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(false)}>Cancel</button>
+            </div>
         </form>
     )
 };
