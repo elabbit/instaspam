@@ -49,13 +49,13 @@
     margin-left: 3px;
 }
 
-#file-upload-button{
+/* #file-upload-button{
     color: #fff;
     background-color: #0095f6;
     border-radius: 4px;
     border: 1px solid transparent;
     cursor: pointer;
-}
+} */
 
 .page-editprofile-formlabelandinput{
     display: flex;
