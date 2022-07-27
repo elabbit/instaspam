@@ -21,7 +21,9 @@ border-radius: 50%;
 }
 
 .like-info-container {
+    display: flex;
+    align-items: flex-start;
     height: 18px;
     margin: 0px 0px 8px;
-    padding: 0px 12px
+    padding: 0px 12px;
 }
