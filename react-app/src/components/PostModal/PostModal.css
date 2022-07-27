@@ -14,25 +14,86 @@
 
 .post-mod-container {
     display: flex;
+    background-color: white;
+    border-radius: 10px;
+    max-height: 600px;
 }
 
 .post-mod-image {
     width: 100%;
+    max-height: 600px;
 }
 
 .post-mod-left {
-    height: 650px;
-    max-width: 640px;
+    max-height: 650px;
+    max-width: 500px;
+    width: 50%;
     display: flex;
     align-items: center;
     background-color: black;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .post-mod-right {
-    width: 400px;
-    padding: 20px
+    width: 50%;
+    max-width: 500px;
+    margin: 5px;
 }
 
 .post-mod-right * {
     padding: 5px;
 }
+
+.post-modal-username-follow-button {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 0px !important;
+    border-bottom: 1px solid rgb(236, 234, 234);
+}
+
+.post-modal-caption-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+button.post-modal-edit-delete-buttons {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    color: #18b1f2;
+    background-color: white;
+}
+
+.post-modal-username-edit-field {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-modal-username-caption {
+    margin-top: 5px;
+}
+
+.post-modal-username-only {
+    margin-top: 10px;
+}
+
+.post-modal-comments-section {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.post-modal-likes-create-comment-container {
+    border-top: 1px solid rgb(236, 234, 234);
+}
+
+
+.post-modal-create-comment-container {
+    border-top: 1px solid rgb(236, 234, 234);
+    /* position: absolute;
+    bottom: 0px;
+    padding: 10px; */
+}
+
+/* .post-modal-likes-button-container {
+    position: relative;
+} */

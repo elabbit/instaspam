@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { createComments } from '../../store/posts';
+import './CreateComment.css'
 
 const CreateComment = ({postId}) => {
     const [comment, setComment] = useState('');
@@ -23,9 +24,10 @@ const CreateComment = ({postId}) => {
 
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
+        <div className='create-comment-form-container'>
+            <form className='create-comment-form' onSubmit={onSubmit}>
             <textarea
+              className='create-comment-comment-field'
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               name='body'
@@ -34,7 +36,7 @@ const CreateComment = ({postId}) => {
               required
               maxLength="1000"
             ></textarea>
-            <button type='submit'>Post</button>
+            <button className='create-comment-post-button' type='submit'>Post</button>
           </form>
         </div>
     )
