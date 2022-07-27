@@ -24,7 +24,7 @@ function PostContainer({ post, sessionUser }) {
                         <span className='feed-comment-bubble'><CommentBubble /></span>
                     </div>
                     <div>
-                        <LikesModal likes={post.likes} />
+                        <LikesModal likes={post.likes} sessionUserFollowing={sessionUser.following} />
                     </div>
                     <div>
                         <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>

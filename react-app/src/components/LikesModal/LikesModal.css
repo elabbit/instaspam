@@ -5,9 +5,16 @@ border-radius: 50%;
 }
 
 .likes-user-container{
-    display: flex;;
+    display: flex;
 }
 
 .likes-modal-container *{
     padding:5px;
+}
+
+.likes-modal-bttn {
+    background-color: transparent;
+    padding: 0px;
+    border: none;
+    cursor: pointer;
 }
