@@ -18,9 +18,11 @@ function LikesModal({ likes, sessionUser }) {
     })
 
     let followingLike;
+    let followingProfileImage;
     for (const like of likes) {
         if (followingUsernames[like.username]) {
             followingLike = like.username;
+            followingProfileImage = like.profileImage;
             break;
         }
     }
@@ -31,7 +33,10 @@ function LikesModal({ likes, sessionUser }) {
         case (followingLike && likes.length === 1):
             content = (
                 <div className='like-info-container'>
-                    Liked by&nbsp;
+                    <Link to={`${followingLike}`}>
+                        <img src={followingProfileImage} className='common-like-image' />
+                    </Link>
+                    &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
                 </div>
             )
@@ -39,7 +44,10 @@ function LikesModal({ likes, sessionUser }) {
         case (followingLike && likes.length === 2):
             content = (
                 <div className='like-info-container'>
-                    Liked by&nbsp;
+                    <Link to={`${followingLike}`}>
+                        <img src={followingProfileImage} className='common-like-image' />
+                    </Link>
+                    &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
@@ -51,7 +59,10 @@ function LikesModal({ likes, sessionUser }) {
         case (followingLike && likes.length > 2):
             content = (
                 <div className='like-info-container'>
-                    Liked by&nbsp;
+                    <Link to={`${followingLike}`}>
+                        <img src={followingProfileImage} className='common-like-image' />
+                    </Link>
+                    &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
