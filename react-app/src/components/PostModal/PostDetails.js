@@ -13,7 +13,6 @@ import './PostModal.css'
 function PostDetails({ post }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
-  const sessionFollowing = sessionUser.following
   const [showEditPost, setShowEditPost] = useState(false);
 
   const onDelete = async () => {
@@ -31,7 +30,7 @@ function PostDetails({ post }) {
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
           </div>
           <div className="">
-            <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId} />
+            <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} />
           </div>
         </div>
         {!showEditPost ?
@@ -75,7 +74,7 @@ function PostDetails({ post }) {
               <LikeToggle post={post} sessionUsername={sessionUser.username} />
             </div>
             <div>
-              <LikesModal likes={post.likes} />
+              <LikesModal likes={post.likes} sessionUser={sessionUser}/>
             </div>
           </div>
           <div className="post-modal-create-comment-container">

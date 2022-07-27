@@ -6,30 +6,30 @@ import FollowButton from '../FollowButton';
 
 
 
-function LikesModal({ likes, sessionUser }) {
+function Following({ following, sessionUser }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <div>
-            <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
-                <div>{likes.length} likes</div>
+            <button className="profile-modal-bttn" onClick={() => setShowModal(true)}>
+                <div><span className='number-bold'>{following?.length}</span> following</div>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="list-modal-container">
-                        <div className="list-title">Likes</div>
+                        <div className="list-title">Following</div>
                         <div className="list-users">
-                            {likes.map((like) => (
-                                <div className="list-user-container" key={like.username}>
+                            {following.map((following) => (
+                                <div className="list-user-container" key={following.username}>
                                     <div className="list-user-info">
-                                        <img className="list-profile-image" src={like.profileImage} alt=""></img>
+                                        <img className="list-profile-image" src={following.profileImage} alt=""></img>
                                         <div className='list-profile-name'>
-                                            <Link to={`${like.username}`}>{like.username}</Link>
-                                            <div className="list-fullname">{like.name}</div>
+                                            <Link to={`${following.username}`}>{following.username}</Link>
+                                            <div className="list-fullname">{following.name}</div>
                                         </div>
                                     </div>
                                     <div className="list-bttn-div">
-                                        <FollowButton sessionUser={sessionUser} matchUsername={like.username} matchId={like.id} />
+                                        <FollowButton sessionUser={sessionUser} matchUsername={following.username} matchId={following.id} />
                                     </div>
 
                                 </div>
@@ -42,4 +42,4 @@ function LikesModal({ likes, sessionUser }) {
     );
 }
 
-export default LikesModal;
+export default Following;

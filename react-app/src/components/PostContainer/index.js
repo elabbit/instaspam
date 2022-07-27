@@ -24,7 +24,7 @@ function PostContainer({ post, sessionUser }) {
             <LikeToggle post={post} sessionUsername={sessionUser.username} />
           </div>
             <div>
-              <LikesModal likes={post.likes} />
+              <LikesModal likes={post.likes} sessionUser={sessionUser}/>
                  <CreateComment postId={post.id} />
              </div>
         </div>

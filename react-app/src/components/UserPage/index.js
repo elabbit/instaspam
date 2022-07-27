@@ -5,6 +5,9 @@ import { getUser } from '../../store/user';
 import UserPosts from '../UserPosts';
 import { getUserPosts, clearPosts } from "../../store/posts";
 import "./UserPage.css"
+import Followers from '../FollowersModal';
+import Following from '../FollowingModal';
+import FollowButton from '../FollowButton';
 
 const UserPage = ({ sessionUser }) => {
   const { username } = useParams();
@@ -24,7 +27,7 @@ const UserPage = ({ sessionUser }) => {
     <div className="page-outer">
       <div className="page-spacer"></div>
       <div className="page-container">
-        {(user && sessionUser) ?
+        {user ?
           <div className='page-margins'>
             <div className="profile-info-container">
               <div className='profile-image-container'>
@@ -32,16 +35,23 @@ const UserPage = ({ sessionUser }) => {
               </div>
               <div className="profile-details">
                 <div className='profile-username-edit'>
-                  <div className='profile-page-username'>{user.username}</div>
-                  {(sessionUser.id === user.id) && (
+                  <h2 className='profile-page-username'>{user.username}</h2>
+                  {(sessionUser.id === user.id) ? (
                     <div className='edit-profile-button'>
                       <Link className='edit-profile-link' to="/accounts/edit">Edit Profile</Link>
-                    </div>)}
+                    </div>)
+                    :
+                    <div className='follow-profile-button'>
+                      <FollowButton sessionUser={sessionUser} matchUsername={user.username} matchId={user.id} />
+                    </div>
+                  }
                 </div>
                 <div className='user-posts-follow'>
-                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{numberPosts}</span> posts</div>
-                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.followers).length} </span>followers</div>
-                  <div className='user-posts-follow-section'><span className='profile-post-follow-number'>{(user.following).length} </span> following</div>
+                  <div className='user-posts-follow-section'><span className='number-bold'>{numberPosts}</span> posts</div>
+
+                  <Followers sessionUser={sessionUser} followers={user.followers}/>
+                  <Following sessionUser={sessionUser} following={user.following} />
+
                 </div>
                 <div>
                   <div className='user-name-bio' id='user-profile-name-bio'>{user.name}</div>
@@ -54,7 +64,6 @@ const UserPage = ({ sessionUser }) => {
               <UserPosts posts={posts} />
             </div>
           </div>
-
           : <h3>Loading...</h3>}
       </div>
     </div>
