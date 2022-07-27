@@ -1,6 +1,84 @@
-# Flask React Project
+# Instaspam
 
-This is the starter for the Flask React project.
+## Introduction
+Welcome to Instaspam, a clone of the popular [Instagram](https://www.instagram.com/) website. With Instaspam, you can post pictures on whatever you like and other users can comment on those posts! Instaspam takes this idea and adds the subtlety of in-your-face advertisements, "spamming" the user with constant information. Instaspam is THE website for people and friends to come and display their lives in their photos and posts, as well as comment on what friends are up to.
+
+## Technologies Used
+- Languages: Javascript, HTML, CSS
+- Front-End: React-Redux, JSX
+- Back-End: Python, Flask-SQLAlchemy
+- Database: PostgreSQL
+- Hosting: Heroku
+
+## Link to live site
+https://instaspam-jade.herokuapp.com/
+
+## Link to Wiki docs
+https://github.com/elabbit/instaspam/wiki
+
+## Features
+
+### Register/Sign-in
+Users can register an account on Instagram with a unique username, email and a password of their choosing. They can also sign in with their created email and password. If sign-in credentials are incorrect, error messages will alert the user to try again.
+
+![Screen Shot 2022-07-27 at 3 45 50 PM](https://user-images.githubusercontent.com/84115420/181385361-2db4b5ac-0e58-4e3c-8519-7a04c8eb1e82.png)
+
+![Screen Shot 2022-07-27 at 3 42 25 PM](https://user-images.githubusercontent.com/84115420/181385374-ded2096f-e4eb-4313-ad70-ca76a4edb2eb.png)
+
+
+
+### View User Feed
+Any logged-in user can view posts of users that they follow.
+
+![Screen Shot 2022-07-27 at 3 40 59 PM](https://user-images.githubusercontent.com/84115420/181387347-8dfd8fa3-a81d-4210-9d43-fbdc186c02f3.png)
+
+
+## View and Edit Profile Page
+Any logged-in user can view posts that they have uploaded, along with a user biography. They can also edit their profile.
+
+![Screen Shot 2022-07-27 at 3 41 49 PM](https://user-images.githubusercontent.com/84115420/181385513-97589363-7aff-41b2-9ba1-d3c58586ad2b.png)
+
+![Screen Shot 2022-07-27 at 3 42 03 PM](https://user-images.githubusercontent.com/84115420/181386294-d10f3086-dbbc-460e-856b-b18423b1d4a1.png)
+
+
+## View Explore Page
+Any logged-in user can view an explore page that will display random posts that do not belong to the user.
+
+![Screen Shot 2022-07-27 at 3 41 13 PM](https://user-images.githubusercontent.com/84115420/181385625-8f32a70c-04d0-47af-ae45-85d116578bc0.png)
+
+## View Specific Posts
+Any logged-in user can click on a post and view thee post, along with comments.
+
+![Screen Shot 2022-07-27 at 3 42 47 PM](https://user-images.githubusercontent.com/84115420/181385984-699a73dc-5bbd-4356-b13b-71a466e9b0db.png)
+
+
+### Creating, editing, and deleting Posts
+All logged-in users can create their own posts. They can also only edit and delete their posts.
+
+![Screen Shot 2022-07-27 at 3 55 42 PM](https://user-images.githubusercontent.com/84115420/181386385-44556506-c452-491c-8468-2984824ecc3e.png)
+
+![Screen Shot 2022-07-27 at 3 43 54 PM](https://user-images.githubusercontent.com/84115420/181387055-777f2c25-4cf3-47b8-b1a8-be574185d6f4.png)
+
+
+### Creating, viewing, editing and deleting Comments
+All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
+
+![Screen Shot 2022-07-27 at 3 44 43 PM](https://user-images.githubusercontent.com/84115420/181387170-f6abf81c-552e-46e1-9a39-c7c3d0fd2509.png)
+
+
+
+
+## Future features to implement
+- Search Bar
+- Direct Messaging
+- Hashtags
+
+## Challenges Faced
+- Implementing the likes and follow was definitely the most difficult aspect of the project. We had issues especially dealing with the Followers model in the database. The relationship, which required userId and userId, required us to implement backref within the User model relationship. In regards to both the likes and followers redux slice of states, we had to update the likes and followers slice of state depending on the page the user is at. We needed to update the state for both sesssion user and user if the user is on someone's profile page and decides to follow them.
+
+
+
+# Project installation and setup
 
 ## Getting started
 1. Clone this repository (only this branch)
