@@ -29,33 +29,40 @@ Users can register an account on Instagram with a unique username, email and a p
 
 ### View User Feed
 Any logged-in user can view posts of users that they follow.
-![Screen Shot 2022-07-03 at 8 37 19 PM](https://user-images.githubusercontent.com/84115420/177077478-53812bf6-17c4-4efa-90c9-b1802bd83663.png)
+
+![Screen Shot 2022-07-27 at 3 40 59 PM](https://user-images.githubusercontent.com/84115420/181387347-8dfd8fa3-a81d-4210-9d43-fbdc186c02f3.png)
+
 
 ## View and Edit Profile Page
 Any logged-in user can view posts that they have uploaded, along with a user biography. They can also edit their profile.
+
 ![Screen Shot 2022-07-27 at 3 41 49 PM](https://user-images.githubusercontent.com/84115420/181385513-97589363-7aff-41b2-9ba1-d3c58586ad2b.png)
+
 ![Screen Shot 2022-07-27 at 3 42 03 PM](https://user-images.githubusercontent.com/84115420/181386294-d10f3086-dbbc-460e-856b-b18423b1d4a1.png)
 
 
 ## View Explore Page
 Any logged-in user can view an explore page that will display random posts that do not belong to the user.
+
 ![Screen Shot 2022-07-27 at 3 41 13 PM](https://user-images.githubusercontent.com/84115420/181385625-8f32a70c-04d0-47af-ae45-85d116578bc0.png)
 
 ## View Specific Posts
 Any logged-in user can click on a post and view thee post, along with comments.
+
 ![Screen Shot 2022-07-27 at 3 42 47 PM](https://user-images.githubusercontent.com/84115420/181385984-699a73dc-5bbd-4356-b13b-71a466e9b0db.png)
 
 
 ### Creating, editing, and deleting Posts
 All logged-in users can create their own posts. They can also only edit and delete their posts.
+
 ![Screen Shot 2022-07-27 at 3 55 42 PM](https://user-images.githubusercontent.com/84115420/181386385-44556506-c452-491c-8468-2984824ecc3e.png)
+
 ![Screen Shot 2022-07-27 at 3 43 54 PM](https://user-images.githubusercontent.com/84115420/181387055-777f2c25-4cf3-47b8-b1a8-be574185d6f4.png)
 
 
 ### Creating, viewing, editing and deleting Comments
 All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
-![Screen Shot 2022-07-03 at 8 38 53 PM](https://user-images.githubusercontent.com/84115420/177077711-8468112c-7c3f-43af-b8a7-cdd32738b8a4.png)
-![Screen Shot 2022-07-03 at 8 39 05 PM](https://user-images.githubusercontent.com/84115420/177077805-9aec68b3-d2cb-419d-bab4-633a0362aba8.png)
+
 ![Screen Shot 2022-07-27 at 3 44 43 PM](https://user-images.githubusercontent.com/84115420/181387170-f6abf81c-552e-46e1-9a39-c7c3d0fd2509.png)
 
 
