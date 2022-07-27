@@ -4,7 +4,7 @@ import { setUser } from "../../store/session";
 import './UserImageUpload.css'
 
 
-const UserImageUpload = ({ id }) => {
+const UserImageUpload = ({ id, hideForm }) => {
 
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
@@ -34,6 +34,7 @@ const UserImageUpload = ({ id }) => {
             setImageLoading(false);
             setSucess(true)
             dispatch(setUser(imageUploadUser))
+            hideForm()
         }
         else if (imageUploadUser.errors) {
             setErrors(imageUploadUser.errors)
@@ -57,11 +58,13 @@ const UserImageUpload = ({ id }) => {
                     <input
                         type="file"
                         accept="image/*"
+
                         onChange={updateImage}
                     />
-                    <button type="submit">Upload</button>
+                    <button className="page-editprofile-upload-btn" type="submit">Upload</button>
                     {(imageLoading) && <p>Uploading...</p>}
                     {(sucess) && <p>Image Uploaded!</p>}
+                    <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button>
                 </form>
     )
 }
