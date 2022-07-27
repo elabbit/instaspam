@@ -48,7 +48,8 @@
 .feed-comment-bubble {
     display: flex;
     align-items: center;
-    background-color: transparent;
+    position: relative;
+    top: 2px
 }
 
 .feed-comments {

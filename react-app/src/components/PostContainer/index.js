@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import CommentDetails from "../CommentDetails";
 import CreateComment from "../CreateComment";
 import LikesModal from "../LikesModal";
 import LikeToggle from "../LikeToggle";
-import { ReactComponent as CommentBubble } from '../../images/comment-bubble.svg'
+import PostModalFeed from "../PostModalFeed"
 import "./PostContainer.css"
 
 function PostContainer({ post, sessionUser }) {
@@ -21,17 +20,17 @@ function PostContainer({ post, sessionUser }) {
                 <div className='feed-action-container'>
                     <div className='feed-actions'>
                         <LikeToggle post={post} sessionUsername={sessionUser.username} />
-                        <span className='feed-comment-bubble'><CommentBubble /></span>
+                        <div className='feed-comment-bubble'><PostModalFeed post={post} type={'bubble'}/></div>
                     </div>
-                    <LikesModal likes={post.likes} sessionUserFollowing={sessionUser.following} />
+                    <LikesModal likes={post.likes} />
                     <div className='feed-comments'>
                         <div>
                             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
                             &nbsp;{post.caption}
                         </div>
-                        <div>
-                            View all comments...
-                        </div>
+                        {Object.keys(post.comments).length > 0 && (
+                        <PostModalFeed post={post} type={Object.keys(post.comments).length}/>
+                        )}
                     </div>
                     <div>
                         <CreateComment postId={post.id} />

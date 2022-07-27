@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import "./LikesModal.css"
@@ -7,6 +8,8 @@ import "./LikesModal.css"
 
 function LikesModal({ likes, sessionUserFollowing }) {
     const [showModal, setShowModal] = useState(false);
+    const sessionUser = useSelector(state => state.session.user);
+    sessionUserFollowing = sessionUser.following;
 
     const followingUsernames = {};
     sessionUserFollowing.forEach(following => {
