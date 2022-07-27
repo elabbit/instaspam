@@ -28,6 +28,7 @@ const EditPost = ({ post, setShowEditPost }) => {
             <textarea
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
+                maxLength="1000"
             />
             <button type="submit">Done</button>
             <button onClick={() => setShowEditPost(false)}>Cancel</button>
