@@ -1,11 +1,11 @@
-# Hoopa
+# Instaspam
 
 ## Introduction
 Welcome to Instaspam, a clone of the popular [Instagram](https://www.instagram.com/) website. With Instaspam, you can post pictures on whatever you like and other users can comment on those posts! Instaspam takes this idea and adds the subtlety of in-your-face advertisements, "spamming" the user with constant information. Instaspam is THE website for people and friends to come and display their lives in their photos and posts, as well as comment on what friends are up to.
 
 ## Technologies Used
 - Languages: Javascript, HTML, CSS
-- Front-End: React, JSX
+- Front-End: React-Redux, JSX
 - Back-End: Python, Flask-SQLAlchemy
 - Database: PostgreSQL
 - Hosting: Heroku
@@ -21,24 +21,45 @@ https://github.com/elabbit/instaspam/wiki
 ### Register/Sign-in
 Users can register an account on Instagram with a unique username, email and a password of their choosing. They can also sign in with their created email and password. If sign-in credentials are incorrect, error messages will alert the user to try again.
 
-![Screen Shot 2022-07-03 at 8 38 10 PM](https://user-images.githubusercontent.com/84115420/177077550-0516e2f2-98c4-401e-b6c5-b544135fd717.png)
+![Screen Shot 2022-07-27 at 3 45 50 PM](https://user-images.githubusercontent.com/84115420/181385361-2db4b5ac-0e58-4e3c-8519-7a04c8eb1e82.png)
 
-![Screen Shot 2022-07-03 at 8 38 35 PM](https://user-images.githubusercontent.com/84115420/177077650-238fc4f9-d81a-4767-b6f6-249d1962f70f.png)
+![Screen Shot 2022-07-27 at 3 42 25 PM](https://user-images.githubusercontent.com/84115420/181385374-ded2096f-e4eb-4313-ad70-ca76a4edb2eb.png)
 
 
-### View Posts
-Any logged-in user can view any and all posts.
+
+### View User Feed
+Any logged-in user can view posts of users that they follow.
 ![Screen Shot 2022-07-03 at 8 37 19 PM](https://user-images.githubusercontent.com/84115420/177077478-53812bf6-17c4-4efa-90c9-b1802bd83663.png)
+
+## View and Edit Profile Page
+Any logged-in user can view posts that they have uploaded, along with a user biography. They can also edit their profile.
+![Screen Shot 2022-07-27 at 3 41 49 PM](https://user-images.githubusercontent.com/84115420/181385513-97589363-7aff-41b2-9ba1-d3c58586ad2b.png)
+![Screen Shot 2022-07-27 at 3 42 03 PM](https://user-images.githubusercontent.com/84115420/181386294-d10f3086-dbbc-460e-856b-b18423b1d4a1.png)
+
+
+## View Explore Page
+Any logged-in user can view an explore page that will display random posts that do not belong to the user.
+![Screen Shot 2022-07-27 at 3 41 13 PM](https://user-images.githubusercontent.com/84115420/181385625-8f32a70c-04d0-47af-ae45-85d116578bc0.png)
+
+## View Specific Posts
+Any logged-in user can click on a post and view thee post, along with comments.
+![Screen Shot 2022-07-27 at 3 42 47 PM](https://user-images.githubusercontent.com/84115420/181385984-699a73dc-5bbd-4356-b13b-71a466e9b0db.png)
+
 
 ### Creating, editing, and deleting Posts
 All logged-in users can create their own posts. They can also only edit and delete their posts.
-![Screen Shot 2022-07-03 at 8 47 56 PM](https://user-images.githubusercontent.com/84115420/177078198-32ea9fc8-29f8-420a-b731-273790bd4790.png)
-![Screen Shot 2022-07-03 at 8 49 44 PM](https://user-images.githubusercontent.com/84115420/177078383-66ebe27f-4151-4f6b-9698-332534f9899a.png)
+![Screen Shot 2022-07-27 at 3 55 42 PM](https://user-images.githubusercontent.com/84115420/181386385-44556506-c452-491c-8468-2984824ecc3e.png)
+![Screen Shot 2022-07-27 at 3 43 54 PM](https://user-images.githubusercontent.com/84115420/181387055-777f2c25-4cf3-47b8-b1a8-be574185d6f4.png)
+
 
 ### Creating, viewing, editing and deleting Comments
 All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
 ![Screen Shot 2022-07-03 at 8 38 53 PM](https://user-images.githubusercontent.com/84115420/177077711-8468112c-7c3f-43af-b8a7-cdd32738b8a4.png)
 ![Screen Shot 2022-07-03 at 8 39 05 PM](https://user-images.githubusercontent.com/84115420/177077805-9aec68b3-d2cb-419d-bab4-633a0362aba8.png)
+![Screen Shot 2022-07-27 at 3 44 43 PM](https://user-images.githubusercontent.com/84115420/181387170-f6abf81c-552e-46e1-9a39-c7c3d0fd2509.png)
+
+
+
 
 ## Future features to implement
 - Search Bar
