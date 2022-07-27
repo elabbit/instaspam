@@ -11,13 +11,13 @@ function Following({ following, sessionUser }) {
 
     return (
         <div>
-            <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
-                <div>{following?.length} following</div>
+            <button className="profile-modal-bttn" onClick={() => setShowModal(true)}>
+                <div><span className='number-bold'>{following?.length}</span> following</div>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <div className="list-modal-container">
-                        <div className="list-title">Likes</div>
+                        <div className="list-title">Following</div>
                         <div className="list-users">
                             {following.map((following) => (
                                 <div className="list-user-container" key={following.username}>

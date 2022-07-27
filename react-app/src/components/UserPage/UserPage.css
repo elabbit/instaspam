@@ -36,30 +36,77 @@
 .user-posts-follow {
     display: flex;
     flex-direction: row;
+    height:24px;
+    margin-bottom:20px;
+    align-items: center;
 }
 
-.user-posts-follow-section {
-    margin: 25px 30px 25px 0px
+.user-posts-follow * {
+font-size:16px;
+}
+.user-posts-follow-section{
+margin-right:7px;
+}
+
+.profile-modal-bttn{
+    margin-left:20px;
+border:transparent;
+background-color: transparent;
+cursor: pointer;
+}
+.number-bold{
+    font-weight: 600;
 }
 
 .profile-username-edit {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+
 }
+
+
 
 h2.profile-page-username {
     margin: 0px 20px 0px 0px;
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 300;
+
 }
 
 
 
 .edit-profile-button {
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
     border: rgb(199, 197, 197) 1px solid;
-    border-radius: 5px;
-    padding: 4px;
+    border-radius: 4px;
+    padding: 5px;
+    height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+
+
+
+.follow-profile-button {
+    border-radius: 4px;
+    background-color: #0095F6;
+    padding: 5px;
+    height: 30px;
+    padding-left: 9px;
+    padding-right: 9px;
+
+}
+
+.follow-profile-button button {
+    font-weight: bold;
+    color: white;
+    border: none;
+    background-color: transparent;
+
 }
 
 a.edit-profile-link:hover {
@@ -73,15 +120,14 @@ a.edit-profile-link:hover {
 }
 
 .user-name-bio {
+    font-size: 16px;
     margin-bottom: 5px;
 }
 
-span.profile-post-follow-number {
-    font-weight: bold;
-}
+
 
 #user-profile-name-bio {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .user-page-posts-container {

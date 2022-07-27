@@ -11,8 +11,8 @@ function Followers({ followers, sessionUser }) {
 
     return (
         <div>
-            <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
-                <div>{followers?.length} followers</div>
+            <button className="profile-modal-bttn" onClick={() => setShowModal(true)}>
+                <div><span className='number-bold'>{followers?.length}</span> followers</div>
             </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
@@ -29,7 +29,6 @@ function Followers({ followers, sessionUser }) {
                                         </div>
                                     </div>
                                     <div className="list-bttn-div">
-                                        {console.log("FOLLOW BTTN", sessionUser?.following, follower.username)}
                                         <FollowButton sessionUser={sessionUser} matchUsername={follower.username} matchId={follower.id} />
                                     </div>
 
