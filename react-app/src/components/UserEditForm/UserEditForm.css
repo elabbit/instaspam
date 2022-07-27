@@ -88,7 +88,7 @@
     font-weight: 500;
     display:inline-block;
     padding-right: 25px;
-    width:100px;
+    width:110px;
     text-align: right;
 }
 
@@ -124,4 +124,9 @@ margin-bottom:10px;
 input[type=file]::file-selector-button {
 padding:6px 8px;
 font-size:14px;
+}
+
+.bio-container{
+    display: flex;
+    align-items: center;
 }

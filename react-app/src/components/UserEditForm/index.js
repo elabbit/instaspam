@@ -113,8 +113,8 @@ const UserEditForm = () => {
                             </div>
                         </div>
                         <div className="page-editprofile-formlabelandinput">
-                            <div className="page-editprofile-formimput-container">
-                            <label htmlFor="bio" className="page-editprofile-formlabel">Bio</label>
+                            <div className="page-editprofile-formimput-container bio-container">
+                            <label htmlFor="bio" className="page-editprofile-formlabel bio-label">Bio</label>
                                 <textarea
                                     type='bio'
                                     name='bio'
