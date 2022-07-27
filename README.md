@@ -74,8 +74,8 @@ All logged-in users can post their own comments on any post. They can also edit 
 - Hashtags
 
 ## Challenges Faced
-- Implementing the likes and follow 
-- 
+- Implementing the likes and follow was definitely the most difficult aspect of the project. We had issues especially dealing with the Followers model in the database. The relationship, which required userId and userId, required us to implement backref within the User model relationship. In regards to both the likes and followers redux slice of states, we had to update the likes and followers slice of state depending on the page the user is at. We needed to update the state for both sesssion user and user if the user is on someone's profile page and decides to follow them.
+
 
 
 # Project installation and setup
