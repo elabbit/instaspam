@@ -79,7 +79,7 @@ const SignUpForm = () => {
         <input
           type='text'
           name='username'
-          maxLength='40'
+          maxLength='30'
           onChange={updateUsername}
           className='page-splash-content-input'
           value={username}
