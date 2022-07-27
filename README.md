@@ -1,6 +1,56 @@
-# Flask React Project
+# Hoopa
 
-This is the starter for the Flask React project.
+## Introduction
+Welcome to Instaspam, a clone of the popular [Instagram](https://www.instagram.com/) website. With Instaspam, you can post pictures on whatever you like and other users can comment on those posts! Instaspam takes this idea and adds the subtlety of in-your-face advertisements, "spamming" the user with constant information. Instaspam is THE website for people and friends to come and display their lives in their photos and posts, as well as comment on what friends are up to.
+
+## Technologies Used
+- Languages: Javascript, HTML, CSS
+- Front-End: React, JSX
+- Back-End: Python, Flask-SQLAlchemy
+- Database: PostgreSQL
+- Hosting: Heroku
+
+## Link to live site
+https://instaspam-jade.herokuapp.com/
+
+## Link to Wiki docs
+https://github.com/elabbit/instaspam/wiki
+
+## Features
+
+### Register/Sign-in
+Users can register an account on Instagram with a unique username, email and a password of their choosing. They can also sign in with their created email and password. If sign-in credentials are incorrect, error messages will alert the user to try again.
+
+![Screen Shot 2022-07-03 at 8 38 10 PM](https://user-images.githubusercontent.com/84115420/177077550-0516e2f2-98c4-401e-b6c5-b544135fd717.png)
+
+![Screen Shot 2022-07-03 at 8 38 35 PM](https://user-images.githubusercontent.com/84115420/177077650-238fc4f9-d81a-4767-b6f6-249d1962f70f.png)
+
+
+### View Posts
+Any logged-in user can view any and all posts.
+![Screen Shot 2022-07-03 at 8 37 19 PM](https://user-images.githubusercontent.com/84115420/177077478-53812bf6-17c4-4efa-90c9-b1802bd83663.png)
+
+### Creating, editing, and deleting Posts
+All logged-in users can create their own posts. They can also only edit and delete their posts.
+![Screen Shot 2022-07-03 at 8 47 56 PM](https://user-images.githubusercontent.com/84115420/177078198-32ea9fc8-29f8-420a-b731-273790bd4790.png)
+![Screen Shot 2022-07-03 at 8 49 44 PM](https://user-images.githubusercontent.com/84115420/177078383-66ebe27f-4151-4f6b-9698-332534f9899a.png)
+
+### Creating, viewing, editing and deleting Comments
+All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
+![Screen Shot 2022-07-03 at 8 38 53 PM](https://user-images.githubusercontent.com/84115420/177077711-8468112c-7c3f-43af-b8a7-cdd32738b8a4.png)
+![Screen Shot 2022-07-03 at 8 39 05 PM](https://user-images.githubusercontent.com/84115420/177077805-9aec68b3-d2cb-419d-bab4-633a0362aba8.png)
+
+## Future features to implement
+- Search Bar
+- Direct Messaging
+- Hashtags
+
+## Challenges Faced
+- Implementing the likes and follow 
+- 
+
+
+# Project installation and setup
 
 ## Getting started
 1. Clone this repository (only this branch)
