@@ -16,14 +16,16 @@
     display: flex;
     background-color: white;
     border-radius: 10px;
+    max-height: 600px;
 }
 
 .post-mod-image {
     width: 100%;
+    max-height: 600px;
 }
 
 .post-mod-left {
-    height: 650px;
+    max-height: 650px;
     max-width: 500px;
     width: 50%;
     display: flex;
@@ -45,6 +47,7 @@
 .post-modal-username-follow-button {
     display: flex;
     flex-direction: row;
+    padding-bottom: 0px !important;
 }
 
 .post-modal-caption-buttons {
@@ -56,4 +59,25 @@ button.post-modal-edit-delete-buttons {
     text-decoration: none;
     border: none;
     cursor: pointer;
+    color: #18b1f2;
+    background-color: white;
 }
+
+.post-modal-username-edit-field {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-modal-username-caption {
+    margin-top: 5px;
+}
+
+.post-modal-username-only {
+    margin-top: 10px;
+}
+
+.post-modal-comments-section {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+

@@ -27,7 +27,7 @@ function PostDetails({ post }) {
       </div>
       <div className="post-mod-right">
         <div className="post-modal-username-follow-button">
-          <div>
+          <div className="post-modal-username-only">
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
           </div>
           <div className="">
@@ -36,10 +36,10 @@ function PostDetails({ post }) {
         </div>
         {!showEditPost ?
           <div className="post-modal-caption-buttons">
-            <div>
+            <div className="post-modal-username-caption">
               <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
             </div>
-            <div>
+            <div className="post-modal-username-caption">
               <span>{post.caption}</span>
             </div>
             {post.ownerId === sessionUser.id ?
@@ -52,22 +52,33 @@ function PostDetails({ post }) {
             }
           </div>
           :
-          <div>
-            <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-            <EditPost post={post} setShowEditPost={setShowEditPost} />
+          <div className="post-modal-username-edit-field">
+            <div>
+              <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+            </div>
+            <div>
+              <EditPost post={post} setShowEditPost={setShowEditPost} />
+            </div>
           </div>
         }
-        {Object.values(post.comments).map((comment) => (
-          <div key={comment.id}>
-            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
-          </div>
-        ))}
+        <div className="post-modal-comments-section">
+          {Object.values(post.comments).map((comment) => (
+            <div key={comment.id}>
+              <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
+            </div>
+          ))}
+        </div>
+
         <div>
           <div>
             <LikeToggle post={post} sessionUsername={sessionUser.username} />
           </div>
-          <LikesModal likes={post.likes} />
-          <CreateComment postId={post.id} />
+          <div>
+            <LikesModal likes={post.likes} />
+          </div>
+          <div className="post-modal-create-comment-container">
+            <CreateComment postId={post.id} />
+          </div>
         </div>
       </div>
     </div >
