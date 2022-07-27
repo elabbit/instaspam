@@ -12,21 +12,23 @@ function PostModalFeed({ post, type }) {
     switch (true) {
         case (type == 1):
             content = (
-                <>
+                <div className='view-all-comments'>
                     View 1 comment
-                </>
+                </div>
             )
             break;
         case (type >= 2):
             content = (
-                <>
+                <div className='view-all-comments'>
                     View all {type} comments
-                </>
+                </div>
             )
             break;
         case (type === 'bubble'):
             content = (
-                <CommentBubble />
+                <div className='bubble'>
+                    <CommentBubble />
+                </div>
             )
             break;
         default:

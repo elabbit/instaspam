@@ -4,3 +4,11 @@
     padding: 0px;
     cursor: pointer;
 }
+
+.view-all-comments {
+    color: #8E8E8E;
+}
+
+.bubble:hover {
+    opacity: 0.5;
+}
