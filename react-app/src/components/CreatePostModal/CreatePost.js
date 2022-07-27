@@ -62,7 +62,7 @@ const CreatePost = ({ hideModal }) => {
                     </div>
                     <div className="create-post-fields">
                         <div className="create-post-image-upload-field">
-                            <label className="image-label" for="create-post-files">Select from computer</label>
+                            <label className="create-post-image-label" for="create-post-files">Select from computer</label>
                             <input
                                 className="create-post-image-upload-section"
                                 id="create-post-files"

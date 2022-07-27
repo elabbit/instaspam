@@ -1,0 +1,27 @@
+input.edit-profile-image-upload-section[type=file]::file-selector-button {
+  font-weight: 600;
+  color: white;
+  background-color: #0095F6;
+  cursor: pointer;
+  visibility: hidden;
+  display: none;
+}
+
+label.edit-profile-image-upload-label {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #0095F6;
+  color: white;
+  width: 150px;
+  cursor: pointer;
+}
+
+form.edit-profile-image-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-profile-photo-field {
+  display: flex;
+  width: 370px;
+}

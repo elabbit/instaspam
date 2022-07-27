@@ -51,21 +51,25 @@ const UserImageUpload = ({ id, hideForm }) => {
     }
 
     return (
-                <form onSubmit={handleSubmit}>
-                    {errors.length > 0 && (
-                        <div>{errors}</div>
-                    )}
-                    <input
-                        type="file"
-                        accept="image/*"
-
-                        onChange={updateImage}
-                    />
-                    <button className="page-editprofile-upload-btn" type="submit">Upload</button>
-                    {(imageLoading) && <p>Uploading...</p>}
-                    {(sucess) && <p>Image Uploaded!</p>}
-                    {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
-                </form>
+        <form className="edit-profile-image-form" onSubmit={handleSubmit}>
+            {errors.length > 0 && (
+                <div>{errors}</div>
+            )}
+            <div className="edit-profile-photo-field">
+                <label className="edit-profile-image-upload-label" for="edit-profile-photo-upload">Choose photo</label>
+                <input
+                    id="edit-profile-photo-upload"
+                    type="file"
+                    accept="image/*"
+                    className="edit-profile-image-upload-section"
+                    onChange={updateImage}
+                />
+                <button className="page-editprofile-upload-btn" type="submit">Upload</button>
+                {(imageLoading) && <p>Uploading...</p>}
+                {(sucess) && <p>Image Uploaded!</p>}
+                {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
+            </div>
+        </form>
     )
 }
 
