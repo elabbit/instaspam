@@ -55,7 +55,7 @@ function LikesModal({ likes, sessionUser }) {
                     <Link to={`${followingLike}`}>{followingLike}</Link>
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
-                        {likes.length}
+                        {likes.length - 1}
                         &nbsp;others
                     </button>
                 </div>

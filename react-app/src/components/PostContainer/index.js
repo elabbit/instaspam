@@ -12,7 +12,7 @@ function PostContainer({ post, sessionUser }) {
             <div className='post-container'>
                 <div className='feed-owner-container'>
                     <img src={post.ownerProfileImage} className='feed-owner-image' alt="post owner profile image" />
-                    <div className='feed-owner-username'>{post.ownerUsername}</div>
+                    <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
                 </div>
                 <div className='feed-image-container'>
                     <img className='feed-post-image' src={post.image} alt="" />
