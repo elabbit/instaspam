@@ -10,9 +10,6 @@ function PostModalFeed({ post, type }) {
     let content;
 
     switch (true) {
-        case (type == 0):
-            content = null
-            break;
         case (type == 1):
             content = (
                 <>
