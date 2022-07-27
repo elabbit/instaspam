@@ -11,6 +11,7 @@ button.create-comment-post-button {
   color: #18b1f2;
   font-weight:600;
 margin-right:10px;
+cursor: pointer;
 
 }
 

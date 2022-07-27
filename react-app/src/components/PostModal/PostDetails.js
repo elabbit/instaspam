@@ -37,39 +37,42 @@ function PostDetails({ post }) {
               {/* <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} /> */}
             </div>
           </div>
-          <div className="post-modal-profileimage owner-image">
-            <img src={post.ownerProfileImage}></img>
-            {!showEditPost ?
-              <div className="post-modal-caption-buttons">
-
-                <div className="post-modal-username-caption">
-                <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                  <span>{post.caption}</span>
-                </div>
-                {post.ownerId === sessionUser.id ?
-                  <div>
-                    <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>
-                    <button className="post-modal-edit-delete-buttons" onClick={onDelete}>Delete</button>
-                  </div>
-                  :
-                  null
-                }
-              </div>
-              :
-              <div className="post-modal-username-edit-field">
-
-                <div>
-                  <EditPost post={post} setShowEditPost={setShowEditPost} />
-                </div>
-              </div>
-            }
-          </div>
           <div className="post-modal-comments-section">
-            {Object.values(post.comments).map((comment) => (
-              <div key={comment.id}>
-                <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
-              </div>
-            ))}
+
+
+            <div className="post-modal-profileimage owner-image">
+              <img src={post.ownerProfileImage}></img>
+              {!showEditPost ?
+                <div className="post-modal-caption-buttons">
+                  <div className="post-modal-username-caption">
+                    <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+                    <span>{post.caption}</span>
+                  </div>
+                  {post.ownerId === sessionUser.id ?
+                    <div>
+                      <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>
+                      <button className="post-modal-edit-delete-buttons" onClick={onDelete}>Delete</button>
+                    </div>
+                    :
+                    null
+                  }
+                </div>
+                :
+                <div className="post-modal-username-edit-field">
+
+                  <div>
+                    <EditPost post={post} setShowEditPost={setShowEditPost} />
+                  </div>
+                </div>
+              }
+            </div>
+            <div >
+              {Object.values(post.comments).map((comment) => (
+                <div key={comment.id}>
+                  <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser?.id} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="post-modal-likes-create-comment-container">
