@@ -65,6 +65,16 @@ textarea.create-post-form-caption {
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+}
+
+#create-post-files.create-post-image-upload-section{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
