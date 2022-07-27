@@ -103,7 +103,7 @@ const UserEditForm = () => {
                                 <input
                                     type='text'
                                     name='username'
-                                    maxLength='40'
+                                    maxLength='30'
                                     className="page-editprofile-formimput"
                                     onChange={e => setUsername(e.target.value)}
                                     value={username}
