@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { getUserFeedPosts } from "../../store/posts";
+import { clearPosts, getUserFeedPosts } from "../../store/posts";
 import PostContainer from "../PostContainer";
 import './UserFeed.css'
 
@@ -12,6 +12,7 @@ const UserFeed = ({ sessionUser }) => {
 
   useEffect(() => {
     dispatch(getUserFeedPosts(sessionUser))
+    return dispatch(clearPosts())
   }, [dispatch, sessionUser])
 
   const normalPosts = Object.values(posts);
