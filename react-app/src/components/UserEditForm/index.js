@@ -43,16 +43,21 @@ const UserEditForm = () => {
             <div className="page-spacer"></div>
             <div className="page-container">
                 <div className="page-editprofile-form-container">
-                    <h1 className="page-editprofile-title">Edit Profile</h1>
+                    <div className="page-editprofile-title">Edit Profile</div>
                     <div className="page-editprofile-userinfo">
                         <div className="page-editprofile-pic">
                             <img src={profilePic} alt='profilepic' className='page-editprofile-profilepic'></img>
                         </div>
                         <div className="page-editprofile-usernameandupload">
-                            <h1 className="page-editprofile-username">{user.username}</h1>
+                            <div className="page-editprofile-username">
+                                {/* {user.username} */}
+
+
                             {!displayUpload ?
                                 <button className='page-editprofile-pic-btn' onClick={() => setDisplayUpload(true)}>Change profile photo</button>
                                 : <UserImageUpload id={id} hideForm={() => setDisplayUpload(false)} />}
+
+                                </div>
                         </div>
                     </div>
                     <div>

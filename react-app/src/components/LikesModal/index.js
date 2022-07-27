@@ -29,7 +29,7 @@ function LikesModal({ likes, sessionUser }) {
                                         </div>
                                     </div>
                                     <div className="list-bttn-div">
-                                        <FollowButton sessionUser={sessionUser} matchUsername={like.username} matchId={like.id} />
+                                        {/* <FollowButton sessionUser={sessionUser} matchUsername={like.username} matchId={like.id} /> */}
                                     </div>
 
                                 </div>

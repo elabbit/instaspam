@@ -64,7 +64,7 @@ const UserImageUpload = ({ id, hideForm }) => {
                     <button className="page-editprofile-upload-btn" type="submit">Upload</button>
                     {(imageLoading) && <p>Uploading...</p>}
                     {(sucess) && <p>Image Uploaded!</p>}
-                    <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button>
+                    {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
                 </form>
     )
 }
