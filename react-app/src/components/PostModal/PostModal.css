@@ -48,6 +48,7 @@
     display: flex;
     flex-direction: row;
     padding-bottom: 0px !important;
+    border-bottom: 1px solid rgb(236, 234, 234);
 }
 
 .post-modal-caption-buttons {
@@ -81,3 +82,18 @@ button.post-modal-edit-delete-buttons {
     max-height: 300px;
 }
 
+.post-modal-likes-create-comment-container {
+    border-top: 1px solid rgb(236, 234, 234);
+}
+
+
+.post-modal-create-comment-container {
+    border-top: 1px solid rgb(236, 234, 234);
+    /* position: absolute;
+    bottom: 0px;
+    padding: 10px; */
+}
+
+/* .post-modal-likes-button-container {
+    position: relative;
+} */

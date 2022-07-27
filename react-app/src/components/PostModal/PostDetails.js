@@ -69,12 +69,14 @@ function PostDetails({ post }) {
           ))}
         </div>
 
-        <div>
-          <div>
-            <LikeToggle post={post} sessionUsername={sessionUser.username} />
-          </div>
-          <div>
-            <LikesModal likes={post.likes} />
+        <div className="post-modal-likes-create-comment-container">
+          <div className="post-modal-likes-button-container">
+            <div>
+              <LikeToggle post={post} sessionUsername={sessionUser.username} />
+            </div>
+            <div>
+              <LikesModal likes={post.likes} />
+            </div>
           </div>
           <div className="post-modal-create-comment-container">
             <CreateComment postId={post.id} />
