@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import FollowButton from '../FollowButton';
+import './LikesModal.css'
 
 
 
@@ -55,7 +56,7 @@ function LikesModal({ likes, sessionUser }) {
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
                         {likes.length}
-                        others
+                        &nbsp;others
                     </button>
                 </div>
             )
