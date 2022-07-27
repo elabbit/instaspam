@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createLike, createUnlike } from "../../store/posts";
-
+import { ReactComponent as Heart } from '../../images/heart.svg';
+import { ReactComponent as HeartFilled } from '../../images/heart-fill.svg';
+import './LikeToggle.css'
 
 const LikeToggle = ({post, sessionUsername}) => {
     const [like, setLike] = useState();
@@ -27,11 +29,11 @@ const onUnlike = async (e) => {
     return(
         !like ?
             <form onSubmit={onLike}>
-              <button>Like</button>
+              <button className='like'><Heart /></button>
             </form>
             :
             <form onSubmit={onUnlike}>
-              <button>Unlike</button>
+              <button className='unlike'><HeartFilled /></button>
             </form>
 
     )

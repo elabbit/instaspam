@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { getUserFeedPosts } from "../../store/posts";
 import PostContainer from "../PostContainer";
-
+import './UserFeed.css'
 
 
 
@@ -38,7 +38,7 @@ const UserFeed = ({ sessionUser }) => {
       <div className="page-spacer"></div>
       <div className="page-container">
         {posts ?
-          <div>
+          <div className='user-feed-container'>
             {completeSortedPosts.map((post) => (
               <div key={post?.id}>
                 <PostContainer post={post} sessionUser={sessionUser} />

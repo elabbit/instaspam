@@ -43,5 +43,6 @@ class Post(db.Model):
             'createdAt': self.createdAt,
             'comments': [ comment.to_dict() for comment in self.post_comments ],
             'likes': [user.to_dict_follows() for user in self.post_likes],
-            'ownerUsername': User.query.get(self.ownerId).username
+            'ownerUsername': User.query.get(self.ownerId).username,
+            'ownerProfileImage': User.query.get(self.ownerId).profileImage
         }
