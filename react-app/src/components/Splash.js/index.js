@@ -4,9 +4,9 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import LoginForm from '../auth/LoginForm';
 import './Splash.css'
-import logo from './instaspamlogo.png'
-import splashImg from './instaspamsplash.png'
+import splashImg from '../../images/instaspamsplash.png'
 import SignUpForm from '../auth/SignUpForm';
+import instaspamLogo from "../../images/instaspam-logo.png"
 
 
 function Splash({ sessionUser }) {
@@ -36,7 +36,7 @@ function Splash({ sessionUser }) {
         </div>
         <div className='page-splash-content-right'>
           <div className='page-splash-content-form'>
-            <img src={logo} className='page-splash-logo'></img>
+            <img src={instaspamLogo} className='page-splash-logo'></img>
             {displayLogin ?
             <LoginForm />
             : <SignUpForm />}
