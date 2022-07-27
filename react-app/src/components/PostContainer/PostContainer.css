@@ -50,3 +50,17 @@
     align-items: center;
     background-color: transparent;
 }
+
+.feed-comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: fit-content;
+    max-height: 70px;
+    padding: 0 12px;
+}
+
+.feed-comments > div {
+    margin-bottom: 7px;
+}

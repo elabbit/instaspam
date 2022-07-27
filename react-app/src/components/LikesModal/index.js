@@ -24,13 +24,13 @@ function LikesModal({ likes, sessionUserFollowing }) {
     return (
         <div>
             {(followingLike && likes.length === 1) ? (
-                <div>
+                <div className='like-info-container'>
                     Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
                 </div>
             )
                 : (followingLike && likes.length === 2) ? (
-                    <div>
+                    <div className='like-info-container'>
                         Liked by&nbsp;
                         <Link to={`${followingLike}`}>{followingLike}</Link>
                         &nbsp;and&nbsp;
@@ -40,7 +40,7 @@ function LikesModal({ likes, sessionUserFollowing }) {
                     </div>
                 )
                     : (followingLike && likes.length > 2) ? (
-                        <div>
+                        <div className='like-info-container'>
                             Liked by&nbsp;
                             <Link to={`${followingLike}`}>{followingLike}</Link>
                             &nbsp;and&nbsp;
@@ -51,7 +51,9 @@ function LikesModal({ likes, sessionUserFollowing }) {
                         </div>
                     )
                         : (
-                            <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>{likes.length} likes</button>
+                            <div className='like-info-container'>
+                                <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>{likes.length} likes</button>
+                            </div>
                         )
             }
             {

@@ -23,18 +23,16 @@ function PostContainer({ post, sessionUser }) {
                         <LikeToggle post={post} sessionUsername={sessionUser.username} />
                         <span className='feed-comment-bubble'><CommentBubble /></span>
                     </div>
-                    <div>
-                        <LikesModal likes={post.likes} sessionUserFollowing={sessionUser.following} />
-                    </div>
-                    <div>
-                        <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                        <span>&nbsp;{post.caption}</span>
-                    </div>
-                    {Object.values(post.comments).map((comment) => (
-                        <div key={comment.id}>
-                            <CommentDetails comment={comment} postId={post.id} sessionUserId={sessionUser.id} />
+                    <LikesModal likes={post.likes} sessionUserFollowing={sessionUser.following} />
+                    <div className='feed-comments'>
+                        <div>
+                            <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+                            &nbsp;{post.caption}
                         </div>
-                    ))}
+                        <div>
+                            View all comments...
+                        </div>
+                    </div>
                     <div>
                         <CreateComment postId={post.id} />
                     </div>

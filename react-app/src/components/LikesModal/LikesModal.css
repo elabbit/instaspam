@@ -18,3 +18,9 @@ border-radius: 50%;
     border: none;
     cursor: pointer;
 }
+
+.like-info-container {
+    height: 18px;
+    margin: 0px 0px 8px;
+    padding: 0px 12px
+}
