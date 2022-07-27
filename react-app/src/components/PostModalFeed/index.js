@@ -30,7 +30,7 @@ function PostModalFeed({ post, type }) {
             )
             break;
         default:
-            console.log('none');
+            content = undefined;
     }
 
     return (

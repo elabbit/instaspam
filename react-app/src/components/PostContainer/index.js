@@ -22,7 +22,7 @@ function PostContainer({ post, sessionUser }) {
                         <LikeToggle post={post} sessionUsername={sessionUser.username} />
                         <div className='feed-comment-bubble'><PostModalFeed post={post} type={'bubble'}/></div>
                     </div>
-                    <LikesModal likes={post.likes} />
+                    <LikesModal likes={post.likes} sessionUser={sessionUser} />
                     <div className='feed-comments'>
                         <div>
                             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
