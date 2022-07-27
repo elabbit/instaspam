@@ -3,6 +3,7 @@ import EditComment from "../EditComment";
 import { removeComment } from "../../store/posts";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import './CommentDetails.css'
 
 function CommentDetails({ comment, postId, sessionUserId }) {
     const [showEditComment, setShowEditComment] = useState(false);
@@ -22,8 +23,8 @@ function CommentDetails({ comment, postId, sessionUserId }) {
 
                 {(comment.userId === sessionUserId) && (
                     <>
-                        <button onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
-                        <button onClick={() => setShowEditComment(true)}>Edit</button>
+                        <button className="comment-details-edit-delete-buttons" onClick={() => setShowEditComment(true)}>Edit</button>
+                        <button className="comment-details-edit-delete-buttons" onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
                     </>
                 )}
             </div>
