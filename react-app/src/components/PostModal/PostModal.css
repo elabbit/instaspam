@@ -14,6 +14,8 @@
 
 .post-mod-container {
     display: flex;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .post-mod-image {
@@ -22,17 +24,36 @@
 
 .post-mod-left {
     height: 650px;
-    max-width: 640px;
+    max-width: 500px;
+    width: 50%;
     display: flex;
     align-items: center;
     background-color: black;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .post-mod-right {
-    width: 400px;
-    padding: 20px
+    width: 50%;
+    max-width: 500px;
+    margin: 5px;
 }
 
 .post-mod-right * {
     padding: 5px;
+}
+
+.post-modal-username-follow-button {
+    display: flex;
+    flex-direction: row;
+}
+
+.post-modal-caption-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+button.post-modal-edit-delete-buttons {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }

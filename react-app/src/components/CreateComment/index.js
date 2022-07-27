@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { createComments } from '../../store/posts';
+import './CreateComment.css'
 
 const CreateComment = ({postId}) => {
     const [comment, setComment] = useState('');

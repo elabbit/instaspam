@@ -8,6 +8,7 @@ import CommentDetails from "../CommentDetails";
 import FollowButton from "../FollowButton";
 import LikeToggle from "../LikeToggle";
 import LikesModal from "../LikesModal";
+import './PostModal.css'
 
 function PostDetails({ post }) {
   const dispatch = useDispatch()
@@ -25,17 +26,26 @@ function PostDetails({ post }) {
         <img className="post-mod-image" src={post.image} alt="" />
       </div>
       <div className="post-mod-right">
-        {!showEditPost ?
+        <div className="post-modal-username-follow-button">
           <div>
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+          </div>
+          <div className="">
+            <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId} />
+          </div>
+        </div>
+        {!showEditPost ?
+          <div className="post-modal-caption-buttons">
             <div>
-              <FollowButton sessionFollowing={sessionFollowing} matchUsername={post.ownerUsername} matchId={post.ownerId}/>
+              <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
             </div>
-            <span>{post.caption}</span>
+            <div>
+              <span>{post.caption}</span>
+            </div>
             {post.ownerId === sessionUser.id ?
               <div>
-                <button onClick={() => setShowEditPost(true)}>Edit</button>
-                <button onClick={onDelete}>Delete</button>
+                <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>
+                <button className="post-modal-edit-delete-buttons" onClick={onDelete}>Delete</button>
               </div>
               :
               null
