@@ -53,33 +53,37 @@ const CreatePost = ({ hideModal }) => {
                         <button className="create-post-share-button" type="submit">Share</button>
                     </div>
                 </div>
-                <div className="create-post-fields">
-                    <div className="create-post-image-upload-field">
-                        {/* <label for="create-post-files">Select from computer</label> */}
-                        <input
-                            className="create-post-image-upload-section"
-                            id="create-post-files"
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <div className="create-post-profile-pic-username">
-                            <img className="create-post-profile-pic" src={sessionUser.profileImage} />
-                            <div className="create-post-profile-username">
-                                {sessionUser.username}
-                            </div>
+                <div className="create-post-top">
+                    <div className="create-post-profile-pic-username">
+                        <img className="create-post-profile-pic" src={sessionUser.profileImage} />
+                        <div className="create-post-profile-username">
+                            {sessionUser.username}
                         </div>
-                        <div>
-                            <textarea
-                                className="create-post-form-caption"
-                                value={caption}
-                                onChange={(e) => setCaption(e.target.value)}
-                                placeholder='Write a caption...'
+                    </div>
+                    <div className="create-post-fields">
+                        <div className="create-post-image-upload-field">
+                            {/* <label className="image-label" for="create-post-files">Upload image:</label> */}
+                            <input
+                                className="create-post-image-upload-section"
+                                id="create-post-files"
+                                type="file"
+                                accept="image/*"
+                                onChange={updateImage}
+                                required
                             />
                         </div>
+                    </div>
+
+                </div>
+                <div className="create-post-bottom">
+
+                    <div>
+                        <textarea
+                            className="create-post-form-caption"
+                            value={caption}
+                            onChange={(e) => setCaption(e.target.value)}
+                            placeholder='Write a caption...'
+                        />
                     </div>
                 </div>
                 {(imageLoading) && <p>Uploading...</p>}

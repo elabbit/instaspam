@@ -8,23 +8,26 @@
 
 .page-splash-content{
     display: flex;
-    margin: 32px auto 0;
+
     width: 75%;
     height: 756px;
+    justify-content: center;
+    gap:30px;
+
 }
 
 .page-splash-content-left{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    /* width: 50%; */
 
 }
 
 .page-splash-content-right{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    /* width: 50%; */
 }
 
 .page-splash-content-form{
@@ -63,6 +66,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 3px;
+    padding:6px;
+    font-weight:600;
 }
 
 .page-splash-content-input{
@@ -84,7 +89,7 @@
 }
 
 .page-splash-logo{
-    padding-bottom: 23px;
+  margin-bottom:15px;
 }
 
 .page-splash-demo-btn{

@@ -17,11 +17,12 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgrey;
 }
 
 .create-post-header-text {
     font-size: 16px;
+    font-weight: 600;
 }
 
 .create-post-fields {
@@ -35,52 +36,94 @@
     height: 32px;
     border-radius: 50%;
     margin: 10px;
+
 }
 
 .create-post-profile-username {
-    margin-top: 15px;
+    display: flex;
+    align-items: center;
     font-size: 16px;
+    font-weight: 600;
+    border-right: solid 1px lightgrey;
+    padding-right: 20px;
+    min-width:120px;
 }
 
 
 textarea.create-post-form-caption {
     border: none;
     outline: none;
+    height:158px;
+    width: 550px;
+    padding: 30px;
+    padding-top:10px;
+
+    border-top: solid 1px lightgrey;
 }
 
 .create-post-image-upload-field {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
 }
+
+
 
 .create-post-profile-pic-username {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    margin-right: 20px;
+    margin-left: 10px;
+
+
 }
 
 .create-post-form-container {
     border-radius: 10px;
     background-color: white;
-    height: 300px !important;
-    width: 600px !important;
+    height: 250px !important;
+    width: 550px !important;
 }
 
 button.create-post-share-button {
     background: none;
     border: none;
     color: #18b1f2;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 input[type=file]::file-selector-button {
+    font-weight: 600;
     color: white;
-    background-color: #18b1f2;
+    background-color: #0095F6;
     border: none;
     border-radius: 5px;
-    padding: 5px;
+    padding: 8px;
+    padding-left:16px;
+    padding-right:16px;
+    cursor: pointer;
+    margin-right:10px;
     /* visibility: hidden;
     display: none; */
+}
+
+
+
+.create-post-top {
+    display: flex;
+
+
+}
+
+.create-post-bottom {
+    height:158px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+
+}
+
+.image-label {
+    font-weight: 600;
+    margin-right: 10px;
 }

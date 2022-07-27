@@ -30,7 +30,7 @@ function PostDetails({ post }) {
             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
           </div>
           <div className="">
-            <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} />
+            {/* <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} /> */}
           </div>
         </div>
         {!showEditPost ?
