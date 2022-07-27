@@ -6,6 +6,8 @@ import PostModalFeed from "../PostModalFeed"
 import "./PostContainer.css"
 
 function PostContainer({ post, sessionUser }) {
+    console.log('post.likes', post.likes)
+
     const fullMonths = {
         'Jan': 'January',
         'Feb': 'February',

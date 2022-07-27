@@ -1,32 +1,30 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getUserFeedPosts, clearPosts } from "../../store/posts";
-
 import PostContainer from "../PostContainer";
 import './UserFeed.css'
 
 
-
 const UserFeed = ({ sessionUser }) => {
   const dispatch = useDispatch();
-  const [postsData, setPostsData] = useState([]);
+  const posts = useSelector(state => state.posts);
+  const [postsData, setPostsData] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const postsData = await dispatch(getUserFeedPosts(sessionUser));
 
       if (postsData) {
-        setPostsData(sortPosts(postsData.user_posts))
+        setPostsData(true);
       }
     }
 
     fetchPosts();
-    
+
     return dispatch(clearPosts())
   }, [dispatch, sessionUser])
 
-  const sortPosts = (posts) => {
-    const normalPosts = posts;
+    const normalPosts = Object.values(posts);
     const postsLength = normalPosts.length;
     const spamPosts = normalPosts.splice(0, 9);
     const followPosts = normalPosts.reverse();
@@ -44,17 +42,15 @@ const UserFeed = ({ sessionUser }) => {
       }
     }
 
-    return completeSortedPosts;
-  }
 
   return (
-    (postsData.length > 0) ? (
+    (postsData && posts) ? (
       <div className="page-outer">
         <div className="page-spacer"></div>
         <div className="page-container">
 
           <div className='user-feed-container'>
-            {postsData.map((post) => (
+            {completeSortedPosts.map((post) => (
               <div key={post?.id}>
                 <PostContainer post={post} sessionUser={sessionUser} />
               </div>
