@@ -16,12 +16,12 @@ body a {
 
 body a:hover {
     text-decoration: underline;
-    overflow: hidden;
-    overflow-y: scroll;
 }
 
 body textarea{
 resize:none;
+overflow: hidden;
+overflow-y: scroll;
 }
 
 .page-outer {
