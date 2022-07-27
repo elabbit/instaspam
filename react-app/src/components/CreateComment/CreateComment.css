@@ -1,6 +1,7 @@
 form.create-comment-form {
   display: flex;
   padding: 0px !important;
+  border-top:1px rgb(236, 234, 234) solid;
 }
 
 button.create-comment-post-button {
@@ -8,6 +9,10 @@ button.create-comment-post-button {
   border: none;
   background-color: white;
   color: #18b1f2;
+  font-weight:600;
+margin-right:10px;
+cursor: pointer;
+
 }
 
 textarea.create-comment-comment-field {
@@ -15,10 +20,12 @@ textarea.create-comment-comment-field {
   text-decoration: none;
   border: none;
   outline: none;
-  resize: none;
-  max-height: fit-content;
+  max-height: 200px;
+  min-height: 40px;
+  padding: 15px;
 }
 
 .create-comment-form-container {
   padding: 0px !important;
+  margin-bottom:5px;
 }

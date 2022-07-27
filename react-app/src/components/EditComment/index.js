@@ -34,6 +34,7 @@ const EditComment = ({ postId, currentComment, hideForm }) => {
         <div>
             <form onSubmit={onSubmit}>
                 <textarea
+                className="edit-comment-text"
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                     name='body'
@@ -42,8 +43,8 @@ const EditComment = ({ postId, currentComment, hideForm }) => {
                     required
                     maxLength="1000"
                 ></textarea>
-                <button type='submit'>Edit</button>
-                <button type="button" onClick={handleCancel}>Cancel</button>
+                <button className="post-modal-edit-delete-buttons" type='submit'>Done</button>
+                <button className="post-modal-edit-delete-buttons" type="button" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     )

@@ -4,6 +4,7 @@
     cursor: pointer;
     margin: 10px;
     padding: 0px;
+
 }
 
 
@@ -16,28 +17,36 @@
     display: flex;
     background-color: white;
     border-radius: 10px;
-    max-height: 600px;
+    height: 600px;
+    width: 974px;
+
 }
 
 .post-mod-image {
+
     width: 100%;
-    max-height: 600px;
 }
 
 .post-mod-left {
     max-height: 650px;
     max-width: 500px;
     width: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     background-color: black;
     border-radius: 10px 0px 0px 10px;
+    overflow: hidden;
+
 }
 
 .post-mod-right {
     width: 50%;
     max-width: 500px;
-    margin: 5px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .post-mod-right * {
@@ -53,7 +62,7 @@
 
 .post-modal-caption-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 button.post-modal-edit-delete-buttons {
@@ -71,29 +80,72 @@ button.post-modal-edit-delete-buttons {
 
 .post-modal-username-caption {
     margin-top: 5px;
+    width: 380px;
+
+
 }
 
 .post-modal-username-only {
     margin-top: 10px;
+    margin-left: -5px;
 }
 
+
+
 .post-modal-comments-section {
-    overflow-y: scroll;
-    max-height: 300px;
+    overflow-y: auto;
+    max-height: 410px;
 }
 
 .post-modal-likes-create-comment-container {
     border-top: 1px solid rgb(236, 234, 234);
+
+}
+
+.post-modal-likes-create-comment-container * {
+    padding: 0px
 }
 
 
-.post-modal-create-comment-container {
-    border-top: 1px solid rgb(236, 234, 234);
-    /* position: absolute;
-    bottom: 0px;
-    padding: 10px; */
+
+
+.post-modal-profileimage img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
 }
 
-/* .post-modal-likes-button-container {
-    position: relative;
-} */
+
+.post-modal-username-caption a {
+    margin-left: -5px;
+    width:360px;
+
+}
+
+.post-modal-likes-button-container {
+    margin-left: 20px;
+}
+
+.edit-comment-text {
+    width: 360px;
+    height: 80px;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+}
+
+
+.post-modal-profileimage {
+    display: flex;
+    flex-direction: row;
+}
+
+.owner-image img {
+    margin-top: 15px;
+}
+
+.edit-post-text {
+    width: 360px;
+    height: 160px;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+}

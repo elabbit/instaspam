@@ -16,20 +16,33 @@ function CommentDetails({ comment, postId, sessionUserId }) {
 
     return (
 
-        !showEditComment ?
-            <div>
-                <Link to={`${comment.username}`}>{comment.username}</Link>
-                <span>{comment.comment}</span>
+        <div className="comment-container">
 
-                {(comment.userId === sessionUserId) && (
-                    <>
-                        <button className="comment-details-edit-delete-buttons" onClick={() => setShowEditComment(true)}>Edit</button>
-                        <button className="comment-details-edit-delete-buttons" onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
-                    </>
-                )}
+            <div className="post-modal-profileimage">
+                <img src={comment.userProfileImage}></img>
             </div>
-            :
-            <EditComment postId={postId} currentComment={comment} hideForm={() => setShowEditComment(false)} />
+
+            {!showEditComment ?
+                <div>
+                    <>
+                        <div className='actual-comment'>
+                            <Link to={`${comment.username}`}>{comment.username}</Link>
+                            <span >{comment.comment}</span>
+                        </div>
+
+                        {(comment.userId === sessionUserId) && (
+                            <>
+                                <div className='button-comment'>
+                                    <button className="comment-details-edit-delete-buttons" onClick={() => setShowEditComment(true)}>Edit</button>
+                                    <button className="comment-details-edit-delete-buttons" onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
+                                </div>
+                            </>
+                        )}
+                    </>
+                </div>
+                :
+                <EditComment postId={postId} currentComment={comment} hideForm={() => setShowEditComment(false)} />}
+        </div>
 
     )
 }

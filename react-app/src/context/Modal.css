@@ -59,6 +59,7 @@ overflow: hidden;
 }
 
 .list-profile-name {
+  max-width:180px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -82,7 +83,12 @@ overflow: hidden;
 
 
 .list-fullname {
-  color: #8E8E8E
+  color: #8E8E8E;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list-bttn-div button {

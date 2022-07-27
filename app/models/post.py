@@ -14,11 +14,10 @@ class Post(db.Model):
     createdAt = db.Column(DateTime(timezone=True), server_default=func.now())
 
     owner = db.relationship("User", back_populates="owner_posts")
-    post_comments = db.relationship("Comment", back_populates="post_id")
+    post_comments = db.relationship("Comment", back_populates="post_id",cascade='all, delete')
     post_likes = db.relationship("User",
         secondary=likes,
-        back_populates="user_likes",
-        cascade='all, delete'
+        back_populates="user_likes"
     )
 
     def like(self, user):

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
 import { getUserFeedPosts, clearPosts } from "../../store/posts";
+
 import PostContainer from "../PostContainer";
 import './UserFeed.css'
 
@@ -20,6 +21,7 @@ const UserFeed = ({ sessionUser }) => {
     }
 
     fetchPosts();
+    
     return dispatch(clearPosts())
   }, [dispatch, sessionUser])
 
