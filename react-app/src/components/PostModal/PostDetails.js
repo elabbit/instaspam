@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CreateComment from "../CreateComment";
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
-import FollowButton from "../FollowButton";
+// import FollowButton from "../FollowButton";
 import LikeToggle from "../LikeToggle";
 import LikesModal from "../LikesModal";
 import Timestamp from "../Timestamp";
@@ -42,7 +42,7 @@ function PostDetails({ post }) {
               :
               null
             }
-            <div clssName="">
+            <div>
               {/* <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} /> */}
             </div>
           </div>
