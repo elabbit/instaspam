@@ -65,7 +65,11 @@ const CreateComment = ({ postId }) => {
           required
           maxLength="1000"
         ></textarea>
-        <button className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'} type='submit' disabled={disabled}>Post</button>
+        <button
+        className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'}
+        type='submit'
+        disabled={disabled}
+        >Post</button>
       </form>
     </div>
   )
