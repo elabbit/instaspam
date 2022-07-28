@@ -57,13 +57,16 @@ All logged-in users can create their own posts. They can also only edit and dele
 
 ![Screen Shot 2022-07-27 at 3 55 42 PM](https://user-images.githubusercontent.com/84115420/181386385-44556506-c452-491c-8468-2984824ecc3e.png)
 
-![Screen Shot 2022-07-27 at 3 43 54 PM](https://user-images.githubusercontent.com/84115420/181387055-777f2c25-4cf3-47b8-b1a8-be574185d6f4.png)
+![Screen Shot 2022-07-28 at 7 49 06 AM](https://user-images.githubusercontent.com/84115420/181567052-a1e189bf-1525-43a7-ac01-a28d360e4ab2.png)
+
+![Screen Shot 2022-07-28 at 7 53 56 AM](https://user-images.githubusercontent.com/84115420/181568600-3444b4a8-dff5-4930-ac37-5ef288cdf4fb.png)
 
 
 ### Creating, viewing, editing and deleting Comments
 All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
 
-![Screen Shot 2022-07-27 at 3 44 43 PM](https://user-images.githubusercontent.com/84115420/181387170-f6abf81c-552e-46e1-9a39-c7c3d0fd2509.png)
+
+![Screen Shot 2022-07-28 at 7 52 27 AM](https://user-images.githubusercontent.com/84115420/181568302-62a1f787-9b45-4b00-a801-12e28139238a.png)
 
 
 
