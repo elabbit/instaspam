@@ -38,3 +38,13 @@
   padding: 0px !important;
   margin-bottom:5px;
 }
+
+.show-emojis {
+  display: flex;
+  padding: 0px;
+  height: fit-content;
+}
+
+.emoji-form {
+  width: fit-content;
+}
