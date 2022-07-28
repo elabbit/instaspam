@@ -1,7 +1,8 @@
 .create-comment-form {
   display: flex;
+  align-items: center;
   padding: 0px !important;
-
+  z-index: 3;
 }
 
 .create-comment-active-button {
@@ -41,10 +42,20 @@
 
 .show-emojis {
   display: flex;
+  background-color: transparent;
+  border: none;
   padding: 0px;
   height: fit-content;
+  cursor: pointer;
+}
+
+aside.emoji-picker-react {
+  position: relative;
+  top: -320px;
+  left: -12px;
 }
 
 .emoji-form {
-  width: fit-content;
+  width: 0px;
+  height: 0px;
 }

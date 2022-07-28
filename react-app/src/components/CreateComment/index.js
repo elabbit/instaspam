@@ -48,13 +48,13 @@ const CreateComment = ({ postId }) => {
 
   return (
     <div className='create-comment-form-container'>
+      {emojiBox && (
+        <div className='emoji-form'>
+          <Picker onEmojiClick={onEmojiClick} />
+        </div>
+      )}
       <form className='create-comment-form' onSubmit={onSubmit}>
         <button onClick={showEmojiBox} className='show-emojis'><EmojiBox /></button>
-          {emojiBox && (
-            <div className='emoji-form'>
-              <Picker onEmojiClick={onEmojiClick} />
-            </div>
-          )}
         <textarea
           className='create-comment-comment-field'
           value={comment}
@@ -66,9 +66,9 @@ const CreateComment = ({ postId }) => {
           maxLength="1000"
         ></textarea>
         <button
-        className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'}
-        type='submit'
-        disabled={disabled}
+          className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'}
+          type='submit'
+          disabled={disabled}
         >Post</button>
       </form>
     </div>
