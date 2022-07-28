@@ -16,14 +16,14 @@ const About = () => {
                 <div className='about-container'>
                     <div className='jade'>
                         <div className='about-user'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicJonathan.PNG' className='about-profile-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicJonathan.PNG' className='about-profile-image' alt="" />
                             <div className='about-header'>
                                 <div className='about-name'>jonathankim</div>
                                 <div className='about-subtext'>kim.jonathan426@gmail.com</div>
                             </div>
                         </div>
                         <div className='about-image-container'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicJonathan.PNG' className='about-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicJonathan.PNG' className='about-image' alt="" />
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
@@ -39,14 +39,14 @@ const About = () => {
                         </div>
                     </div><div className='jade'>
                         <div className='about-user'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicAbel.png' className='about-profile-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicAbel.png' className='about-profile-image' alt="" />
                             <div className='about-header'>
                                 <div className='about-name'>abeltesfa</div>
                                 <div className='about-subtext'>abeltesfa@gmail.com</div>
                             </div>
                         </div>
                         <div className='about-image-container'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicAbel.png' className='about-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicAbel.png' className='about-image' alt="" />
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
@@ -62,14 +62,14 @@ const About = () => {
                         </div>
                     </div><div className='jade'>
                         <div className='about-user'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-profile-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-profile-image' alt="" />
                             <div className='about-header'>
                                 <div className='about-name'>davidchung</div>
                                 <div className='about-subtext'>dvchung00@gmail.com</div>
                             </div>
                         </div>
                         <div className='about-image-container'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicDavid.png' className='about-image' alt="" />
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>
@@ -85,14 +85,14 @@ const About = () => {
                         </div>
                     </div><div className='jade'>
                         <div className='about-user'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png' className='about-profile-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png' className='about-profile-image'  alt=""/>
                             <div className='about-header'>
                                 <div className='about-name'>eddielau</div>
                                 <div className='about-subtext'>edwinjlau26@gmail.com</div>
                             </div>
                         </div>
                         <div className='about-image-container'>
-                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png' className='about-image' />
+                            <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/user6-eddie-profile-pic.png' className='about-image' alt="" />
                         </div>
                         <div className='about-comments'>
                             <div className='about-comment'>

@@ -55,7 +55,7 @@ const CreatePost = ({ hideModal }) => {
                 </div>
                 <div className="create-post-top">
                     <div className="create-post-profile-pic-username">
-                        <img className="create-post-profile-pic" src={sessionUser.profileImage} />
+                        <img className="create-post-profile-pic" src={sessionUser.profileImage} alt="" />
                         <div className="create-post-profile-username">
                             {sessionUser.username}
                         </div>

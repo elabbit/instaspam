@@ -1,7 +1,7 @@
 form.create-comment-form {
   display: flex;
   padding: 0px !important;
-  border-top:1px rgb(236, 234, 234) solid;
+
 }
 
 button.create-comment-post-button {

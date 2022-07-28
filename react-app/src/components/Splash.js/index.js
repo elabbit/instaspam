@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import LoginForm from '../auth/LoginForm';
 import './Splash.css'
@@ -32,11 +32,11 @@ function Splash({ sessionUser }) {
     <div className='page-splash-container'>
       <div className='page-splash-content'>
         <div className='page-splash-content-left'>
-          <img src={splashImg}></img>
+          <img src={splashImg} alt="" />
         </div>
         <div className='page-splash-content-right'>
           <div className='page-splash-content-form'>
-            <img src={instaspamLogo} className='page-splash-logo'></img>
+            <img src={instaspamLogo} className='page-splash-logo' alt="" />
             {displayLogin ?
             <LoginForm />
             : <SignUpForm />}
