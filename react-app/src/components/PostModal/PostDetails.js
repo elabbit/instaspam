@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import CreateComment from "../CreateComment";
 import { Link } from 'react-router-dom';
+import CreateComment from "../CreateComment";
 import EditPost from "../EditPost";
 import CommentDetails from "../CommentDetails";
 import FollowButton from "../FollowButton";
 import LikeToggle from "../LikeToggle";
 import LikesModal from "../LikesModal";
-import './PostModal.css'
+import Timestamp from "../Timestamp";
 import DeletePostModal from "../DeletePostModal";
+import './PostModal.css';
 
 function PostDetails({ post }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -78,8 +79,8 @@ function PostDetails({ post }) {
           <div className="post-modal-likes-button-container">
             <LikeToggle post={post} sessionUsername={sessionUser.username} />
             <LikesModal likes={post.likes} sessionUser={sessionUser} />
+            <Timestamp post={post} />
           </div>
-          <div clasName="post-modal-border"></div>
           <div className="feed-comment-form">
             <CreateComment postId={post.id} />
           </div>
