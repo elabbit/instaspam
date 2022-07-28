@@ -6,7 +6,7 @@ def seed_all():
     demo = User(
         username='demo', name='Demo User', email='demo@email.com', bio="I'm a demo user.", password='password')
     spam = User(
-        username='spam', name='SPAM brand', email='spam@email.com', profileImage='https://instaspambucket.s3.us-west-1.amazonaws.com/user2-spam-profile-pic.png', bio="Sizzle Pork And Mmm. Don't knock it 'til you've fried it.", password='password')
+        username='spam', name='SPAM brand', email='spam@email.com', profileImage='https://instaspambucket.s3.us-west-1.amazonaws.com/spam-profile-pic.png', bio="Sizzle Pork And Mmm. Don't knock it 'til you've fried it.", password='password')
     user3 = User(
         username='hoopa24', name='David Chung', email='davidc@email.com', profileImage='https://instaspambucket.s3.us-west-1.amazonaws.com/user3-david-profile-pic.png', bio="Grind don't stop.", password='password')
     user4 = User(
