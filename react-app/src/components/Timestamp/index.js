@@ -86,10 +86,16 @@ const Timestamp = ({ post }) => {
                 )
             }
             break;
-        default:
+        case (yearToday === yearCreated):
             createdContent = (
                 <div className='createdTimeStamp'>{fullMonths[monthCreated]} {dayCreated}</div>
             );
+            break;
+        default:
+            createdContent = (
+                <div className='createdTimeStamp'>{fullMonths[monthCreated]} {dayCreated}, {yearCreated}</div>
+            );
+            break;
     }
 
     return (
