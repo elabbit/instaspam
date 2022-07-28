@@ -49,7 +49,8 @@ Any logged-in user can view an explore page that will display random posts that 
 ## View Specific Posts
 Any logged-in user can click on a post and view thee post, along with comments.
 
-![Screen Shot 2022-07-27 at 3 42 47 PM](https://user-images.githubusercontent.com/84115420/181385984-699a73dc-5bbd-4356-b13b-71a466e9b0db.png)
+![Screen Shot 2022-07-28 at 8 02 45 AM](https://user-images.githubusercontent.com/84115420/181571613-f2452d4b-aff6-4bf9-8521-62a4fca238e5.png)
+
 
 
 ### Creating, editing, and deleting Posts
@@ -65,9 +66,9 @@ All logged-in users can create their own posts. They can also only edit and dele
 ### Creating, viewing, editing and deleting Comments
 All logged-in users can post their own comments on any post. They can also edit or delete their own comments.
 
-
 ![Screen Shot 2022-07-28 at 7 52 27 AM](https://user-images.githubusercontent.com/84115420/181568302-62a1f787-9b45-4b00-a801-12e28139238a.png)
 
+![Screen Shot 2022-07-28 at 7 59 31 AM](https://user-images.githubusercontent.com/84115420/181570874-bbdeb4a8-1abf-4323-8eab-20041d116fab.png)
 
 
 
