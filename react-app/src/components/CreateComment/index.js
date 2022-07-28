@@ -6,7 +6,6 @@ import './CreateComment.css'
 const CreateComment = ({postId}) => {
     const [comment, setComment] = useState('');
     const [disabled, setDisabled] = useState(true)
-    const [className, setClassName] = useState('create-comment-disabled-button')
 
     const dispatch = useDispatch();
 
@@ -15,10 +14,8 @@ const CreateComment = ({postId}) => {
 
       if (e.target.value.length === 0) {
         setDisabled(true)
-        setClassName('create-comment-disabled-button')
       } else {
         setDisabled(false)
-        setClassName('create-comment-active-button')
       }
     }
 
@@ -29,6 +26,7 @@ const CreateComment = ({postId}) => {
         const createdComment = await dispatch(createComments(postId, commentBody))
         if(createdComment){
         setComment('');
+        setDisabled(true)
         }
 
     }
@@ -47,7 +45,8 @@ const CreateComment = ({postId}) => {
               required
               maxLength="1000"
             ></textarea>
-            <button className={className} type='submit' disabled={disabled}>Post</button>
+            <button className={disabled? "create-comment-disabled-button" : "create-comment-active-button" }
+            type='submit' disabled={disabled}>Post</button>
           </form>
         </div>
     )
