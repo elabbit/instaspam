@@ -23,8 +23,10 @@ const deleteSpecificComment = async (commentId) => {
                         <div className='modal-msg-container'>
                         <div>{`Are you sure you want to remove this comment?`}</div>
                         </div>
-                        <div className="modal-btn-container">
+                        <div className="modal-btn-container dlt-bttn">
                         <button onClick={() => deleteSpecificComment(commentId)}>Delete</button>
+                        </div>
+                        <div className="modal-btn-container cnl-bttn">
                         <button onClick={() => setShowModal(false)}>Cancel</button>
                         </div>
                     </div>

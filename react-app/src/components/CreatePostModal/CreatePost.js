@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost } from '../../store/posts'
+import ErrorModal from '../ErrorModal';
 
 const CreatePost = ({ hideModal }) => {
     const dispatch = useDispatch();
@@ -9,9 +10,11 @@ const CreatePost = ({ hideModal }) => {
     const [caption, setCaption] = useState('');
     const [errors, setErrors] = useState([]);
     const sessionUser = useSelector(state => state.session.user)
+    const [showModal, setShowModal] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const errorsArray = [];
         const formData = new FormData();
         formData.append('image', image)
         formData.append('caption', caption)
@@ -25,12 +28,16 @@ const CreatePost = ({ hideModal }) => {
             hideModal()
         }
         else if (createdPost.errors) {
-            setErrors(createdPost.errors)
+            errorsArray.push(createdPost.errors)
             setImageLoading(false)
         }
         else {
             setImageLoading(false)
-            setErrors("Unknown error, please refresh and try again")
+            errorsArray.push("Unknown error, please refresh and try again")
+        }
+        if (errorsArray.length) {
+            setErrors(errorsArray)
+            return setShowModal(true);
         }
 
     }
@@ -43,14 +50,15 @@ const CreatePost = ({ hideModal }) => {
     return (
         <div className="create-post-form-container">
             <form onSubmit={handleSubmit} >
-                {errors.length > 0 && (
-                    <div>{errors}</div>
-                )}
+                <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
                 <div className="create-post-header">
-                    <div>           </div>
-                    <div className="create-post-header-text">Create New Post</div>
-                    <div>
-                        <button className="create-post-share-button" type="submit">Share</button>
+                    <div className="third"></div>
+                    <div className="create-post-header-text third">Create New Post</div>
+                    <div className="loading-bttn third">
+                        {!imageLoading ?
+                            <button className="create-post-share-button" type="submit">Share</button>
+                            :
+                            <div className="create-post-msg">Uploading...</div>}
                     </div>
                 </div>
                 <div className="create-post-top">
@@ -84,11 +92,9 @@ const CreatePost = ({ hideModal }) => {
                             onChange={(e) => setCaption(e.target.value)}
                             placeholder='Write a caption...'
                             maxLength="1000"
-                            required
                         />
                     </div>
                 </div>
-                {(imageLoading) && <p>Uploading...</p>}
             </form>
         </div>
     )

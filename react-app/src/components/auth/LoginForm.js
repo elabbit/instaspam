@@ -47,6 +47,7 @@ const LoginForm = () => {
           className='page-splash-content-input'
           value={email}
           onChange={updateEmail}
+          required
         />
       </div>
       <div>
@@ -57,6 +58,7 @@ const LoginForm = () => {
           className='page-splash-content-input'
           value={password}
           onChange={updatePassword}
+          required
         />
         <div>
           <button className='page-splash-login-btn' type='submit'>Login</button>

@@ -41,30 +41,33 @@ function PostDetails({ post }) {
               :
               null
             }
-            <div className="">
+            <div clssName="">
               {/* <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} /> */}
             </div>
           </div>
           <div className="post-modal-comments-section">
-            <div className="post-modal-profileimage owner-image">
-              <img src={post.ownerProfileImage} alt="" />
-              {!showEditPost ?
-                <div className="post-modal-caption-buttons">
-                  <div className="post-modal-username-caption">
-                    <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                    <span>{post.caption}</span>
+            {!showEditPost ?
+              post.caption && (
+                <div className="post-modal-profileimage owner-image">
+                  <img src={post.ownerProfileImage} alt="" />
+                  <div className="post-modal-caption-buttons">
+                    <div className="post-modal-username-caption">
+                      <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
+                      <span>{post.caption}</span>
+                    </div>
                   </div>
-
                 </div>
-                :
+              )
+              :
+              <div className="post-modal-profileimage owner-image">
+                <img src={post.ownerProfileImage} alt="" />
                 <div className="post-modal-username-edit-field">
-
                   <div>
                     <EditPost post={post} setShowEditPost={setShowEditPost} />
                   </div>
                 </div>
-              }
-            </div>
+              </div>
+            }
             <div >
               {Object.values(post.comments).map((comment) => (
                 <div key={comment.id}>

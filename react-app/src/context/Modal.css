@@ -115,20 +115,22 @@
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid lightgrey;
-
 }
 
 .modal-header h2 {
   font-size: 15px;
   font-weight: 600;
+
 }
 
 ul.errors {
   list-style: none;
+  margin-top:-10px;
+
 }
 
 ul.errors li {
+  color:grey;
   margin: 8px;
 }
 
@@ -152,7 +154,7 @@ ul.errors li {
   font-weight: 600;
   background-color: transparent;
   border: none;
-  color: #0095F6;
+
   margin: 5px;
 }
 
@@ -161,4 +163,21 @@ ul.errors li {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.modal-msg-container div{
+  color:grey;
+  font-weight:500;
+  margin-top:-20px;
+}
+
+.dlt-bttn button{
+color: #ed4956;
+}
+
+
+.cnl-bttn button{
+color: #262626;
+font-weight:500;
 }
