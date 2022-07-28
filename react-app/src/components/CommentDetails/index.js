@@ -1,18 +1,11 @@
 import { useState } from "react";
 import EditComment from "../EditComment";
-import { removeComment } from "../../store/posts";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import './CommentDetails.css'
+import DeleteCommentModal from "../DeleteCommentModal";
 
 function CommentDetails({ comment, postId, sessionUserId }) {
     const [showEditComment, setShowEditComment] = useState(false);
-    const dispatch = useDispatch();
-
-
-    const deleteSpecificComment = async (commentId) => {
-        await dispatch(removeComment(commentId, postId))
-    }
 
     return (
 
@@ -34,7 +27,7 @@ function CommentDetails({ comment, postId, sessionUserId }) {
                             <>
                                 <div className='button-comment'>
                                     <button className="comment-details-edit-delete-buttons" onClick={() => setShowEditComment(true)}>Edit</button>
-                                    <button className="comment-details-edit-delete-buttons" onClick={() => deleteSpecificComment(comment.id)}>Delete</button>
+                                    <DeleteCommentModal commentId={comment.id} postId={postId}/>
                                 </div>
                             </>
                         )}

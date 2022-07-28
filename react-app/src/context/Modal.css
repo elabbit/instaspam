@@ -25,18 +25,18 @@
 
 .list-modal-container {
   background-color: white;
-border-radius: 10px;
-overflow: hidden;
+  border-radius: 10px;
+  overflow: hidden;
 
 }
 
 .list-users {
   border-top: 1px solid lightgrey;
   max-height: 356px;
-  width:100%;
+  width: 100%;
   overflow: hidden;
   overflow-y: scroll;
-  border-bottom-right-radius:10px;
+  border-bottom-right-radius: 10px;
 }
 
 
@@ -59,7 +59,7 @@ overflow: hidden;
 }
 
 .list-profile-name {
-  max-width:180px;
+  max-width: 180px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -100,4 +100,65 @@ overflow: hidden;
   padding-left: 25px;
   padding-right: 25px;
   border-radius: 4px;
+}
+
+.modal-container {
+  background-color: white;
+  width: 400px;
+  border-radius: 10px;
+
+}
+
+.modal-header {
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid lightgrey;
+
+}
+
+.modal-header h2 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+ul.errors {
+  list-style: none;
+}
+
+ul.errors li {
+  margin: 8px;
+}
+
+.modal-btn-container {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  border-top: 1px solid lightgrey;
+}
+
+.modal-button {
+  cursor: pointer;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  color: #0095F6;
+}
+
+.modal-btn-container button {
+  cursor: pointer;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  color: #0095F6;
+  margin: 5px;
+}
+
+.modal-msg-container {
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
