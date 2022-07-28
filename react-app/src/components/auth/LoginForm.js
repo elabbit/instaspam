@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import ErrorModal from '../ErrorModal';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,12 +10,17 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
 
   const onLogin = async (e) => {
     e.preventDefault();
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+      if (errors.length) {
+        return setShowModal(true);
+    }
     }
   };
 
@@ -32,11 +38,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
+      <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
       <div>
         <input
           name='email'

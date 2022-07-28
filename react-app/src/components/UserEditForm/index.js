@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { editUser } from "../../store/session";
 import UserImageUpload from "../UserImageUpload";
 import './UserEditForm.css'
+import ErrorModal from "../ErrorModal";
 
 
 const UserEditForm = () => {
@@ -18,8 +19,9 @@ const UserEditForm = () => {
     const dispatch = useDispatch();
     const id = user.id;
     const profilePic = user.profileImage;
+    const [showModal, setShowModal] = useState(false);
 
-    console.log(user)
+
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -28,6 +30,9 @@ const UserEditForm = () => {
         if (data === "success") history.push(`/${username}`)
         if (data) {
             setErrors(data)
+            if (errors.length) {
+                return setShowModal(true);
+            }
         }
     }
 
@@ -63,9 +68,7 @@ const UserEditForm = () => {
                     <div>
                     <form className="page-editprofile-form" onSubmit={onSubmit}>
                         <div>
-                            {errors.map((error, ind) => (
-                                <div key={ind}>{error}</div>
-                            ))}
+                        <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
                         </div>
                         <div className="page-editprofile-formlabelandinput">
                             <div className="page-editprofile-formimput-container">

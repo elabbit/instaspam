@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/session";
 import './UserImageUpload.css'
+import ErrorModal from '../ErrorModal';
 
 
 const UserImageUpload = ({ id, hideForm }) => {
@@ -11,11 +12,12 @@ const UserImageUpload = ({ id, hideForm }) => {
     const [errors, setErrors] = useState([]);
     const [sucess, setSucess] = useState()
     const dispatch = useDispatch();
+    const [showModal, setShowModal] = useState(false);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors([])
+        const errorsArray = [];
         const formData = new FormData();
         formData.append("image", image);
 
@@ -37,11 +39,15 @@ const UserImageUpload = ({ id, hideForm }) => {
             hideForm()
         }
         else if (imageUploadUser.errors) {
-            setErrors(imageUploadUser.errors)
+            errorsArray.push(imageUploadUser.errors)
             setImageLoading(false);
         }
         else {
-            setErrors('Unknown error, please refresh and try again.')
+            errorsArray.push('Unknown error, please refresh and try again.')
+        }
+        if (errorsArray.length) {
+            setErrors(errorsArray)
+            return setShowModal(true);
         }
     }
 
@@ -51,21 +57,19 @@ const UserImageUpload = ({ id, hideForm }) => {
     }
 
     return (
-                <form onSubmit={handleSubmit}>
-                    {errors.length > 0 && (
-                        <div>{errors}</div>
-                    )}
-                    <input
-                        type="file"
-                        accept="image/*"
+        <form onSubmit={handleSubmit}>
+            <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
+            <input
+                type="file"
+                accept="image/*"
 
-                        onChange={updateImage}
-                    />
-                    <button className="page-editprofile-upload-btn" type="submit">Upload</button>
-                    {(imageLoading) && <p>Uploading...</p>}
-                    {(sucess) && <p>Image Uploaded!</p>}
-                    {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
-                </form>
+                onChange={updateImage}
+            />
+            <button className="page-editprofile-upload-btn" type="submit">Upload</button>
+            {(imageLoading) && <p>Uploading...</p>}
+            {(sucess) && <p>Image Uploaded!</p>}
+            {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
+        </form>
     )
 }
 
