@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import FollowButton from '../FollowButton';
@@ -34,7 +33,7 @@ function LikesModal({ likes, sessionUser }) {
             content = (
                 <div className='like-info-container'>
                     <Link to={`${followingLike}`}>
-                        <img src={followingProfileImage} className='common-like-image' />
+                        <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
@@ -45,7 +44,7 @@ function LikesModal({ likes, sessionUser }) {
             content = (
                 <div className='like-info-container'>
                     <Link to={`${followingLike}`}>
-                        <img src={followingProfileImage} className='common-like-image' />
+                        <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>
@@ -60,7 +59,7 @@ function LikesModal({ likes, sessionUser }) {
             content = (
                 <div className='like-info-container'>
                     <Link to={`${followingLike}`}>
-                        <img src={followingProfileImage} className='common-like-image' />
+                        <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
                     <Link to={`${followingLike}`}>{followingLike}</Link>

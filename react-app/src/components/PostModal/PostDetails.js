@@ -28,7 +28,7 @@ function PostDetails({ post }) {
         <div>
           <div className="post-modal-username-follow-button">
             <div className="post-modal-profileimage">
-              <img src={post.ownerProfileImage}></img>
+              <img src={post.ownerProfileImage} alt=""/>
             </div>
             <div className="post-modal-username-only">
               <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
@@ -41,7 +41,7 @@ function PostDetails({ post }) {
 
 
             <div className="post-modal-profileimage owner-image">
-              <img src={post.ownerProfileImage}></img>
+              <img src={post.ownerProfileImage} alt=""/>
               {!showEditPost ?
                 <div className="post-modal-caption-buttons">
                   <div className="post-modal-username-caption">
@@ -80,7 +80,8 @@ function PostDetails({ post }) {
             <LikeToggle post={post} sessionUsername={sessionUser.username} />
             <LikesModal likes={post.likes} sessionUser={sessionUser} />
           </div>
-          <div className="post-modal-create-comment-container">
+          <div clasName="post-modal-border"></div>
+          <div className="feed-comment-form">
             <CreateComment postId={post.id} />
           </div>
         </div>

@@ -10,7 +10,7 @@ function PostModalFeed({ post, type }) {
     let content;
 
     switch (true) {
-        case (type == 1):
+        case (type === 1):
             content = (
                 <div className='view-all-comments'>
                     View 1 comment

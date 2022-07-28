@@ -19,7 +19,7 @@ function CommentDetails({ comment, postId, sessionUserId }) {
         <div className="comment-container">
 
             <div className="post-modal-profileimage">
-                <img src={comment.userProfileImage}></img>
+                <img src={comment.userProfileImage}  alt="" />
             </div>
 
             {!showEditComment ?

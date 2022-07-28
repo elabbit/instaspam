@@ -6,7 +6,6 @@ import PostModalFeed from "../PostModalFeed"
 import "./PostContainer.css"
 
 function PostContainer({ post, sessionUser }) {
-    console.log('post.likes', post.likes)
 
     const fullMonths = {
         'Jan': 'January',
@@ -59,6 +58,7 @@ function PostContainer({ post, sessionUser }) {
                     <div className='createdTimeStamp'>{minuteDiff} SECONDS AGO</div>
                 )
             }
+            break;
         case (minuteDiff < 60):
             if (minuteDiff <= 1) {
                 createdContent = (
@@ -102,7 +102,7 @@ function PostContainer({ post, sessionUser }) {
         post ?
             <div className='post-container'>
                 <div className='feed-owner-container'>
-                    <img src={post.ownerProfileImage} className='feed-owner-image' alt="post owner profile image" />
+                    <img src={post.ownerProfileImage} className='feed-owner-image' alt="" />
                     <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
                 </div>
                 <div className='feed-image-container'>

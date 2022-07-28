@@ -131,6 +131,8 @@ a.edit-profile-link:hover {
     display: flex;
     justify-content: center;
     margin: 15px 0px 10px;
+    font-weight:600;
+    font-size:13px;
 }
 
 
