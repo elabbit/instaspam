@@ -19,6 +19,8 @@
     padding-left: 20px;
     padding-right: 20px;
     height: 60px;
+
+
 }
 
 .nav-left {
@@ -78,4 +80,12 @@
     height: 60px;
     display: flex;
     align-items: center;
+}
+
+.dropdown-cancel {
+    position: absolute;
+    background-color: transparent;
+    height: 100vh;
+    width: 100%;
+
 }
