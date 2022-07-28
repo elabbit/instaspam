@@ -4,7 +4,6 @@ import { Modal } from '../../context/Modal';
 
 
 function ErrorModal({ hideModal, showModal, validationErrors }) {
-
   return (
     <>
       {showModal && (
