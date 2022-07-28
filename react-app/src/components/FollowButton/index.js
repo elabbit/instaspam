@@ -9,6 +9,7 @@ const FollowButton = ({ sessionUser, matchUsername, matchId }) => {
     const [sameUser, setSameUser] = useState();
     const { username } = useParams();
 
+
     useEffect(() => {
         if (sessionUser?.following.find(user => user.username === matchUsername)) {
             setIsFollowing(true)

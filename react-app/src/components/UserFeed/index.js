@@ -8,54 +8,55 @@ import './UserFeed.css'
 const UserFeed = ({ sessionUser }) => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts);
-  const [postsData, setPostsData] = useState(false);
+  const [postsData, setPostsData] = useState([false]);
 
   useEffect(() => {
     const fetchPosts = async () => {
       const postsData = await dispatch(getUserFeedPosts(sessionUser));
-
       if (postsData) {
         setPostsData(true);
       }
     }
-
     fetchPosts();
 
     return dispatch(clearPosts())
   }, [dispatch, sessionUser])
 
-    const normalPosts = Object.values(posts);
-    const postsLength = normalPosts.length;
+
+  const sortPosts = (normalPosts) => {
     const spamPosts = normalPosts.splice(0, 9);
-    const followPosts = normalPosts.reverse();
-
-    const completeSortedPosts = []
-    let spamCount = 0;
-    let followCount = 0;
-    for (let i = 0; i < postsLength; i++) {
-      if (i !== 0 && i % 3 === 0 && spamCount < spamPosts.length) {
-        completeSortedPosts.push(spamPosts[spamCount])
-        spamCount += 1;
-      } else if (i % 3 !== 0) {
-        completeSortedPosts.push(followPosts[followCount])
-        followCount += 1;
-      }
+    const sorted = []
+    if (!normalPosts.length) {
+      sorted.push(spamPosts.shift())
+      return sorted;
     }
-
+    let count = 0;
+    while (normalPosts.length && count < 10) {
+      sorted.push(normalPosts.pop())
+      if(!normalPosts.length) return sorted;
+      sorted.push(normalPosts.pop())
+      if(!normalPosts.length || !spamPosts.length) return sorted;
+      sorted.push(spamPosts.shift())
+      count++;
+    }
+    return sorted;
+  }
 
   return (
-    (postsData && posts) ? (
+    postsData && posts ? (
       <div className="page-outer">
         <div className="page-spacer"></div>
         <div className="page-container">
 
           <div className='user-feed-container'>
-            {Object.values(posts).map((post) => (
-              <div key={post?.id}>
+
+            {sortPosts(Object.values(posts)).map((post) => (
+              post && (
+                <div key={post?.id}>
                 <PostContainer post={post} sessionUser={sessionUser} />
               </div>
+                )
             ))}
-
           </div>
         </div>
       </div>

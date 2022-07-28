@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { deletePost } from "../../store/posts";
+import { useSelector } from "react-redux";
 import CreateComment from "../CreateComment";
 import { Link } from 'react-router-dom';
 import EditPost from "../EditPost";
@@ -9,15 +8,12 @@ import FollowButton from "../FollowButton";
 import LikeToggle from "../LikeToggle";
 import LikesModal from "../LikesModal";
 import './PostModal.css'
+import DeletePostModal from "../DeletePostModal";
 
 function PostDetails({ post }) {
-  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
   const [showEditPost, setShowEditPost] = useState(false);
 
-  const onDelete = async () => {
-    await dispatch(deletePost(post.id))
-  }
 
   return (
     <div className="post-mod-container">
@@ -28,34 +24,37 @@ function PostDetails({ post }) {
         <div>
           <div className="post-modal-username-follow-button">
             <div className="post-modal-profileimage">
-              <img src={post.ownerProfileImage} alt=""/>
+              <img src={post.ownerProfileImage} alt="" />
             </div>
             <div className="post-modal-username-only">
               <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
             </div>
+            {post.ownerId === sessionUser.id ?
+              <div className="pm-edit-del">
+                <div className="pm-edit">
+                  <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>
+                </div>
+                <div className="pm-del">
+                  <DeletePostModal postId={post.id} />
+                </div>
+              </div>
+              :
+              null
+            }
             <div className="">
               {/* <FollowButton sessionUser={sessionUser} matchUsername={post.ownerUsername} matchId={post.ownerId} /> */}
             </div>
           </div>
           <div className="post-modal-comments-section">
-
-
             <div className="post-modal-profileimage owner-image">
-              <img src={post.ownerProfileImage} alt=""/>
+              <img src={post.ownerProfileImage} alt="" />
               {!showEditPost ?
                 <div className="post-modal-caption-buttons">
                   <div className="post-modal-username-caption">
                     <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
                     <span>{post.caption}</span>
                   </div>
-                  {post.ownerId === sessionUser.id ?
-                    <div>
-                      <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>
-                      <button className="post-modal-edit-delete-buttons" onClick={onDelete}>Delete</button>
-                    </div>
-                    :
-                    null
-                  }
+
                 </div>
                 :
                 <div className="post-modal-username-edit-field">
