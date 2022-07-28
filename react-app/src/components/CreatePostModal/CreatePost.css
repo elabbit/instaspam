@@ -23,6 +23,7 @@
 .create-post-header-text {
     font-size: 16px;
     font-weight: 600;
+    justify-content: center;
 }
 
 .create-post-fields {
@@ -137,4 +138,17 @@ input[type=file]::file-selector-button {
 .image-label {
     font-weight: 600;
     margin-right: 10px;
+}
+
+.create-post-msg{
+    font-weight:600;
+}
+
+.third{
+    width:33%;
+display:flex;
+}
+
+.loading-bttn{
+    justify-content: right;
 }

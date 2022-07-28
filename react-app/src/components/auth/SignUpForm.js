@@ -13,17 +13,17 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const onSignUp = async (e) => {
     e.preventDefault();
     const data = await dispatch(signUp(email, name, username, password, repeatPassword));
-      if (data) {
-        setErrors(data)
-        if (errors.length) {
-          return setShowModal(true);
+    if (data) {
+      setErrors(data)
+      if (errors.length) {
+        return setShowModal(true);
       }
-      }
+    }
 
   };
 
@@ -53,7 +53,7 @@ const [showModal, setShowModal] = useState(false);
 
   return (
     <form onSubmit={onSignUp}>
-   <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
+      <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
       <div>
         <input
           type='text'
@@ -63,6 +63,7 @@ const [showModal, setShowModal] = useState(false);
           className='page-splash-content-input'
           value={email}
           placeholder='Email'
+          required
         ></input>
       </div>
       <div>
@@ -74,6 +75,7 @@ const [showModal, setShowModal] = useState(false);
           className='page-splash-content-input'
           value={name}
           placeholder='Full Name'
+          required
         ></input>
       </div>
       <div>
@@ -85,6 +87,7 @@ const [showModal, setShowModal] = useState(false);
           className='page-splash-content-input'
           value={username}
           placeholder='Username'
+          required
         ></input>
       </div>
       <div>
@@ -96,6 +99,7 @@ const [showModal, setShowModal] = useState(false);
           className='page-splash-content-input'
           value={password}
           placeholder='Password'
+          required
         ></input>
       </div>
       <div>
