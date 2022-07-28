@@ -27,73 +27,78 @@ const NavBar = () => {
 
   return (
     sessionUser ?
-      <div className="navbar-outer">
-        <nav className="navbar-container">
-          <div className="nav-left">
-            <NavLink to='/' exact={true} activeClassName='active'>
-              <img className="navbar-logo" src={instaspamLogo} alt=""></img>
-            </NavLink>
-          </div>
-          <div className="nav-right">
-            <div className="home-icon-div">
-              <NavLink to='/' exact={true} activeClassName='active' isActive={(match, location) => {
-                if (match) {
-                  setHomeActive(true)
-                } else {
-                  setHomeActive(false)
-                }
-                return match;
-              }} >
-                {homeActive ?
-                  <HomeFill className='icon home-icon' />
-                  :
-                  <Home className='icon home-icon' />
-                }
+      <>
+        <div className="navbar-outer">
+          {dropdown &&
+            <div className="dropdown-cancel" onClick={handleClick}></div>
+          }
+          <nav className="navbar-container">
+            <div className="nav-left">
+              <NavLink to='/' exact={true} activeClassName='active'>
+                <img className="navbar-logo" src={instaspamLogo} alt=""></img>
               </NavLink>
             </div>
+            <div className="nav-right">
+              <div className="home-icon-div">
+                <NavLink to='/' exact={true} activeClassName='active' isActive={(match, location) => {
+                  if (match) {
+                    setHomeActive(true)
+                  } else {
+                    setHomeActive(false)
+                  }
+                  return match;
+                }} >
+                  {homeActive ?
+                    <HomeFill className='icon home-icon' />
+                    :
+                    <Home className='icon home-icon' />
+                  }
+                </NavLink>
+              </div>
 
-            <div className="explore-icon-div">
-              <NavLink to='/explore' exact={true} activeClassName='active' isActive={(match, location) => {
-                if (match) {
-                  setExploreActive(true)
-                } else {
-                  setExploreActive(false)
-                }
-                return match;
-              }}>
-                {exploreActive ?
-                  <ExploreFill className='icon explore-icon' />
-                  :
-                  <Explore className='icon explore-icon' />
-                }
-              </NavLink>
+              <div className="explore-icon-div">
+                <NavLink to='/explore' exact={true} activeClassName='active' isActive={(match, location) => {
+                  if (match) {
+                    setExploreActive(true)
+                  } else {
+                    setExploreActive(false)
+                  }
+                  return match;
+                }}>
+                  {exploreActive ?
+                    <ExploreFill className='icon explore-icon' />
+                    :
+                    <Explore className='icon explore-icon' />
+                  }
+                </NavLink>
+              </div>
+              <div>
+                <CreatePostModal />
+              </div>
+              <div className="about-icon-div">
+                <NavLink to='/about' exact={true} activeClassName='active' isActive={(match, location) => {
+                  if (match) {
+                    setAboutActive(true)
+                  } else {
+                    setAboutActive(false)
+                  }
+                  return match;
+                }}>
+                  {aboutActive ?
+                    <img className="about-icon" src={aboutfill} alt="About" />
+                    :
+                    <img className="about-icon" src={about} alt="About" />
+                  }
+                </NavLink>
+              </div>
+              <div className="profile-icon-div" onClick={handleClick}>
+                <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt="" />
+                {dropdown && <Dropdown sessionUser={sessionUser} />}
+              </div>
             </div>
-            <div>
-              <CreatePostModal />
-            </div>
-            <div className="about-icon-div">
-              <NavLink to='/about' exact={true} activeClassName='active' isActive={(match, location) => {
-                if (match) {
-                  setAboutActive(true)
-                } else {
-                  setAboutActive(false)
-                }
-                return match;
-              }}>
-                {aboutActive ?
-                  <img className="about-icon" src={aboutfill} alt="About" />
-                  :
-                  <img className="about-icon" src={about} alt="About" />
-                }
-              </NavLink>
-            </div>
-            <div className="profile-icon-div" onClick={handleClick}>
-              <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt=""/>
-              {dropdown && <Dropdown sessionUser={sessionUser} />}
-            </div>
-          </div>
-        </nav >
-      </div >
+          </nav >
+        </div >
+      </>
       :
       null
   );
