@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -11,16 +11,30 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const [disabled, setDisabled] = useState(true)
+
+  useEffect(() => {
+    if (email.length && password.length) {
+      setDisabled(false);
+    } else {
+      setDisabled(true)
+    }
+
+  }, [email, password])
+
+
+
 
   const onLogin = async (e) => {
     e.preventDefault();
-
+    const errorsArray = [];
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
-      if (errors.length) {
-        return setShowModal(true);
+      errorsArray.push(...data)
     }
+    if (errorsArray.length) {
+      setErrors(errorsArray)
+      return setShowModal(true);
     }
   };
 
@@ -61,7 +75,7 @@ const LoginForm = () => {
           required
         />
         <div>
-          <button className='page-splash-login-btn' type='submit'>Login</button>
+          <button className={disabled ? 'page-splash-login-btn dis-log-signup' : 'page-splash-login-btn'} type='submit' disabled={disabled}>Login</button>
         </div>
       </div>
     </form>

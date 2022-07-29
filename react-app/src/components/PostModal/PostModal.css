@@ -95,7 +95,7 @@ button.post-modal-edit-delete-buttons {
 
 .post-modal-comments-section {
     overflow-y: auto;
-    max-height: 410px;
+    max-height: 390px;
 }
 
 .post-modal-likes-create-comment-container {
