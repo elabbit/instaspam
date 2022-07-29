@@ -7,3 +7,10 @@
     height: 500px;
 
 }
+
+.crop-bttn{
+    position: absolute;
+top:0px;
+right:0px;
+margin:10px;
+}

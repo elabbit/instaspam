@@ -41,10 +41,15 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
 
 
 
-
     return (
         <div className="crop-container">
-            <div className="crop-backdrop"></div>
+      <div className='crop-bttn'>
+                    <button
+                    className="create-post-share-button"
+                        onClick={cropImage}>
+                        Next
+                    </button>
+                </div>
             <div className="crop-cropper">
                 <Cropper
                     image={photoURL}
@@ -56,14 +61,8 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
                     onCropComplete={cropComplete}
                 />
             </div>
-            <div classname="crop-buttons">
-                <div>
-                    <button
-                        onClick={cropImage}>
-                        Crop
-                    </button>
+            <div classname="crop-slider">
 
-                </div>
             </div>
         </div>
     )

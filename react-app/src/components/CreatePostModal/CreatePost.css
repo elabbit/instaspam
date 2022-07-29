@@ -58,8 +58,6 @@ textarea.create-post-form-caption {
     width: 550px;
     padding: 30px;
     padding-top:10px;
-
-    border-top: solid 1px lightgrey;
 }
 
 .create-post-image-upload-field {
@@ -92,8 +90,8 @@ textarea.create-post-form-caption {
 .create-post-form-container {
     border-radius: 10px;
     background-color: white;
-    height: 250px !important;
-    width: 550px !important;
+    height: 600px !important;
+    min-width:600px;
 }
 
 button.create-post-share-button {
