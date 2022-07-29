@@ -9,12 +9,13 @@ const CreateComment = ({ postId }) => {
   const [comment, setComment] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [emojiBox, setEmojiBox] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(null);
 
   const dispatch = useDispatch();
 
   const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
+    setComment((comment) => comment + emojiObject.emoji);
+    setDisabled(false);
+    setEmojiBox(!emojiBox);
   };
 
   const showEmojiBox = (e) => {
@@ -47,33 +48,34 @@ const CreateComment = ({ postId }) => {
 
 
   return (
-    <div className='create-comment-form-container'>
-      {emojiBox && (
-        <div className='emoji-form'>
-          <Picker onEmojiClick={onEmojiClick} />
-        </div>
-      )}
-      <form className='create-comment-form' onSubmit={onSubmit}>
-        <button onClick={showEmojiBox} className='show-emojis'><EmojiBox /></button>
-        <textarea
-          className='create-comment-comment-field'
-          value={comment}
-          onChange={onChange}
-          name='body'
-          placeholder='Add a comment...'
-          rows='1'
-          required
-          maxLength="1000"
-        ></textarea>
-        <button
-          className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'}
-          type='submit'
-          disabled={disabled}
-        >Post</button>
-      </form>
-    </div>
+      <div className='create-comment-form-container'>
+        {emojiBox && (
+          <>
+            <div className='emoji-form'>
+              <Picker onEmojiClick={onEmojiClick} />
+            </div>
+          </>
+        )}
+        <form className='create-comment-form' onSubmit={onSubmit}>
+          <button onClick={showEmojiBox} className='show-emojis'><EmojiBox /></button>
+          <textarea
+            className='create-comment-comment-field'
+            value={comment}
+            onChange={onChange}
+            name='body'
+            placeholder='Add a comment...'
+            rows='1'
+            required
+            maxLength="1000"
+          ></textarea>
+          <button
+            className={disabled ? 'create-comment-disabled-button' : 'create-comment-active-button'}
+            type='submit'
+            disabled={disabled}
+          >Post</button>
+        </form>
+      </div>
   )
-
 }
 
 export default CreateComment;
