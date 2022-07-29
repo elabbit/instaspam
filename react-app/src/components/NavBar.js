@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import CreatePostModal from './CreatePostModal';
 import "./NavBar.css"
 import { ReactComponent as Home } from "../images/home.svg"
@@ -16,22 +16,39 @@ import SearchBar from './SearchBar';
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
-  const [homeActive, setHomeActive] = useState()
-  const [exploreActive, setExploreActive] = useState()
-  const [aboutActive, setAboutActive] = useState()
-  const [dropdown, setDropdown] = useState(false)
+  const [homeActive, setHomeActive] = useState();
+  const [exploreActive, setExploreActive] = useState();
+  const [aboutActive, setAboutActive] = useState();
+  const [dropdown, setDropdown] = useState(false);
+  const currentLocation = useLocation()
 
 
   const handleClick = () => {
     setDropdown(!dropdown)
   }
+  useEffect(() => {
+
+    if (currentLocation.pathname === '/') {
+      setHomeActive(true);
+      setExploreActive(false);
+      setAboutActive(false);
+    } else if (currentLocation.pathname === '/explore') {
+      setHomeActive(false);
+      setExploreActive(true);
+      setAboutActive(false);
+    } else if (currentLocation.pathname === '/about') {
+      setHomeActive(false);
+      setExploreActive(false);
+      setAboutActive(true);
+    }
+  }, [homeActive, exploreActive, aboutActive, currentLocation])
 
   return (
     sessionUser ?
       <>
         <div className="navbar-outer">
           {dropdown &&
-            <div className="dropdown-cancel" onClick={handleClick}></div>
+            <div className="dropdown-cancel" onClick={() => handleClick()}></div>
           }
           <nav className="navbar-container">
             <div className="nav-left">
@@ -44,14 +61,7 @@ const NavBar = () => {
             </div>
             <div className="nav-right">
               <div className="home-icon-div">
-                <NavLink to='/' exact={true} activeClassName='active' isActive={(match, location) => {
-                  if (match) {
-                    setHomeActive(true)
-                  } else {
-                    setHomeActive(false)
-                  }
-                  return match;
-                }} >
+                <NavLink to='/' exact={true} activeClassName='active'>
                   {homeActive ?
                     <HomeFill className='icon home-icon' />
                     :
@@ -61,14 +71,7 @@ const NavBar = () => {
               </div>
 
               <div className="explore-icon-div">
-                <NavLink to='/explore' exact={true} activeClassName='active' isActive={(match, location) => {
-                  if (match) {
-                    setExploreActive(true)
-                  } else {
-                    setExploreActive(false)
-                  }
-                  return match;
-                }}>
+                <NavLink to='/explore' exact={true} activeClassName='active'>
                   {exploreActive ?
                     <ExploreFill className='icon explore-icon' />
                     :
@@ -80,14 +83,7 @@ const NavBar = () => {
                 <CreatePostModal />
               </div>
               <div className="about-icon-div">
-                <NavLink to='/about' exact={true} activeClassName='active' isActive={(match, location) => {
-                  if (match) {
-                    setAboutActive(true)
-                  } else {
-                    setAboutActive(false)
-                  }
-                  return match;
-                }}>
+                <NavLink to='/about' exact={true} activeClassName='active'>
                   {aboutActive ?
                     <img className="about-icon" src={aboutfill} alt="About" />
                     :
@@ -95,7 +91,7 @@ const NavBar = () => {
                   }
                 </NavLink>
               </div>
-              <div className="profile-icon-div" onClick={handleClick}>
+              <div className="profile-icon-div" onClick={() => handleClick()}>
                 <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt="" />
                 {dropdown && <Dropdown sessionUser={sessionUser} />}
               </div>
