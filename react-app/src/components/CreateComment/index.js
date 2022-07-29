@@ -81,10 +81,6 @@ const CreateComment = ({ postId }) => {
 
 
   return (
-    <>
-      {/* {emojiBox && (
-        <div className='click-anywhere-cancel' onClick={showEmojiBox}></div>
-      )} */}
       <div className='create-comment-form-container'>
         {emojiBox && (
           <>
@@ -112,7 +108,6 @@ const CreateComment = ({ postId }) => {
           >Post</button>
         </form>
       </div>
-    </>
   )
 }
 
