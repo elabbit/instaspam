@@ -1,8 +1,10 @@
 from .db import db
 from .like import likes
+from .tag import tags
 from sqlalchemy.sql import func
 from sqlalchemy import DateTime
 from .user import User
+from .hashtag import Hashtag
 
 class Post(db.Model):
     __tablename__ = 'posts'
@@ -19,6 +21,11 @@ class Post(db.Model):
         secondary=likes,
         back_populates="user_likes"
     )
+    hashtags_on_post = db.relationship("Hashtag",
+        secondary=tags,
+        back_populates="posts_with_hashtag",
+    )
+
 
     def like(self, user):
         if not self.is_liking(user):
@@ -31,6 +38,28 @@ class Post(db.Model):
     def is_liking(self, user):
         postlikes_ids = [x.id for x in self.post_likes]
         return user.id in postlikes_ids
+
+    def check_hashtags(self):
+        words = self.caption.split(' ')
+        hashtagList = []
+
+        for word in words:
+            tag = word[1:].lower()
+
+            if word[0] == '#':
+                exists = Hashtag.query.filter_by(hashtag=tag).first()
+
+                if exists is None:
+                    hashtagList.append(tag)
+
+        return hashtagList
+
+
+
+    def to_dict_hashtags(self):
+        return {
+            'id': self.id,
+        }
 
 
     def to_dict(self):

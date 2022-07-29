@@ -2,7 +2,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from flask_wtf.csrf import validate_csrf
-from ..models import db, Post, User, follows
+from ..models import db, Post, User, Hashtag, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -69,6 +69,16 @@ def add_new_post():
         url = upload["url"]
 
         new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
+
+        tagList = new_post.check_hashtags()
+
+        for tag in tagList:
+            newTag = Hashtag(
+            hashtag=tag
+            )
+
+            db.session.add(newTag)
+            db.session.commit()
 
         db.session.add(new_post)
         db.session.commit()

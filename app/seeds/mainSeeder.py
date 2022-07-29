@@ -427,3 +427,5 @@ def undo_all():
     db.session.commit()
     db.session.execute('TRUNCATE posts RESTART IDENTITY CASCADE;')
     db.session.commit()
+    db.session.execute('TRUNCATE hashtags RESTART IDENTITY CASCADE;')
+    db.session.commit()
