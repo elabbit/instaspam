@@ -51,14 +51,14 @@
 }
 
 
-textarea.create-post-form-caption {
+/* textarea.create-post-form-caption {
     border: none;
     outline: none;
     height:158px;
     width: 550px;
     padding: 30px;
     padding-top:10px;
-}
+} */
 
 .create-post-image-upload-field {
     display: flex;
@@ -92,12 +92,13 @@ textarea.create-post-form-caption {
     background-color: white;
     height: 600px !important;
     min-width:600px;
+    overflow:hidden;
 }
 
 button.create-post-share-button {
     background: none;
     border: none;
-    color: #18b1f2;
+    color: #0095F6;
     font-weight: 600;
     cursor: pointer;
 }
@@ -149,4 +150,21 @@ display:flex;
 
 .loading-bttn{
     justify-content: right;
+}
+
+.create-final{
+    display:flex;
+}
+
+.create-left{
+
+}
+.create-left img{
+    height:560px;
+
+}
+
+
+.create-right{
+width:300px;
 }

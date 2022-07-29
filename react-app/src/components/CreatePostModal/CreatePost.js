@@ -62,12 +62,12 @@ const CreatePostNew = ({ hideModal }) => {
                 <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
                 <div className="create-post-header">
                     <div className="third"></div>
-                    {!openCrop?
+                    {!openCrop ?
 
-                    <div className="create-post-header-text third">Create New Post</div>
-:
-                    <div className="create-post-header-text third">Crop</div>
-}
+                        <div className="create-post-header-text third">Create New Post</div>
+                        :
+                        <div className="create-post-header-text third">Crop</div>
+                    }
                     <div className="loading-bttn third">
                         {openCreate && (
                             !imageLoading ?
@@ -97,14 +97,23 @@ const CreatePostNew = ({ hideModal }) => {
                     )}
 
                     {openCreate && (
-                        <div>
-                            <textarea
-                                className="create-post-form-caption"
-                                value={caption}
-                                onChange={(e) => setCaption(e.target.value)}
-                                placeholder='Write a caption...'
-                                maxLength="1000"
-                            />
+                        <div className='create-final'>
+                            <div className="create-left">
+                                <img src={photoURL} alt='' />
+                            </div>
+                            <div className="create-right">
+                                <div>
+                                    <img></img>
+                                    <div className="create-username"></div>
+                                </div>
+                                <textarea
+                                    className="create-post-form-caption"
+                                    value={caption}
+                                    onChange={(e) => setCaption(e.target.value)}
+                                    placeholder='Write a caption...'
+                                    maxLength="1000"
+                                />
+                            </div>
                         </div>
                     )}
                 </div>

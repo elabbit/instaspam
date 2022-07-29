@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './cropImage';
 import "./CropEasy.css"
+import ReactSlider from 'react-slider';
 
 
 const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage }) => {
@@ -43,13 +44,13 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
 
     return (
         <div className="crop-container">
-      <div className='crop-bttn'>
-                    <button
+            <div className='crop-bttn'>
+                <button
                     className="create-post-share-button"
-                        onClick={cropImage}>
-                        Next
-                    </button>
-                </div>
+                    onClick={cropImage}>
+                    Next
+                </button>
+            </div>
             <div className="crop-cropper">
                 <Cropper
                     image={photoURL}
@@ -62,15 +63,22 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
                 />
             </div>
             <div classname="crop-slider">
-
+                <ReactSlider
+                    value={zoom}
+                    onChange={(val) => {
+                        setZoom(val)
+                    }}
+                    min={1}
+                    max={3}
+                    step={.01}
+                    className="horizontal-slider"
+                    thumbClassName="zoom-thumb"
+                    trackClassName="zoom-track"
+                    renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                />
             </div>
         </div>
     )
 }
 
 export default CropEasy;
-
-const zoomPercent = (value) => {
-    return `${Math.round(value * 100)}%`
-
-}
