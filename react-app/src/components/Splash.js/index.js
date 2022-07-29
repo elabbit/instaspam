@@ -29,6 +29,7 @@ function Splash({ sessionUser }) {
 
 
   return (
+    <div className="page-outer">
     <div className='page-splash-container'>
       <div className='page-splash-content'>
         <div className='page-splash-content-left'>
@@ -62,6 +63,7 @@ function Splash({ sessionUser }) {
             </div>}
         </div>
       </div>
+    </div>
     </div>
   )
 }

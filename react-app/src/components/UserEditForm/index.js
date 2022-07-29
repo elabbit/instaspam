@@ -25,14 +25,20 @@ const UserEditForm = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-
+        const errorsArray = [];
         const data = await dispatch(editUser(id, username, email, name, bio))
         if (data === "success") history.push(`/${username}`)
         if (data) {
             setErrors(data)
-            if (errors.length) {
+            if (data) {
+                errorsArray.push(...data)
+              }
+            if (errorsArray.length) {
+                setErrors(errorsArray)
                 return setShowModal(true);
-            }
+              }
+
+
         }
     }
 
@@ -124,7 +130,7 @@ const UserEditForm = () => {
                                     maxLength='1000'
                                     className="page-editprofile-formimput-bio"
                                     onChange={e => setBio(e.target.value)}
-                                    value={bio}
+                                    value={bio ? bio : ''}
                                     placeholder='Bio'
                                 ></textarea>
                             </div>

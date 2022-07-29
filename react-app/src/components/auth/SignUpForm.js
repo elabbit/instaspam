@@ -28,12 +28,14 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    const errorsArray = [];
     const data = await dispatch(signUp(email, name, username, password, repeatPassword));
     if (data) {
-      setErrors(data)
-      if (errors.length) {
-        return setShowModal(true);
-      }
+      errorsArray.push(...data)
+    }
+    if (errorsArray.length) {
+      setErrors(errorsArray)
+      return setShowModal(true);
     }
 
   };
