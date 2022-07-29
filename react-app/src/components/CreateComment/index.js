@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createComments } from '../../store/posts';
 import { ReactComponent as EmojiBox } from '../../images/emoji-box.svg';
@@ -9,8 +9,36 @@ const CreateComment = ({ postId }) => {
   const [comment, setComment] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [emojiBox, setEmojiBox] = useState(false);
+  const [eventListener, setEventListener] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    return () => {
+      setEmojiBox(false);
+    }
+  }, [])
+
+  const handleDocumentClick = (event) => {
+    let isEmojiClassFound = false;
+
+    event &&
+    event.composedPath() &&
+    event.composedPath().forEach(elem => {
+      if (elem && elem.classList) {
+        const data = elem.classList.value;
+        if (data.includes("emoji")) {
+          isEmojiClassFound = true;
+        }
+      }
+    });
+    if (isEmojiClassFound === false && event.target.id !== "emojis-btn") {
+      setEmojiBox(false);
+      setEventListener(false);
+      document.removeEventListener("click", handleDocumentClick);
+    }
+  };
 
   const onEmojiClick = (event, emojiObject) => {
     setComment((comment) => comment + emojiObject.emoji);
@@ -21,7 +49,12 @@ const CreateComment = ({ postId }) => {
   const showEmojiBox = (e) => {
     e.preventDefault();
 
-    setEmojiBox(!emojiBox)
+    if (emojiBox === false && !eventListener) {
+      document.addEventListener("click", handleDocumentClick, false);
+      setEventListener(true)
+    }
+
+    setEmojiBox(!emojiBox);
   }
 
   const onChange = (e) => {
@@ -57,7 +90,7 @@ const CreateComment = ({ postId }) => {
           </>
         )}
         <form className='create-comment-form' onSubmit={onSubmit}>
-          <button onClick={showEmojiBox} className='show-emojis'><EmojiBox /></button>
+          <button id='emojis-btn' onClick={showEmojiBox} className='show-emojis'><EmojiBox /></button>
           <textarea
             className='create-comment-comment-field'
             value={comment}
