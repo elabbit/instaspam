@@ -53,22 +53,24 @@ class Post(db.Model):
         return all_hashtags
 
     def check_hashtags(self):
-        words = self.caption.split(' ')
-        nonexistent_hashtags = []
-        current_hashtags = []
+        if self.caption:
+            words = self.caption.split(' ')
 
-        for word in words:
-            tag = word[1:].lower()
-            current_hashtags.append(tag)
+            nonexistent_hashtags = []
+            current_hashtags = []
 
-            if word[0] == '#':
-                exists = Hashtag.query.filter_by(hashtag=tag).first()
+            for word in words:
+                tag = word[1:].lower()
 
-                if exists is None:
-                    nonexistent_hashtags.append(tag)
+                if word[0] == '#' and tag.isalnum():
+                    exists = Hashtag.query.filter_by(hashtag=tag).first()
+                    current_hashtags.append(tag)
+
+                    if exists is None:
+                        nonexistent_hashtags.append(tag)
 
 
-        return [nonexistent_hashtags, current_hashtags]
+            return [nonexistent_hashtags, current_hashtags]
 
     def to_dict_hashtags(self):
         return {
