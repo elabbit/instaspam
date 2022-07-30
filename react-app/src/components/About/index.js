@@ -6,7 +6,7 @@ const About = () => {
         <div className='page-outer'>
             <div className='page-spacer' />
             <div className='page-container'>
-                <div classNAme='about-container'>
+                <div className='about-container'>
                     <div className="about-message-container">
                         <div> Welcome to <span className="about-bold">Instaspam</span>, a place where you can express yourself, connect with people, and build influence bringing the world closer togehter. SPAM&reg; included for free of charge!
                         </div>
