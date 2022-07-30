@@ -70,16 +70,23 @@ def add_new_post():
 
         new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
 
-        tag_list = new_post.check_hashtags()
+        hashtag_lists = new_post.check_hashtags()
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
 
-        for tag in tag_list:
-            new_tag = Hashtag(
-            hashtag=tag
-            )
+        for tag in current_hashtags:
+            if tag in nonexistent_hashtags:
+                new_tag = Hashtag(
+                hashtag=tag
+                )
 
-            db.session.add(new_tag)
-            db.session.commit()
-            new_post.add_hashtag(new_tag)
+                db.session.add(new_tag)
+                db.session.commit()
+                new_post.add_hashtag(new_tag)
+            else:
+                existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
+                print('existing_tag', existing_tag)
+                new_post.add_hashtag(existing_tag)
 
         db.session.add(new_post)
         db.session.commit()
@@ -101,6 +108,29 @@ def edit_post(postId):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         edited_post.caption = form.data['caption']
+
+        hashtag_lists = edited_post.check_hashtags()
+
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
+
+        for tag in nonexistent_hashtags:
+            new_tag = Hashtag(
+            hashtag=tag
+            )
+
+            db.session.add(new_tag)
+            db.session.commit()
+            edited_post.add_hashtag(new_tag)
+
+        all_hashtags = edited_post.all_hashtags()
+
+        removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
+
+        for tag in removed_hashtags:
+            old_tag = Hashtag.query.get(tag.id)
+            edited_post.remove_hashtag(old_tag)
+
         db.session.commit()
         return edited_post.to_dict()
     return {'errors':validation_errors_to_error_messages(form.errors)}, 401

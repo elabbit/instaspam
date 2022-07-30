@@ -24,6 +24,7 @@ class Post(db.Model):
     hashtags_on_post = db.relationship("Hashtag",
         secondary=tags,
         back_populates="posts_with_hashtag",
+        cascade="all, delete"
     )
 
 
@@ -43,23 +44,30 @@ class Post(db.Model):
         if hashtag not in self.hashtags_on_post:
             self.hashtags_on_post.append(hashtag)
 
-    def current_hashtags(self):
-        self.hashtags_on_post
+    def remove_hashtag(self, hashtag):
+        if hashtag in self.hashtags_on_post:
+            self.hashtags_on_post.remove(hashtag)
+
+    def all_hashtags(self):
+        all_hashtags = [hashtag.to_dict_no_posts() for hashtag in self.hashtags_on_post]
+        return all_hashtags
 
     def check_hashtags(self):
         words = self.caption.split(' ')
-        hashtag_list = []
+        nonexistent_hashtags = []
+        current_hashtags = []
 
         for word in words:
             tag = word[1:].lower()
+            current_hashtags.append(tag)
 
             if word[0] == '#':
                 exists = Hashtag.query.filter_by(hashtag=tag).first()
 
                 if exists is None:
-                    hashtag_list.append(tag)
+                    nonexistent_hashtags.append(tag)
 
-        return hashtag_list
+        return [nonexistent_hashtags, current_hashtags]
 
     def to_dict_hashtags(self):
         return {
