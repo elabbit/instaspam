@@ -86,7 +86,6 @@ def add_new_post():
                 new_post.add_hashtag(new_tag)
             else:
                 existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
-                print('existing_tag', existing_tag)
                 new_post.add_hashtag(existing_tag)
 
         db.session.add(new_post)
