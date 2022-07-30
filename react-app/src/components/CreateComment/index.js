@@ -22,7 +22,6 @@ const CreateComment = ({ postId }) => {
 
   const handleDocumentClick = (event) => {
     let isEmojiClassFound = false;
-
     event &&
     event.composedPath() &&
     event.composedPath().forEach(elem => {
