@@ -80,3 +80,8 @@
     height: fit-content;
     max-height: 88px;
 }
+
+.post-container-caption a{
+    color: #00376B;
+    font-weight:normal;
+}

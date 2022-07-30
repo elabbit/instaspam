@@ -285,7 +285,7 @@ def seed_all():
     post40 = Post(
         ownerId=6,
         image='https://instaspambucket.s3.us-west-1.amazonaws.com/image40-climb.png',
-        caption='The mountains are calling and I mustache to go #mountains #anmals',
+        caption='The mountains are calling and I mustache to go #mountains #animals',
         post_likes=[demo, user3, user4, user5]
     )
     post41 = Post(

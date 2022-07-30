@@ -19,6 +19,16 @@ def get_posts_by_userId(username):
     posts = [ post.to_dict() for post in user_posts ]
     return {'user_posts': posts}
 
+@post_routes.route('/hashtag/<hashtag>')
+@login_required
+def get_posts_by_hashtag(hashtag):
+    try:
+        lower = hashtag.lower()
+        currentHashtag = Hashtag.query.filter_by(hashtag=lower).first()
+        posts = [post.to_dict() for post in currentHashtag.posts_with_hashtag]
+        return {'user_posts': posts}
+    except:
+        return {'errors': 'Hashtag does not exist'}, 404
 
 
 @post_routes.route('/feed/<int:userId>')

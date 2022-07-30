@@ -32,11 +32,11 @@ function LikesModal({ likes, sessionUser }) {
         case (followingLike && likes.length === 1):
             content = (
                 <div className='like-info-container'>
-                    <Link to={`${followingLike}`}>
+                    <Link to={`/${followingLike}`}>
                         <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
-                    <Link to={`${followingLike}`}>{followingLike}</Link>
+                    <Link to={`/${followingLike}`}>{followingLike}</Link>
                 </div>
             )
             break;
@@ -47,7 +47,7 @@ function LikesModal({ likes, sessionUser }) {
                         <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
-                    <Link to={`${followingLike}`}>{followingLike}</Link>
+                    <Link to={`/${followingLike}`}>{followingLike}</Link>
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
                         1 other
@@ -62,7 +62,7 @@ function LikesModal({ likes, sessionUser }) {
                         <img src={followingProfileImage} className='common-like-image' alt="" />
                     </Link>
                     &nbsp;Liked by&nbsp;
-                    <Link to={`${followingLike}`}>{followingLike}</Link>
+                    <Link to={`/${followingLike}`}>{followingLike}</Link>
                     &nbsp;and&nbsp;
                     <button className="likes-modal-bttn" onClick={() => setShowModal(true)}>
                         {likes.length - 1}
@@ -95,7 +95,7 @@ function LikesModal({ likes, sessionUser }) {
                                     <div className="list-user-info">
                                         <img className="list-profile-image" src={like.profileImage} alt=""></img>
                                         <div className='list-profile-name'>
-                                            <Link to={`${like.username}`}>{like.username}</Link>
+                                            <Link to={`/${like.username}`}>{like.username}</Link>
                                             <div className="list-fullname">{like.name}</div>
                                         </div>
                                     </div>
