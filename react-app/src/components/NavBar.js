@@ -11,6 +11,7 @@ import instaspamLogo from "../images/instaspam-logo.png"
 import about from "../images/about.png"
 import aboutfill from "../images/about-fill.png"
 import Dropdown from './Dropdown';
+import SearchBar from './SearchBar';
 
 
 const NavBar = () => {
@@ -54,6 +55,9 @@ const NavBar = () => {
               <NavLink to='/' exact={true} activeClassName='active'>
                 <img className="navbar-logo" src={instaspamLogo} alt=""></img>
               </NavLink>
+            </div>
+            <div className='nav-middle'>
+              <SearchBar />
             </div>
             <div className="nav-right">
               <div className="home-icon-div">
