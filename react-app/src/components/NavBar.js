@@ -40,7 +40,7 @@ const NavBar = () => {
       setExploreActive(false);
       setAboutActive(true);
     }
-  }, [homeActive, exploreActive, aboutActive, currentLocation])
+  }, [homeActive, exploreActive, aboutActive, currentLocation]);
 
   return (
     sessionUser ?
