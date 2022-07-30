@@ -16,7 +16,6 @@ export const getUser = (username) => async (dispatch) => {
         return user;
     }else {
       const error = await response.json();
-      console.log("USERRRRRRPOSTS,", error)
       return error;
     }
 

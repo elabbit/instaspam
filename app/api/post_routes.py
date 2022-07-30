@@ -70,6 +70,8 @@ def add_new_post():
         url = upload["url"]
 
         new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
+        db.session.add(new_post)
+        db.session.commit()
 
         hashtag_lists = new_post.check_hashtags()
 
@@ -90,9 +92,7 @@ def add_new_post():
                     existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
                     new_post.add_hashtag(existing_tag)
 
-        db.session.add(new_post)
         db.session.commit()
-
         return new_post.to_dict()
     except:
         return {'errors': 'Invalid csrf token'}, 400
@@ -117,14 +117,18 @@ def edit_post(postId):
             nonexistent_hashtags = hashtag_lists[0]
             current_hashtags = hashtag_lists[1]
 
-            for tag in nonexistent_hashtags:
-                new_tag = Hashtag(
-                hashtag=tag
-                )
+            for tag in current_hashtags:
+                if tag in nonexistent_hashtags:
+                    new_tag = Hashtag(
+                    hashtag=tag
+                    )
 
-                db.session.add(new_tag)
-                db.session.commit()
-                edited_post.add_hashtag(new_tag)
+                    db.session.add(new_tag)
+                    db.session.commit()
+                    edited_post.add_hashtag(new_tag)
+                else:
+                    existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
+                    edited_post.add_hashtag_on_edit(existing_tag)
 
             all_hashtags = edited_post.all_hashtags()
             removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
