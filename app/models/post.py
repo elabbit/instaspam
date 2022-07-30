@@ -59,10 +59,10 @@ class Post(db.Model):
 
         for word in words:
             tag = word[1:].lower()
-            current_hashtags.append(tag)
 
             if word[0] == '#':
                 exists = Hashtag.query.filter_by(hashtag=tag).first()
+                current_hashtags.append(tag)
 
                 if exists is None:
                     nonexistent_hashtags.append(tag)
