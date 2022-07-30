@@ -1,0 +1,21 @@
+.hashtag-posts-header{
+display: flex;
+justify-content: center;
+margin:10px;
+flex-direction: column;
+align-items: center;
+width:975px;
+}
+
+.hashtag-title{
+font-size: 28px;
+font-weight: 300;
+margin-bottom:5px;
+}
+.hashtag-count{
+    font-size: 16px;;
+}
+.hashtag-count-number{
+    font-size: 16px;;
+    font-weight:600;
+}

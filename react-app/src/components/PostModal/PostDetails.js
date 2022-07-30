@@ -10,10 +10,18 @@ import LikesModal from "../LikesModal";
 import Timestamp from "../Timestamp";
 import DeletePostModal from "../DeletePostModal";
 import './PostModal.css';
+import 'linkify-plugin-hashtag';
+import Linkify from "linkify-react";
 
 function PostDetails({ post }) {
   const sessionUser = useSelector(state => state.session.user);
   const [showEditPost, setShowEditPost] = useState(false);
+
+  const options = {
+    formatHref: {
+      hashtag: (href) => '/hashtag/' + href.substr(1)
+    }
+  }
 
 
   return (
@@ -54,7 +62,7 @@ function PostDetails({ post }) {
                   <div className="post-modal-caption-buttons">
                     <div className="post-modal-username-caption">
                       <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                      <span>{post.caption}</span>
+                      <Linkify className="post-modal-caption" tagName="span" options={options}>{post.caption}</Linkify>
                     </div>
                   </div>
                 </div>

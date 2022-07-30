@@ -5,9 +5,16 @@ import LikeToggle from "../LikeToggle";
 import PostModalFeed from "../PostModalFeed";
 import Timestamp from "../Timestamp";
 import "./PostContainer.css";
+import 'linkify-plugin-hashtag';
+import Linkify from "linkify-react";
 
 function PostContainer({ post, sessionUser }) {
 
+    const options = {
+        formatHref: {
+          hashtag: (href) => '/hashtag/' + href.substr(1)
+        }
+      }
     return (
         post ?
             <div className='post-container'>
@@ -27,7 +34,7 @@ function PostContainer({ post, sessionUser }) {
                     <div className='feed-comments'>
                         <div>
                             <Link to={`${post.ownerUsername}`}>{post.ownerUsername}</Link>
-                            &nbsp;{post.caption}
+                            &nbsp;<Linkify className="post-container-caption" tagName="span" options={options}>{post.caption}</Linkify>
                         </div>
                         {Object.keys(post.comments).length > 0 && (
                             <PostModalFeed post={post} type={Object.keys(post.comments).length} />

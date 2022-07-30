@@ -2,7 +2,7 @@ from .db import db
 from .like import likes
 from .tag import tags
 from sqlalchemy.sql import func
-from sqlalchemy import DateTime
+from sqlalchemy import DateTime, true
 from .user import User
 from .hashtag import Hashtag
 
@@ -71,6 +71,7 @@ class Post(db.Model):
 
 
             return [nonexistent_hashtags, current_hashtags]
+
 
     def to_dict_hashtags(self):
         return {

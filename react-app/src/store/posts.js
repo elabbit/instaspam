@@ -44,6 +44,15 @@ const deleteComment = (commentId, postId) => {
   }
 }
 
+export const getHashtagPosts = (hashtag) => async (dispatch) => {
+  const response = await fetch(`/api/posts/hashtag/${hashtag}`)
+  if (response.ok) {
+    const posts = await response.json();
+    dispatch(actionLoadPosts(posts));
+    return posts;
+  }
+}
+
 
 export const getUserPosts = (username) => async (dispatch) => {
   const response = await fetch(`/api/posts/${username}`)
