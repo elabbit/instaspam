@@ -2,7 +2,7 @@ from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from flask_wtf.csrf import validate_csrf
-from ..models import db, Post, User, follows
+from ..models import db, Post, User, Hashtag, follows
 from sqlalchemy.sql.expression import func
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -70,6 +70,24 @@ def add_new_post():
 
         new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
 
+        hashtag_lists = new_post.check_hashtags()
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
+
+        for tag in current_hashtags:
+            if tag in nonexistent_hashtags:
+                new_tag = Hashtag(
+                hashtag=tag
+                )
+
+                db.session.add(new_tag)
+                db.session.commit()
+                new_post.add_hashtag(new_tag)
+            else:
+                existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
+                print('existing_tag', existing_tag)
+                new_post.add_hashtag(existing_tag)
+
         db.session.add(new_post)
         db.session.commit()
 
@@ -90,6 +108,36 @@ def edit_post(postId):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         edited_post.caption = form.data['caption']
+
+        print('right before trying to do .check_hashtags method')
+        hashtag_lists = edited_post.check_hashtags()
+        print('hashtag_lists from edited_post.check_hashtags', hashtag_lists)
+
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
+
+        for tag in nonexistent_hashtags:
+            new_tag = Hashtag(
+            hashtag=tag
+            )
+
+            db.session.add(new_tag)
+            db.session.commit()
+            edited_post.add_hashtag(new_tag)
+
+        all_hashtags = edited_post.all_hashtags()
+        removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
+
+        for tag in removed_hashtags:
+            old_tag = Hashtag.query.filter_by(hashtag=tag).first()
+            edited_post.remove_hashtag(old_tag)
+
+            is_active_hashtag = old_tag.to_dict()['postIds']
+
+            if not len(is_active_hashtag):
+                db.session.delete(old_tag)
+                db.session.commit()
+
         db.session.commit()
         return edited_post.to_dict()
     return {'errors':validation_errors_to_error_messages(form.errors)}, 401
@@ -99,6 +147,20 @@ def edit_post(postId):
 @login_required
 def delete_post(postId):
     deleted_post = Post.query.get(postId)
+
+    deleted_post_hashtags = deleted_post.to_dict()['hashtags']
+
+    for hashtag in deleted_post_hashtags:
+        deleted_tag = Hashtag.query.get(hashtag['id'])
+        deleted_post.remove_hashtag(deleted_tag)
+
+        is_active_hashtag = deleted_tag.to_dict()['postIds']
+
+        if not len(is_active_hashtag):
+            db.session.delete(deleted_tag)
+            db.session.commit()
+
+
     db.session.delete(deleted_post)
     db.session.commit()
     return f'{postId}'
