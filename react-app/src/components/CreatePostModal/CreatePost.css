@@ -163,6 +163,7 @@ input[type=file]::file-selector-button {
 
 .create-right {
     width: 345px;
+    border-left: 1px solid lightgrey;
 }
 
 .create-post-form-caption {

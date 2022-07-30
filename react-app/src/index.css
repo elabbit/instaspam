@@ -52,7 +52,7 @@ body textarea {
 }
 
 .page-container {
-    width: 975px;
+    max-width: 975px;
     margin: auto;
     padding: 20px;
 }

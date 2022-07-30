@@ -13,6 +13,8 @@ export const getUser = (username) => async (dispatch) => {
     if(response.ok) {
         const user = await response.json();
         dispatch(getUserAction(user))
+    } else{
+      return null;
     }
 
   }
