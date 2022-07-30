@@ -20,6 +20,7 @@ def get_posts_by_userId(username):
     return {'user_posts': posts}
 
 
+
 @post_routes.route('/feed/<int:userId>')
 @login_required
 def get_following_posts(userId):

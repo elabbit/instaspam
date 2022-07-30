@@ -25,37 +25,37 @@ const CreatePostNew = ({ hideModal }) => {
     const handleDocumentClick = (event) => {
         let isEmojiClassFound = false;
         event &&
-        event.composedPath() &&
-        event.composedPath().forEach(elem => {
-          if (elem && elem.classList) {
-            const data = elem.classList.value;
-            if (data.includes("emoji")) {
-              isEmojiClassFound = true;
-            }
-          }
-        });
+            event.composedPath() &&
+            event.composedPath().forEach(elem => {
+                if (elem && elem.classList) {
+                    const data = elem.classList.value;
+                    if (data.includes("emoji")) {
+                        isEmojiClassFound = true;
+                    }
+                }
+            });
         if (isEmojiClassFound === false && event.target.id !== "emojis-btn") {
-          setEmojiBox(false);
-          setEventListener(false);
-          document.removeEventListener("click", handleDocumentClick);
+            setEmojiBox(false);
+            setEventListener(false);
+            document.removeEventListener("click", handleDocumentClick);
         }
-      };
+    };
 
     const onEmojiClick = (event, emojiObject) => {
         setCaption((caption) => caption + emojiObject.emoji);
         setEmojiBox(!emojiBox);
-      };
+    };
 
-      const showEmojiBox = (e) => {
+    const showEmojiBox = (e) => {
         e.preventDefault();
 
         if (emojiBox === false && !eventListener) {
-          document.addEventListener("click", handleDocumentClick, false);
-          setEventListener(true)
+            document.addEventListener("click", handleDocumentClick, false);
+            setEventListener(true)
         }
 
         setEmojiBox(!emojiBox);
-      }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -120,15 +120,14 @@ const CreatePostNew = ({ hideModal }) => {
                 <div className="upload-crop-create">
                     {openUpload && (
                         <div className="create-post-image-upload-field">
-                            <Photo/>
-                            <label className="create-image-label" for="create-post-files">Select from computer</label>
+                            <Photo />
+                            <label className="create-image-label" htmlFor="create-post-files">Select from computer</label>
                             <input
                                 className="create-post-image-upload-section"
                                 id="create-post-files"
                                 type="file"
                                 accept="image/*"
                                 onChange={updateImage}
-
                             />
                         </div>
 
@@ -150,21 +149,21 @@ const CreatePostNew = ({ hideModal }) => {
                                     </div>
                                 </div>
                                 <div className="create-txt-emoji">
-                                <textarea
-                                    className="create-post-form-caption"
-                                    value={caption}
-                                    onChange={(e) => setCaption(e.target.value)}
-                                    placeholder='Write a caption...'
-                                    maxLength="1000"
+                                    <textarea
+                                        className="create-post-form-caption"
+                                        value={caption}
+                                        onChange={(e) => setCaption(e.target.value)}
+                                        placeholder='Write a caption...'
+                                        maxLength="1000"
                                     />
-                                <button id='emojis-btn' onClick={showEmojiBox} className='create-show-emojis'><EmojiBox /></button>
-                                {emojiBox && (
-                                    <>
-                                        <div className='create-emoji-form'>
-                                            <Picker onEmojiClick={onEmojiClick} />
-                                        </div>
-                                    </>
-                                )}
+                                    <button id='emojis-btn' onClick={showEmojiBox} className='create-show-emojis'><EmojiBox /></button>
+                                    {emojiBox && (
+                                        <>
+                                            <div className='create-emoji-form'>
+                                                <Picker onEmojiClick={onEmojiClick} />
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>

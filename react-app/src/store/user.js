@@ -13,6 +13,11 @@ export const getUser = (username) => async (dispatch) => {
     if(response.ok) {
         const user = await response.json();
         dispatch(getUserAction(user))
+        return user;
+    }else {
+      const error = await response.json();
+      console.log("USERRRRRRPOSTS,", error)
+      return error;
     }
 
   }
