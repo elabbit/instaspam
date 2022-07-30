@@ -126,13 +126,17 @@ def edit_post(postId):
             edited_post.add_hashtag(new_tag)
 
         all_hashtags = edited_post.all_hashtags()
-        print('all_hashtags', all_hashtags)
-
         removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
-        print('removed_hashtags', removed_hashtags)
+
         for tag in removed_hashtags:
             old_tag = Hashtag.query.filter_by(hashtag=tag).first()
             edited_post.remove_hashtag(old_tag)
+
+            is_active_hashtag = old_tag.to_dict()['postIds']
+
+            if not len(is_active_hashtag):
+                db.session.delete(old_tag)
+                db.session.commit()
 
         db.session.commit()
         return edited_post.to_dict()
@@ -143,6 +147,20 @@ def edit_post(postId):
 @login_required
 def delete_post(postId):
     deleted_post = Post.query.get(postId)
+
+    deleted_post_hashtags = deleted_post.to_dict()['hashtags']
+
+    for hashtag in deleted_post_hashtags:
+        deleted_tag = Hashtag.query.get(hashtag['id'])
+        deleted_post.remove_hashtag(deleted_tag)
+
+        is_active_hashtag = deleted_tag.to_dict()['postIds']
+
+        if not len(is_active_hashtag):
+            db.session.delete(deleted_tag)
+            db.session.commit()
+
+
     db.session.delete(deleted_post)
     db.session.commit()
     return f'{postId}'

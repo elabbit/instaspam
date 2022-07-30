@@ -62,13 +62,11 @@ class Post(db.Model):
             current_hashtags.append(tag)
 
             if word[0] == '#':
-                print('successfuly got into word is a hashtag conditional')
                 exists = Hashtag.query.filter_by(hashtag=tag).first()
-                print('existing hashtag?', exists)
+
                 if exists is None:
-                    print('no it does not exist add', exists)
                     nonexistent_hashtags.append(tag)
-                    print('appended!')
+
 
         return [nonexistent_hashtags, current_hashtags]
 
