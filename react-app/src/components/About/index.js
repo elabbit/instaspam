@@ -98,7 +98,7 @@ const About = () => {
                                 </div>
                             </div>
                             <div className='about-image-container'>
-                                <img src='https://instaspambucket.s3.amazonaws.com/4f6f0c20719f4eae9188918098640776.png' className='about-image' alt="" />
+                                <img src='https://instaspambucket.s3.us-west-1.amazonaws.com/ProfilePicEddie.png' className='about-image' alt="" />
                             </div>
                             <div className='about-comments'>
                                 <div className='about-comment'>
