@@ -40,7 +40,11 @@ class Post(db.Model):
         return user.id in postlikes_ids
 
     def add_hashtag(self, hashtag):
-        if hashtag not in self.hashtags_on_post:
+        self.hashtags_on_post.append(hashtag)
+
+    def add_hashtag_on_edit(self, hashtag):
+        post_ids = hashtag.to_dict()['postIds']
+        if self.id not in post_ids:
             self.hashtags_on_post.append(hashtag)
 
     def remove_hashtag(self, hashtag):
@@ -54,13 +58,17 @@ class Post(db.Model):
 
     def check_hashtags(self):
         if self.caption:
-            words = self.caption.split(' ')
+            words_list = self.caption.split(' ')
+
+            unique_words = []
+            [unique_words.append(word.lower()) for word in words_list if word.lower() not in unique_words and word != '']
 
             nonexistent_hashtags = []
             current_hashtags = []
-
-            for word in words:
-                tag = word[1:].lower()
+            print('unique words', unique_words)
+            for word in unique_words:
+                print('word in check_hashtags', word)
+                tag = word[1:]
 
                 if word[0] == '#' and tag.isalnum():
                     exists = Hashtag.query.filter_by(hashtag=tag).first()

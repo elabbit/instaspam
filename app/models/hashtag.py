@@ -12,7 +12,6 @@ class Hashtag(db.Model):
         back_populates="hashtags_on_post",
     )
 
-
     def to_dict_no_posts(self):
         return {
             'id': self.id,
@@ -23,5 +22,5 @@ class Hashtag(db.Model):
         return {
             'id': self.id,
             'hashtag': self.hashtag,
-            'postIds': [post.to_dict_hashtags() for post in self.posts_with_hashtag]
+            'postIds': [post.to_dict_hashtags()['id'] for post in self.posts_with_hashtag]
         }
