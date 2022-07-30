@@ -1,30 +1,30 @@
-.page-splash-container{
+.page-splash-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.page-splash-content{
+.page-splash-content {
     display: flex;
     height: 756px;
     justify-content: center;
 
 }
 
-.page-splash-content-left{
+.page-splash-content-left {
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url('../../images/instaspamsplash.png');
     width: 450px;
-    height:615px;
+    height: 615px;
     margin-top: 85px;
-    margin-right:12px;
+    margin-right: 12px;
 
 }
 
-.page-splash-content-right{
+.page-splash-content-right {
     display: flex;
     flex-direction: column;
     /* width: 50%; */
@@ -32,7 +32,7 @@
 
 
 
-.page-splash-content-form{
+.page-splash-content-form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,7 @@
 
 }
 
-.page-splash-content-signup{
+.page-splash-content-signup {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,9 +58,9 @@
     background: #FFFFFF;
 }
 
-.page-splash-login-btn{
-    width:258px;
-    color:white;
+.page-splash-login-btn {
+    width: 258px;
+    color: white;
     background-color: #0095f6;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -68,47 +68,47 @@
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 3px;
-    padding:6px;
-    font-weight:600;
+    padding: 6px;
+    font-weight: 600;
 }
 
-.page-splash-content-input{
+.page-splash-content-input {
     background: #fafafa;
-    width:258px;
-    height:36px;
-    margin:3px;
+    width: 258px;
+    height: 36px;
+    margin: 3px;
     border: 1px solid #dbdbdb;
     border-radius: 2px;
     padding: 9px 0 7px 8px;
 }
 
-.page-splash-signup-link{
+.page-splash-signup-link {
     color: #0095f6;
     padding-left: 3px;
     border: none;
     background: none;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.page-splash-logo{
-  margin-bottom:15px;
+.page-splash-logo {
+    margin-bottom: 15px;
 }
 
-.page-splash-demo-btn{
+.page-splash-demo-btn {
     border: none;
     background: none;
-    cursor:pointer;
+    cursor: pointer;
     color: #385185;
     font-weight: bolder;
 }
 
-.page-splash-linebreak{
-    display:flex;
+.page-splash-linebreak {
+    display: flex;
     padding-bottom: 15px;
     padding-top: 10px;
 }
 
-.page-splash-linebreak-lines{
+.page-splash-linebreak-lines {
     background-color: #dbdbdb;
     height: 1px;
     position: relative;
@@ -117,7 +117,7 @@
 
 }
 
-.page-splash-linebreak-text{
+.page-splash-linebreak-text {
     color: #8e8e8e;
     font-size: 13px;
     font-weight: 600;
@@ -128,33 +128,39 @@
 
 
 
-.page-splash-img{
+.page-splash-img {
     margin-left: 111px;
     margin-bottom: 23px;
-    height:541px;
-    width:250px;
+    height: 541px;
+    width: 250px;
 
 }
 
-/* .page-splash-img{
-    visibility: hidden;
+.splash-img{
     position: absolute;
+    left:209px;
+    top:111px;
 }
 
-.fade-out{
-opacity: 0;
+.fade-none {
+    opacity: 0;
+
+}
+
+.fade-out {
+    opacity: 0;
     -webkit-transition: opacity 1.5s ease-out;
     transition: opacity 1.5s ease-out;
     visibility: visible;
 }
 
-.fade-in{
+.fade-in {
     opacity: 1;
     -webkit-transition: opacity 1.5s ease-in;
     transition: opacity 1.5s ease-in;
     z-index: 2;
     visibility: visible;
-} */
+}
 
 
 
@@ -162,8 +168,8 @@ opacity: 0;
 
 
 @media (max-width: 850px) {
-    .page-splash-content-left{
-        display:none;
+    .page-splash-content-left {
+        display: none;
     }
 
 }

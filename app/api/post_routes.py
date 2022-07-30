@@ -14,10 +14,11 @@ post_routes = Blueprint('posts', __name__)
 @post_routes.route('/<username>')
 @login_required
 def get_posts_by_userId(username):
-    user = User.query.filter_by(username=username).first()
-    user_posts = Post.query.filter(Post.ownerId==user.id).all()
-    posts = [ post.to_dict() for post in user_posts ]
-    return {'user_posts': posts}
+        user = User.query.filter_by(username=username).first()
+        user_posts = Post.query.filter(Post.ownerId==user.id).all()
+        posts = [ post.to_dict() for post in user_posts ]
+        return {'user_posts': posts}
+
 
 
 @post_routes.route('/feed/<int:userId>')

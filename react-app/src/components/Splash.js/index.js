@@ -22,10 +22,9 @@ function Splash({ sessionUser }) {
 
   const splashImages = [splashImg1, splashImg2, splashImg3];
   const [displayLogin, setDisplayLogin] = useState(true);
-  // const [indexOne, setIndexOne] = useState(0);
-  // const [indexTwo, setIndexTwo] = useState();
-  // const [indexThree, setIndexThree] = useState();
-  const [imgIndex, setImgIndex] = useState(0);
+  const [indexOne, setIndexOne] = useState(0);
+  const [indexTwo, setIndexTwo] = useState(1);
+  const [indexThree, setIndexThree] = useState(2);
   // const splashImages = [realsplashImg1, realsplashImg2, realsplashImg3];
 
   const demoLogin = async (e) => {
@@ -38,48 +37,34 @@ function Splash({ sessionUser }) {
     }
   }, [sessionUser, history])
 
-  // const classes = ['page-splash-img fade-in', "page-splash-img fade-out", 'page-splash-img']
-
-  // useEffect(() => {
-  //   const classChange = setInterval(() => {
-      // if(indexOne === 3) {
-      //   setIndexOne(0);
-      // }
-      // else {
-      // }
-      // setIndexOne(indexOne + 1)
-
-      // if(indexTwo === 3) {
-      //   setIndexTwo(0);
-      // }
-      // else {
-      //   setIndexTwo(indexTwo + 1)
-      // }
-      // if(indexThree === 3) {
-      //   setIndexThree(0);
-      // }
-      // else {
-      //   setIndexThree(indexThree + 1)
-      // }
-  //     return () => clearInterval(classChange);
-  //   }, 5000)
-
-  // }, [])
-
-
+const classes = ["splash-img fade-in", "splash-img ade-out", "splash-img fade-none"]
 
   useEffect(()=> {
     const imgId = setInterval(()=> {
-      if(imgIndex === splashImages.length -1) {
-        setImgIndex(0);
+      if(indexOne === 2) {
+        setIndexOne(0);
       }
       else {
-        setImgIndex(imgIndex + 1)
+        setIndexOne(indexOne + 1)
       }
 
-    }, 7000)
+      if(indexTwo === 2) {
+        setIndexTwo(0);
+      }
+      else {
+        setIndexTwo(indexTwo + 1)
+      }
+
+      if(indexThree === 2) {
+        setIndexThree(0);
+      }
+      else {
+        setIndexThree(indexThree + 1)
+      }
+
+    }, 5000)
     return () => clearInterval(imgId);
-  }, [splashImages.length, imgIndex])
+  }, [splashImages.length, indexOne, indexTwo, indexThree])
 
 
   return (
@@ -87,9 +72,9 @@ function Splash({ sessionUser }) {
       <div className='page-splash-container'>
         <div className='page-splash-content'>
           <div className='page-splash-content-left'>
-            <img className="page-splash-img" src={splashImages[imgIndex]} alt="" />
-            {/* <img className={classes[indexTwo]} src={splashImages[1]} alt="" />
-            <img className={classes[indexThree]} src={splashImages[2]} alt="" /> */}
+            <img className={classes[indexOne]} src={splashImages[0]} alt="" />
+            <img className={classes[indexTwo]} src={splashImages[1]} alt="" />
+            <img className={classes[indexThree]} src={splashImages[2]} alt="" />
           </div>
           <div className='page-splash-content-right'>
             <div className='page-splash-content-form'>

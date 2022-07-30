@@ -53,7 +53,7 @@ function App() {
         <ProtectedRoute path='/explore' exact={true}>
           <ExplorePage sessionUser={sessionUser} />
         </ProtectedRoute>
-        <ProtectedRoute path='/accounts/edit'>
+        <ProtectedRoute path='/accounts/edit' exact={true}>
           <UserEditForm />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
