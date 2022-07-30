@@ -109,7 +109,9 @@ def edit_post(postId):
     if form.validate_on_submit():
         edited_post.caption = form.data['caption']
 
+        print('right before trying to do .check_hashtags method')
         hashtag_lists = edited_post.check_hashtags()
+        print('hashtag_lists from edited_post.check_hashtags', hashtag_lists)
 
         nonexistent_hashtags = hashtag_lists[0]
         current_hashtags = hashtag_lists[1]
@@ -124,11 +126,12 @@ def edit_post(postId):
             edited_post.add_hashtag(new_tag)
 
         all_hashtags = edited_post.all_hashtags()
+        print('all_hashtags', all_hashtags)
 
         removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
-
+        print('removed_hashtags', removed_hashtags)
         for tag in removed_hashtags:
-            old_tag = Hashtag.query.get(tag.id)
+            old_tag = Hashtag.query.filter_by(hashtag=tag).first()
             edited_post.remove_hashtag(old_tag)
 
         db.session.commit()
