@@ -70,15 +70,16 @@ def add_new_post():
 
         new_post = Post(ownerId=current_user.id, image=url, caption=request.form.get('caption'))
 
-        tagList = new_post.check_hashtags()
+        tag_list = new_post.check_hashtags()
 
-        for tag in tagList:
-            newTag = Hashtag(
+        for tag in tag_list:
+            new_tag = Hashtag(
             hashtag=tag
             )
 
-            db.session.add(newTag)
+            db.session.add(new_tag)
             db.session.commit()
+            new_post.add_hashtag(new_tag)
 
         db.session.add(new_post)
         db.session.commit()

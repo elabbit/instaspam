@@ -16,7 +16,7 @@ class Post(db.Model):
     createdAt = db.Column(DateTime(timezone=True), server_default=func.now())
 
     owner = db.relationship("User", back_populates="owner_posts")
-    post_comments = db.relationship("Comment", back_populates="post_id",cascade='all, delete')
+    post_comments = db.relationship("Comment", back_populates="post_id",cascade="all, delete")
     post_likes = db.relationship("User",
         secondary=likes,
         back_populates="user_likes"
@@ -39,9 +39,16 @@ class Post(db.Model):
         postlikes_ids = [x.id for x in self.post_likes]
         return user.id in postlikes_ids
 
+    def add_hashtag(self, hashtag):
+        if hashtag not in self.hashtags_on_post:
+            self.hashtags_on_post.append(hashtag)
+
+    def current_hashtags(self):
+        self.hashtags_on_post
+
     def check_hashtags(self):
         words = self.caption.split(' ')
-        hashtagList = []
+        hashtag_list = []
 
         for word in words:
             tag = word[1:].lower()
@@ -50,11 +57,9 @@ class Post(db.Model):
                 exists = Hashtag.query.filter_by(hashtag=tag).first()
 
                 if exists is None:
-                    hashtagList.append(tag)
+                    hashtag_list.append(tag)
 
-        return hashtagList
-
-
+        return hashtag_list
 
     def to_dict_hashtags(self):
         return {
@@ -71,6 +76,7 @@ class Post(db.Model):
             'createdAt': self.createdAt,
             'comments': [ comment.to_dict() for comment in self.post_comments ],
             'likes': [user.to_dict_follows() for user in self.post_likes],
+            'hashtags': [hashtag.to_dict_no_posts() for hashtag in self.hashtags_on_post],
             'ownerUsername': User.query.get(self.ownerId).username,
             'ownerProfileImage': User.query.get(self.ownerId).profileImage
         }

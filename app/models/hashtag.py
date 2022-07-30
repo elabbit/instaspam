@@ -12,6 +12,13 @@ class Hashtag(db.Model):
         back_populates="hashtags_on_post",
     )
 
+
+    def to_dict_no_posts(self):
+        return {
+            'id': self.id,
+            'hashtag': self.hashtag,
+        }
+
     def to_dict(self):
         return {
             'id': self.id,
