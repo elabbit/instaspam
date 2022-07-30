@@ -62,7 +62,7 @@ class Post(db.Model):
             for word in words:
                 tag = word[1:].lower()
 
-                if word[0] == '#':
+                if word[0] == '#' and tag.isalnum():
                     exists = Hashtag.query.filter_by(hashtag=tag).first()
                     current_hashtags.append(tag)
 
