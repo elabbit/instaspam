@@ -59,7 +59,6 @@ const CreatePostNew = ({ hideModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(image)
         const errorsArray = [];
         const formData = new FormData();
         formData.append('image', image)

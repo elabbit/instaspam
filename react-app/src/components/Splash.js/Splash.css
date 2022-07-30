@@ -126,7 +126,9 @@
     padding-right: 10px;
 }
 
-
+.splash-img-container{
+    position: relative;
+}
 
 .page-splash-img {
     margin-left: 111px;
@@ -138,8 +140,8 @@
 
 .splash-img{
     position: absolute;
-    left:209px;
-    top:111px;
+    left:-69px;
+    top:-282px;
 }
 
 .fade-none {

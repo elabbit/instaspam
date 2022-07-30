@@ -72,9 +72,11 @@ const classes = ["splash-img fade-in", "splash-img ade-out", "splash-img fade-no
       <div className='page-splash-container'>
         <div className='page-splash-content'>
           <div className='page-splash-content-left'>
+            <div className="splash-img-container">
             <img className={classes[indexOne]} src={splashImages[0]} alt="" />
             <img className={classes[indexTwo]} src={splashImages[1]} alt="" />
             <img className={classes[indexThree]} src={splashImages[2]} alt="" />
+            </div>
           </div>
           <div className='page-splash-content-right'>
             <div className='page-splash-content-form'>
