@@ -36,7 +36,7 @@ const About = () => {
                                     <span className='about-name'>
                                         jonathankim&nbsp;
                                         <span className='about-subtext'>
-                                            I love to go on walks with my dogs.
+                                            I love to spend time with my dog lucky, try different types of cuisine from around the world, and watch basketball. Solving a problem you've been stuck on is one of the best feelings.
                                             <div>Github: <a className="about-link" href="https://github.com/KimJonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
                                             <div>LinkedIn: <a className="about-link" href="https://www.linkedin.com/in/kimjonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                         </span>
@@ -59,7 +59,7 @@ const About = () => {
                                     <span className='about-name'>
                                         abeltesfa&nbsp;
                                         <span className='about-subtext'>
-                                            I love to listen to music and watch basketball.
+                                            I enjoy relaxing with family and hanging out with friends. Enjoy hip hop music and also a big fan of sports. I can talk too long about NBA basketball.
                                             <div>Github: <a className="about-link" href="https://github.com/abeltesfa" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
                                             <div>LinkedIn: <a className="about-link" href="https://www.linkedin.com/in/abel-tesfa-93121866/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                         </span>
@@ -82,7 +82,7 @@ const About = () => {
                                     <span className='about-name'>
                                         davidchung&nbsp;
                                         <span className='about-subtext'>
-                                            I love to go for runs in the evening and anything to do with basketball!
+                                            I love to listen to music and just relax. Recently, I've fallen in love with F1 racing, it's become one of my new passions!
                                             <div>Github: <a className="about-link" href="https://github.com/dchung007" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
                                             <div>LinkedIn: <a className="about-link" href="https://www.linkedin.com/in/david-chung-98a5651aa/" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                         </span>
