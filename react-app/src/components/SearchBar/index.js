@@ -55,7 +55,9 @@ const SearchBar = () => {
         <div className="search-dropdown-cancel" onClick={() => clickResult()}></div>
       }
       <div className="search-field">
-        <Search className="search-icon" />
+        {!searchInput &&
+          <Search className="search-icon" />
+        }
         <input
           placeholder="Search"
           onChange={(e) => handleChange(e.target.value)}
@@ -65,23 +67,28 @@ const SearchBar = () => {
       </div>
       <div className={dropdown ? "search-results" : "search-none"}>
         {dropdown &&
-          usersData.map(user => (
-            <div key={user.id} className="search-user">
-              <Link onClick={() => clickResult()} to={`/${user.username}`} >
-                <div>
-                  <img src={user.profileImage} alt='' />
-                </div>
-                <div className="search-user-info">
-                  <div className="search-username">
-                    {user.username}
+          usersData.length ?
+          (
+            usersData.map(user => (
+              <div key={user.id} className="search-user">
+                <Link onClick={() => clickResult()} to={`/${user.username}`} >
+                  <div>
+                    <img src={user.profileImage} />
                   </div>
-                  <div className="search-user-name">
-                    {user.name}
+                  <div className="search-user-info">
+                    <div className="search-username">
+                      {user.username}
+                    </div>
+                    <div className="search-user-name">
+                      {user.name}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))
+                </Link>
+              </div>
+            ))
+          )
+          :
+          <div className={dropdown? "no-show" : "no-hide"} id="no-results">No results found.</div>
         }
         {
           dropdown &&
