@@ -15,7 +15,6 @@
     max-width: 975px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
     height: 60px;
@@ -25,13 +24,13 @@
 
 .nav-left {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
 .nav-right {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
 }
 
@@ -40,6 +39,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.nav-left, .nav-right, .nav-middle{
+  width:325px;
+}
+
 
 .navbar-logo {
     margin-top: 7px;
@@ -93,5 +97,11 @@
     background-color: transparent;
     height: 100vh;
     width: 100%;
+
+}
+@media (max-width: 600px) {
+    .nav-middle {
+        display: none;
+    }
 
 }
