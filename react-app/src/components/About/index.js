@@ -36,7 +36,7 @@ const About = () => {
                                     <span className='about-name'>
                                         jonathankim&nbsp;
                                         <span className='about-subtext'>
-                                            I love to spend time with my dog lucky, try different types of cuisine from around the world, and watch basketball. Solving a problem you've been stuck on is one of the best feelings.
+                                            I love to spend time with my dog lucky, try different types of cuisine from around the world, and watch basketball.
                                             <div>Github: <a className="about-link" href="https://github.com/KimJonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-github"></i></a></div>
                                             <div>LinkedIn: <a className="about-link" href="https://www.linkedin.com/in/kimjonathan426" target='_blank' rel="noreferrer"> <i className="fa-brands fa-linkedin-in"></i></a></div>
                                         </span>
