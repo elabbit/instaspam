@@ -35,6 +35,12 @@
     align-items: center;
 }
 
+.nav-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navbar-logo {
     margin-top: 7px;
     width: 103px;
