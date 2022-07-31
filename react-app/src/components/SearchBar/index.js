@@ -66,52 +66,55 @@ const SearchBar = () => {
         </input>
       </div>
       <div className={dropdown ? "search-results" : "search-none"}>
-        {dropdown &&
-          usersData.length ?
-          (
-            usersData.map(user => (
-              <div key={user.id} className="search-user">
-                <Link onClick={() => clickResult()} to={`/${user.username}`} >
-                  <div>
-                    <img src={user.profileImage} />
-                  </div>
-                  <div className="search-user-info">
-                    <div className="search-username">
-                      {user.username}
-                    </div>
-                    <div className="search-user-name">
-                      {user.name}
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))
-          )
-          :
-          <div className={dropdown? "no-show" : "no-hide"} id="no-results">No results found.</div>
-        }
         {
-          dropdown &&
-          hashtagsData.map(hashtag => (
-            <div key={hashtag.id} className="search-user">
-              <Link onClick={() => clickResult()} to={`/hashtag/${hashtag.hashtag}`} >
-                <div>
-                  <div className="hashtag-border">
-                    <Hashtag />
+          dropdown && (usersData.length || hashtagsData.length) ? (
+            <>
+              { usersData &&
+                usersData.map(user => (
+                  <div key={user.id} className="search-user">
+                    <Link onClick={() => clickResult()} to={`/${user.username}`} >
+                      <div>
+                        <img src={user.profileImage} />
+                      </div>
+                      <div className="search-user-info">
+                        <div className="search-username">
+                          {user.username}
+                        </div>
+                        <div className="search-user-name">
+                          {user.name}
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                </div>
-                <div className="search-user-info">
-                  <div className="search-username">
-                    #{hashtag.hashtag}
+                ))
+              }
+              { hashtagsData &&
+                hashtagsData.map(hashtag => (
+                  <div key={hashtag.id} className="search-user">
+                    <Link onClick={() => clickResult()} to={`/hashtag/${hashtag.hashtag}`} >
+                      <div>
+                        <div className="hashtag-border">
+                          <Hashtag />
+                        </div>
+                      </div>
+                      <div className="search-user-info">
+                        <div className="search-username">
+                          #{hashtag.hashtag}
+                        </div>
+                        <div className="search-user-name">
+                          {hashtag.postIds.length} posts
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                  <div className="search-user-name">
-                    {hashtag.postIds.length} posts
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))
+                ))
+              }
+            </>
+          )
+            :
+            (<div className={dropdown ? "no-show" : "no-hide"} id="no-results">No results found.</div>)
         }
+
       </div>
     </div >
   )
