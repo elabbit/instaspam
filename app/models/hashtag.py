@@ -5,7 +5,7 @@ class Hashtag(db.Model):
     __tablename__ = 'hashtags'
 
     id = db.Column(db.Integer, primary_key=True)
-    hashtag = db.Column(db.String(1000), nullable=False)
+    hashtag = db.Column(db.String(100), nullable=False)
 
     posts_with_hashtag = db.relationship("Post",
         secondary=tags,
