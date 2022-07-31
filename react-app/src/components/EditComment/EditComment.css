@@ -1,0 +1,14 @@
+button.comment-edit-delete-buttons {
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    color: #0095F6;
+    background-color: white;
+    margin-left: 5px;
+}
+
+.comment-edit-bttns-container {
+    margin-left: -10px;
+    margin-bottom: -20px;
+    margin-top:-10px;
+}

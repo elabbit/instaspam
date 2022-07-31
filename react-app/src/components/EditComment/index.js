@@ -88,9 +88,9 @@ const EditComment = ({ postId, currentComment, hideForm }) => {
                     </>
                 )}
                 </div>
-                <div className='edit-bttns-container'>
-                <button className="post-modal-edit-delete-buttons" type='submit'>Done</button>
-                <button className="post-modal-edit-delete-buttons" type="button" onClick={handleCancel}>Cancel</button>
+                <div className='comment-edit-bttns-container'>
+                <button className="comment-edit-delete-buttons" type='submit'>Done</button>
+                <button className="comment-edit-delete-buttons" type="button" onClick={handleCancel}>Cancel</button>
                 </div>
             </form>
         </div>
