@@ -19,6 +19,7 @@ const NavBar = () => {
   const [homeActive, setHomeActive] = useState();
   const [exploreActive, setExploreActive] = useState();
   const [aboutActive, setAboutActive] = useState();
+  const [profileActive, setProfileActive] = useState();
   const [dropdown, setDropdown] = useState(false);
   const currentLocation = useLocation()
 
@@ -32,20 +33,31 @@ const NavBar = () => {
       setHomeActive(true);
       setExploreActive(false);
       setAboutActive(false);
+      setProfileActive(false);
     } else if (currentLocation.pathname === '/explore') {
       setHomeActive(false);
       setExploreActive(true);
       setAboutActive(false);
+      setProfileActive(false);
     } else if (currentLocation.pathname === '/about') {
       setHomeActive(false);
       setExploreActive(false);
       setAboutActive(true);
+      setProfileActive(false);
+    } else if (currentLocation.pathname === `/${sessionUser.username}`) {
+      setHomeActive(false);
+      setExploreActive(false);
+      setAboutActive(false);
+      setProfileActive(true);
     } else {
       setHomeActive(false);
       setExploreActive(false);
       setAboutActive(false);
+      setProfileActive(false);
     }
-  }, [homeActive, exploreActive, aboutActive, currentLocation])
+  }, [homeActive, exploreActive, aboutActive, currentLocation, sessionUser.username]);
+
+
 
   return (
     sessionUser ?
@@ -96,7 +108,7 @@ const NavBar = () => {
                 </NavLink>
               </div>
               <div className="profile-icon-div" onClick={() => handleClick()}>
-                <img className={dropdown ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt="" />
+                <img className={dropdown ? "profile-icon outline" : "profile-icon" && profileActive ? "profile-icon outline" : "profile-icon"} src={sessionUser.profileImage} alt="" />
                 {dropdown && <Dropdown sessionUser={sessionUser} />}
               </div>
             </div>

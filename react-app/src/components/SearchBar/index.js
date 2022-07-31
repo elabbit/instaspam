@@ -56,6 +56,7 @@ const SearchBar = () => {
       </div>
       <div className={dropdown ? "search-results" : "search-none"}>
         {dropdown &&
+
           usersData.length ?
           (
             usersData.map(user => (
