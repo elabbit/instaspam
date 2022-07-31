@@ -39,6 +39,9 @@ const SearchBar = () => {
 
   return (
     <div className="search-bar">
+      {dropdown &&
+        <div className="search-dropdown-cancel" onClick={() => clickResult()}></div>
+      }
       <div className="search-field">
         <Search className="search-icon" />
         <input
