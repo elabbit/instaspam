@@ -91,22 +91,22 @@ def add_new_post():
 
         hashtag_lists = new_post.check_hashtags()
 
-        if (hashtag_lists):
-            nonexistent_hashtags = hashtag_lists[0]
-            current_hashtags = hashtag_lists[1]
 
-            for tag in current_hashtags:
-                if tag in nonexistent_hashtags:
-                    new_tag = Hashtag(
-                    hashtag=tag
-                    )
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
 
-                    db.session.add(new_tag)
-                    db.session.commit()
-                    new_post.add_hashtag(new_tag)
-                else:
-                    existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
-                    new_post.add_hashtag(existing_tag)
+        for tag in current_hashtags:
+            if tag in nonexistent_hashtags:
+                new_tag = Hashtag(
+                hashtag=tag
+                )
+
+                db.session.add(new_tag)
+                db.session.commit()
+                new_post.add_hashtag(new_tag)
+            else:
+                existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
+                new_post.add_hashtag(existing_tag)
 
         db.session.commit()
         return new_post.to_dict()
@@ -129,35 +129,34 @@ def edit_post(postId):
 
         hashtag_lists = edited_post.check_hashtags()
 
-        if (hashtag_lists):
-            nonexistent_hashtags = hashtag_lists[0]
-            current_hashtags = hashtag_lists[1]
+        nonexistent_hashtags = hashtag_lists[0]
+        current_hashtags = hashtag_lists[1]
 
-            for tag in current_hashtags:
-                if tag in nonexistent_hashtags:
-                    new_tag = Hashtag(
-                    hashtag=tag
-                    )
+        for tag in current_hashtags:
+            if tag in nonexistent_hashtags:
+                new_tag = Hashtag(
+                hashtag=tag
+                )
 
-                    db.session.add(new_tag)
-                    db.session.commit()
-                    edited_post.add_hashtag(new_tag)
-                else:
-                    existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
-                    edited_post.add_hashtag_on_edit(existing_tag)
+                db.session.add(new_tag)
+                db.session.commit()
+                edited_post.add_hashtag(new_tag)
+            else:
+                existing_tag = Hashtag.query.filter_by(hashtag=tag).first()
+                edited_post.add_hashtag_on_edit(existing_tag)
 
-            all_hashtags = edited_post.all_hashtags()
-            removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
+        all_hashtags = edited_post.all_hashtags()
+        removed_hashtags = list(set(all_hashtags) - set(current_hashtags))
 
-            for tag in removed_hashtags:
-                old_tag = Hashtag.query.filter_by(hashtag=tag).first()
-                edited_post.remove_hashtag(old_tag)
+        for tag in removed_hashtags:
+            old_tag = Hashtag.query.filter_by(hashtag=tag).first()
+            edited_post.remove_hashtag(old_tag)
 
-                is_active_hashtag = old_tag.to_dict()['postIds']
+            is_active_hashtag = old_tag.to_dict()['postIds']
 
-                if not len(is_active_hashtag):
-                    db.session.delete(old_tag)
-                    db.session.commit()
+            if not len(is_active_hashtag):
+                db.session.delete(old_tag)
+                db.session.commit()
 
         db.session.commit()
         return edited_post.to_dict()
