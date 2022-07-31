@@ -39,6 +39,7 @@ function PostDetails({ post }) {
               <Link to={`/${post.ownerUsername}`}>{post.ownerUsername}</Link>
             </div>
             {post.ownerId === sessionUser.id ?
+            !showEditPost &&
               <div className="pm-edit-del">
                 <div className="pm-edit">
                   <button className="post-modal-edit-delete-buttons" onClick={() => setShowEditPost(true)}>Edit</button>

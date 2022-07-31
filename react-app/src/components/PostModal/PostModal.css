@@ -72,11 +72,14 @@ button.post-modal-edit-delete-buttons {
     cursor: pointer;
     color: #0095F6;
     background-color: white;
+    font-weight:600;
+    margin-left:5px;
 }
 
 .post-modal-username-edit-field {
     display: flex;
     flex-direction: row;
+    margin-bottom:-40px;
 }
 
 .post-modal-username-caption {
@@ -139,10 +142,12 @@ button.post-modal-edit-delete-buttons {
 .post-modal-profileimage {
     display: flex;
     flex-direction: row;
+
 }
 
 .owner-image img {
     margin-top: 10px;
+    margin-left:5px;
 }
 
 .edit-post-text {
@@ -156,7 +161,8 @@ button.post-modal-edit-delete-buttons {
 
 .pm-edit-del {
     display: flex;
-    margin-top:-3px;
+    margin-top:-6px;
+    margin-right:-15px;
     width:100%;
     justify-content: right;
 
@@ -169,6 +175,7 @@ button.post-modal-edit-delete-buttons {
 
 .pm-edit button {
     font-weight: 600;
+margin-right:-5px;
 }
 
 .post-modal-caption a{

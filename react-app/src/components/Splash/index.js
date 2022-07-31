@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import LoginForm from '../auth/LoginForm';
 import './Splash.css'
-import splashImg1 from '../../images/instaspamsplashimg1.png'
-import splashImg2 from '../../images/instaspamsplashimg2.png'
-import splashImg3 from '../../images/instaspamsplashimg3.png'
-// import realsplashImg1 from '../../images/instaspamsplashrealimg1.png'
-// import realsplashImg2 from '../../images/instaspamsplashrealimg2.png'
-// import realsplashImg3 from '../../images/instaspamsplashrealimg3.png'
+// import splashImg1 from '../../images/instaspamsplashimg1.png'
+// import splashImg2 from '../../images/instaspamsplashimg2.png'
+// import splashImg3 from '../../images/instaspamsplashimg3.png'
+import splashImg1 from '../../images/realsplash1.png'
+import splashImg2 from '../../images/realsplash2.png'
+import splashImg3 from '../../images/realsplash3.png'
 import SignUpForm from '../auth/SignUpForm';
 import instaspamLogo from "../../images/instaspam-logo.png"
 
@@ -25,7 +25,7 @@ function Splash({ sessionUser }) {
   const [indexOne, setIndexOne] = useState(0);
   const [indexTwo, setIndexTwo] = useState(1);
   const [indexThree, setIndexThree] = useState(2);
-  // const splashImages = [realsplashImg1, realsplashImg2, realsplashImg3];
+
 
   const demoLogin = async (e) => {
     await dispatch(login(email, password))
