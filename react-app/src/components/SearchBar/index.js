@@ -57,7 +57,7 @@ const SearchBar = () => {
             <div key={user.id} className="search-user">
               <Link onClick={() => clickResult()} to={`/${user.username}`} >
                 <div>
-                  <img src={user.profileImage} />
+                  <img src={user.profileImage} alt=''/>
                 </div>
                 <div className="search-user-info">
                   <div className="search-username">
