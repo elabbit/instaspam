@@ -139,6 +139,16 @@ a.edit-profile-link:hover {
     font-size:13px;
 }
 
+.no-fol-msg{
+    height:42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #8e8e8e;
+    margin-left:15px;
+
+}
 
 @media screen and (min-width:736px) {
     .profile-image-container {

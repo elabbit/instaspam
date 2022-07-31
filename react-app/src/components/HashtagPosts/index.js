@@ -13,7 +13,6 @@ const HashtagPosts = () => {
 
     useEffect(() => {
         dispatch(getHashtagPosts(hashtag))
-
         return dispatch(clearPosts())
     }, [dispatch, hashtag])
 

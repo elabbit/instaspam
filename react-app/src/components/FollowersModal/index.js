@@ -19,21 +19,27 @@ function Followers({ followers, sessionUser }) {
                     <div className="list-modal-container">
                         <div className="list-title">Followers</div>
                         <div className="list-users">
-                            {followers.map((follower) => (
-                                <div className="list-user-container" key={follower.username}>
-                                    <div className="list-user-info">
-                                        <img className="list-profile-image" src={follower.profileImage} alt=""></img>
-                                        <div className='list-profile-name'>
-                                            <Link to={`${follower.username}`}>{follower.username}</Link>
-                                            <div className="list-fullname">{follower.name}</div>
+                            {followers.length ?
+                                <>
+                                    {followers.map((follower) => (
+                                        <div className="list-user-container" key={follower.username}>
+                                            <div className="list-user-info">
+                                                <img className="list-profile-image" src={follower.profileImage} alt=""></img>
+                                                <div className='list-profile-name'>
+                                                    <Link to={`${follower.username}`}>{follower.username}</Link>
+                                                    <div className="list-fullname">{follower.name}</div>
+                                                </div>
+                                            </div>
+                                            <div className="list-bttn-div">
+                                                <FollowButton sessionUser={sessionUser} matchUsername={follower.username} matchId={follower.id} />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="list-bttn-div">
-                                        <FollowButton sessionUser={sessionUser} matchUsername={follower.username} matchId={follower.id} />
-                                    </div>
-
-                                </div>
-                            ))}
+                                    ))
+                                    }
+                                </>
+                                :
+                                <div className="no-fol-msg">No current followers.</div>
+                            }
                         </div>
                     </div>
                 </Modal>
