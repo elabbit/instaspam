@@ -57,14 +57,15 @@ class Post(db.Model):
         return all_hashtags
 
     def check_hashtags(self):
+        nonexistent_hashtags = []
+        current_hashtags = []
+
         if self.caption:
             words_list = self.caption.split(' ')
 
             unique_words = []
             [unique_words.append(word.lower()) for word in words_list if word.lower() not in unique_words and word != '']
 
-            nonexistent_hashtags = []
-            current_hashtags = []
             print('unique words', unique_words)
             for word in unique_words:
                 print('word in check_hashtags', word)
@@ -77,8 +78,7 @@ class Post(db.Model):
                     if exists is None:
                         nonexistent_hashtags.append(tag)
 
-
-            return [nonexistent_hashtags, current_hashtags]
+        return [nonexistent_hashtags, current_hashtags]
 
     def to_dict_hashtags(self):
         return {
