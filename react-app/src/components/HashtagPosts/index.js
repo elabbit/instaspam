@@ -25,7 +25,7 @@ const HashtagPosts = () => {
                 <div className='hashtag-posts-container'>
                     <div className='hashtag-posts-header'>
                         <div className="hashtag-title">
-                        {`#${hashtag}`}
+                        {`#${hashtag.toLowerCase()}`}
                         </div>
                         <div className="hashtag-count">
                             <span className='hashtag-count-number'>{Object.keys(posts).length}</span> posts
