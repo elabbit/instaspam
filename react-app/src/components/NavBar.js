@@ -44,7 +44,7 @@ const NavBar = () => {
       setExploreActive(false);
       setAboutActive(true);
       setProfileActive(false);
-    } else if (currentLocation.pathname === `/${sessionUser.username}`) {
+    } else if (currentLocation.pathname === `/${sessionUser?.username}`) {
       setHomeActive(false);
       setExploreActive(false);
       setAboutActive(false);
@@ -55,7 +55,7 @@ const NavBar = () => {
       setAboutActive(false);
       setProfileActive(false);
     }
-  }, [homeActive, exploreActive, aboutActive, currentLocation, sessionUser.username]);
+  }, [homeActive, exploreActive, aboutActive, currentLocation, sessionUser]);
 
 
 
