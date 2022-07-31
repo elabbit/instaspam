@@ -429,7 +429,7 @@ def seed_all():
         posts_with_hashtag=[post11]
     )
     hashtag3 = Hashtag(
-        hashtag='dogsofinstagram',
+        hashtag='dogsofinstaspam',
         posts_with_hashtag=[post12, post28, post29, post30, post31, post32, post33, post34, post35]
     )
     hashtag4 = Hashtag(
