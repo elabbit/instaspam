@@ -202,7 +202,6 @@ input[type=file]::file-selector-button {
     display: flex;
     justify-content: center;
     font-weight: 600;
-    margin-right: 10px;
     color: white;
     background-color: #0095F6;
     cursor: pointer;

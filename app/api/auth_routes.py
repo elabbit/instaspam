@@ -123,7 +123,7 @@ def upload_image(id):
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": "Invalid filetype, jpg, jpeg, gif, png, pdf only."}, 400
+            return {"errors": "Invalid filetype, jpg, jpeg, png, pdf only."}, 400
 
         image.filename = get_unique_filename(image.filename)
 
