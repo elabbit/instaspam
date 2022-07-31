@@ -49,7 +49,7 @@ const Timestamp = ({ post }) => {
                 )
             } else {
                 createdContent = (
-                    <div className='createdTimeStamp'>{minuteDiff} SECONDS AGO</div>
+                    <div className='createdTimeStamp'>{secondDiff} SECONDS AGO</div>
                 )
             }
             break;
