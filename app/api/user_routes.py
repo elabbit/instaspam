@@ -15,5 +15,8 @@ def users():
 @user_routes.route('<username>')
 @login_required
 def user(username):
-    user = User.query.filter_by(username=username).first()
-    return user.to_dict_user_page()
+    try:
+        user = User.query.filter_by(username=username).first()
+        return user.to_dict_user_page()
+    except:
+            return {'errors': 'User does not exist'}, 404

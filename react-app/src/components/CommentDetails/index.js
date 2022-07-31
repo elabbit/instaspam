@@ -19,7 +19,7 @@ function CommentDetails({ comment, postId, sessionUserId }) {
                 <div>
                     <>
                         <div className='actual-comment'>
-                            <Link to={`${comment.username}`}>{comment.username}</Link>
+                            <Link to={`/${comment.username}`}>{comment.username}</Link>
                             <span >{comment.comment}</span>
                         </div>
 

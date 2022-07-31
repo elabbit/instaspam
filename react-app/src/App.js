@@ -13,6 +13,7 @@ import UserEditForm from './components/UserEditForm';
 import About from './components/About'
 import UserFeed from './components/UserFeed'
 import Splash from './components/Splash.js'
+import HashtagPosts from './components/HashtagPosts';
 
 
 function App() {
@@ -53,8 +54,11 @@ function App() {
         <ProtectedRoute path='/explore' exact={true}>
           <ExplorePage sessionUser={sessionUser} />
         </ProtectedRoute>
-        <ProtectedRoute path='/accounts/edit'>
+        <ProtectedRoute path='/accounts/edit' exact={true}>
           <UserEditForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/hashtag/:hashtag' exact={true} >
+          <HashtagPosts sessionUser={sessionUser} />
         </ProtectedRoute>
         <ProtectedRoute path='/:username' exact={true} >
           <UserPage sessionUser={sessionUser} />

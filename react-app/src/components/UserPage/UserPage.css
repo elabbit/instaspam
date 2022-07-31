@@ -128,7 +128,7 @@ a.edit-profile-link:hover {
 
 .user-page-posts-container {
     border-top: rgb(199, 197, 197) 1px solid;
-    max-width: 935px;
+    width: 935px;
 }
 
 .toggle-user-profile-posts {

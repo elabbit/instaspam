@@ -42,8 +42,7 @@ def delete_comments(commentId):
 @comment_routes.route('/<int:commentId>', methods=['PUT'])
 def edit_comments(commentId):
     comment = Comment.query.get(commentId)
-    # comment.comment = request.form.get('commentBody')
-    # db.session.commit()
+
     form = EditCommentForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']

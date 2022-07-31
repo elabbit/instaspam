@@ -10,7 +10,6 @@ const UserImageUpload = ({ id, hideForm }) => {
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState([]);
-    const [sucess, setSucess] = useState()
     const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
 
@@ -34,7 +33,6 @@ const UserImageUpload = ({ id, hideForm }) => {
 
         if (imageUploadUser && imageUploadUser.errors === undefined) {
             setImageLoading(false);
-            setSucess(true)
             dispatch(setUser(imageUploadUser))
             hideForm()
         }
@@ -59,16 +57,22 @@ const UserImageUpload = ({ id, hideForm }) => {
     return (
         <form onSubmit={handleSubmit}>
             <ErrorModal hideModal={() => setShowModal(false)} showModal={showModal} validationErrors={errors} />
-            <input
-                type="file"
-                accept="image/*"
+            <div className="user-image-container">
 
-                onChange={updateImage}
-            />
-            <button className="page-editprofile-upload-btn" type="submit">Upload</button>
-            {(imageLoading) && <p>Uploading...</p>}
-            {(sucess) && <p>Image Uploaded!</p>}
-            {/* <button className="page-editprofile-upload-btn" type='button' onClick={()=> hideForm()}>Cancel</button> */}
+
+                <label className="user-image-label" htmlFor="user-post-file">Choose photo</label>
+                <input
+                    id="user-post-file"
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                />
+
+                {imageLoading ? <div className="user-profile-right">Uploading...</div>
+                    :
+                    <button className="page-editprofile-upload-btn user-profile-right" type="submit">Upload</button>
+                }
+            </div>
         </form>
     )
 }

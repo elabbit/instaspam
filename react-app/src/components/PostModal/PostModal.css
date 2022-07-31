@@ -96,6 +96,7 @@ button.post-modal-edit-delete-buttons {
 .post-modal-comments-section {
     overflow-y: auto;
     max-height: 390px;
+    border-bottom: 1px solid rgb(219, 219, 219, 0.5);
 }
 
 .post-modal-likes-create-comment-container {
@@ -130,7 +131,8 @@ button.post-modal-edit-delete-buttons {
     width: 360px;
     height: 80px;
     border-radius: 5px;
-    border: solid 1px lightgrey;
+    border:none;
+    background-color: rgba(211, 211, 211, .3);
 }
 
 
@@ -147,7 +149,9 @@ button.post-modal-edit-delete-buttons {
     width: 360px;
     height: 160px;
     border-radius: 5px;
-    border: solid 1px lightgrey;
+    border: none;
+    margin-top:-10px;
+    background-color: rgba(211, 211, 211, .3);
 }
 
 .pm-edit-del {
@@ -165,4 +169,10 @@ button.post-modal-edit-delete-buttons {
 
 .pm-edit button {
     font-weight: 600;
+}
+
+.post-modal-caption a{
+    color: #00376B;
+    font-weight:normal;
+
 }

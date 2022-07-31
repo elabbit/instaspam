@@ -6,7 +6,6 @@ import ReactSlider from 'react-slider';
 
 
 const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage }) => {
-    const [loading, setLoading] = useState(false);
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
@@ -17,17 +16,11 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
 
     const cropImage = async (e) => {
         e.preventDefault();
-        setLoading(true)
-        try {
-            const { file, url } = await getCroppedImg(photoURL, croppedAreaPixels)
-            setPhotoURL(url)
-            setImage(blobToFile(file))
-            setOpenCrop(false)
-            setOpenCreate(true)
-        } catch (error) {
-            console.log("ERROR", error)
-        }
-        setLoading(false)
+        const { file, url } = await getCroppedImg(photoURL, croppedAreaPixels)
+        setPhotoURL(url)
+        setImage(blobToFile(file))
+        setOpenCrop(false)
+        setOpenCreate(true)
 
     };
 
@@ -36,7 +29,6 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
         const croppedFile = new File([blob], "image.jpeg", {
             type: blob.type
         })
-        console.log(croppedFile)
         return croppedFile;
     }
 
@@ -62,7 +54,7 @@ const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage 
                     onCropComplete={cropComplete}
                 />
             </div>
-            <div classname="crop-slider">
+            <div className="crop-slider">
                 <ReactSlider
                     value={zoom}
                     onChange={(val) => {
