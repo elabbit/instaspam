@@ -82,3 +82,14 @@
   position: absolute;
   left: 0px;
 }
+
+.hashtag-border {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid #8e8e8e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

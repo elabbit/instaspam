@@ -1,4 +1,4 @@
-from app.api.auth_routes import validation_errors_to_error_messages
+from app.api.auth_routes import login, validation_errors_to_error_messages
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from flask_wtf.csrf import validate_csrf
@@ -29,6 +29,12 @@ def get_posts_by_hashtag(hashtag):
         return {'user_posts': posts}
     except:
         return {'errors': 'Hashtag does not exist'}, 404
+
+@post_routes.route('/hashtag/all')
+@login_required
+def get_all_hashtags():
+    hashtags = Hashtag.query.all()
+    return {'hashtags':[hashtag.to_dict() for hashtag in hashtags]}
 
 
 @post_routes.route('/feed/<int:userId>')
