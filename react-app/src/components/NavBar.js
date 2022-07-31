@@ -73,7 +73,7 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className='nav-middle'>
-              <SearchBar />
+              <SearchBar sessionUser={sessionUser}/>
             </div>
             <div className="nav-right">
               <div className="home-icon-div">
