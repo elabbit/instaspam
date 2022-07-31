@@ -64,7 +64,7 @@ const classes = ["splash-img fade-in", "splash-img ade-out", "splash-img fade-no
 
     }, 5000)
     return () => clearInterval(imgId);
-  }, [splashImages.length, indexOne, indexTwo, indexThree])
+  }, [splashImages.length, indexOne, indexTwo, indexThree]);
 
 
   return (
