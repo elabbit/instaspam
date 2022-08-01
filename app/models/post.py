@@ -68,8 +68,9 @@ class Post(db.Model):
 
             print('unique words', unique_words)
             for word in unique_words:
-                print('word in check_hashtags', word)
                 tag = word[1:]
+                if (word[-1:] == '\n'):
+                    tag = word[1:-1]
 
                 if word[0] == '#' and tag.isalnum():
                     exists = Hashtag.query.filter_by(hashtag=tag).first()
