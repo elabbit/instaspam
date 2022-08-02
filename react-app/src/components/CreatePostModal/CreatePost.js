@@ -89,6 +89,14 @@ const CreatePostNew = ({ hideModal }) => {
 
     const updateImage = (e) => {
         const file = e.target.files[0];
+        const typeError = [];
+        if(!file?.name.includes("jpg") && !file?.name.includes("jpeg") && !file?.name.includes("png")){
+            typeError.push("Invalid filetype: jpg, jpeg, png only.")
+        }
+        if (typeError.length) {
+            setErrors(typeError)
+            return setShowModal(true);
+        }
         setImage(file);
         setPhotoURL(URL.createObjectURL(file));
         setOpenUpload(false)
